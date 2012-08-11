@@ -1,0 +1,27 @@
+;;;-------------------------------------------------------------------
+;;; Entry point of my customization files.
+
+(defvar my-init-directory (concat user-emacs-directory "user/"))
+
+(defvar my-init-files '("packages"
+                        "elisp-functions"
+                        "display"
+                        "file"
+                        "edit"
+                        "alias"
+                        "lisp"
+                        "keybindings"
+                        "c-cpp"
+                        )
+  "The names of my customization files.")
+
+(dolist (file my-init-files)
+  (load (concat my-init-directory file)))
+
+;;;-------------------------------------------------------------------
+;;; References
+;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
+;; http://www.emacswiki.org/emacs/LoadPath
+;; https://github.com/technomancy/emacs-starter-kit
+;; http://ergoemacs.org/emacs/emacs_make_modern.html
+;; http://ergoemacs.org/emacs/elisp_library_system.html
