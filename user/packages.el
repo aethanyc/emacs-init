@@ -39,13 +39,13 @@
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
-;; http://www.emacswiki.org/emacs/AceJump
+;; Ace Jump Mode
+;; https://github.com/winterTTr/ace-jump-mode
 (require 'ace-jump-mode)
-(setq-default ace-jump-mode-submode-list
-              '(ace-jump-char-mode
-                ace-jump-line-mode
-                ace-jump-word-mode))
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(setq ace-jump-mode-gray-background nil)
+(ace-jump-mode-enable-mark-sync)
+(global-set-key (kbd "C-c f") 'ace-jump-mode)
+(global-set-key (kbd "C-c b") 'ace-jump-mode-pop-mark)
 
 ;; Smex settings
 (setq smex-save-file (concat user-emacs-directory "smex-items"))
