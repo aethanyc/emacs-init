@@ -11,6 +11,7 @@
                       smooth-scrolling
                       magit
                       maxframe
+                      ack-and-a-half
                       )
   "A list of packages to ensure are installed at launch.")
 
@@ -52,6 +53,12 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-
 ;; Magit
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; ack-and-a-half
+;; https://github.com/jhelwig/ack-and-a-half
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
