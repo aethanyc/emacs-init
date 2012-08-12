@@ -45,8 +45,8 @@
 (global-hl-line-mode 1)
 
 ;; Display line numbers in the left margin.
-(global-linum-mode 1)
-(setq-default linum-format "%5d|")
+;; (global-linum-mode 1)
+;; (setq-default linum-format "%5d|")
 
 ;; Display line and column number in the status bar.
 (column-number-mode 1)
