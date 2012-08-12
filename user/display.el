@@ -15,6 +15,7 @@
   (tool-bar-mode -1)
   (tooltip-mode -1)
   (blink-cursor-mode -1)
+  (scroll-bar-mode -1)
 
   ;; Set font.
   (let ((font (first-available-font my-font-list)))
