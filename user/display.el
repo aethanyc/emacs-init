@@ -22,15 +22,15 @@
     (when font
       (set-frame-font (format "%s-%d" font my-font-size) nil t)))
 
-
   ;; Set frame title.
   (setq-default frame-title-format '("%b" (buffer-file-name ": %f")))
 
   ;; Set frame properties.
-  (add-to-list 'initial-frame-alist '(top . 0) t)
-  (add-to-list 'initial-frame-alist '(left . 0) t)
+  ;; (add-to-list 'initial-frame-alist '(top . 0) t)
+  ;; (add-to-list 'initial-frame-alist '(left . 0) t)
   (add-to-list 'default-frame-alist '(width . 90) t)
-  (add-to-list 'default-frame-alist '(height . 45) t))
+  (add-to-list 'default-frame-alist '(height . 45) t)
+  )
 
 (setq-default inhibit-startup-screen t
               visible-bell t)
@@ -59,3 +59,9 @@
 
 ;; Put ediff control panel in single frame.
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;;;-------------------------------------------------------------------
+;;; maxframe
+(require 'maxframe)
+(setq mf-max-width 1920)                ; Pixel width of main monitor.
+(add-hook 'window-setup-hook 'maximize-frame t)
