@@ -1,14 +1,26 @@
 ;;;-------------------------------------------------------------------
 ;;; Display Settings
 
+(defvar my-font-list '("Pragmata" "Droid Sans Mono" "Consolas"))
+(defvar my-font-size 12)
+
+(defun first-available-font (font-list)
+  "Return the first avaliable font in the font-list."
+  (while (and font-list
+              (not (member (car font-list) (font-family-list))))
+    (setq font-list (cdr font-list)))
+  (car font-list))
+
 (when (display-graphic-p)
   (tool-bar-mode -1)
   (tooltip-mode -1)
   (blink-cursor-mode -1)
 
   ;; Set font.
-  (if (member "Pragmata" (font-family-list))
-      (set-frame-font "Pragmata-12" nil t))
+  (let ((font (first-available-font my-font-list)))
+    (when font
+      (set-frame-font (format "%s-%d" font my-font-size) nil t)))
+
 
   ;; Set frame title.
   (setq-default frame-title-format '("%b" (buffer-file-name ": %f")))
