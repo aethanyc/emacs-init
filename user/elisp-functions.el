@@ -66,7 +66,7 @@ EOL chars by space when the EOL char is not inside string."
       (setq currentLineCharCount
             (progn
               (setq bds (bounds-of-thing-at-point 'line))
-              (length (buffer-substring-no-properties (car bds) (cdr bds)))    
+              (length (buffer-substring-no-properties (car bds) (cdr bds)))
               ;; Note: 'line includes eol if it is not buffer's last line
               )
             )
