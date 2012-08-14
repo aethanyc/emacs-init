@@ -1,2 +1,8 @@
 # installed packages
-elpa/
+elpa/*
+
+auto-save-list/*
+eshell/*
+ido.last
+save-place
+smex-items
