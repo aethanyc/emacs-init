@@ -9,9 +9,8 @@
                         "file"
                         "edit"
                         "alias"
-                        "lisp"
                         "keybindings"
-                        "c-cpp"
+                        "programming"
                         )
   "The names of my customization files.")
 
