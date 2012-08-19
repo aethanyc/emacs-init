@@ -34,6 +34,3 @@
 ;; Apropos more info.
 (define-key 'help-command "a" 'apropos)
 ;;(setq-default apropos-do-all t)
-
-;; Use ibuffer
-(global-set-key (kbd "C-x C-b") 'ibuffer)
