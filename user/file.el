@@ -26,3 +26,6 @@
 ;; Unique buffer name
 (require 'uniquify)
 (setq-default uniquify-buffer-name-style 'forward)
+
+;; Reload the buffers automatically if they are changed outside.
+(global-auto-revert-mode 1)
