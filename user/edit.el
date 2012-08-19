@@ -35,6 +35,8 @@
 (setq-default save-place t
               save-place-file (concat user-emacs-directory "save-place"))
 
+;; Clean up white spaces before saving a buffer.
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;;;-------------------------------------------------------------------
 ;;; Text Mode Settings
