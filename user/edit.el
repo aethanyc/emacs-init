@@ -39,8 +39,8 @@
 ;;;-------------------------------------------------------------------
 ;;; Text Mode Settings
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-;(add-hook 'text-mode-hook 'turn-on-flyspell)
+;;(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;;(add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'text-mode-hook
           (lambda ()
             ;; Hard-wrap/un-hard-wrap paragraph
