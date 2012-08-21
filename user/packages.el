@@ -12,6 +12,7 @@
                       magit
                       maxframe
                       ack-and-a-half
+                      markdown-mode
                       )
   "A list of packages to ensure are installed at launch.")
 
@@ -62,3 +63,9 @@
 (defalias 'ack-same 'ack-and-a-half-same)
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+;; Markdown Mode
+;; http://daringfireball.net/projects/markdown/syntax
+;; http://jblevins.org/projects/markdown-mode/
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)
