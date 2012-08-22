@@ -38,6 +38,9 @@
 ;; Clean up white spaces before saving a buffer.
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;; Using S-arrow keys to move between windows.
+(windmove-default-keybindings)
+
 ;;;-------------------------------------------------------------------
 ;;; Text Mode Settings
 
