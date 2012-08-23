@@ -1,0 +1,29 @@
+#+STARTUP: content indent
+Emacs Tips and Useful links
+
+* Emacs library and package system
+  - http://ergoemacs.org/emacs/elisp_library_system.html
+  - http://www.emacswiki.org/emacs/LoadPath
+  - http://ergoemacs.org/emacs/emacs_package_system.html
+  - http://melpa.milkbox.net/
+
+* Coding system
+  - Use `describe-coding-system' to show current coding system.
+  - http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
+  - http://www.reai.us/windows-emacs-encoding
+
+* Packages
+** InteractivelyDoThings
+   - http://emacswiki.org/emacs/InteractivelyDoThings
+** Undo Tree
+   - http://ergoemacs.org/emacs/emacs_best_redo_mode.html
+   - http://www.dr-qubit.org/emacs.php#undo-tree
+   - C-x u: undo-tree-visualize
+** Ace Jump Mode
+   - https://github.com/winterTTr/ace-jump-mode
+** Ack
+   - http://betterthangrep.com/
+   - https://github.com/jhelwig/ack-and-a-hafl
+** Markdown mode
+   - http://daringfireball.net/projects/markdown/syntax
+   - http://jblevins.org/projects/markdown-mode/

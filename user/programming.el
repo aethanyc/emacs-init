@@ -29,8 +29,3 @@
   (define-key c++-mode-map (kbd "RET") 'c-context-line-break))
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-
-;;;-------------------------------------------------------------------
-;;; References
-;; To bytecompile mulitple files, mark them in dired, and then press B.
-;; http://emacswiki.org/emacs/ParEdit

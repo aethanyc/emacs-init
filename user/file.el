@@ -11,7 +11,6 @@
 ;; (recentf-mode 1)
 ;; (setq-default recentf-save-file (concat user-emacs-directory "recentf"))
 
-;; http://emacswiki.org/emacs/InteractivelyDoThings
 (ido-mode 1)
 (ido-ubiquitous-mode 1)
 (setq-default ido-enable-flex-matching t

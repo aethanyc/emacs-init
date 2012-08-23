@@ -1,7 +1,5 @@
 ;;;-------------------------------------------------------------------
 ;;; Emacs 24 Package settings
-;;; http://ergoemacs.org/emacs/emacs_package_system.html
-;;; http://melpa.milkbox.net/
 (defvar my-packages '(zenburn-theme
                       undo-tree
                       paredit
@@ -33,15 +31,10 @@
 
 ;;;-------------------------------------------------------------------
 ;;; Settings of other packages
-
-;; http://ergoemacs.org/emacs/emacs_best_redo_mode.html
-;; http://www.dr-qubit.org/emacs.php#undo-tree
-;; C-x u: undo-tree-visualize
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
 ;; Ace Jump Mode
-;; https://github.com/winterTTr/ace-jump-mode
 (require 'ace-jump-mode)
 (setq ace-jump-mode-gray-background nil)
 (ace-jump-mode-enable-mark-sync)
@@ -58,14 +51,11 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 
 ;; ack-and-a-half
-;; https://github.com/jhelwig/ack-and-a-half
 (defalias 'ack 'ack-and-a-half)
 (defalias 'ack-same 'ack-and-a-half-same)
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
 ;; Markdown Mode
-;; http://daringfireball.net/projects/markdown/syntax
-;; http://jblevins.org/projects/markdown-mode/
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)

@@ -27,11 +27,3 @@
 (require 'server)
 (when (not (server-running-p))
   (server-start))
-
-;;;-------------------------------------------------------------------
-;;; References
-;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
-;; http://www.emacswiki.org/emacs/LoadPath
-;; https://github.com/technomancy/emacs-starter-kit
-;; http://ergoemacs.org/emacs/emacs_make_modern.html
-;; http://ergoemacs.org/emacs/elisp_library_system.html
