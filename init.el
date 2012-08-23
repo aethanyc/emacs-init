@@ -21,6 +21,13 @@
 (dolist (file my-init-files)
   (load (concat my-init-directory file)))
 
+;; Start server if it is not running.
+;; Solution to the problem "server directory is unsafe on Windows."
+;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
+(require 'server)
+(when (not (server-running-p))
+  (server-start))
+
 ;;;-------------------------------------------------------------------
 ;;; References
 ;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
