@@ -14,6 +14,10 @@
                         )
   "The names of my customization files.")
 
+;; For Common Lisp functions.
+(require 'cl)
+
+;; Load all init files.
 (dolist (file my-init-files)
   (load (concat my-init-directory file)))
 

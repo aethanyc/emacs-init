@@ -1,9 +1,6 @@
 ;;;-------------------------------------------------------------------
 ;;; Lisp Settings
 
-;; For Common Lisp functions
-(require 'cl)
-
 (defun my-lisp-common-hook ()
   (turn-on-eldoc-mode)
   (paredit-mode 1)
