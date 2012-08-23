@@ -34,3 +34,13 @@
 ;; Apropos more info.
 (define-key 'help-command "a" 'apropos)
 ;;(setq-default apropos-do-all t)
+
+;; Bind <apps> to the more powerful execute-extended-command.
+;; <apps> is the key to the right of the right windows key with a menu on it.
+(global-set-key (kbd "<apps>") 'smex)
+
+;; Open user-init-file
+(global-set-key (kbd "<f12>")
+                (lambda ()
+                  (interactive)
+                  (find-file user-init-file)))
