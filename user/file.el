@@ -29,3 +29,7 @@
 
 ;; Reload the buffers automatically if they are changed outside.
 (global-auto-revert-mode 1)
+
+;; Remove the all the version control backends to increase file open speed.
+;; http://stackoverflow.com/questions/5748814/how-does-one-disable-vc-git-in-emacs
+(setq vc-handled-backends nil)
