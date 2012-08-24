@@ -44,3 +44,11 @@
                 (lambda ()
                   (interactive)
                   (find-file user-init-file)))
+
+;; Join line
+(defun join-next-line ()
+  (interactive)
+  (join-line 1))
+
+(global-set-key (kbd "C-c j") 'join-next-line)
+(global-set-key (kbd "C-c J") 'join-line)
