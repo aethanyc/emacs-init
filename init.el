@@ -17,6 +17,13 @@
 ;; For Common Lisp functions.
 (require 'cl)
 
+;; Set coding system to utf-8
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+
 ;; Load all init files.
 (dolist (file my-init-files)
   (load (concat my-init-directory file)))
