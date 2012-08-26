@@ -1,17 +1,20 @@
 ;;;-------------------------------------------------------------------
 ;;; Entry point of my customization files.
 
-(defvar my-init-directory (concat user-emacs-directory "user/"))
+(defvar aethanyc-init-directory (concat user-emacs-directory "aethanyc/")
+  "This folder contains all my customization files.")
 
-(defvar my-init-files '("packages"
-                        "elisp-functions"
-                        "display"
-                        "file"
-                        "edit"
-                        "alias"
-                        "keybindings"
-                        "programming"
-                        )
+(defvar aethanyc-save-file-directory (concat user-emacs-directory "save-file/")
+  "This folder contains all the automatically generated files.")
+
+(defvar aethanyc-init-files '("packages"
+			      "elisp-functions"
+			      "ui"
+			      "editor"
+			      "mode-hooks"
+			      "alias"
+			      "keybindings"
+			      )
   "The names of my customization files.")
 
 ;; For Common Lisp functions.
@@ -25,12 +28,5 @@
 (set-selection-coding-system 'utf-8)
 
 ;; Load all init files.
-(dolist (file my-init-files)
-  (load (concat my-init-directory file)))
-
-;; Start server if it is not running.
-;; Solution to the problem "server directory is unsafe on Windows."
-;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
-(require 'server)
-(when (not (server-running-p))
-  (server-start))
+(dolist (file aethanyc-init-files)
+  (load (concat aethanyc-init-directory file)))

@@ -1,4 +1,19 @@
 ;;;-------------------------------------------------------------------
+;;; Functions
+
+(defun aethanyc-join-next-line ()
+  "Join the next line with current line."
+  (interactive)
+  (join-line 1))
+
+(defun first-available-font (font-list)
+  "Return the first avaliable font in the font-list."
+  (while (and font-list
+              (not (member (car font-list) (font-family-list))))
+    (setq font-list (cdr font-list)))
+  (car font-list))
+
+;;;-------------------------------------------------------------------
 ;;; Emacs Lisp functions from ErgoEmacs package.
 ;;; http://ergoemacs.org/emacs/ergonomic_emacs_keybinding.html
 

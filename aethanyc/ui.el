@@ -4,13 +4,6 @@
 (defvar my-font-list '("Pragmata" "Droid Sans Mono" "Consolas"))
 (defvar my-font-size 12)
 
-(defun first-available-font (font-list)
-  "Return the first avaliable font in the font-list."
-  (while (and font-list
-              (not (member (car font-list) (font-family-list))))
-    (setq font-list (cdr font-list)))
-  (car font-list))
-
 (when (display-graphic-p)
   (tool-bar-mode -1)
   (tooltip-mode -1)
@@ -28,12 +21,13 @@
   ;; Set frame properties.
   ;; (add-to-list 'initial-frame-alist '(top . 0) t)
   ;; (add-to-list 'initial-frame-alist '(left . 0) t)
-  (add-to-list 'default-frame-alist '(width . 90) t)
-  (add-to-list 'default-frame-alist '(height . 45) t)
+  ;; (add-to-list 'default-frame-alist '(width . 90) t)
+  ;; (add-to-list 'default-frame-alist '(height . 45) t)
   )
 
 (setq-default inhibit-startup-screen t
-              visible-bell t)
+              visible-bell t
+              indicate-empty-lines t)
 
 ;; Use zenburn theme.
 (load-theme 'zenburn t)
@@ -60,8 +54,8 @@
 ;; Put ediff control panel in single frame.
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;;;-------------------------------------------------------------------
 ;;; maxframe
 (require 'maxframe)
-(setq mf-max-width 1920)                ; Pixel width of main monitor.
+;; Pixel width of main monitor.
+(setq mf-max-width 1920)
 (add-hook 'window-setup-hook 'maximize-frame t)

@@ -9,6 +9,7 @@ Emacs Tips and Useful links
 
 * Coding system
   - Use `describe-coding-system' to show current coding system.
+  - Use `set-buffer-file-coding-system' (C-x RET f) to convert the current buffer to a coding system.
   - http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
   - http://www.reai.us/windows-emacs-encoding
 
