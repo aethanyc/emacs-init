@@ -7,6 +7,11 @@
 (defvar aethanyc-save-file-directory (concat user-emacs-directory "save-file/")
   "This folder contains all the automatically generated files.")
 
+;; The directory should be created. Otherwise the auto-generated files
+;; cannot be saved.
+(unless (file-exists-p aethanyc-save-file-directory)
+  (make-directory aethanyc-save-file-directory))
+
 (defvar aethanyc-init-files '("packages"
                               "elisp-functions"
                               "ui"
