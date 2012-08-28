@@ -8,13 +8,13 @@
   "This folder contains all the automatically generated files.")
 
 (defvar aethanyc-init-files '("packages"
-			      "elisp-functions"
-			      "ui"
-			      "editor"
-			      "mode-hooks"
-			      "alias"
-			      "keybindings"
-			      )
+                              "elisp-functions"
+                              "ui"
+                              "editor"
+                              "mode-hooks"
+                              "alias"
+                              "keybindings"
+                              )
   "The names of my customization files.")
 
 ;; For Common Lisp functions.
@@ -26,6 +26,9 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
+
+;; Add my init directory to `load-path' for convenience.
+(add-to-list 'load-path aethanyc-init-directory)
 
 ;; Load all init files.
 (dolist (file aethanyc-init-files)
