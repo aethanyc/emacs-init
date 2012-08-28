@@ -2,16 +2,16 @@
 Emacs Tips and Useful links
 
 * Emacs library and package system
-  - http://ergoemacs.org/emacs/elisp_library_system.html
-  - http://www.emacswiki.org/emacs/LoadPath
-  - http://ergoemacs.org/emacs/emacs_package_system.html
-  - http://melpa.milkbox.net/
+- http://ergoemacs.org/emacs/elisp_library_system.html
+- http://www.emacswiki.org/emacs/LoadPath
+- http://ergoemacs.org/emacs/emacs_package_system.html
+- http://melpa.milkbox.net/
 
 * Coding system
-  - Use `describe-coding-system' to show current coding system.
-  - Use `set-buffer-file-coding-system' (C-x RET f) to convert the current buffer to a coding system.
-  - http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
-  - http://www.reai.us/windows-emacs-encoding
+- Use `describe-coding-system' to show current coding system.
+- Use `set-buffer-file-coding-system' (C-x RET f) to convert the current buffer to a coding system.
+- http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
+- http://www.reai.us/windows-emacs-encoding
 
 * Packages
 ** InteractivelyDoThings
@@ -29,6 +29,7 @@ Emacs Tips and Useful links
 - http://daringfireball.net/projects/markdown/syntax
 - http://jblevins.org/projects/markdown-mode/
 ** Dired
-- This seems helpful for refactor codes.\\
-  ``Interactively Find & Replace String Patterns on Multiple Files''
+- This seems helpful for refactor codes. ``Interactively Find & Replace String Patterns on Multiple Files''
   http://ergoemacs.org/emacs/find_replace_inter.html
+** Org mode
+- C-c C-e b: export the file to HTML and show it in browser.
