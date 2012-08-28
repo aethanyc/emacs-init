@@ -15,16 +15,20 @@ Emacs Tips and Useful links
 
 * Packages
 ** InteractivelyDoThings
-   - http://emacswiki.org/emacs/InteractivelyDoThings
+- http://emacswiki.org/emacs/InteractivelyDoThings
 ** Undo Tree
-   - http://ergoemacs.org/emacs/emacs_best_redo_mode.html
-   - http://www.dr-qubit.org/emacs.php#undo-tree
-   - C-x u: undo-tree-visualize
+- http://ergoemacs.org/emacs/emacs_best_redo_mode.html
+- http://www.dr-qubit.org/emacs.php#undo-tree
+- C-x u: undo-tree-visualize
 ** Ace Jump Mode
-   - https://github.com/winterTTr/ace-jump-mode
+- https://github.com/winterTTr/ace-jump-mode
 ** Ack
-   - http://betterthangrep.com/
-   - https://github.com/jhelwig/ack-and-a-hafl
+- http://betterthangrep.com/
+- https://github.com/jhelwig/ack-and-a-hafl
 ** Markdown mode
-   - http://daringfireball.net/projects/markdown/syntax
-   - http://jblevins.org/projects/markdown-mode/
+- http://daringfireball.net/projects/markdown/syntax
+- http://jblevins.org/projects/markdown-mode/
+** Dired
+- This seems helpful for refactor codes.\\
+  ``Interactively Find & Replace String Patterns on Multiple Files''
+  http://ergoemacs.org/emacs/find_replace_inter.html
