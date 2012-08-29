@@ -30,7 +30,9 @@
                 try-expand-dabbrev-from-kill
                 try-complete-lisp-symbol-partially
                 try-complete-lisp-symbol
-                try-complete-file-name-partially))
+                try-complete-file-name-partially
+                try-expand-list
+                try-expand-line))
 
 ;; Set whitespace mode styles
 (setq-default whitespace-style '(face trailing lines-tail tabs empty indentation))
