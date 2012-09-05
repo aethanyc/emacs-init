@@ -13,6 +13,17 @@
     (setq font-list (cdr font-list)))
   (car font-list))
 
+;; http://emacswiki.org/emacs/InteractivelyDoThings#toc16
+(defun ibuffer-ido-find-file ()
+  "Like `ido-find-file', but default to the directory of the buffer at point."
+  (interactive
+   (let ((default-directory (let ((buf (ibuffer-current-buffer)))
+                              (if (buffer-live-p buf)
+                                  (with-current-buffer buf
+                                    default-directory)
+                                default-directory))))
+     (ido-find-file-in-dir default-directory))))
+
 ;;;-------------------------------------------------------------------
 ;;; Emacs Lisp functions from ErgoEmacs package.
 ;;; http://ergoemacs.org/emacs/ergonomic_emacs_keybinding.html

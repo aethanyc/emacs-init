@@ -35,6 +35,14 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;;;-------------------------------------------------------------------
+;;; Ibuffer Mode
+
+(defun my-ibuffer-mode-hook ()
+  (local-set-key (kbd "C-x C-f") 'ibuffer-ido-find-file))
+
+(add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
+
+;;;-------------------------------------------------------------------
 ;;; Other
 
 ;; Clean up white spaces before saving a buffer.
