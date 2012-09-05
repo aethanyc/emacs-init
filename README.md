@@ -14,6 +14,6 @@ Simply clone this repository to your home directory.
 git clone git://github.com/aethanyc/emacs-init.git ~/.emacs.d
 ```
 
-[Windows Executable]: http://alpha.gnu.org/gnu/emacs/windows/
+[Windows Executable]: http://ftp.gnu.org/gnu/emacs/windows/
 [Debian Packages]: http://emacs.naquadah.org/
 [Ubuntu Packages]: https://launchpad.net/~cassou/+archive/emacs
