@@ -35,9 +35,13 @@
 (define-key 'help-command "a" 'apropos)
 ;;(setq-default apropos-do-all t)
 
-;; Bind <apps> to the more powerful execute-extended-command.
+;; Bind <apps> to the more powerful execute-extended-command - smex
 ;; <apps> is the key to the right of the right windows key with a menu on it.
+(global-set-key (kbd "<menu>") 'smex)
 (global-set-key (kbd "<apps>") 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-<menu>") 'smex-major-mode-commands)
+(global-set-key (kbd "M-<apps>") 'smex-major-mode-commands)
 
 ;; Open user-init-file
 (global-set-key (kbd "<f12>")
@@ -46,7 +50,7 @@
                   (find-file user-init-file)))
 
 ;; Join line
-(global-set-key (kbd "C-c j") 'aethanyc-join-next-line)
+(global-set-key (kbd "C-c j") 'join-next-line)
 (global-set-key (kbd "C-c J") 'join-line)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -60,10 +64,6 @@
 ;; Ace Jump Mode
 (global-set-key (kbd "C-c f") 'ace-jump-mode)
 (global-set-key (kbd "C-c b") 'ace-jump-mode-pop-mark)
-
-;; Smex
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 ;; Magit
 (global-set-key (kbd "C-c g") 'magit-status)

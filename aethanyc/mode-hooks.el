@@ -48,19 +48,22 @@
 ;; Clean up white spaces before saving a buffer.
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-;;; Markdown Mode
+;; Markdown Mode
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)
 
-;;; Ace Jump Mode
+;; Ace Jump Mode
 (require 'ace-jump-mode)
 (setq ace-jump-mode-gray-background nil)
 (ace-jump-mode-enable-mark-sync)
 
-;;; Undo Tree Mode
+;; Undo Tree Mode
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
-;;; Smex
+;; Smex
 (setq smex-save-file (concat aethanyc-save-file-directory "smex-items"))
 (smex-initialize)
+
+;; Load Ergoemacs functions
+(load "functions")
