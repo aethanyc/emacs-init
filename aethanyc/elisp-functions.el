@@ -23,3 +23,11 @@
                                     default-directory)
                                 default-directory))))
      (ido-find-file-in-dir default-directory))))
+
+;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
+(defun byte-compile-current-buffer ()
+  "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."
+  (interactive)
+  (when (and (eq major-mode 'emacs-lisp-mode)
+             (file-exists-p (byte-compile-dest-file buffer-file-name)))
+    (byte-compile-file buffer-file-name)))

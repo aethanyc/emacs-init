@@ -48,6 +48,9 @@
 ;; Clean up white spaces before saving a buffer.
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
+(add-hook 'after-save-hook 'byte-compile-current-buffer)
+
 ;; Markdown Mode
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)

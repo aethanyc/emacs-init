@@ -3,3 +3,5 @@ elpa/*
 eshell/*
 save-file/*
 tips.html
+
+*.elc
