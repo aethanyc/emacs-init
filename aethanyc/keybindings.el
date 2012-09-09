@@ -43,6 +43,7 @@
                   (interactive)
                   (find-file user-init-file)))
 
+;; `hippie-expand' is more powerful than dabbrev-expand
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Toggle from 3 cases: UPPER CASE, lower case, and Title Case.

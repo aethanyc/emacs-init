@@ -11,6 +11,7 @@
                             maxframe
                             paredit
                             projectile
+                            smart-tab
                             smex
                             smooth-scrolling
                             undo-tree
@@ -57,3 +58,8 @@
 ;; Projectile Mode
 (projectile-global-mode)
 (setq projectile-enable-caching t)
+
+;; Smart Tab: Intelligent tab completion and indentation.
+(require 'smart-tab)
+(setq smart-tab-using-hippie-expand 'hippie-expand)
+(global-smart-tab-mode 1)
