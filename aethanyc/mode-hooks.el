@@ -80,4 +80,4 @@
 
 ;; Projectile Mode
 (projectile-global-mode)
-(setq a-enable-caching t)
+(setq projectile-enable-caching t)
