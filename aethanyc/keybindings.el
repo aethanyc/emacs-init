@@ -19,12 +19,6 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "C-M-%") 'query-replace)
 
-;; Jump to a definition in the current buffer.
-(global-set-key (kbd "C-x C-i") 'imenu)
-
-(global-set-key (kbd "C-c y") 'bury-buffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
-
 ;; Start an eshell or switch to it if there is one.
 (global-set-key (kbd "C-x m") 'eshell)
 
@@ -49,10 +43,6 @@
                   (interactive)
                   (find-file user-init-file)))
 
-;; Join line
-(global-set-key (kbd "C-c j") 'join-next-line)
-(global-set-key (kbd "C-c J") 'join-line)
-
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Toggle from 3 cases: UPPER CASE, lower case, and Title Case.
@@ -61,12 +51,11 @@
 ;; Using S-arrow keys to move between windows.
 (windmove-default-keybindings)
 
-;; Ace Jump Mode
-(global-set-key (kbd "C-c f") 'ace-jump-mode)
+;; C-c keybindings
 (global-set-key (kbd "C-c b") 'ace-jump-mode-pop-mark)
-
-;; Magit
+(global-set-key (kbd "C-c f") 'ace-jump-mode)
 (global-set-key (kbd "C-c g") 'magit-status)
-
-;; Dired
-(global-set-key (kbd "C-c d") 'ido-dired)
+(global-set-key (kbd "C-c i") 'imenu)
+(global-set-key (kbd "C-c J") 'join-line)
+(global-set-key (kbd "C-c j") 'join-next-line)
+(global-set-key (kbd "C-c r") 'revert-buffer)
