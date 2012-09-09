@@ -4,6 +4,13 @@
 (defvar my-font-list '("Pragmata" "Droid Sans Mono" "Consolas"))
 (defvar my-font-size 12)
 
+(defun find-first-available-font (font-list)
+  "Find the first avaliable font in the font-list."
+  (while (and font-list
+              (not (member (car font-list) (font-family-list))))
+    (setq font-list (cdr font-list)))
+  (car font-list))
+
 (when (display-graphic-p)
   (tool-bar-mode -1)
   (tooltip-mode -1)
@@ -11,7 +18,7 @@
   (scroll-bar-mode -1)
 
   ;; Set font.
-  (let ((font (first-available-font my-font-list)))
+  (let ((font (find-first-available-font my-font-list)))
     (when font
       (set-frame-font (format "%s-%d" font my-font-size) nil t)))
 
