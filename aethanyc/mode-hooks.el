@@ -57,27 +57,3 @@
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
 (add-hook 'after-save-hook 'byte-compile-current-buffer)
-
-;; Markdown Mode
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
-(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)
-
-;; Ace Jump Mode
-(require 'ace-jump-mode)
-(setq ace-jump-mode-gray-background nil)
-(ace-jump-mode-enable-mark-sync)
-
-;; Undo Tree Mode
-(require 'undo-tree)
-(global-undo-tree-mode 1)
-
-;; Smex
-(setq smex-save-file (concat aethanyc-save-file-directory "smex-items"))
-(smex-initialize)
-
-;; Load Ergoemacs functions
-(load "functions")
-
-;; Projectile Mode
-(projectile-global-mode)
-(setq projectile-enable-caching t)
