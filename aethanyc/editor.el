@@ -50,8 +50,8 @@
               auto-save-list-file-prefix nil)
 
 ;; Keep a list of recently opened files
-(recentf-mode 1)
 (setq-default recentf-save-file (concat aethanyc-save-file-directory "recentf"))
+(recentf-mode 1)
 
 ;; ido mode
 (ido-mode 1)
