@@ -77,3 +77,7 @@
 
 ;; Load Ergoemacs functions
 (load "functions")
+
+;; Projectile Mode
+(projectile-global-mode)
+(setq a-enable-caching t)

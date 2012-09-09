@@ -10,6 +10,7 @@
                             markdown-mode
                             maxframe
                             paredit
+                            projectile
                             smex
                             smooth-scrolling
                             undo-tree
