@@ -4,7 +4,9 @@
 (defvar aethanyc-packages '(
                             ace-jump-mode
                             ack-and-a-half
+                            buffer-move
                             ergoemacs-keybindings
+                            framemove
                             ido-ubiquitous
                             magit
                             markdown-mode

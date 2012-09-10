@@ -49,8 +49,17 @@
 ;; Toggle from 3 cases: UPPER CASE, lower case, and Title Case.
 (global-set-key (kbd "C-z") 'toggle-letter-case)
 
-;; Using S-arrow keys to move between windows.
+;; Using S-arrow keys to move between windows and frames.
+(require 'framemove)
 (windmove-default-keybindings)
+(setq framemove-hook-into-windmove t)
+
+;; Using C-S-arrow keys to move buffer to a new place.
+(require 'buffer-move)
+(global-set-key (kbd "<C-S-up>") 'buf-move-up)
+(global-set-key (kbd "<C-S-down>") 'buf-move-down)
+(global-set-key (kbd "<C-S-left>") 'buf-move-left)
+(global-set-key (kbd "<C-S-right>") 'buf-move-right)
 
 ;; C-c keybindings
 (global-set-key (kbd "C-c b") 'ace-jump-mode-pop-mark)
