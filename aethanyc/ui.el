@@ -43,7 +43,7 @@
 (show-paren-mode 1)
 
 ;; Turn on highlighting current line.
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 
 ;; Display line numbers in the left margin.
 ;; (global-linum-mode 1)
@@ -51,9 +51,6 @@
 
 ;; Display line and column number in the status bar.
 (column-number-mode 1)
-
-;; Turn on regexp highlighting.
-(global-hi-lock-mode 1)
 
 ;; Let ediff split window horizontally rather than vertically.
 (setq ediff-split-window-function 'split-window-horizontally)

@@ -7,6 +7,7 @@
                             buffer-move
                             ergoemacs-keybindings
                             framemove
+                            highlight-symbol
                             ido-ubiquitous
                             magit
                             markdown-mode
