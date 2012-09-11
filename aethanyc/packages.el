@@ -66,3 +66,9 @@
 (require 'smart-tab)
 (setq smart-tab-using-hippie-expand 'hippie-expand)
 (global-smart-tab-mode 1)
+
+;; Highlight-symbol Mode
+(require 'highlight-symbol)
+(setq highlight-symbol-on-navigation-p t)
+(setq highlight-symbol-idle-delay 30)
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
