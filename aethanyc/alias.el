@@ -14,3 +14,4 @@
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
 (defalias 'lp 'list-packages)
+(defalias 'mf 'maximize-frame)
