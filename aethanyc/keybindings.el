@@ -65,6 +65,7 @@
 (global-set-key (kbd "C-c b") 'ace-jump-mode-pop-mark)
 (global-set-key (kbd "C-c f") 'ace-jump-mode)
 (global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c i") 'imenu)
 (global-set-key (kbd "C-c J") 'join-line)
 (global-set-key (kbd "C-c j") 'join-next-line)

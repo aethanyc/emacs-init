@@ -8,6 +8,8 @@
                             buffer-move
                             ergoemacs-keybindings
                             framemove
+                            helm
+                            helm-projectile
                             highlight-symbol
                             ido-ubiquitous
                             magit
@@ -58,8 +60,12 @@
 ;; Load Ergoemacs functions
 (load "functions")
 
+;; Helm mode
+(require 'helm-config)
+(require 'helm-projectile)
+
 ;; Projectile Mode
-(projectile-global-mode)
+(projectile-global-mode 1)
 (setq projectile-enable-caching t)
 
 ;; Highlight-symbol Mode
