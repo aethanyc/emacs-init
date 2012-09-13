@@ -79,3 +79,5 @@
 ;; Auto Complete Mode
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 
+;; Set redo key
+(global-set-key (kbd "C-=") 'undo-tree-redo)
