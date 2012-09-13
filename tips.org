@@ -33,3 +33,7 @@ Emacs Tips and Useful links
   http://ergoemacs.org/emacs/find_replace_inter.html
 ** Org mode
 - C-c C-e b: export the file to HTML and show it in browser.
+** Auto Complete Mode
+- http://cx4a.org/software/auto-complete/manual.html
+** CEDET
+- http://www.emacswiki.org/emacs/CEDET_Quickstart

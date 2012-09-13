@@ -4,6 +4,7 @@
 (defvar aethanyc-packages '(
                             ace-jump-mode
                             ack-and-a-half
+                            auto-complete
                             buffer-move
                             ergoemacs-keybindings
                             framemove
@@ -14,7 +15,6 @@
                             maxframe
                             paredit
                             projectile
-                            smart-tab
                             smex
                             smooth-scrolling
                             undo-tree
@@ -62,13 +62,21 @@
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 
-;; Smart Tab: Intelligent tab completion and indentation.
-(require 'smart-tab)
-(setq smart-tab-using-hippie-expand 'hippie-expand)
-(global-smart-tab-mode 1)
-
 ;; Highlight-symbol Mode
 (require 'highlight-symbol)
 (setq highlight-symbol-on-navigation-p t)
 (setq highlight-symbol-idle-delay 30)
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+
+;; Auto Complete Mode
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-comphist-file
+      (concat aethanyc-save-file-directory "ac-comphist.dat"))
+(setq ac-use-menu-map t)
+(setq-default ac-sources '(ac-source-abbrev
+                           ac-source-dictionary
+                           ac-source-words-in-all-buffer))
+(ac-set-trigger-key "TAB")
+(setq ac-auto-start nil)
+(global-auto-complete-mode 1)

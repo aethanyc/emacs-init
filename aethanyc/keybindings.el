@@ -75,3 +75,7 @@
 (global-set-key (kbd "<f3>") 'highlight-symbol-next)
 (global-set-key (kbd "<S-f3>") 'highlight-symbol-prev)
 (global-set-key (kbd "<M-S-f3>") 'highlight-symbol-query-replace)
+
+;; Auto Complete Mode
+(global-set-key (kbd "<C-tab>") 'auto-complete)
+

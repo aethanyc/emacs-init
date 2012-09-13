@@ -24,6 +24,15 @@
 ;;; C/C++ Mode
 
 (defun my-c-mode-common-hook ()
+  ;; Semantic mode
+  ;; http://www.emacswiki.org/emacs/CEDET_Quickstart
+  (semantic-mode 1)
+  (semantic-decoration-mode 1)
+  (semantic-highlight-func-mode 1)
+  (semantic-idle-summary-mode 1)
+  (semantic-show-unmatched-syntax-mode 1)
+  (add-to-list 'ac-sources 'ac-source-semantic t)
+
   (electric-pair-mode 1)
   (subword-mode 1)
   (c-set-style "stroustrup")
