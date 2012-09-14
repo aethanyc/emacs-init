@@ -84,5 +84,7 @@
                            ac-source-dictionary
                            ac-source-words-in-all-buffer))
 (ac-set-trigger-key "TAB")
-(setq ac-auto-start nil)
-(global-auto-complete-mode 1)
+(setq ac-use-quick-help nil)
+(setq ac-modes (append ac-modes '(text-mode
+                                  magit-log-edit-mode
+                                  inferior-emacs-lisp-mode)))
