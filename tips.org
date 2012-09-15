@@ -37,3 +37,5 @@ Emacs Tips and Useful links
 - http://cx4a.org/software/auto-complete/manual.html
 ** CEDET
 - http://www.emacswiki.org/emacs/CEDET_Quickstart
+* Misc
+- Enter greek letters: C-u C-\ greek RET then C-\

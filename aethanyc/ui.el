@@ -63,3 +63,41 @@
 ;; Pixel width of main monitor.
 (setq mf-max-width 1920)
 (add-hook 'window-setup-hook 'maximize-frame t)
+
+;; Clean mode line
+;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/
+;; There is a diminish mode. But it requires the minor mode to be active to be diminished.
+(defvar mode-line-cleaner-alist
+  '(;; Minor modes
+    (abbrev-mode "")
+    (auto-complete-mode " α")
+    (auto-fill-function " φ")
+    (eldoc-mode "")
+    (hi-lock-mode "")
+    (highlight-symbol-mode "")
+    (paredit-mode " π")
+    (projectile-mode " ρ")
+    (undo-tree-mode "")
+    ;; Major modes
+    (emacs-lisp-mode "ε")
+    (lisp-interaction-mode "λ")
+    (python-mode "Py"))
+  "Alist for `clean-mode-line'.
+
+Be sure to add the correct major/minor mode symbol, and the string you
+want to use in the mode line. See minor-mode-alist for the original alist.")
+
+(defun clean-mode-line ()
+  (interactive)
+  (dolist (cleaner mode-line-cleaner-alist)
+    (let* ((mode (first cleaner))
+           (mode-str (second cleaner))
+           (old-mode (assq mode minor-mode-alist)))
+      ;; Replace the minor mode string
+      (when old-mode
+        (setcar (cdr old-mode) mode-str))
+      ;; Replace the major mode string
+      (when (eq mode major-mode)
+        (setq mode-name mode-str)))))
+
+(add-hook 'after-change-major-mode-hook 'clean-mode-line)
