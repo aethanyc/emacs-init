@@ -70,17 +70,17 @@
 (defvar mode-line-cleaner-alist
   '(;; Minor modes
     (abbrev-mode "")
-    (auto-complete-mode " α")
-    (auto-fill-function " φ")
+    (auto-complete-mode " AC")
+    (auto-fill-function " Fi")
     (eldoc-mode "")
     (hi-lock-mode "")
     (highlight-symbol-mode "")
-    (paredit-mode " π")
-    (projectile-mode " ρ")
+    (paredit-mode " Par")
+    (projectile-mode " Proj")
     (undo-tree-mode "")
     ;; Major modes
-    (emacs-lisp-mode "ε")
-    (lisp-interaction-mode "λ")
+    (emacs-lisp-mode "EL")
+    (lisp-interaction-mode "LI")
     (python-mode "Py"))
   "Alist for `clean-mode-line'.
 
