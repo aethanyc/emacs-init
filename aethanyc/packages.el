@@ -73,9 +73,6 @@
                 "ilk" "img" "jpg" "lib" "log" "map" "ncb" "obj" "pdb" "pl" "png"
                 "pyc" "qbk" "rgn" "sln" "suo" "svg" "ttf" "txt" "user" "vcproj"
                 "zip")))
-(setq projectile-ignored-directories
-      (append projectile-ignored-directories
-              '("out" "data")))
 
 ;; Highlight-symbol Mode
 (require 'highlight-symbol)
