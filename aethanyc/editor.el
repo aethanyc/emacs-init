@@ -76,5 +76,7 @@
 ;; http://stackoverflow.com/questions/5748814/how-does-one-disable-vc-git-in-emacs
 (setq vc-handled-backends nil)
 
-;; Completely kill the whole line including the line ending.
-(setq kill-whole-line t)
+;; Do Not kill the whole line including the line ending. When using
+;; paredit-mode to kill the whole s-expr, this will kill the blank
+;; line after the s-expr.
+(setq kill-whole-line nil)
