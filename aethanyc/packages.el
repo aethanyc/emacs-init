@@ -94,3 +94,4 @@
 (setq ac-modes (append ac-modes '(text-mode
                                   magit-log-edit-mode
                                   inferior-emacs-lisp-mode)))
+(add-to-list 'ac-sources 'ac-source-semantic t)

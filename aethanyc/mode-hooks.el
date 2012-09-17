@@ -21,18 +21,44 @@
 (add-hook 'ielm-mode-hook 'my-lisp-hook)
 
 ;;;-------------------------------------------------------------------
+;;; Semantic mode
+;; http://www.emacswiki.org/emacs/CEDET_Quickstart
+(require 'semantic)
+(require 'semantic/analyze/refs)
+(require 'semantic/mru-bookmark)
+(require 'pulse)
+
+(setq semantic-default-submodes
+      '(global-semanticdb-minor-mode
+        global-semantic-idle-scheduler-mode
+        global-semantic-decoration-mode
+        global-semantic-highlight-func-mode
+        global-semantic-mru-bookmark-mode))
+
+(setq pulse-flag 'never)
+
+;; This is copied from CEDET 1.1, semantic/semantic-mru-bookmark.el
+;; Advise some commands to help set tag marks.
+(defadvice push-mark (around semantic-mru-bookmark activate)
+  "Push a mark at LOCATION with NOMSG and ACTIVATE passed to `push-mark'.
+If `semantic-mru-bookmark-mode' is active, also push a tag onto
+the mru bookmark stack."
+  (semantic-mrub-push semantic-mru-bookmark-ring
+                      (point)
+                      'mark)
+  ad-do-it)
+
+(defun my-semantic-hook ()
+  (local-set-key (kbd "M-g") 'semantic-ia-fast-jump)
+  (local-set-key (kbd "C-c t") 'semantic-analyze-proto-impl-toggle))
+
+(add-hook 'semantic-init-hook 'my-semantic-hook)
+
+;;;-------------------------------------------------------------------
 ;;; C/C++ Mode
 
 (defun my-c-mode-common-hook ()
-  ;; Semantic mode
-  ;; http://www.emacswiki.org/emacs/CEDET_Quickstart
   (semantic-mode 1)
-  (semantic-decoration-mode 1)
-  (semantic-highlight-func-mode 1)
-  (semantic-idle-summary-mode 1)
-  (semantic-show-unmatched-syntax-mode 1)
-  (add-to-list 'ac-sources 'ac-source-semantic t)
-
   (electric-pair-mode 1)
   (subword-mode 1)
   (c-set-style "stroustrup")
