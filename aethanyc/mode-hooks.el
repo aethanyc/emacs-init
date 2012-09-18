@@ -48,8 +48,20 @@ the mru bookmark stack."
                       'mark)
   ad-do-it)
 
+(defun semantic-ia-fast-jump-back ()
+  (interactive)
+  (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
+      (error "Semantic Bookmark ring is currently empty"))
+  (let* ((ring (oref semantic-mru-bookmark-ring ring))
+         (alist (semantic-mrub-ring-to-assoc-list ring))
+         (first (cdr (car alist))))
+    (if (semantic-equivalent-tag-p (oref first tag) (semantic-current-tag))
+        (setq first (cdr (car (cdr alist)))))
+    (semantic-mrub-switch-tags first)))
+
 (defun my-semantic-hook ()
   (local-set-key (kbd "M-g") 'semantic-ia-fast-jump)
+  (local-set-key (kbd "M-G") 'semantic-ia-fast-jump-back)
   (local-set-key (kbd "C-c t") 'semantic-analyze-proto-impl-toggle))
 
 (add-hook 'semantic-init-hook 'my-semantic-hook)
