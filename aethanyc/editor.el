@@ -80,3 +80,10 @@
 ;; paredit-mode to kill the whole s-expr, this will kill the blank
 ;; line after the s-expr.
 (setq kill-whole-line nil)
+
+;; Desktop Save Mode
+(setq desktop-path (list aethanyc-save-file-directory))
+(setq desktop-dirname aethanyc-save-file-directory)
+(setq desktop-base-file-name "emacs-desktop")
+(setq desktop-base-lock-name "emacs-desktop-lock")
+(desktop-save-mode 1)
