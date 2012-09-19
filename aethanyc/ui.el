@@ -33,8 +33,7 @@
   )
 
 (setq-default inhibit-startup-screen t
-              visible-bell t
-              indicate-empty-lines t)
+              visible-bell t)
 
 ;; Use zenburn theme.
 (load-theme 'zenburn t)
