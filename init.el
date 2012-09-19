@@ -4,7 +4,7 @@
 (defvar aethanyc-init-directory (concat user-emacs-directory "aethanyc/")
   "This folder contains all my customization files.")
 
-(defvar aethanyc-save-file-directory (concat user-emacs-directory "save-file/")
+(defvar aethanyc-save-file-directory "~/.emacs-save-file/"
   "This folder contains all the automatically generated files.")
 
 ;; The directory should be created. Otherwise the auto-generated files
