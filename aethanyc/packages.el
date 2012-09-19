@@ -86,12 +86,18 @@
 (setq ac-comphist-file
       (concat aethanyc-save-file-directory "ac-comphist.dat"))
 (setq ac-use-menu-map t)
+(setq ac-auto-show-menu t)
 (setq-default ac-sources '(ac-source-abbrev
                            ac-source-dictionary
+                           ac-source-words-in-buffer
+                           ac-source-words-in-same-mode-buffers
                            ac-source-words-in-all-buffer))
-(ac-set-trigger-key "TAB")
-(setq ac-use-quick-help nil)
-(setq ac-modes (append ac-modes '(text-mode
+(setq ac-modes (append ac-modes '(html-mode
+                                  inferior-emacs-lisp-mode
+                                  log-edit-mode
                                   magit-log-edit-mode
-                                  inferior-emacs-lisp-mode)))
+                                  markdown-mode
+                                  nxml-mode
+                                  org-mode
+                                  text-mode)))
 (add-to-list 'ac-sources 'ac-source-semantic t)
