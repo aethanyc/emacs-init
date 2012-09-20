@@ -46,8 +46,12 @@
 ;; `hippie-expand' is more powerful than dabbrev-expand
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-;; Toggle from 3 cases: UPPER CASE, lower case, and Title Case.
+;; Set keybindings to the functions in ErgoEmacs's functions.el
 (global-set-key (kbd "C-z") 'toggle-letter-case)
+(global-set-key (kbd "M-6") 'select-current-line)
+(global-set-key (kbd "M-7") 'select-current-block)
+(global-set-key (kbd "M-8") 'extend-selection)
+(global-set-key (kbd "M-*") 'select-text-in-quote)
 
 ;; Using S-arrow keys to move between windows and frames.
 (require 'framemove)
