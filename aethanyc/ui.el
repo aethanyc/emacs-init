@@ -40,6 +40,8 @@
 
 ;; Turn on highlight matched parentheses.
 (show-paren-mode 1)
+(set-face-attribute 'show-paren-match nil :inverse-video t)
+(set-face-attribute 'show-paren-mismatch nil :inverse-video t)
 
 ;; Turn on highlighting current line.
 ;; (global-hl-line-mode 1)
