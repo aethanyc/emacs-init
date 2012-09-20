@@ -63,6 +63,7 @@
 ;; Helm mode
 (require 'helm-config)
 (require 'helm-projectile)
+(helm-mode 1)
 
 ;; Projectile Mode
 (projectile-global-mode 1)
