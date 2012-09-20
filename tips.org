@@ -1,12 +1,13 @@
 #+STARTUP: content indent
 Emacs Tips and Useful links
 
+* Emacs Lisp
+- Use `trace-function' to see the callstack of a given function.
 * Emacs library and package system
 - http://ergoemacs.org/emacs/elisp_library_system.html
 - http://www.emacswiki.org/emacs/LoadPath
 - http://ergoemacs.org/emacs/emacs_package_system.html
 - http://melpa.milkbox.net/
-
 * Coding system
 - Use `describe-coding-system' to show current coding system.
 - Use `set-buffer-file-coding-system' (C-x RET f) to convert the current buffer to a coding system.
