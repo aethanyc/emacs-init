@@ -36,7 +36,8 @@
         global-semantic-mru-bookmark-mode))
 
 (setq pulse-flag 'never)
-(setq semanticdb-default-save-directory aethanyc-save-file-directory)
+(setq semanticdb-default-save-directory
+      (concat aethanyc-save-file-directory "semanticdb"))
 
 ;; This is copied from CEDET 1.1, semantic/semantic-mru-bookmark.el
 ;; Advise some commands to help set tag marks.
