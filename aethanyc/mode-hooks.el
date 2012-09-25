@@ -99,6 +99,11 @@ the mru bookmark stack."
 (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
 
 ;;;-------------------------------------------------------------------
+;;; Scala Mode
+
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+
+;;;-------------------------------------------------------------------
 ;;; Other
 
 ;; Clean up white spaces before saving a buffer.

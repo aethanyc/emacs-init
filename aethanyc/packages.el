@@ -19,6 +19,7 @@
                             multiple-cursors
                             paredit
                             projectile
+                            scala-mode
                             smex
                             smooth-scrolling
                             undo-tree
