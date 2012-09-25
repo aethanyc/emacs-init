@@ -16,6 +16,7 @@
                             magit
                             markdown-mode
                             maxframe
+                            multiple-cursors
                             paredit
                             projectile
                             smex
@@ -103,3 +104,6 @@
                                   org-mode
                                   text-mode)))
 (add-to-list 'ac-sources 'ac-source-semantic t)
+
+;; multiple-cursors
+(setq mc/list-file (concat aethanyc-save-file-directory "mc-list"))

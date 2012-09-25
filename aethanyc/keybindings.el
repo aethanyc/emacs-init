@@ -87,3 +87,6 @@
 
 ;; Expand-region
 (global-set-key (kbd "M-8") 'er/expand-region)
+
+;; multiple-cursors
+(global-set-key (kbd "M-9") 'mc/mark-next-like-this)
