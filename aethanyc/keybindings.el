@@ -50,8 +50,6 @@
 (global-set-key (kbd "C-z") 'toggle-letter-case)
 (global-set-key (kbd "M-6") 'select-current-line)
 (global-set-key (kbd "M-7") 'select-current-block)
-(global-set-key (kbd "M-8") 'extend-selection)
-(global-set-key (kbd "M-*") 'select-text-in-quote)
 
 ;; Using S-arrow keys to move between windows and frames.
 (require 'framemove)
@@ -86,3 +84,6 @@
 
 ;; Set redo key
 (global-set-key (kbd "C-=") 'undo-tree-redo)
+
+;; Expand-region
+(global-set-key (kbd "M-8") 'er/expand-region)

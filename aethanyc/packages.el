@@ -7,6 +7,7 @@
                             auto-complete
                             buffer-move
                             ergoemacs-keybindings
+                            expand-region
                             framemove
                             helm
                             helm-projectile
