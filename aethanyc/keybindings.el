@@ -64,14 +64,16 @@
 (global-set-key (kbd "<C-S-right>") 'buf-move-right)
 
 ;; C-c keybindings
-(global-set-key (kbd "C-c b") 'ace-jump-mode-pop-mark)
-(global-set-key (kbd "C-c f") 'ace-jump-mode)
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c i") 'imenu)
 (global-set-key (kbd "C-c J") 'join-line)
 (global-set-key (kbd "C-c j") 'join-next-line)
 (global-set-key (kbd "C-c r") 'revert-buffer)
+
+;; Ace-jump-mode
+(global-set-key (kbd "C-c C-b") 'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-c C-f") 'ace-jump-mode)
 
 ;; Highlight symbol
 (global-set-key (kbd "<C-f3>") 'highlight-symbol-at-point)
