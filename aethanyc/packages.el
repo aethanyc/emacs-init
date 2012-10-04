@@ -5,6 +5,7 @@
                             ace-jump-mode
                             ack-and-a-half
                             auto-complete
+                            back-button
                             buffer-move
                             ergoemacs-keybindings
                             expand-region
@@ -108,3 +109,8 @@
 
 ;; multiple-cursors
 (setq mc/list-file (concat aethanyc-save-file-directory "mc-list"))
+
+;; back-button
+(require 'back-button)
+(setq back-button-mode-lighter nil)
+(back-button-mode 1)
