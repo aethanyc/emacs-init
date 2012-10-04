@@ -53,6 +53,8 @@
   (electric-pair-mode 1)
   (subword-mode 1)
   (c-set-style "stroustrup")
+  ;; C-c C-o: Current indentation level
+  (c-set-offset 'cpp-macro 0)
   (c-set-offset 'topmost-intro-cont 4)
   (c-set-offset 'arglist-intro 0)
   (c-set-offset 'arglist-close 0)
