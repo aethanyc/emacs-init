@@ -120,8 +120,8 @@
     (desktop-save-in-desktop-dir)))
 
 ;; Ask user whether to restore desktop at start-up
-(add-hook 'after-init-hook
-          '(lambda ()
-             (if (desktop-session-saved-p)
-                 (if (y-or-n-p "Restore desktop? ")
-                     (desktop-restore-session)))))
+;; (add-hook 'after-init-hook
+;;           '(lambda ()
+;;              (if (desktop-session-saved-p)
+;;                  (if (y-or-n-p "Restore desktop? ")
+;;                      (desktop-restore-session)))))
