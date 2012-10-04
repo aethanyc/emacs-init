@@ -39,31 +39,8 @@
 (setq semanticdb-default-save-directory
       (concat aethanyc-save-file-directory "semanticdb"))
 
-;; This is copied from CEDET 1.1, semantic/semantic-mru-bookmark.el
-;; Advise some commands to help set tag marks.
-(defadvice push-mark (around semantic-mru-bookmark activate)
-  "Push a mark at LOCATION with NOMSG and ACTIVATE passed to `push-mark'.
-If `semantic-mru-bookmark-mode' is active, also push a tag onto
-the mru bookmark stack."
-  (semantic-mrub-push semantic-mru-bookmark-ring
-                      (point)
-                      'mark)
-  ad-do-it)
-
-(defun semantic-ia-fast-jump-back ()
-  (interactive)
-  (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
-      (error "Semantic Bookmark ring is currently empty"))
-  (let* ((ring (oref semantic-mru-bookmark-ring ring))
-         (alist (semantic-mrub-ring-to-assoc-list ring))
-         (first (cdr (car alist))))
-    (if (semantic-equivalent-tag-p (oref first tag) (semantic-current-tag))
-        (setq first (cdr (car (cdr alist)))))
-    (semantic-mrub-switch-tags first)))
-
 (defun my-semantic-hook ()
   (local-set-key (kbd "M-g") 'semantic-ia-fast-jump)
-  (local-set-key (kbd "M-G") 'semantic-ia-fast-jump-back)
   (local-set-key (kbd "C-c t") 'semantic-analyze-proto-impl-toggle))
 
 (add-hook 'semantic-init-hook 'my-semantic-hook)
