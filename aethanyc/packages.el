@@ -50,7 +50,7 @@
 
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
-(setq ace-jump-mode-gray-background nil)
+(setq ace-jump-mode-gray-background t)
 (ace-jump-mode-enable-mark-sync)
 
 ;; Undo Tree Mode
