@@ -79,6 +79,13 @@
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 ;;;-------------------------------------------------------------------
+;;; Python Mode
+(defun my-python-mode-hook ()
+  (local-set-key (kbd "RET") 'reindent-then-newline-and-indent))
+
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
+;;;-------------------------------------------------------------------
 ;;; Text Mode
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
