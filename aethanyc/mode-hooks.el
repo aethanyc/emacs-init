@@ -51,15 +51,7 @@
 (defun my-c-mode-common-hook ()
   (semantic-mode 1)
   (electric-pair-mode 1)
-  (subword-mode 1)f
-  ;; (c-set-style "stroustrup")
-  ;; C-c C-o: Current indentation level
-  ;; (c-set-offset 'cpp-macro 0)
-  ;; (c-set-offset 'topmost-intro-cont 4)
-  ;; (c-set-offset 'arglist-intro 0)
-  ;; (c-set-offset 'arglist-close 0)
-  ;; (c-set-offset 'member-init-intro 0)
-  ;; (c-set-offset 'inline-open 0)
+  (subword-mode 1)
   (local-set-key (kbd "RET") 'c-context-line-break))
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
