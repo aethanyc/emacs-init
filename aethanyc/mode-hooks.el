@@ -73,7 +73,8 @@
 ;;;-------------------------------------------------------------------
 ;;; Python Mode
 (defun my-python-mode-hook ()
-  (local-set-key (kbd "RET") 'reindent-then-newline-and-indent))
+  (semantic-mode 1)
+  (local-set-key (kbd "RET") 'newline-and-indent))
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 
