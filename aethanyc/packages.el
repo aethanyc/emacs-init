@@ -51,7 +51,9 @@
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
 (setq ace-jump-mode-gray-background nil)
-(ace-jump-mode-enable-mark-sync)
+(defadvice ace-jump-mode (before ace-jump-mode-advice)
+  (back-button-push-mark-local-and-global))
+(ad-activate 'ace-jump-mode)
 
 ;; Undo Tree Mode
 (require 'undo-tree)
