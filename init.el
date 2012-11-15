@@ -30,7 +30,7 @@
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
+;; (set-selection-coding-system 'utf-8)
 
 ;; Add my init directory to `load-path' for convenience.
 (add-to-list 'load-path aethanyc-init-directory)
