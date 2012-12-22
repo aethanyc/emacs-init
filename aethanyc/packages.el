@@ -7,7 +7,7 @@
                             auto-complete
                             back-button
                             buffer-move
-                            ergoemacs-keybindings
+                            ergoemacs-mode
                             expand-region
                             framemove
                             helm
