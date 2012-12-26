@@ -64,7 +64,7 @@
 (smex-initialize)
 
 ;; Load Ergoemacs functions
-(load "functions")
+(load "ergoemacs-functions")
 
 ;; Helm mode
 (require 'helm-config)
