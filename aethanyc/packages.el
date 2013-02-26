@@ -110,6 +110,7 @@
 (setq mc/list-file (concat aethanyc-save-file-directory "mc-list"))
 
 ;; back-button
+(setq pcache-directory aethanyc-save-file-directory)
 (require 'back-button)
 (setq back-button-mode-lighter nil)
 (back-button-mode 1)
