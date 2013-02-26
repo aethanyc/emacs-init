@@ -74,6 +74,7 @@
 ;; Projectile Mode
 (projectile-global-mode 1)
 (setq projectile-enable-caching t)
+(setq projectile-require-project-root nil)
 (setq projectile-cache-file
       (expand-file-name "projectile.cache" aethanyc-save-file-directory))
 
