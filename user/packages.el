@@ -1,31 +1,31 @@
 ;;;-------------------------------------------------------------------
 ;;; Packages
 
-(defvar aethanyc-packages '(
-                            ace-jump-mode
-                            ack-and-a-half
-                            auto-complete
-                            back-button
-                            buffer-move
-                            ergoemacs-mode
-                            expand-region
-                            framemove
-                            helm
-                            helm-projectile
-                            highlight-symbol
-                            ido-ubiquitous
-                            magit
-                            markdown-mode
-                            maxframe
-                            multiple-cursors
-                            paredit
-                            projectile
-                            scala-mode
-                            smex
-                            smooth-scrolling
-                            undo-tree
-                            zenburn-theme
-                            )
+(defvar user-packages '(
+                        ace-jump-mode
+                        ack-and-a-half
+                        auto-complete
+                        back-button
+                        buffer-move
+                        ergoemacs-mode
+                        expand-region
+                        framemove
+                        helm
+                        helm-projectile
+                        highlight-symbol
+                        ido-ubiquitous
+                        magit
+                        markdown-mode
+                        maxframe
+                        multiple-cursors
+                        paredit
+                        projectile
+                        scala-mode
+                        smex
+                        smooth-scrolling
+                        undo-tree
+                        zenburn-theme
+                        )
   "A list of packages to ensure are installed at launch.")
 
 
@@ -37,7 +37,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(dolist (package aethanyc-packages)
+(dolist (package user-packages)
   (when (not (package-installed-p package))
     (package-install package)))
 
@@ -60,7 +60,7 @@
 (global-undo-tree-mode 1)
 
 ;; Smex: an M-x enhancement
-(setq smex-save-file (concat aethanyc-save-file-directory "smex-items"))
+(setq smex-save-file (concat user-save-file-directory "smex-items"))
 (smex-initialize)
 
 ;; Load Ergoemacs functions
@@ -76,7 +76,7 @@
 (setq projectile-enable-caching t)
 (setq projectile-require-project-root nil)
 (setq projectile-cache-file
-      (expand-file-name "projectile.cache" aethanyc-save-file-directory))
+      (expand-file-name "projectile.cache" user-save-file-directory))
 
 ;; Highlight-symbol Mode
 (require 'highlight-symbol)
@@ -88,7 +88,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (setq ac-comphist-file
-      (concat aethanyc-save-file-directory "ac-comphist.dat"))
+      (concat user-save-file-directory "ac-comphist.dat"))
 (setq ac-use-menu-map t)
 (setq ac-auto-show-menu t)
 (setq-default ac-sources '(ac-source-abbrev
@@ -107,10 +107,10 @@
 (add-to-list 'ac-sources 'ac-source-semantic t)
 
 ;; multiple-cursors
-(setq mc/list-file (concat aethanyc-save-file-directory "mc-list"))
+(setq mc/list-file (concat user-save-file-directory "mc-list"))
 
 ;; back-button
-(setq pcache-directory aethanyc-save-file-directory)
+(setq pcache-directory user-save-file-directory)
 (require 'back-button)
 (setq back-button-mode-lighter nil)
 (back-button-mode 1)

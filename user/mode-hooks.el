@@ -37,7 +37,7 @@
 
 (setq pulse-flag 'never)
 (setq semanticdb-default-save-directory
-      (concat aethanyc-save-file-directory "semanticdb"))
+      (concat user-save-file-directory "semanticdb"))
 
 (defun my-semantic-hook ()
   (local-set-key (kbd "M-g") 'semantic-ia-fast-jump)

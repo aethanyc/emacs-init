@@ -5,7 +5,7 @@
 ;; Solution to the problem "server directory is unsafe on Windows."
 ;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
 (require 'server)
-(setq server-auth-dir aethanyc-save-file-directory)
+(setq server-auth-dir user-save-file-directory)
 (when (not (server-running-p))
   (server-start))
 
@@ -39,7 +39,7 @@
 
 ;; Save the last place of the cursor.
 (setq-default save-place t)
-(setq-default save-place-file (concat aethanyc-save-file-directory "save-place"))
+(setq-default save-place-file (concat user-save-file-directory "save-place"))
 (require 'saveplace)
 
 ;; Stop creating those backup~ files
@@ -50,7 +50,7 @@
               auto-save-list-file-prefix nil)
 
 ;; Keep a list of recently opened files
-(setq-default recentf-save-file (concat aethanyc-save-file-directory "recentf"))
+(setq-default recentf-save-file (concat user-save-file-directory "recentf"))
 (recentf-mode 1)
 
 ;; ido mode
@@ -59,7 +59,7 @@
 (setq-default ido-enable-flex-matching t)
 (setq-default ido-use-filename-at-point 'guess)
 (setq-default ido-max-prospects 8)
-(setq-default ido-save-directory-list-file (concat aethanyc-save-file-directory "ido-last"))
+(setq-default ido-save-directory-list-file (concat user-save-file-directory "ido-last"))
 
 ;; Enable "Finding Files and URLs at Point."
 ;; http://www.gnu.org/software/emacs/manual/html_node/emacs/FFAP.html#FFAP
@@ -85,8 +85,8 @@
 ;;; Desktop Save Mode
 ;;; http://www.emacswiki.org/DeskTop#toc5
 
-(setq desktop-path (list aethanyc-save-file-directory))
-(setq desktop-dirname aethanyc-save-file-directory)
+(setq desktop-path (list user-save-file-directory))
+(setq desktop-dirname user-save-file-directory)
 (setq desktop-base-file-name "emacs-desktop")
 (setq desktop-base-lock-name "emacs-desktop-lock")
 
