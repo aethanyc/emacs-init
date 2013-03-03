@@ -14,6 +14,7 @@
                         helm-projectile
                         highlight-symbol
                         ido-ubiquitous
+                        js2-mode
                         magit
                         markdown-mode
                         maxframe

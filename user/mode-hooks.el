@@ -97,6 +97,11 @@
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 
 ;;;-------------------------------------------------------------------
+;;; Javascript Mode
+
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;;;-------------------------------------------------------------------
 ;;; Other
 
 ;; Clean up white spaces before saving a buffer.
