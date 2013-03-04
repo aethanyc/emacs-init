@@ -1,24 +1,24 @@
 ;;;-------------------------------------------------------------------
 ;;; Lisp Mode
 
-(defun my-lisp-hook ()
+(defun my-lisp-mode-hook ()
   (turn-on-eldoc-mode)
   (paredit-mode 1)
   (eldoc-add-command 'paredit-backward-delete
                      'paredit-close-round))
 
-(defun my-lisp-edit-keybindings ()
+(defun my-lisp-keybindings ()
   (local-set-key (kbd "C-c v") 'eval-buffer)
   (local-set-key (kbd "RET") 'reindent-then-newline-and-indent))
 
-(defun my-lisp-edit-hook ()
-  (my-lisp-hook)
-  (my-lisp-edit-keybindings))
+(defun my-lisp-mode-keybindings-hook ()
+  (my-lisp-mode-hook)
+  (my-lisp-keybindings))
 
-(add-hook 'lisp-mode-hook 'my-lisp-edit-hook)
-(add-hook 'emacs-lisp-mode-hook 'my-lisp-edit-hook)
-(add-hook 'lisp-interaction-mode-hook 'my-lisp-edit-hook)
-(add-hook 'ielm-mode-hook 'my-lisp-hook)
+(add-hook 'lisp-mode-hook 'my-lisp-mode-keybindings-hook)
+(add-hook 'emacs-lisp-mode-hook 'my-lisp-mode-keybindings-hook)
+(add-hook 'lisp-interaction-mode-hook 'my-lisp-mode-keybindings-hook)
+(add-hook 'ielm-mode-hook 'my-lisp-mode-hook)
 
 ;;;-------------------------------------------------------------------
 ;;; Semantic mode
