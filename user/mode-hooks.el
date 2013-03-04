@@ -98,8 +98,12 @@
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 
 ;;;-------------------------------------------------------------------
-;;; Javascript Mode
+;;; Javascript Mode (js2-mode)
 
+(defun my-js2-mode-hook ()
+  (electric-pair-mode 1))
+
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;;-------------------------------------------------------------------
