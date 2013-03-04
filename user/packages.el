@@ -94,7 +94,6 @@
 (setq ac-auto-show-menu t)
 (setq-default ac-sources '(ac-source-abbrev
                            ac-source-dictionary
-                           ac-source-words-in-buffer
                            ac-source-words-in-same-mode-buffers
                            ac-source-words-in-all-buffer))
 (setq ac-modes (append ac-modes '(html-mode
@@ -105,7 +104,6 @@
                                   nxml-mode
                                   org-mode
                                   text-mode)))
-(add-to-list 'ac-sources 'ac-source-semantic t)
 
 ;; multiple-cursors
 (setq mc/list-file (concat user-save-file-directory "mc-list"))

@@ -52,6 +52,7 @@
   (semantic-mode 1)
   (electric-pair-mode 1)
   (subword-mode 1)
+  (add-to-list 'ac-sources 'ac-source-semantic t)
   (local-set-key (kbd "RET") 'c-context-line-break))
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
