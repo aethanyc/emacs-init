@@ -15,6 +15,7 @@
                         highlight-symbol
                         ido-ubiquitous
                         js2-mode
+                        lua-mode
                         magit
                         markdown-mode
                         maxframe

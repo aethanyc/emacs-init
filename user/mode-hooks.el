@@ -107,6 +107,15 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;;-------------------------------------------------------------------
+;;; Lua Mode
+
+(defun my-lua-mode-hook ()
+  (setq lua-indent-level 4)
+  (local-set-key (kbd "RET") 'newline-and-indent))
+
+(add-hook 'lua-mode-hook 'my-lua-mode-hook)
+
+;;;-------------------------------------------------------------------
 ;;; Other
 
 ;; Clean up white spaces before saving a buffer.
