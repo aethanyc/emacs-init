@@ -3,6 +3,7 @@
 
 (defvar user-packages '(
                         ace-jump-mode
+                        ac-js2
                         ack-and-a-half
                         auto-complete
                         back-button
