@@ -80,6 +80,8 @@
 (setq projectile-require-project-root nil)
 (setq projectile-cache-file
       (expand-file-name "projectile.cache" user-save-file-directory))
+(setq projectile-known-projects-file
+      (expand-file-name "projectile-bookmarks.eld" user-save-file-directory))
 
 ;; Highlight-symbol Mode
 (require 'highlight-symbol)
