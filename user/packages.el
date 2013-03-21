@@ -72,6 +72,14 @@
 ;; Helm mode
 (require 'helm-config)
 (require 'helm-projectile)
+(setq helm-completing-read-handlers-alist
+      '((describe-function . ido-completing-read)
+        (describe-variable . ido-completing-read)
+        (debug-on-entry . helm-completing-read-symbols)
+        (find-function . helm-completing-read-symbols)
+        (find-tag . helm-completing-read-with-cands-in-buffer)
+        (ffap-alternate-file . nil)
+        (tmm-menubar . nil)))
 (helm-mode 1)
 
 ;; Projectile Mode
