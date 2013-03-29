@@ -81,7 +81,7 @@
     (undo-tree-mode "")
     ;; Major modes
     (emacs-lisp-mode "EL")
-    (js2-mode "JS")
+    (js-mode "JS")
     (lisp-interaction-mode "LI")
     (python-mode "Py"))
   "Alist for `clean-mode-line'.

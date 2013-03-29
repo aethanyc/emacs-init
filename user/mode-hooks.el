@@ -95,13 +95,15 @@
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 
 ;;;-------------------------------------------------------------------
-;;; Javascript Mode (js2-mode)
+;;; Javascript Mode (js-mode)
 
-(defun my-js2-mode-hook ()
+(defun my-js-mode-hook ()
+  (js2-minor-mode 1)
+  (skewer-mode 1)
+  (ac-js2-mode 1)
   (electric-pair-mode 1))
 
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-hook 'js-mode-hook 'my-js-mode-hook)
 
 ;;;-------------------------------------------------------------------
 ;;; Lua Mode
