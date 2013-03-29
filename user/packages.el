@@ -27,6 +27,7 @@
                         smex
                         smooth-scrolling
                         undo-tree
+                        yasnippet
                         zenburn-theme
                         )
   "A list of packages to ensure are installed at launch.")
@@ -102,7 +103,9 @@
       (concat user-save-file-directory "ac-comphist.dat"))
 (setq ac-use-menu-map t)
 (setq ac-auto-show-menu t)
+;; Override ac-sources defined in (ac-config-default)
 (setq-default ac-sources '(ac-source-abbrev
+                           ac-source-yasnippet
                            ac-source-dictionary
                            ac-source-words-in-same-mode-buffers
                            ac-source-words-in-all-buffer))
@@ -123,3 +126,7 @@
 (require 'back-button)
 (setq back-button-mode-lighter nil)
 (back-button-mode 1)
+
+;; YASnippet
+(require 'yasnippet)
+(yas-global-mode 1)
