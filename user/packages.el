@@ -11,6 +11,7 @@
                         ergoemacs-mode
                         expand-region
                         framemove
+                        git-commit-mode
                         helm
                         helm-projectile
                         highlight-symbol

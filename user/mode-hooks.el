@@ -23,6 +23,7 @@
 ;;;-------------------------------------------------------------------
 ;;; Semantic mode
 ;; http://www.emacswiki.org/emacs/CEDET_Quickstart
+
 (require 'semantic)
 (require 'semantic/analyze/refs)
 (require 'semantic/mru-bookmark)
@@ -73,16 +74,12 @@
 
 ;;;-------------------------------------------------------------------
 ;;; Python Mode
+
 (defun my-python-mode-hook ()
   (semantic-mode 1)
   (local-set-key (kbd "RET") 'newline-and-indent))
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
-
-;;;-------------------------------------------------------------------
-;;; Text Mode
-
-;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;;;-------------------------------------------------------------------
 ;;; Ibuffer Mode
