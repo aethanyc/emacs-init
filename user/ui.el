@@ -1,37 +1,26 @@
 ;;;-------------------------------------------------------------------
 ;;; Display Settings
 
-(defvar my-font-list '("Pragmata" "Droid Sans Mono" "Consolas"))
+(defvar my-fonts '("Pragmata" "Droid Sans Mono" "Consolas"))
 (defvar my-font-size 12)
 
-(defun find-first-available-font (font-list)
-  "Find the first avaliable font in the font-list."
-  (while (and font-list
-              (not (member (car font-list) (font-family-list))))
-    (setq font-list (cdr font-list)))
-  (car font-list))
+(defun set-my-font (&optional frame)
+  (set-frame-font (format "%s-%d" (first my-fonts) my-font-size) nil t))
 
+;; Set font when initialzing
 (when (display-graphic-p)
-  (tool-bar-mode -1)
-  (tooltip-mode -1)
-  (blink-cursor-mode -1)
-  (scroll-bar-mode -1)
+  (set-my-font))
 
-  ;; Set font.
-  (let ((font (find-first-available-font my-font-list)))
-    (when font
-      (set-frame-font (format "%s-%d" font my-font-size) nil t)))
+;; When launch emacs daemon by emacs --daemon, the font cannot be set.
+;; We have to set font again after the frame is created.
+(add-hook 'after-make-frame-functions 'set-my-font)
 
-  ;; Set frame title.
-  (setq-default frame-title-format '("%b" (buffer-file-name ": %f")))
-
-  ;; Set frame properties.
-  ;; (add-to-list 'initial-frame-alist '(top . 0) t)
-  ;; (add-to-list 'initial-frame-alist '(left . 0) t)
-  ;; (add-to-list 'default-frame-alist '(width . 90) t)
-  ;; (add-to-list 'default-frame-alist '(height . 45) t)
-  )
-
+;; Set frame and UI properties.
+(setq-default frame-title-format '("%b" (buffer-file-name ": %f")))
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(blink-cursor-mode -1)
+(scroll-bar-mode -1)
 (setq-default inhibit-startup-screen t
               visible-bell t)
 
