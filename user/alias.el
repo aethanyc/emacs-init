@@ -17,3 +17,4 @@
 (defalias 'lp 'list-packages)
 (defalias 'mf 'maximize-frame)
 (defalias 'rf 'restore-frame)
+(defalias 'sl 'sort-lines)
