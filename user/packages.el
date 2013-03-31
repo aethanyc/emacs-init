@@ -11,6 +11,7 @@
                         ergoemacs-mode
                         expand-region
                         framemove
+                        fuzzy
                         git-commit-mode
                         helm
                         helm-projectile
