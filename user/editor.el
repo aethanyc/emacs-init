@@ -125,3 +125,9 @@
 ;;              (if (desktop-session-saved-p)
 ;;                  (if (y-or-n-p "Restore desktop? ")
 ;;                      (desktop-restore-session)))))
+
+
+;;;-------------------------------------------------------------------
+;;; Eshell
+
+(setq eshell-directory-name (concat user-save-file-directory "eshell/"))
