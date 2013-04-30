@@ -1,0 +1,11 @@
+alias df df -h $*
+alias du du -h $*
+alias em emacsclient -c -a emacs $*
+alias g++ g++ -Wall -pedantic $*
+alias gcc gcc -Wall -pedantic $*
+alias gg git status $*
+alias h ls --color -F $*
+alias ha ls --color -lhA $*
+alias hh ls --color -lhF $*
+alias rm rm -i $*
+alias u cd $*

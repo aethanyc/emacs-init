@@ -131,3 +131,8 @@
 ;;; Eshell
 
 (setq eshell-directory-name (concat user-save-file-directory "eshell/"))
+
+;; Generate Eshell alias from bash alias
+;; http://www.emacswiki.org/emacs/EshellAlias#toc8
+;; alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;"
+(setq eshell-aliases-file (concat user-emacs-directory "eshell-alias"))
