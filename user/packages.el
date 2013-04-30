@@ -110,7 +110,8 @@
                            ac-source-dictionary
                            ac-source-words-in-same-mode-buffers
                            ac-source-words-in-all-buffer))
-(setq ac-modes (append ac-modes '(git-commit-mode
+(setq ac-modes (append ac-modes '(eshell-mode
+                                  git-commit-mode
                                   html-mode
                                   inferior-emacs-lisp-mode
                                   log-edit-mode
