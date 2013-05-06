@@ -94,8 +94,7 @@
 ;; Highlight-symbol Mode
 (require 'highlight-symbol)
 (setq highlight-symbol-on-navigation-p t)
-(setq highlight-symbol-idle-delay 30)
-(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+(set-face-attribute 'highlight-symbol-face nil :background "gray35")
 
 ;; Auto Complete Mode
 (require 'auto-complete-config)

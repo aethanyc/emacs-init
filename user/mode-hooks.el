@@ -1,4 +1,15 @@
 ;;;-------------------------------------------------------------------
+;;; Prog Mode
+
+(defun my-prog-mode-hook ()
+  (electric-pair-mode 1)
+  (highlight-symbol-mode 1)
+  (imenu-add-to-menubar "Imenu")
+  (linum-mode 1))
+
+(add-hook 'prog-mode-hook 'my-prog-mode-hook)
+
+;;;-------------------------------------------------------------------
 ;;; Lisp Mode
 
 (defun my-lisp-mode-hook ()
@@ -49,16 +60,7 @@
 ;;;-------------------------------------------------------------------
 ;;; C/C++ Mode
 
-(defun my-c-mode-common-hook ()
-  (semantic-mode 1)
-  (electric-pair-mode 1)
-  (subword-mode 1)
-  (add-to-list 'ac-sources 'ac-source-semantic t)
-  (local-set-key (kbd "RET") 'c-context-line-break))
-
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-
-(defconst my-c++-style
+(defconst my-c/c++-style
   '("stroustrup"
     (c-offsets-alist
      (topmost-intro-cont . +)
@@ -67,10 +69,15 @@
      (member-init-intro . 0)
      (cpp-macro . 0))))
 
-(defun my-c++-mode-hook ()
-  (c-add-style "my-c++-style" my-c++-style t))
+(defun my-c-mode-common-hook ()
+  (semantic-mode 1)
+  (subword-mode 1)
+  (add-to-list 'ac-sources 'ac-source-semantic t)
+  (c-add-style "my-c/c++-style" my-c/c++-style)
+  (c-set-style "my-c/c++-style")
+  (local-set-key (kbd "RET") 'c-context-line-break))
 
-(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 ;;;-------------------------------------------------------------------
 ;;; Python Mode
@@ -95,8 +102,7 @@
 (defun my-js-mode-hook ()
   (js2-minor-mode 1)
   (skewer-mode 1)
-  (ac-js2-mode 1)
-  (electric-pair-mode 1))
+  (ac-js2-mode 1))
 
 (add-hook 'js-mode-hook 'my-js-mode-hook)
 
