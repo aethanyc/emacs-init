@@ -19,8 +19,7 @@
                      'paredit-close-round))
 
 (defun my-lisp-keybindings ()
-  (local-set-key (kbd "C-c v") 'eval-buffer)
-  (local-set-key (kbd "RET") 'reindent-then-newline-and-indent))
+  (local-set-key (kbd "C-c v") 'eval-buffer))
 
 (defun my-lisp-mode-keybindings-hook ()
   (my-lisp-mode-hook)
@@ -83,8 +82,7 @@
 ;;; Python Mode
 
 (defun my-python-mode-hook ()
-  (semantic-mode 1)
-  (local-set-key (kbd "RET") 'newline-and-indent))
+  (semantic-mode 1))
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 
@@ -110,8 +108,7 @@
 ;;; Lua Mode
 
 (defun my-lua-mode-hook ()
-  (setq lua-indent-level 4)
-  (local-set-key (kbd "RET") 'newline-and-indent))
+  (setq lua-indent-level 4))
 
 (add-hook 'lua-mode-hook 'my-lua-mode-hook)
 

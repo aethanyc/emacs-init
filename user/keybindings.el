@@ -1,6 +1,11 @@
 ;;;-------------------------------------------------------------------
 ;;; Keybindings
 
+;; Basic keys
+(global-set-key (kbd "C-a") 'back-to-indentation)
+(global-set-key (kbd "M-m") 'ace-jump-mode)
+(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+
 ;; Frame operations
 (global-set-key (kbd "M-`") 'other-frame)
 (global-set-key (kbd "M-0") 'delete-window)
@@ -73,7 +78,6 @@
 (global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-c J") 'join-line)
 (global-set-key (kbd "C-c j") 'join-next-line)
-(global-set-key (kbd "C-c m") 'ace-jump-mode)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 
 ;; Highlight symbol
