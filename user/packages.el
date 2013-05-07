@@ -57,9 +57,6 @@
 (require 'ace-jump-mode)
 (setq ace-jump-mode-gray-background nil)
 (setq ace-jump-mode-case-fold nil)
-(defadvice ace-jump-mode (before ace-jump-mode-advice)
-  (back-button-push-mark-local-and-global))
-(ad-activate 'ace-jump-mode)
 
 ;; Undo Tree Mode
 (require 'undo-tree)
@@ -129,6 +126,9 @@
 (require 'back-button)
 (setq back-button-mode-lighter nil)
 (back-button-mode 1)
+;; Replace push-mark so that the current position is always preserved
+;; before jumping around.
+(fset 'push-mark 'back-button-push-mark-local-and-global)
 
 ;; YASnippet
 (require 'yasnippet)
