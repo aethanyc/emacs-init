@@ -56,6 +56,7 @@
 ;; Ace Jump Mode
 (require 'ace-jump-mode)
 (setq ace-jump-mode-gray-background nil)
+(setq ace-jump-mode-case-fold nil)
 (defadvice ace-jump-mode (before ace-jump-mode-advice)
   (back-button-push-mark-local-and-global))
 (ad-activate 'ace-jump-mode)
