@@ -70,7 +70,7 @@
 (global-set-key (kbd "C-c f") 'back-button-global-forward)
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c h") 'helm-mini)
-(global-set-key (kbd "C-c i") 'imenu)
+(global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-c J") 'join-line)
 (global-set-key (kbd "C-c j") 'join-next-line)
 (global-set-key (kbd "C-c m") 'ace-jump-mode)
