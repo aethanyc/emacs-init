@@ -2,7 +2,6 @@
 ;;; Keybindings
 
 ;; Basic keys
-(global-set-key (kbd "C-a") 'back-to-indentation)
 (global-set-key (kbd "M-m") 'ace-jump-mode)
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
