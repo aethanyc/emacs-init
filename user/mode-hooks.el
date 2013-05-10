@@ -107,7 +107,10 @@
 ;;; Lua Mode
 
 (defun my-lua-mode-hook ()
-  (setq lua-indent-level 4))
+  (setq lua-indent-level 4)
+  (define-key lua-mode-map "}" nil)
+  (define-key lua-mode-map "]" nil)
+  (define-key lua-mode-map ")" nil))
 
 (add-hook 'lua-mode-hook 'my-lua-mode-hook)
 
