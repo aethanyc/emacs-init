@@ -4,7 +4,6 @@
 (defun my-prog-mode-hook ()
   (electric-pair-mode 1)
   (highlight-symbol-mode 1)
-  (imenu-add-to-menubar "Imenu")
   (linum-mode 1))
 
 (add-hook 'prog-mode-hook 'my-prog-mode-hook)
