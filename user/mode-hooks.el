@@ -4,7 +4,8 @@
 (defun my-prog-mode-hook ()
   (electric-pair-mode 1)
   (highlight-symbol-mode 1)
-  (linum-mode 1))
+  (linum-mode 1)
+  (subword-mode 1))
 
 (add-hook 'prog-mode-hook 'my-prog-mode-hook)
 
@@ -69,7 +70,6 @@
 
 (defun my-c-mode-common-hook ()
   (semantic-mode 1)
-  (subword-mode 1)
   (add-to-list 'ac-sources 'ac-source-semantic t)
   (c-add-style "my-c/c++-style" my-c/c++-style)
   (c-set-style "my-c/c++-style")
