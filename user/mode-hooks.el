@@ -18,12 +18,13 @@
   (eldoc-add-command 'paredit-backward-delete
                      'paredit-close-round))
 
-(defun my-lisp-keybindings ()
-  (local-set-key (kbd "C-c v") 'eval-buffer))
+(defun set-my-lisp-keybindings ()
+  (local-set-key (kbd "C-c v") 'eval-buffer)
+  (local-set-key (kbd "RET") 'paredit-newline))
 
 (defun my-lisp-mode-keybindings-hook ()
   (my-lisp-mode-hook)
-  (my-lisp-keybindings))
+  (set-my-lisp-keybindings))
 
 (add-hook 'lisp-mode-hook 'my-lisp-mode-keybindings-hook)
 (add-hook 'emacs-lisp-mode-hook 'my-lisp-mode-keybindings-hook)
