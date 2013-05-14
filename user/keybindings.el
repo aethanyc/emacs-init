@@ -3,7 +3,7 @@
 
 ;; Basic keys
 (global-set-key (kbd "M-m") 'ace-jump-mode)
-(global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+(global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; Frame operations
 (global-set-key (kbd "M-`") 'other-frame)
