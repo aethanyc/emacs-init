@@ -112,6 +112,7 @@
                                   git-commit-mode
                                   html-mode
                                   inferior-emacs-lisp-mode
+                                  inferior-python-mode
                                   log-edit-mode
                                   magit-log-edit-mode
                                   markdown-mode
