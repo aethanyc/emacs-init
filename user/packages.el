@@ -97,6 +97,7 @@
 ;; Auto Complete Mode
 (require 'auto-complete-config)
 (ac-config-default)
+(ac-linum-workaround)
 (setq ac-comphist-file
       (concat user-save-file-directory "ac-comphist.dat"))
 (setq ac-use-menu-map t)
