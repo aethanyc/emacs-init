@@ -24,3 +24,9 @@
   (when (and (eq major-mode 'emacs-lisp-mode)
              (file-exists-p (byte-compile-dest-file buffer-file-name)))
     (byte-compile-file buffer-file-name)))
+
+(defun find-user-init-file ()
+  "Open user init file quickly."
+  (interactive)
+  (find-file user-init-file)
+  (projectile-find-file nil))

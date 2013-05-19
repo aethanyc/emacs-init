@@ -41,11 +41,8 @@
 (global-set-key (kbd "M-<menu>") 'smex-major-mode-commands)
 (global-set-key (kbd "M-<apps>") 'smex-major-mode-commands)
 
-;; Open user-init-file
-(global-set-key (kbd "<f12>")
-                (lambda ()
-                  (interactive)
-                  (find-file user-init-file)))
+;; Open user init files quickly
+(global-set-key (kbd "<f12>") 'find-user-init-file)
 
 ;; `hippie-expand' is more powerful than dabbrev-expand
 (global-set-key (kbd "M-/") 'hippie-expand)
