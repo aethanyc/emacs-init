@@ -1,10 +1,14 @@
 ;;;-------------------------------------------------------------------
 ;;; Entry point of my customization files.
 
-(defvar user-init-directory (concat user-emacs-directory "user/")
+;; See this document for the difference of a directory name and its
+;; name as a file. In short, a directory name ends in a slash.
+;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Directory-Names.html#Directory-Names
+
+(defvar user-init-directory (file-name-as-directory (locate-user-emacs-file "user"))
   "This folder contains all my customization files.")
 
-(defvar user-save-file-directory "~/.emacs-save-file/"
+(defvar user-save-file-directory (file-name-as-directory "~/.emacs-save-file")
   "This folder contains all the automatically generated files.")
 
 ;; The directory should be created. Otherwise the auto-generated files

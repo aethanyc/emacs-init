@@ -85,9 +85,9 @@
 ;; Projectile Mode
 (projectile-global-mode 1)
 (setq projectile-cache-file
-      (expand-file-name "projectile.cache" user-save-file-directory))
+      (concat user-save-file-directory "projectile.cache"))
 (setq projectile-known-projects-file
-      (expand-file-name "projectile-bookmarks.eld" user-save-file-directory))
+      (concat user-save-file-directory "projectile-bookmarks.eld"))
 
 ;; Highlight-symbol Mode
 (require 'highlight-symbol)
