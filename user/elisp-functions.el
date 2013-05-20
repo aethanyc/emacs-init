@@ -30,3 +30,12 @@
   (interactive)
   (find-file user-init-file)
   (projectile-find-file nil))
+
+;; This is adapted from `delete-window' in:
+;; http://www.emacswiki.org/emacs/frame-cmds.el
+(defun delete-window-or-frame ()
+  "Remove `select-window' from the display. If it is the only one
+in its frame, then `delete-frame' too."
+  (interactive)
+  (save-current-buffer
+    (if (one-window-p t) (delete-frame) (delete-window))))

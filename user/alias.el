@@ -16,6 +16,5 @@
 (defalias 'gl 'goto-line)
 (defalias 'lp 'list-packages)
 (defalias 'mb 'magit-blame-mode)
-(defalias 'mf 'maximize-frame)
 (defalias 'rf 'restore-frame)
 (defalias 'sl 'sort-lines)

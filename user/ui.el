@@ -24,6 +24,16 @@
 (setq-default inhibit-startup-screen t
               visible-bell t)
 
+;;; maxframe
+(require 'maxframe)
+;; Pixel width and height of my main monitor.
+(setq mf-max-width 1920
+      mf-max-height 1080)
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+;; Make the default frame in two columns
+(add-hook 'window-setup-hook 'split-window-horizontally t)
+
 ;; Use zenburn theme.
 (load-theme 'zenburn t)
 
@@ -43,12 +53,6 @@
 
 ;; Put ediff control panel in single frame.
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-
-;;; maxframe
-(require 'maxframe)
-;; Pixel width of main monitor.
-(setq mf-max-width 1920)
-(add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; Clean mode line
 ;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/
