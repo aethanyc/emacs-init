@@ -135,3 +135,12 @@
 ;; YASnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; magit
+(eval-after-load 'magit
+  '(progn
+     (defun magit-visit-item-other-window ()
+       (interactive)
+       (let ((current-prefix-arg '(4)))
+         (call-interactively 'magit-visit-item)))
+     (define-key magit-mode-map (kbd "RET") 'magit-visit-item-other-window)))
