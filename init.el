@@ -27,9 +27,6 @@
                           )
   "The names of my customization files.")
 
-;; For Common Lisp functions.
-(require 'cl)
-
 ;; Set coding system to utf-8
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
