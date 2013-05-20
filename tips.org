@@ -3,6 +3,10 @@ Emacs Tips and Useful links
 
 * Emacs Lisp
 - Use `trace-function' to see the callstack of a given function.
+- "Wrong type argument: commandp" error http://stackoverflow.com/q/1250846/1083056
+- eval-after-load vs. mode hook http://stackoverflow.com/q/2736087/1083056
+- Prefix Command Arguments http://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html
+- Call function with prefix argument programmatically http://stackoverflow.com/q/6156286/1083056
 * Emacs library and package system
 - http://ergoemacs.org/emacs/elisp_library_system.html
 - http://www.emacswiki.org/emacs/LoadPath
@@ -31,7 +35,7 @@ Emacs Tips and Useful links
 - http://jblevins.org/projects/markdown-mode/
 ** Dired
 - This seems helpful for refactor codes. ``Interactively Find & Replace String Patterns on Multiple Files''
-  http://ergoemacs.org/emacs/find_replace_inter.html
+- http://ergoemacs.org/emacs/find_replace_inter.html
 ** Org mode
 - C-c C-e b: export the file to HTML and show it in browser.
 ** Auto Complete Mode
