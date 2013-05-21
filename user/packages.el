@@ -34,10 +34,9 @@
   "A list of packages to ensure are installed at launch.")
 
 
-(require 'package)
+(package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -54,17 +53,18 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)
 
 ;; Ace Jump Mode
-(require 'ace-jump-mode)
-(setq ace-jump-mode-gray-background nil)
-(setq ace-jump-mode-case-fold nil)
+(eval-after-load 'ace-jump-mode
+  '(progn
+     (setq ace-jump-mode-gray-background nil
+           ace-jump-mode-case-fold nil)))
 
 ;; Undo Tree Mode
-(require 'undo-tree)
 (global-undo-tree-mode 1)
 
 ;; Smex: an M-x enhancement
-(setq smex-save-file (concat user-save-file-directory "smex-items"))
-(smex-initialize)
+(eval-after-load 'smex
+  '(progn
+     (setq smex-save-file (concat user-save-file-directory "smex-items"))))
 
 ;; Load Ergoemacs functions
 (load "ergoemacs-functions")
@@ -83,16 +83,19 @@
 (helm-mode 1)
 
 ;; Projectile Mode
+(eval-after-load 'projectile
+  '(progn
+     (setq projectile-cache-file
+           (concat user-save-file-directory "projectile.cache"))
+     (setq projectile-known-projects-file
+           (concat user-save-file-directory "projectile-bookmarks.eld"))))
 (projectile-global-mode 1)
-(setq projectile-cache-file
-      (concat user-save-file-directory "projectile.cache"))
-(setq projectile-known-projects-file
-      (concat user-save-file-directory "projectile-bookmarks.eld"))
 
 ;; Highlight-symbol Mode
-(require 'highlight-symbol)
-(setq highlight-symbol-on-navigation-p t)
-(set-face-attribute 'highlight-symbol-face nil :background "gray35")
+(eval-after-load 'highlight-symbol
+  '(progn
+     (setq highlight-symbol-on-navigation-p t)
+     (set-face-attribute 'highlight-symbol-face nil :background "gray35")))
 
 ;; Auto Complete Mode
 (require 'auto-complete-config)
@@ -121,19 +124,19 @@
                                   text-mode)))
 
 ;; multiple-cursors
-(setq mc/list-file (concat user-save-file-directory "mc-list"))
+(eval-after-load 'multiple-cursors
+  '(progn
+     (setq mc/list-file (concat user-save-file-directory "mc-list"))))
 
 ;; back-button
 (setq pcache-directory user-save-file-directory)
-(require 'back-button)
-(setq back-button-mode-lighter nil)
 (back-button-mode 1)
+(setq back-button-mode-lighter nil)
 ;; Replace push-mark so that the current position is always preserved
 ;; before jumping around.
 (fset 'push-mark 'back-button-push-mark-local-and-global)
 
 ;; YASnippet
-(require 'yasnippet)
 (yas-global-mode 1)
 
 ;; magit
