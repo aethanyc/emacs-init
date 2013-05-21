@@ -28,8 +28,7 @@
 (defun find-user-init-file ()
   "Open user init file quickly."
   (interactive)
-  (find-file user-init-file)
-  (projectile-find-file nil))
+  (find-file user-init-file))
 
 ;; This is adapted from `delete-window' in:
 ;; http://www.emacswiki.org/emacs/frame-cmds.el
