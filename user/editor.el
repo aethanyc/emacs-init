@@ -1,13 +1,11 @@
 ;;;-------------------------------------------------------------------
 ;;; Editor
 
-;; Start server if it is not running.
 ;; Solution to the problem "server directory is unsafe on Windows."
 ;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
-(require 'server)
-(setq server-auth-dir user-save-file-directory)
-(when (not (server-running-p))
-  (server-start))
+(eval-after-load 'server
+  '(progn
+     (setq server-auth-dir user-save-file-directory)))
 
 ;; Delete the seleted text when typing.
 (delete-selection-mode 1)
