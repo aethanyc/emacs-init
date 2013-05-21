@@ -69,7 +69,7 @@
      (setq smex-save-file (concat user-save-file-directory "smex-items"))))
 
 ;; Load Ergoemacs functions
-(load "ergoemacs-functions")
+(require 'ergoemacs-functions)
 
 ;; Helm mode
 (require 'helm-config)
