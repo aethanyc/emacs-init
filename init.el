@@ -1,3 +1,5 @@
+;; -*- coding: utf-8-unix; -*-
+
 ;;;-------------------------------------------------------------------
 ;;; Entry point of my customization files.
 

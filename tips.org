@@ -7,6 +7,7 @@ Emacs Tips and Useful links
 - eval-after-load vs. mode hook http://stackoverflow.com/q/2736087/1083056
 - Prefix Command Arguments http://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html
 - Call function with prefix argument programmatically http://stackoverflow.com/q/6156286/1083056
+- File variables http://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables
 * Emacs library and package system
 - http://ergoemacs.org/emacs/elisp_library_system.html
 - http://www.emacswiki.org/emacs/LoadPath
