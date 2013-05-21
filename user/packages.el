@@ -144,3 +144,12 @@
        (let ((current-prefix-arg '(4)))
          (call-interactively 'magit-visit-item)))
      (define-key magit-mode-map (kbd "RET") 'magit-visit-item-other-window)))
+
+;; paredit
+(eval-after-load 'paredit
+  '(progn
+     ;; Expose navigation forward and backward keybindings
+     (define-key paredit-mode-map (kbd "C-M-b") nil)
+     (define-key paredit-mode-map (kbd "C-M-f") nil)
+     (define-key paredit-mode-map (kbd "M-B") 'paredit-backward)
+     (define-key paredit-mode-map (kbd "M-F") 'paredit-forward)))
