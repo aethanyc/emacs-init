@@ -102,7 +102,11 @@
                python-shell-completion-string-code
                "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
         ((executable-find "python3")
-         (setq python-shell-interpreter "python3"))))
+         (setq python-shell-interpreter "python3")))
+  ;;  flymake-python-pyflakes settings
+  (when (executable-find "flake8")
+    (setq flymake-python-pyflakes-executable "flake8")
+    (flymake-python-pyflakes-load)))
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 

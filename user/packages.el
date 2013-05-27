@@ -26,6 +26,7 @@
                         maxframe
                         multiple-cursors
                         paredit
+                        flymake-python-pyflakes
                         projectile
                         smex
                         smooth-scrolling
