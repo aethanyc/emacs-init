@@ -30,6 +30,7 @@
   (local-set-key (kbd "RET") 'paredit-newline))
 
 (defun my-lisp-mode-keybindings-hook ()
+  (setq inferior-lisp-program "sbcl")
   (my-lisp-mode-common-hook)
   (my-lisp-keybindings))
 
