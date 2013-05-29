@@ -89,6 +89,17 @@
 ;;;-------------------------------------------------------------------
 ;;; Python Mode
 
+;; Jedi - Python auto-completion for Emacs
+;; Must manually install python side packages: $ sudo pip install -r requirements.txt
+(eval-after-load 'jedi
+  '(progn
+     (setq jedi:setup-keys t)
+     (setq jedi:complete-on-dot t)
+     ;; Push mark before goto definition
+     (defadvice jedi:goto-definition (before jedi:goto-definition-advice)
+       (push-mark))
+     (ad-activate 'jedi:goto-definition)))
+
 (defun my-python-mode-hook ()
   (cond ((executable-find "ipython3")
          ;; Ipython settings was copied from the document of python-mode.
@@ -104,10 +115,13 @@
                "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
         ((executable-find "python3")
          (setq python-shell-interpreter "python3")))
-  ;;  flymake-python-pyflakes settings
+  ;; flymake-python-pyflakes settings
   (when (executable-find "flake8")
     (setq flymake-python-pyflakes-executable "flake8")
-    (flymake-python-pyflakes-load)))
+    (flymake-python-pyflakes-load))
+  ;; Jedi settings
+  (jedi:setup)
+  (local-set-key (kbd "M-g") 'jedi:goto-definition))
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 

@@ -19,6 +19,7 @@
                         helm-projectile
                         highlight-symbol
                         ido-ubiquitous
+                        jedi
                         js2-mode
                         lua-mode
                         magit
