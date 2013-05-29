@@ -9,12 +9,17 @@ Here are my Emacs customization files, which only compatible with Emacs 24. I've
 
 ## Where to find Emacs packages? ##
 
-[MELPA][] repository contains many useful packages. Follow the installing instruction of MELPA, then
-launch package menu in Emacs by:
+[MELPA][] and [Marmalade][] host many useful packages. Add following lines to your emacs init file to use them.
 
+```lisp
+(require 'package)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
 ```
-M-x list-packages
-```
+
+Then you can use `M-x list-packages` to browse and install packages.
 
 ## How to install Emacs-init? ##
 Simply clone this repository to your home directory.
@@ -27,3 +32,4 @@ git clone git://github.com/aethanyc/emacs-init.git ~/.emacs.d
 [Debian Packages]: http://emacs.naquadah.org/
 [Ubuntu Packages]: https://launchpad.net/~cassou/+archive/emacs
 [MELPA]: http://melpa.milkbox.net/
+[Marmalade]: http://marmalade-repo.org/
