@@ -89,12 +89,21 @@
 ;;;-------------------------------------------------------------------
 ;;; Python Mode
 
+(setq python-shell-interpreter
+      (cond ((executable-find "ipython3") "ipython3")
+            ((executable-find "python3") "python3")
+            (t python-shell-interpreter)))
+
 ;; Jedi - Python auto-completion for Emacs
 ;; Must manually install python side packages: $ sudo pip install -r requirements.txt
+;; jedi:setup-keys and jedi:complete-on-dot must be set *before* jedi is loaded
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+
 (eval-after-load 'jedi
   '(progn
-     (setq jedi:setup-keys t)
-     (setq jedi:complete-on-dot t)
+     (setq jedi:server-command
+           (list python-shell-interpreter jedi:server-script))
      ;; Push mark before goto definition
      (defadvice jedi:goto-definition (before jedi:goto-definition-advice)
        (push-mark))
@@ -103,8 +112,7 @@
 (defun my-python-mode-hook ()
   (cond ((executable-find "ipython3")
          ;; Ipython settings was copied from the document of python-mode.
-         (setq python-shell-interpreter "ipython3"
-               python-shell-interpreter-args ""
+         (setq python-shell-interpreter-args ""
                python-shell-prompt-regexp "In \\[[0-9]+\\]: "
                python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
                python-shell-completion-setup-code
@@ -112,9 +120,7 @@
                python-shell-completion-module-string-code
                "';'.join(module_completion('''%s'''))\n"
                python-shell-completion-string-code
-               "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
-        ((executable-find "python3")
-         (setq python-shell-interpreter "python3")))
+               "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
   ;; flymake-python-pyflakes settings
   (when (executable-find "flake8")
     (setq flymake-python-pyflakes-executable "flake8")
@@ -124,6 +130,7 @@
   (local-set-key (kbd "M-g") 'jedi:goto-definition))
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
+(add-hook 'inferior-python-mode-hook 'jedi:setup)
 
 ;;;-------------------------------------------------------------------
 ;;; Ibuffer Mode
