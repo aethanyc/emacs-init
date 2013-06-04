@@ -92,7 +92,7 @@
 (setq python-shell-interpreter
       (cond ((executable-find "ipython3") "ipython3")
             ((executable-find "python3") "python3")
-            (t python-shell-interpreter)))
+            (t "python")))
 
 ;; Jedi - Python auto-completion for Emacs
 ;; Must manually install python side packages: $ sudo pip install -r requirements.txt
