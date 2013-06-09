@@ -62,7 +62,7 @@
 (defvar mode-line-cleaner-alist
   '(;; Minor modes
     (abbrev-mode "")
-    (auto-complete-mode " AC")
+    (auto-complete-mode "")
     (auto-fill-function " Fi")
     (eldoc-mode "")
     (hi-lock-mode "")
@@ -70,8 +70,10 @@
     (paredit-mode " Par")
     (projectile-mode " Proj")
     (undo-tree-mode "")
+    (yas-minor-mode "")
     ;; Major modes
     (emacs-lisp-mode "EL")
+    (inferior-python-mode "Inf Py")
     (js-mode "JS")
     (lisp-interaction-mode "LI")
     (python-mode "Py"))
