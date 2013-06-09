@@ -26,6 +26,13 @@
 (setq-default inhibit-startup-screen t
               visible-bell t)
 
+;; Prevent cursor going into minibuffer prompt
+;; Same as:
+;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
+;; Select "Don't enter" option and save.
+(setq minibuffer-prompt-properties
+      '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
+
 ;;; maxframe
 (require 'maxframe)
 ;; Pixel width and height of my main monitor.
