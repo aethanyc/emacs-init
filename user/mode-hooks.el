@@ -124,7 +124,9 @@
   ;; flymake-python-pyflakes settings
   (when (executable-find "flake8")
     (setq flymake-python-pyflakes-executable "flake8")
-    (flymake-python-pyflakes-load))
+    (flymake-python-pyflakes-load)
+    (local-set-key (kbd "C-c C-n") 'flymake-goto-next-error)
+    (local-set-key (kbd "C-c C-p") 'flymake-goto-prev-error))
   ;; Jedi settings
   (jedi:setup)
   (local-set-key (kbd "M-g") 'jedi:goto-definition))
