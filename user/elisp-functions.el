@@ -48,6 +48,8 @@ in its frame, then `delete-frame' too."
   (interactive "P")
   (let ((vsymb (variable-at-point))
         (fsymb (function-called-at-point)))
+    ;; Push current position to the global mark ring.
+    (push-mark)
     ;; (function-called-at-point) gets function name symbol even if
     ;; cursor is on a variable name, so we check vsymb first.
     (cond ((and vsymb (not (equal vsymb 0)))
