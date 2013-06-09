@@ -4,14 +4,16 @@
 ;;; Packages
 
 (defvar user-packages '(
-                        ace-jump-mode
                         ac-js2
+                        ace-jump-mode
                         ack-and-a-half
                         auto-complete
                         back-button
                         buffer-move
                         ergoemacs-mode
                         expand-region
+                        flymake-cursor
+                        flymake-python-pyflakes
                         framemove
                         fuzzy
                         git-commit-mode
@@ -27,7 +29,6 @@
                         maxframe
                         multiple-cursors
                         paredit
-                        flymake-python-pyflakes
                         projectile
                         smex
                         smooth-scrolling
