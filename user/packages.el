@@ -11,6 +11,7 @@
                         back-button
                         buffer-move
                         ergoemacs-mode
+                        exec-path-from-shell
                         expand-region
                         flymake-cursor
                         flymake-python-pyflakes
@@ -53,6 +54,10 @@
 
 ;;;-------------------------------------------------------------------
 ;;; Packages initialization
+
+;; Copy the value of paths from shell
+(when (member window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; Markdown Mode
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
