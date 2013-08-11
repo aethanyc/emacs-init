@@ -1,11 +1,13 @@
 # Emacs-init #
-Here are my Emacs customization files, which only compatible with Emacs 24. I've used Emacs on Windows and GNU/Linux.
+Here are my Emacs customization files, which only compatible with Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 
 ## Where to get the latest Emacs 24? ##
 
 * [Windows Executable][]
 * [Debian Packages][]
 * [Ubuntu Packages][]
+* [Mac Universal Binary][]
+* [Via Homebrew on Mac][]
 
 ## Where to find Emacs packages? ##
 
@@ -31,5 +33,7 @@ git clone git://github.com/aethanyc/emacs-init.git ~/.emacs.d
 [Windows Executable]: http://ftp.gnu.org/gnu/emacs/windows/
 [Debian Packages]: http://emacs.naquadah.org/
 [Ubuntu Packages]: https://launchpad.net/~cassou/+archive/emacs
+[Mac Universal Binary]: http://emacsformacosx.com/
+[Via Homebrew on Mac]: http://wikemacs.org/index.php/Installing_Emacs_on_OS_X#Homebrew
 [MELPA]: http://melpa.milkbox.net/
 [Marmalade]: http://marmalade-repo.org/
