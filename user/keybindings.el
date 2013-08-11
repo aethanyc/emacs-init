@@ -3,6 +3,11 @@
 ;;;-------------------------------------------------------------------
 ;;; Keybindings
 
+;; Settings for Mac
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'none)
+(setq mac-right-option-modifier 'control)
+
 ;; Basic keys
 (global-set-key (kbd "M-m") 'ace-jump-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)
