@@ -3,7 +3,7 @@
 ;;;-------------------------------------------------------------------
 ;;; Display Settings
 
-(defvar my-fonts '("Pragmata" "Droid Sans Mono" "Consolas"))
+(defvar my-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
 (defvar my-font-size 12)
 
 (defun set-my-font (&optional frame)
