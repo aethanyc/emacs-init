@@ -89,13 +89,17 @@
 ;;;-------------------------------------------------------------------
 ;;; Python Mode
 
+;; External python packages to install:
+;; $ sudo easy_install3 ipython
+;; $ sudo pip3 install -r requirements.txt # Under jedi's install path
+;; $ sudo pip3 install flake8
+
 (setq python-shell-interpreter
       (cond ((executable-find "ipython3") "ipython3")
             ((executable-find "python3") "python3")
             (t "python")))
 
 ;; Jedi - Python auto-completion for Emacs
-;; Must manually install python side packages: $ sudo pip install -r requirements.txt
 ;; jedi:setup-keys and jedi:complete-on-dot must be set *before* jedi is loaded
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
