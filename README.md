@@ -7,7 +7,7 @@ Here are my Emacs customization files, which only compatible with Emacs 24. I've
 * [Debian Packages][]
 * [Ubuntu Packages][]
 * [Mac Universal Binary][]
-* [Via Homebrew on Mac][]
+* [Via Homebrew on Mac][]: ```brew install emacs --cocoa --srgb```
 
 ## Where to find Emacs packages? ##
 
@@ -34,6 +34,6 @@ git clone git://github.com/aethanyc/emacs-init.git ~/.emacs.d
 [Debian Packages]: http://emacs.naquadah.org/
 [Ubuntu Packages]: https://launchpad.net/~cassou/+archive/emacs
 [Mac Universal Binary]: http://emacsformacosx.com/
-[Via Homebrew on Mac]: http://wikemacs.org/index.php/Installing_Emacs_on_OS_X#Homebrew
+[Via Homebrew on Mac]: https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb
 [MELPA]: http://melpa.milkbox.net/
 [Marmalade]: http://marmalade-repo.org/
