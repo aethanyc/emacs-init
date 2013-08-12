@@ -4,9 +4,11 @@
 ;;; Keybindings
 
 ;; Settings for Mac
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
-(setq mac-right-option-modifier 'control)
+(when *is-a-mac*
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'none)
+  (setq mac-right-option-modifier 'control)
+  (setq mouse-wheel-scroll-amount '(1)))
 
 ;; Basic keys
 (global-set-key (kbd "M-m") 'ace-jump-mode)

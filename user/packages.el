@@ -56,7 +56,7 @@
 ;;; Packages initialization
 
 ;; Copy the value of paths from shell
-(when (member window-system '(mac ns))
+(when *is-a-mac*
   (exec-path-from-shell-initialize))
 
 ;; Markdown Mode

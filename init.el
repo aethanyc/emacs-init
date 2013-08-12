@@ -13,6 +13,8 @@
 (defvar user-save-file-directory (file-name-as-directory "~/.emacs-save-file")
   "This folder contains all the automatically generated files.")
 
+(defconst *is-a-mac* (eq system-type 'darwin))
+
 ;; The directory should be created. Otherwise the auto-generated files
 ;; cannot be saved.
 (unless (file-exists-p user-save-file-directory)
