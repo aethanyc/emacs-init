@@ -56,7 +56,7 @@
 ;;; Packages initialization
 
 ;; Copy the value of paths from shell
-(when *is-a-mac*
+(when (is-mac-p)
   (exec-path-from-shell-initialize))
 
 ;; Markdown Mode

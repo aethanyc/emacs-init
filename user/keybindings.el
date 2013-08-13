@@ -4,7 +4,7 @@
 ;;; Keybindings
 
 ;; Settings for Mac
-(when *is-a-mac*
+(when (is-mac-p)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'none)
   (setq mac-right-option-modifier 'control)
