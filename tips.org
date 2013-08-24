@@ -18,7 +18,8 @@ Emacs Tips and Useful links
 - Use `set-buffer-file-coding-system' (C-x RET f) to convert the current buffer to a coding system.
 - http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
 - http://www.reai.us/windows-emacs-encoding
-
+* Directory name and its name as a file
+- http://www.gnu.org/software/emacs/manual/html_node/elisp/Directory-Names.html#Directory-Names
 * Packages
 ** InteractivelyDoThings
 - http://emacswiki.org/emacs/InteractivelyDoThings

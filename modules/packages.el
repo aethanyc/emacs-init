@@ -75,7 +75,7 @@
 ;; Smex: an M-x enhancement
 (eval-after-load 'smex
   '(progn
-     (setq smex-save-file (concat user-save-file-directory "smex-items"))))
+     (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))))
 
 ;; Load Ergoemacs functions
 (require 'ergoemacs-functions)
@@ -97,9 +97,9 @@
 (eval-after-load 'projectile
   '(progn
      (setq projectile-cache-file
-           (concat user-save-file-directory "projectile.cache"))
+           (concat aethanyc-savefiles-dir "projectile.cache"))
      (setq projectile-known-projects-file
-           (concat user-save-file-directory "projectile-bookmarks.eld"))))
+           (concat aethanyc-savefiles-dir "projectile-bookmarks.eld"))))
 (projectile-global-mode 1)
 
 ;; Highlight-symbol Mode
@@ -113,7 +113,7 @@
 (ac-config-default)
 (ac-linum-workaround)
 (setq ac-comphist-file
-      (concat user-save-file-directory "ac-comphist.dat"))
+      (concat aethanyc-savefiles-dir "ac-comphist.dat"))
 (setq ac-use-menu-map t)
 (setq ac-auto-show-menu t)
 ;; Override ac-sources defined in (ac-config-default)
@@ -137,10 +137,10 @@
 ;; multiple-cursors
 (eval-after-load 'multiple-cursors
   '(progn
-     (setq mc/list-file (concat user-save-file-directory "mc-list"))))
+     (setq mc/list-file (concat aethanyc-savefiles-dir "mc-list"))))
 
 ;; back-button
-(setq pcache-directory user-save-file-directory)
+(setq pcache-directory aethanyc-savefiles-dir)
 (back-button-mode 1)
 (setq back-button-mode-lighter nil)
 ;; Replace push-mark so that the current position is always preserved

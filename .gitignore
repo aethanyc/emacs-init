@@ -1,6 +1,7 @@
-auto-save-list/*
-elpa/*
-tips.html
+auto-save-list
+elpa
+savefiles
 
 *.elc
 TAGS
+tips.html

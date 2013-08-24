@@ -7,7 +7,7 @@
 ;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
 (eval-after-load 'server
   '(progn
-     (setq server-auth-dir user-save-file-directory)))
+     (setq server-auth-dir aethanyc-savefiles-dir)))
 
 ;; Delete the seleted text when typing.
 (delete-selection-mode 1)
@@ -39,7 +39,7 @@
 
 ;; Save the last place of the cursor.
 (setq-default save-place t)
-(setq-default save-place-file (concat user-save-file-directory "save-place"))
+(setq-default save-place-file (concat aethanyc-savefiles-dir "save-place"))
 (require 'saveplace)
 
 ;; Stop creating those backup~ files
@@ -50,7 +50,7 @@
               auto-save-list-file-prefix nil)
 
 ;; Keep a list of recently opened files
-(setq-default recentf-save-file (concat user-save-file-directory "recentf"))
+(setq-default recentf-save-file (concat aethanyc-savefiles-dir "recentf"))
 (recentf-mode 1)
 
 ;; ido mode
@@ -59,7 +59,7 @@
 (setq-default ido-enable-flex-matching t)
 (setq-default ido-use-filename-at-point 'guess)
 (setq-default ido-max-prospects 8)
-(setq-default ido-save-directory-list-file (concat user-save-file-directory "ido-last"))
+(setq-default ido-save-directory-list-file (concat aethanyc-savefiles-dir "ido-last"))
 
 ;; Enable "Finding Files and URLs at Point."
 ;; http://www.gnu.org/software/emacs/manual/html_node/emacs/FFAP.html#FFAP
@@ -85,8 +85,8 @@
 ;;; Desktop Save Mode
 ;;; http://www.emacswiki.org/DeskTop#toc5
 
-(setq desktop-path (list user-save-file-directory))
-(setq desktop-dirname user-save-file-directory)
+(setq desktop-path (list aethanyc-savefiles-dir))
+(setq desktop-dirname aethanyc-savefiles-dir)
 (setq desktop-base-file-name "emacs-desktop")
 (setq desktop-base-lock-name "emacs-desktop-lock")
 
@@ -130,7 +130,7 @@
 ;;;-------------------------------------------------------------------
 ;;; Eshell
 
-(setq eshell-directory-name (concat user-save-file-directory "eshell/"))
+(setq eshell-directory-name (concat aethanyc-savefiles-dir "eshell/"))
 
 ;; Generate Eshell alias from bash alias
 ;; http://www.emacswiki.org/emacs/EshellAlias#toc8

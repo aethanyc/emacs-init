@@ -1,25 +1,34 @@
-;; -*- coding: utf-8-unix; -*-
+;;; init.el --- Entry point of Aethanyc's configuration
 
-;;;-------------------------------------------------------------------
-;;; Entry point of my customization files.
+;; Copyright (C) 2013 Ting-Yu Lin
 
-;; See this document for the difference of a directory name and its
-;; name as a file. In short, a directory name ends in a slash.
-;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Directory-Names.html#Directory-Names
+;; Author: Ting-Yu Lin <aethanyc@gmail.com>
+;; Keywords: convenience
+;; URL: https://github.com/aethanyc/emacs-init
 
-(defvar user-init-directory (file-name-as-directory (locate-user-emacs-file "user"))
-  "This folder contains all my customization files.")
+;; This file is not part of GNU Emacs.
 
-(defvar user-save-file-directory (file-name-as-directory "~/.emacs-save-file")
+;;; Commentary:
+
+;; This file sets default paths and requires various modules.
+
+;;; Code:
+
+(defvar aethanyc-modules-dir (locate-user-emacs-file "modules/")
+  "This folder contains all the customization files.")
+
+(defvar aethanyc-savefiles-dir (locate-user-emacs-file "savefiles/")
   "This folder contains all the automatically generated files.")
+
+;; Create directory if it does not exist.
+(unless (file-exists-p aethanyc-savefiles-dir)
+  (make-directory aethanyc-savefiles-dir))
+
+;; Add directories to Emacs's `load-path'.
+(add-to-list 'load-path aethanyc-modules-dir)
 
 (defun is-mac-p ()
   (eq system-type 'darwin))
-
-;; The directory should be created. Otherwise the auto-generated files
-;; cannot be saved.
-(unless (file-exists-p user-save-file-directory)
-  (make-directory user-save-file-directory))
 
 (defvar user-init-files '(
                           "packages"
@@ -39,9 +48,12 @@
 (set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-8)
 
-;; Add user init directory to `load-path' for convenience.
-(add-to-list 'load-path user-init-directory)
-
-;; Load all init files.
+;; Load all modules.
 (dolist (file user-init-files)
-  (load (concat user-init-directory file)))
+  (load (concat aethanyc-modules-dir file)))
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
+
+;;; init.el ends here
