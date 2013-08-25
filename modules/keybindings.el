@@ -34,14 +34,6 @@
 (define-key 'help-command "a" 'apropos)
 ;;(setq-default apropos-do-all t)
 
-;; Bind <apps> to the more powerful execute-extended-command - smex
-;; <apps> is the key to the right of the right windows key with a menu on it.
-(global-set-key (kbd "<menu>") 'smex)
-(global-set-key (kbd "<apps>") 'smex)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-<menu>") 'smex-major-mode-commands)
-(global-set-key (kbd "M-<apps>") 'smex-major-mode-commands)
-
 ;; Open user init files quickly
 (global-set-key (kbd "<f12>") 'find-user-init-file)
 

@@ -152,6 +152,19 @@
          ("M-A" . ace-jump-char-mode))
   :ensure ace-jump-mode)
 
+
+(use-package smex
+  :init (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))
+  :bind (("<menu>" . smex)
+         ("<apps>" . smex) ; the key with a menu icon
+         ("M-x" . smex)
+         ("s-a" . smex)
+         ("M-<menu>" . smex-major-mode-commands)
+         ("M-<apps>" . smex-major-mode-commands)
+         ("s-A" . smex-major-mode-commands))
+  :ensure smex)
+
+
 (provide 'aethanyc-editor)
 
 ;; Local Variables:

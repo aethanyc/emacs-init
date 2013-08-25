@@ -49,11 +49,6 @@
 ;; Undo Tree Mode
 (global-undo-tree-mode 1)
 
-;; Smex: an M-x enhancement
-(eval-after-load 'smex
-  '(progn
-     (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))))
-
 ;; Load Ergoemacs functions
 ; (require 'ergoemacs-functions)
 
