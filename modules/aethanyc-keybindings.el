@@ -1,7 +1,18 @@
-;; -*- coding: utf-8-unix; -*-
+;;; aethanyc-keybindings.el --- Useful Keybindings
 
-;;;-------------------------------------------------------------------
-;;; Keybindings
+;; Copyright (C) 2013 Ting-Yu Lin
+
+;; Author: Ting-Yu Lin <aethanyc@gmail.com>
+;; Keywords: convenience
+;; URL: https://github.com/aethanyc/emacs-init
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This file sets a lot of useful keybindings.
+
+;;; Code:
 
 ;; Basic keys
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -73,3 +84,12 @@
 
 ;; multiple-cursors
 (global-set-key (kbd "M-9") 'mc/mark-next-like-this)
+
+
+(provide 'aethanyc-keybindings)
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
+
+;;; aethanyc-keybindings.el ends here

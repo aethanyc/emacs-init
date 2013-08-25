@@ -32,7 +32,6 @@
                           "elisp-functions"
                           "mode-hooks"
                           "alias"
-                          "keybindings"
                           )
   "The names of my customization files.")
 
@@ -51,6 +50,8 @@
 (require 'aethanyc-ui)
 
 (require 'aethanyc-editor)
+
+(require 'aethanyc-keybindings)
 
 ;; Load all modules.
 (dolist (file user-init-files)
