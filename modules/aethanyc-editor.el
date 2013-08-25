@@ -153,6 +153,29 @@
   :ensure ace-jump-mode)
 
 
+(use-package magit
+  :bind ("C-c g" . magit-status)
+  :config
+  (progn
+    ;; https://github.com/purcell/emacs.d/blob/master/init-git.el
+    (defadvice magit-status (around magit-fullscreen activate)
+      "Show magit status in full frame."
+      (window-configuration-to-register :magit-fullscreen)
+      ad-do-it
+      (delete-other-windows))
+
+    (defun magit-quit-session ()
+      "Restores the previous window configuration and kills the magit buffer."
+      (interactive)
+      (kill-buffer)
+      (when (get-register :magit-fullscreen)
+        (ignore-errors
+          (jump-to-register :magit-fullscreen))))
+
+    (bind-key "q" 'magit-quit-session magit-status-mode-map))
+  :ensure magit)
+
+
 (use-package smex
   :init (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))
   :bind (("<menu>" . smex)

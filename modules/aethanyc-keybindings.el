@@ -63,7 +63,6 @@
 (global-set-key (kbd "C-M-f") 'back-button-global-forward)
 
 ;; C-c keybindings
-(global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-c J") 'join-line)
