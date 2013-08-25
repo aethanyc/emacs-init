@@ -88,6 +88,13 @@ A maximized frame still has window manager decorations."
 (bind-key "<f11>" 'aethanyc-toggle-frame-maximized)
 (bind-key "<M-f11>" 'aethanyc-toggle-frame-fullscreen)
 
+
+;; Window operations
+
+;; Prompt for a target window when there are more than 2.
+(require-package 'switch-window)
+(require 'switch-window)
+
 ;; Clean mode line
 ;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/
 ;; There is a diminish mode. But it requires the minor mode to be active to be diminished.
