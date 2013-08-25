@@ -47,18 +47,6 @@
 ;; (global-set-key (kbd "C-w") 'ergoemacs-cut-line-or-region)
 ;; (global-set-key (kbd "M-w") 'ergoemacs-copy-line-or-region)
 
-;; Using S-arrow keys to move between windows and frames.
-(require 'framemove)
-(windmove-default-keybindings)
-(setq framemove-hook-into-windmove t)
-
-;; Using C-S-arrow keys to move buffer to a new place.
-(require 'buffer-move)
-(global-set-key (kbd "<C-S-up>") 'buf-move-up)
-(global-set-key (kbd "<C-S-down>") 'buf-move-down)
-(global-set-key (kbd "<C-S-left>") 'buf-move-left)
-(global-set-key (kbd "<C-S-right>") 'buf-move-right)
-
 ;; Navigating forward and backward on marks
 (global-set-key (kbd "C-M-b") 'back-button-global-backward)
 (global-set-key (kbd "C-M-f") 'back-button-global-forward)

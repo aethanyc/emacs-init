@@ -97,6 +97,17 @@ A maximized frame still has window manager decorations."
   :bind ("M-o" . switch-window)
   :ensure switch-window)
 
+;; Using S-arrow keys to move between windows.
+(windmove-default-keybindings)
+
+;; Using C-S-arrow keys to move buffer to a new place.
+(use-package buffer-move
+  :bind (("<C-S-up>" . buf-move-up)
+         ("<C-S-down>" . buf-move-down)
+         ("<C-S-left>" . buf-move-left)
+         ("<C-S-right>" . buf-move-right))
+  :ensure buffer-move)
+
 
 ;; Clean mode line
 ;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/
