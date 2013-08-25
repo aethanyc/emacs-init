@@ -39,6 +39,13 @@ re-downloaded in order to locate PACKAGE."
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; Require packages that are essential to customization.
+
+;; To see the summary of all the personal keybinds:
+;; M-x describe-personal-keybindings
+(require-package 'bind-key)
+(require 'bind-key)
+
 (provide 'aethanyc-packages)
 
 ;; Local Variables:
