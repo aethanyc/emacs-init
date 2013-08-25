@@ -42,10 +42,6 @@
 ;;;-------------------------------------------------------------------
 ;;; Packages initialization
 
-;; Copy the value of paths from shell
-(when (is-mac-p)
-  (exec-path-from-shell-initialize))
-
 ;; Markdown Mode
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)

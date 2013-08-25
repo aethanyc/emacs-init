@@ -27,9 +27,6 @@
 ;; Add directories to Emacs's `load-path'.
 (add-to-list 'load-path aethanyc-modules-dir)
 
-(defun is-mac-p ()
-  (eq system-type 'darwin))
-
 (defvar user-init-files '(
                           "packages"
                           "elisp-functions"
@@ -49,6 +46,9 @@
 ;; (set-selection-coding-system 'utf-8)
 
 (require 'aethanyc-packages)
+
+(when (eq system-type 'darwin)
+    (require 'aethanyc-osx))
 
 ;; Load all modules.
 (dolist (file user-init-files)

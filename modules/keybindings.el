@@ -3,13 +3,6 @@
 ;;;-------------------------------------------------------------------
 ;;; Keybindings
 
-;; Settings for Mac
-(when (is-mac-p)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'none)
-  (setq mac-right-option-modifier 'control)
-  (setq mouse-wheel-scroll-amount '(1)))
-
 ;; Basic keys
 (global-set-key (kbd "M-m") 'ace-jump-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)

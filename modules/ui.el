@@ -4,7 +4,7 @@
 ;;; Display Settings
 
 (defvar my-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
-(defvar my-font-size (if (is-mac-p) 13 12))
+(defvar my-font-size (if (eq system-type 'darwin) 13 12))
 
 (defun set-my-font (&optional frame)
   (set-frame-font (format "%s-%d" (first my-fonts) my-font-size) nil t))
