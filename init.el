@@ -48,6 +48,8 @@
 (set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-8)
 
+(require 'aethanyc-packages)
+
 ;; Load all modules.
 (dolist (file user-init-files)
   (load (concat aethanyc-modules-dir file)))
