@@ -51,11 +51,11 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Set keybindings to the functions in ErgoEmacs's functions.el
-(global-set-key (kbd "C-z") 'ergoemacs-toggle-letter-case)
-(global-set-key (kbd "M-6") 'ergoemacs-select-current-line)
-(global-set-key (kbd "M-7") 'ergoemacs-select-current-block)
-(global-set-key (kbd "C-w") 'ergoemacs-cut-line-or-region)
-(global-set-key (kbd "M-w") 'ergoemacs-copy-line-or-region)
+;; (global-set-key (kbd "C-z") 'ergoemacs-toggle-letter-case)
+;; (global-set-key (kbd "M-6") 'ergoemacs-select-current-line)
+;; (global-set-key (kbd "M-7") 'ergoemacs-select-current-block)
+;; (global-set-key (kbd "C-w") 'ergoemacs-cut-line-or-region)
+;; (global-set-key (kbd "M-w") 'ergoemacs-copy-line-or-region)
 
 ;; Using S-arrow keys to move between windows and frames.
 (require 'framemove)

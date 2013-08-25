@@ -10,7 +10,7 @@
                         auto-complete
                         back-button
                         buffer-move
-                        ergoemacs-mode
+                        ; ergoemacs-mode
                         exec-path-from-shell
                         expand-region
                         flymake-cursor
@@ -61,7 +61,7 @@
      (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))))
 
 ;; Load Ergoemacs functions
-(require 'ergoemacs-functions)
+; (require 'ergoemacs-functions)
 
 ;; Helm mode
 (require 'helm-config)
