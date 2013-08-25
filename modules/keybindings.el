@@ -68,9 +68,6 @@
 ;; Auto Complete Mode
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 
-;; Set redo key
-(global-set-key (kbd "C-=") 'undo-tree-redo)
-
 ;; Expand-region
 (global-set-key (kbd "M-8") 'er/expand-region)
 

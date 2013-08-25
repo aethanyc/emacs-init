@@ -46,9 +46,6 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)
 
-;; Undo Tree Mode
-(global-undo-tree-mode 1)
-
 ;; Load Ergoemacs functions
 ; (require 'ergoemacs-functions)
 

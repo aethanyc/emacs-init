@@ -165,6 +165,12 @@
   :ensure smex)
 
 
+(use-package undo-tree
+  :init (global-undo-tree-mode 1)
+  :bind ("C-=" . undo-tree-redo)
+  :ensure undo-tree)
+
+
 (provide 'aethanyc-editor)
 
 ;; Local Variables:
