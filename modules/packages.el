@@ -46,12 +46,6 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode) t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode) t)
 
-;; Ace Jump Mode
-(eval-after-load 'ace-jump-mode
-  '(progn
-     (setq ace-jump-mode-gray-background nil
-           ace-jump-mode-case-fold nil)))
-
 ;; Undo Tree Mode
 (global-undo-tree-mode 1)
 

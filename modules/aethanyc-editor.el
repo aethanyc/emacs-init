@@ -144,6 +144,14 @@
 ;; alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;"
 (setq eshell-aliases-file (concat user-emacs-directory "eshell-alias"))
 
+
+(use-package ace-jump-mode
+  :init (setq ace-jump-mode-gray-background nil
+              ace-jump-mode-case-fold nil)
+  :bind (("M-a" . ace-jump-word-mode)
+         ("M-A" . ace-jump-char-mode))
+  :ensure ace-jump-mode)
+
 (provide 'aethanyc-editor)
 
 ;; Local Variables:

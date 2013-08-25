@@ -4,7 +4,6 @@
 ;;; Keybindings
 
 ;; Basic keys
-(global-set-key (kbd "M-m") 'ace-jump-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; Frame operations
