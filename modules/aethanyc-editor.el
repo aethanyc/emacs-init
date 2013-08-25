@@ -1,7 +1,18 @@
-;; -*- coding: utf-8-unix; -*-
+;;; aethanyc-editor.el --- Enhance editing experience
 
-;;;-------------------------------------------------------------------
-;;; Editor
+;; Copyright (C) 2013 Ting-Yu Lin
+
+;; Author: Ting-Yu Lin <aethanyc@gmail.com>
+;; Keywords: convenience
+;; URL: https://github.com/aethanyc/emacs-init
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This file enhances editing experience.
+
+;;; Code:
 
 ;; Solution to the problem "server directory is unsafe on Windows."
 ;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
@@ -60,10 +71,6 @@
 (setq-default ido-use-filename-at-point 'guess)
 (setq-default ido-max-prospects 8)
 (setq-default ido-save-directory-list-file (concat aethanyc-savefiles-dir "ido-last"))
-
-;; Enable "Finding Files and URLs at Point."
-;; http://www.gnu.org/software/emacs/manual/html_node/emacs/FFAP.html#FFAP
-;; (require 'ffap)
 
 ;; Unique buffer name
 (require 'uniquify)
@@ -136,3 +143,11 @@
 ;; http://www.emacswiki.org/emacs/EshellAlias#toc8
 ;; alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;"
 (setq eshell-aliases-file (concat user-emacs-directory "eshell-alias"))
+
+(provide 'aethanyc-editor)
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
+
+;;; aethanyc-editor.el ends here

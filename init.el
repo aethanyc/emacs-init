@@ -30,7 +30,6 @@
 (defvar user-init-files '(
                           "packages"
                           "elisp-functions"
-                          "editor"
                           "mode-hooks"
                           "alias"
                           "keybindings"
@@ -50,6 +49,8 @@
     (require 'aethanyc-osx))
 
 (require 'aethanyc-ui)
+
+(require 'aethanyc-editor)
 
 ;; Load all modules.
 (dolist (file user-init-files)
