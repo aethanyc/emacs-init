@@ -43,8 +43,9 @@
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
 ;; Use zenburn theme.
-(require-package 'zenburn-theme)
-(load-theme 'zenburn t)
+(use-package zenburn-theme
+  :init (load-theme 'zenburn t)
+  :ensure zenburn-theme)
 
 ;; Turn on highlight matched parentheses.
 (show-paren-mode 1)
@@ -92,8 +93,10 @@ A maximized frame still has window manager decorations."
 ;; Window operations
 
 ;; Prompt for a target window when there are more than 2.
-(require-package 'switch-window)
-(require 'switch-window)
+(use-package switch-window
+  :bind ("M-o" . switch-window)
+  :ensure switch-window)
+
 
 ;; Clean mode line
 ;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/

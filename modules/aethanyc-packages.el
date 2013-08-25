@@ -20,31 +20,21 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
-;; On-demand installation of packages
-;; From https://github.com/purcell/emacs.d/blob/master/init-elpa.el
-(defun require-package (package &optional min-version no-refresh)
-  "Install given PACKAGE, optionally requiring MIN-VERSION.
-If NO-REFRESH is non-nil, the available package lists will not be
-re-downloaded in order to locate PACKAGE."
-  (if (package-installed-p package min-version)
-      t
-    (if (or (assoc package package-archive-contents) no-refresh)
-        (package-install package)
-      (progn
-        (package-refresh-contents)
-        (require-package package min-version t)))))
-
 ;; Emacs will activated packages after reading the init file, but it is too
 ;; late. We disable it and call (package-initialize) ourselves.
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;; Require packages that are essential to customization.
+
+;; Require use-package that are essential to customization.
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;; To see the summary of all the personal keybinds:
 ;; M-x describe-personal-keybindings
-(require-package 'bind-key)
-(require 'bind-key)
+(use-package bind-key
+  :ensure bind-key)
 
 (provide 'aethanyc-packages)
 

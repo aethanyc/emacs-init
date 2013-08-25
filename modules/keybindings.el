@@ -16,7 +16,6 @@
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-4") 'ctl-x-4-prefix)
 (global-set-key (kbd "M-5") 'ctl-x-5-prefix)
-(global-set-key (kbd "M-o") 'other-window)
 
 ;; Use regex searches by default.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
