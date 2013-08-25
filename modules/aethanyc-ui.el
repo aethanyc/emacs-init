@@ -63,6 +63,31 @@
 ;; Put ediff control panel in single frame.
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
+
+;; Frame operations
+
+(defun aethanyc-toggle-frame-fullscreen-state (parameter)
+  "Helper function to set the fullscreen parameter of a frame."
+  (set-frame-parameter nil 'fullscreen
+                       (if (eq (frame-parameter nil 'fullscreen) parameter)
+                           nil
+                         parameter)))
+
+(defun aethanyc-toggle-frame-maximized ()
+  "Toggle the frame state between maximized and windowed.
+
+A maximized frame still has window manager decorations."
+  (interactive)
+  (aethanyc-toggle-frame-fullscreen-state 'maximized))
+
+(defun aethanyc-toggle-frame-fullscreen ()
+  "Toggle the frame state between fullscreen and windowed."
+  (interactive)
+  (aethanyc-toggle-frame-fullscreen-state 'fullboth))
+
+(bind-key "<f11>" 'aethanyc-toggle-frame-maximized)
+(bind-key "<M-f11>" 'aethanyc-toggle-frame-fullscreen)
+
 ;; Clean mode line
 ;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/
 ;; There is a diminish mode. But it requires the minor mode to be active to be diminished.
