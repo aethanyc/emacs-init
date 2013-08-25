@@ -1,7 +1,18 @@
-;; -*- coding: utf-8-unix; -*-
+;;; aethanyc-ui.el --- UI tweaks
 
-;;;-------------------------------------------------------------------
-;;; Display Settings
+;; Copyright (C) 2013 Ting-Yu Lin
+
+;; Author: Ting-Yu Lin <aethanyc@gmail.com>
+;; Keywords: convenience
+;; URL: https://github.com/aethanyc/emacs-init
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This file tweaks UI such as font, frame, theme, mode line, etc.
+
+;;; Code:
 
 (defvar my-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
 (defvar my-font-size (if (eq system-type 'darwin) 13 12))
@@ -17,23 +28,22 @@
 ;; We have to set font again after the frame is created.
 (add-hook 'after-make-frame-functions 'set-my-font)
 
-;; Set frame and UI properties.
 (setq-default frame-title-format '("%b" (buffer-file-name ": %f")))
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (blink-cursor-mode -1)
 (scroll-bar-mode -1)
-(setq-default inhibit-startup-screen t
-              visible-bell t)
+(setq inhibit-startup-screen t)
+(setq visible-bell t)
 
-;; Prevent cursor going into minibuffer prompt
-;; Same as:
+;; Prevent cursor going into minibuffer prompt. This is the same as:
 ;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
 ;; Select "Don't enter" option and save.
 (setq minibuffer-prompt-properties
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
 ;; Use zenburn theme.
+(require-package 'zenburn-theme)
 (load-theme 'zenburn t)
 
 ;; Turn on highlight matched parentheses.
@@ -93,3 +103,11 @@ want to use in the mode line. See minor-mode-alist for the original alist.")
         (setq mode-name mode-str)))))
 
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
+
+(provide 'aethanyc-ui)
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
+
+;;; aethanyc-ui.el ends here

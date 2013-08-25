@@ -30,7 +30,6 @@
 (defvar user-init-files '(
                           "packages"
                           "elisp-functions"
-                          "ui"
                           "editor"
                           "mode-hooks"
                           "alias"
@@ -49,6 +48,8 @@
 
 (when (eq system-type 'darwin)
     (require 'aethanyc-osx))
+
+(require 'aethanyc-ui)
 
 ;; Load all modules.
 (dolist (file user-init-files)
