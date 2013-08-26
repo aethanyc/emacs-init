@@ -30,7 +30,6 @@
 (defvar user-init-files '(
                           "packages"
                           "mode-hooks"
-                          "alias"
                           )
   "The names of my customization files.")
 
@@ -53,6 +52,8 @@
 (require 'aethanyc-editor)
 
 (require 'aethanyc-keybindings)
+
+(require 'aethanyc-alias)
 
 ;; Load all modules.
 (dolist (file user-init-files)
