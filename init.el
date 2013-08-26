@@ -29,7 +29,6 @@
 
 (defvar user-init-files '(
                           "packages"
-                          "elisp-functions"
                           "mode-hooks"
                           "alias"
                           )
@@ -43,6 +42,8 @@
 ;; (set-selection-coding-system 'utf-8)
 
 (require 'aethanyc-packages)
+
+(require 'aethanyc-core)
 
 (when (eq system-type 'darwin)
     (require 'aethanyc-osx))

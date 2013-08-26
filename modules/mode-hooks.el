@@ -23,7 +23,7 @@
 (defun my-emacs-lisp-mode-hook ()
   (my-lisp-mode-common-hook)
   (my-lisp-mode-keybindings-hook)
-  (local-set-key (kbd "M-g") 'find-function-or-variable-at-point))
+  (local-set-key (kbd "M-g") 'aethanyc-find-function-or-variable-at-point))
 
 (defun my-lisp-keybindings ()
   (local-set-key (kbd "C-c v") 'eval-buffer)
@@ -142,7 +142,7 @@
 ;;; Ibuffer Mode
 
 (defun my-ibuffer-mode-hook ()
-  (local-set-key (kbd "C-x C-f") 'ibuffer-ido-find-file))
+  (local-set-key (kbd "C-x C-f") 'aethanyc-ibuffer-ido-find-file))
 
 (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
 
@@ -174,4 +174,4 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
-(add-hook 'after-save-hook 'byte-compile-current-buffer)
+(add-hook 'after-save-hook 'aethanyc-byte-compile-current-buffer)

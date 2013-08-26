@@ -19,8 +19,8 @@
 
 ;; Frame operations
 (global-set-key (kbd "M-`") 'other-frame)
-(global-set-key (kbd "M-0") 'delete-window-or-frame)
-(define-key ctl-x-map "0" 'delete-window-or-frame)
+(global-set-key (kbd "M-0") 'aethanyc-delete-window-or-frame)
+(define-key ctl-x-map "0" 'aethanyc-delete-window-or-frame)
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
@@ -46,7 +46,7 @@
 ;;(setq-default apropos-do-all t)
 
 ;; Open user init files quickly
-(global-set-key (kbd "<f12>") 'find-user-init-file)
+(global-set-key (kbd "<f12>") 'aethanyc-find-user-init-file)
 
 ;; `hippie-expand' is more powerful than dabbrev-expand
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -66,7 +66,7 @@
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-c J") 'join-line)
-(global-set-key (kbd "C-c j") 'join-next-line)
+(global-set-key (kbd "C-c j") 'aethanyc-join-next-line)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 
 ;; Highlight symbol

@@ -1,15 +1,26 @@
-;; -*- coding: utf-8-unix; -*-
+;;; aethanyc-core.el --- Core utility functions
 
-;;;-------------------------------------------------------------------
-;;; Functions
+;; Copyright (C) 2013 Ting-Yu Lin
 
-(defun join-next-line ()
+;; Author: Ting-Yu Lin <aethanyc@gmail.com>
+;; Keywords: convenience
+;; URL: https://github.com/aethanyc/emacs-init
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This file hosts core utility functions.
+
+;;; Code:
+
+(defun aethanyc-join-next-line ()
   "Join the next line with current line."
   (interactive)
   (join-line 1))
 
 ;; http://emacswiki.org/emacs/InteractivelyDoThings#toc16
-(defun ibuffer-ido-find-file ()
+(defun aethanyc-ibuffer-ido-find-file ()
   "Like `ido-find-file', but default to the directory of the buffer at point."
   (interactive
    (let ((default-directory (let ((buf (ibuffer-current-buffer)))
@@ -20,21 +31,21 @@
      (ido-find-file-in-dir default-directory))))
 
 ;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
-(defun byte-compile-current-buffer ()
+(defun aethanyc-byte-compile-current-buffer ()
   "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."
   (interactive)
   (when (and (eq major-mode 'emacs-lisp-mode)
              (file-exists-p (byte-compile-dest-file buffer-file-name)))
     (byte-compile-file buffer-file-name)))
 
-(defun find-user-init-file ()
+(defun aethanyc-find-user-init-file ()
   "Open user init file quickly."
   (interactive)
   (find-file user-init-file))
 
 ;; This is adapted from `delete-window' in:
 ;; http://www.emacswiki.org/emacs/frame-cmds.el
-(defun delete-window-or-frame ()
+(defun aethanyc-delete-window-or-frame ()
   "Remove `select-window' from the display. If it is the only one
 in its frame, then `delete-frame' too."
   (interactive)
@@ -43,7 +54,7 @@ in its frame, then `delete-frame' too."
 
 ;; This is adapted from `find-function-or-variable-at-point' in:
 ;; http://www.emacswiki.org/emacs/find-func-extension.el
-(defun find-function-or-variable-at-point (&optional other-window)
+(defun aethanyc-find-function-or-variable-at-point (&optional other-window)
   "Find function or variable at point."
   (interactive "P")
   (let ((vsymb (variable-at-point))
@@ -59,3 +70,11 @@ in its frame, then `delete-frame' too."
            (funcall (if other-window 'find-function-other-window 'find-function)
                     fsymb))
           (t (message "Neither function nor variable at point.")))))
+
+(provide 'aethanyc-core)
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
+
+;;; aethanyc-core.el ends here
