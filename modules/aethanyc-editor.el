@@ -184,6 +184,17 @@
   :ensure magit)
 
 
+(use-package projectile
+  :init
+  (progn
+    (setq projectile-cache-file
+          (expand-file-name "projectile.cache" aethanyc-savefiles-dir)
+          projectile-known-projects-file
+          (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
+    (projectile-global-mode 1))
+  :ensure projectile)
+
+
 (use-package smex
   :init (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))
   :bind (("<menu>" . smex)

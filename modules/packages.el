@@ -62,15 +62,6 @@
         (tmm-menubar . nil)))
 (helm-mode 1)
 
-;; Projectile Mode
-(eval-after-load 'projectile
-  '(progn
-     (setq projectile-cache-file
-           (concat aethanyc-savefiles-dir "projectile.cache"))
-     (setq projectile-known-projects-file
-           (concat aethanyc-savefiles-dir "projectile-bookmarks.eld"))))
-(projectile-global-mode 1)
-
 ;; Highlight-symbol Mode
 (eval-after-load 'highlight-symbol
   '(progn
