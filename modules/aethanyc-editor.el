@@ -153,6 +153,14 @@
   :ensure ace-jump-mode)
 
 
+(use-package gitconfig-mode
+  :ensure gitconfig-mode)
+
+
+(use-package gitignore-mode
+  :ensure gitignore-mode)
+
+
 (use-package magit
   :bind ("C-c g" . magit-status)
   :config
