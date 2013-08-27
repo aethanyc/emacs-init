@@ -184,6 +184,10 @@
   :ensure magit)
 
 
+(use-package markdown-mode
+  :ensure markdown-mode)
+
+
 (use-package projectile
   :init
   (progn
