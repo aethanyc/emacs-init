@@ -64,14 +64,6 @@
 (setq-default recentf-save-file (concat aethanyc-savefiles-dir "recentf"))
 (recentf-mode 1)
 
-;; ido mode
-(ido-mode 1)
-(ido-ubiquitous-mode 1)
-(setq-default ido-enable-flex-matching t)
-(setq-default ido-use-filename-at-point 'guess)
-(setq-default ido-max-prospects 8)
-(setq-default ido-save-directory-list-file (concat aethanyc-savefiles-dir "ido-last"))
-
 ;; Unique buffer name
 (require 'uniquify)
 (setq-default uniquify-buffer-name-style 'forward)
@@ -159,6 +151,33 @@
 
 (use-package gitignore-mode
   :ensure gitignore-mode)
+
+
+(use-package ido
+  :init
+  (progn
+    (setq ido-create-new-buffer 'always
+          ido-enable-flex-matching t
+          ido-use-filename-at-point 'guess
+          ido-use-virtual-buffers t)
+    (setq ido-save-directory-list-file
+          (expand-file-name "ido-last" aethanyc-savefiles-dir))
+    (ido-mode 1)
+    (ido-everywhere 1)))
+
+
+(use-package ido-ubiquitous
+  :init (ido-ubiquitous-mode 1)
+  :ensure ido-ubiquitous)
+
+
+(use-package flx-ido
+  :init
+  (progn
+    ;; Disable ido faces to see flx highlights.
+    (setq ido-use-faces nil)
+    (flx-ido-mode 1))
+  :ensure flx-ido)
 
 
 (use-package magit
