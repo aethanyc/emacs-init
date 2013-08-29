@@ -58,10 +58,6 @@
 ;; (global-set-key (kbd "C-w") 'ergoemacs-cut-line-or-region)
 ;; (global-set-key (kbd "M-w") 'ergoemacs-copy-line-or-region)
 
-;; Navigating forward and backward on marks
-(global-set-key (kbd "C-M-b") 'back-button-global-backward)
-(global-set-key (kbd "C-M-f") 'back-button-global-forward)
-
 ;; C-c keybindings
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c i") 'helm-imenu)

@@ -145,6 +145,20 @@
   :ensure ace-jump-mode)
 
 
+;; Although back-button is available in melpa, it depends on too many
+;; packages that are not strictly required. So I add it directly to
+;; the repository.
+;; https://raw.github.com/rolandwalker/back-button/master/back-button.el
+(use-package back-button
+  :init
+  (progn
+    (defalias 'push-mark 'back-button-push-mark-local-and-global
+      "Replace push-mark to preserve current position before jumping around.")
+    (bind-key* "C-M-b" 'back-button-global-backward)
+    (bind-key* "C-M-f" 'back-button-global-forward)
+    (back-button-mode 1)))
+
+
 (use-package gitconfig-mode
   :ensure gitconfig-mode)
 
