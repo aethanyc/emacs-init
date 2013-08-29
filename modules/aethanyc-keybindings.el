@@ -65,9 +65,6 @@
 (global-set-key (kbd "C-c j") 'aethanyc-join-next-line)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 
-;; Auto Complete Mode
-(global-set-key (kbd "<C-tab>") 'auto-complete)
-
 ;; Expand-region
 (global-set-key (kbd "M-8") 'er/expand-region)
 

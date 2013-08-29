@@ -155,6 +155,33 @@
   :ensure ack-and-a-half)
 
 
+(use-package auto-complete
+  :init
+  (progn
+    (ac-linum-workaround)
+    (setq ac-use-menu-map t
+          ac-auto-show-menu t)
+    (setq ac-comphist-file
+          (expand-file-name "ac-comphist.dat" aethanyc-savefiles-dir))
+    (setq ac-modes (append ac-modes
+                           '(git-commit-mode
+                             html-mode
+                             markdown-mode
+                             nxml-mode
+                             org-mode
+                             sh-mode
+                             text-mode)))
+    (require 'auto-complete-config)
+    (ac-config-default)            ; Enables global-auto-complete-mode
+    (setq-default ac-sources
+                  '(ac-source-abbrev
+                    ac-source-dictionary
+                    ac-source-words-in-same-mode-buffers
+                    ac-source-words-in-all-buffer)))
+  :bind ("<C-tab>" . auto-complete)
+  :ensure auto-complete)
+
+
 ;; Although back-button is available in melpa, it depends on too many
 ;; packages that are not strictly required. So I add it directly to
 ;; the repository.
