@@ -65,6 +65,18 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
+(use-package highlight-symbol
+  :config
+  (progn
+    (setq highlight-symbol-on-navigation-p t)
+    (set-face-attribute 'highlight-symbol-face nil :background "gray35"))
+  :bind (("<C-f3>" . highlight-symbol-at-point)
+         ("<f3>" . highlight-symbol-next)
+         ("<S-f3>" . highlight-symbol-prev)
+         ("<M-S-f3>" . highlight-symbol-query-replace))
+  :ensure highlight-symbol)
+
+
 ;; Frame operations
 
 (defun aethanyc-toggle-frame-fullscreen-state (parameter)
