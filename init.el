@@ -40,6 +40,9 @@
 (set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-8)
 
+;; Use common-lisp utilities.
+(require 'cl)
+
 (require 'aethanyc-packages)
 
 (require 'aethanyc-core)
