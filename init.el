@@ -33,7 +33,6 @@ throught MELPA.")
 (add-to-list 'load-path aethanyc-site-lisp-dir)
 
 (defvar user-init-files '(
-                          "packages"
                           "mode-hooks"
                           )
   "The names of my customization files.")

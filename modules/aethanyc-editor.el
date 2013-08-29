@@ -158,7 +158,13 @@
 (use-package auto-complete
   :init
   (progn
-    (ac-linum-workaround)
+    (require 'auto-complete-config)
+    (ac-config-default)            ; Enables global-auto-complete-mode
+    (setq-default ac-sources
+                  '(ac-source-abbrev
+                    ac-source-dictionary
+                    ac-source-words-in-same-mode-buffers
+                    ac-source-words-in-all-buffer))    (ac-linum-workaround)
     (setq ac-use-menu-map t
           ac-auto-show-menu t)
     (setq ac-comphist-file
@@ -170,14 +176,7 @@
                              nxml-mode
                              org-mode
                              sh-mode
-                             text-mode)))
-    (require 'auto-complete-config)
-    (ac-config-default)            ; Enables global-auto-complete-mode
-    (setq-default ac-sources
-                  '(ac-source-abbrev
-                    ac-source-dictionary
-                    ac-source-words-in-same-mode-buffers
-                    ac-source-words-in-all-buffer)))
+                             text-mode))))
   :bind ("<C-tab>" . auto-complete)
   :ensure auto-complete)
 
