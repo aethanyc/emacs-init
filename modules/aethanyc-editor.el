@@ -221,6 +221,12 @@
   :ensure markdown-mode)
 
 
+(use-package paredit
+  :bind (("M-B" . paredit-backward)
+         ("M-F" . paredit-forward))
+  :ensure paredit)
+
+
 (use-package projectile
   :init
   (progn
