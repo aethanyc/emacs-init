@@ -140,8 +140,8 @@
 (use-package ace-jump-mode
   :init (setq ace-jump-mode-gray-background nil
               ace-jump-mode-case-fold nil)
-  :bind (("M-a" . ace-jump-word-mode)
-         ("M-A" . ace-jump-char-mode))
+  :bind (("M-m" . ace-jump-word-mode)
+         ("M-M" . ace-jump-char-mode))
   :ensure ace-jump-mode)
 
 
