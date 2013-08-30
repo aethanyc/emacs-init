@@ -74,6 +74,11 @@
   :ensure rainbow-delimiters)
 
 
+;; Sometimes it is useful to color text that represent colors.
+(use-package rainbow-mode
+  :ensure rainbow-mode)
+
+
 ;; Frame operations
 
 (defun aethanyc-toggle-frame-fullscreen-state (parameter)
