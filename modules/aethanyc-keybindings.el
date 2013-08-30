@@ -45,9 +45,10 @@
 (bind-key "M-/" 'hippie-expand)
 
 ;; C-c keybindings
-(bind-key "C-c J" 'join-line)
-(bind-key "C-c j" 'aethanyc-join-next-line)
 (bind-key "C-c r" 'revert-buffer)
+
+;; M-^ is join-line
+(bind-key "C-^" 'aethanyc-join-next-line)
 
 ;; Expand-region
 (bind-key "M-8" 'er/expand-region)
