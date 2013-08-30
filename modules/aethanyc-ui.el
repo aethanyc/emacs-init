@@ -47,14 +47,6 @@
   :init (load-theme 'zenburn t)
   :ensure zenburn-theme)
 
-;; Turn on highlight matched parentheses.
-(show-paren-mode 1)
-(set-face-attribute 'show-paren-match nil :inverse-video t)
-(set-face-attribute 'show-paren-mismatch nil :inverse-video t)
-
-;; Turn on highlighting current line.
-;; (global-hl-line-mode 1)
-
 ;; Display line and column number in the status bar.
 (column-number-mode 1)
 
@@ -75,6 +67,11 @@
          ("<S-f3>" . highlight-symbol-prev)
          ("<M-S-f3>" . highlight-symbol-query-replace))
   :ensure highlight-symbol)
+
+
+(use-package rainbow-delimiters
+  :init (global-rainbow-delimiters-mode)
+  :ensure rainbow-delimiters)
 
 
 ;; Frame operations
