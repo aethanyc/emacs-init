@@ -260,11 +260,9 @@
 (use-package paredit
   :bind (("M-B" . paredit-backward)
          ("M-F" . paredit-forward))
+  :config (use-package paredit-menu
+            :ensure paredit-menu)
   :ensure paredit)
-
-
-(use-package paredit-menu
-  :ensure paredit-menu)
 
 
 (use-package projectile
