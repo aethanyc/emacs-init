@@ -263,6 +263,10 @@
   :ensure paredit)
 
 
+(use-package paredit-menu
+  :ensure paredit-menu)
+
+
 (use-package projectile
   :init
   (progn
