@@ -126,16 +126,6 @@
 ;;                      (desktop-restore-session)))))
 
 
-;;;-------------------------------------------------------------------
-;;; Eshell
-
-(setq eshell-directory-name (concat aethanyc-savefiles-dir "eshell/"))
-
-;; Generate Eshell alias from bash alias
-;; http://www.emacswiki.org/emacs/EshellAlias#toc8
-;; alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;"
-(setq eshell-aliases-file (concat user-emacs-directory "eshell-alias"))
-
 
 (use-package ace-jump-mode
   :init (setq ace-jump-mode-gray-background nil
@@ -193,6 +183,15 @@
     (bind-key* "C-M-b" 'back-button-global-backward)
     (bind-key* "C-M-f" 'back-button-global-forward)
     (back-button-mode 1)))
+
+
+(use-package eshell
+  :init
+  (progn
+    (setq eshell-directory-name
+          (expand-file-name "eshell/" aethanyc-savefiles-dir))
+    (bind-key "C-x m" 'eshell)
+    (bind-key "C-x M" (lambda () (interactive) (eshell t)))))
 
 
 (use-package gitconfig-mode

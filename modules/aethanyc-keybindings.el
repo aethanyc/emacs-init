@@ -35,12 +35,6 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "C-M-%") 'query-replace)
 
-;; Start an eshell or switch to it if there is one.
-(global-set-key (kbd "C-x m") 'eshell)
-
-;; Start a new eshell even if there is an active one.
-(global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
-
 ;; Apropos more info.
 (define-key 'help-command "a" 'apropos)
 ;;(setq-default apropos-do-all t)
