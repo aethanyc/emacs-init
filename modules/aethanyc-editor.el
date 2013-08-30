@@ -194,6 +194,11 @@
     (bind-key "C-x M" (lambda () (interactive) (eshell t)))))
 
 
+(use-package expand-region
+  :bind ("M-n" . er/expand-region)
+  :ensure expand-region)
+
+
 (use-package gitconfig-mode
   :ensure gitconfig-mode)
 

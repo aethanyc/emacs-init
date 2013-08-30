@@ -50,9 +50,6 @@
 ;; M-^ is join-line
 (bind-key "C-^" 'aethanyc-join-next-line)
 
-;; Expand-region
-(bind-key "M-8" 'er/expand-region)
-
 
 (provide 'aethanyc-keybindings)
 
