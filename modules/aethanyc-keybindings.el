@@ -15,55 +15,42 @@
 ;;; Code:
 
 ;; Basic keys
-(global-set-key (kbd "RET") 'newline-and-indent)
+(bind-key "RET" 'newline-and-indent)
 
 ;; Frame operations
-(global-set-key (kbd "M-`") 'other-frame)
-(global-set-key (kbd "M-0") 'aethanyc-delete-window-or-frame)
-(define-key ctl-x-map "0" 'aethanyc-delete-window-or-frame)
-(global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-vertically)
-(global-set-key (kbd "M-3") 'split-window-horizontally)
-(global-set-key (kbd "M-4") 'ctl-x-4-prefix)
-(global-set-key (kbd "M-5") 'ctl-x-5-prefix)
+(bind-key "M-`" 'other-frame)
+(bind-key "M-0" 'aethanyc-delete-window-or-frame)
+(bind-key "0" 'aethanyc-delete-window-or-frame ctl-x-map)
+(bind-key "M-1" 'delete-other-windows)
+(bind-key "M-2" 'split-window-vertically)
+(bind-key "M-3" 'split-window-horizontally)
+(bind-key "M-4" 'ctl-x-4-prefix)
+(bind-key "M-5" 'ctl-x-5-prefix)
 
 ;; Use regex searches by default.
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "M-%") 'query-replace-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
-(global-set-key (kbd "C-M-%") 'query-replace)
+(bind-key "C-s" 'isearch-forward-regexp)
+(bind-key "C-r" 'isearch-backward-regexp)
+(bind-key "M-%" 'query-replace-regexp)
+(bind-key "C-M-s" 'isearch-forward)
+(bind-key "C-M-r" 'isearch-backward)
+(bind-key "C-M-%" 'query-replace)
 
 ;; Apropos more info.
-(define-key 'help-command "a" 'apropos)
-;;(setq-default apropos-do-all t)
+(bind-key "a" 'apropos help-map)
 
 ;; Open user init files quickly
-(global-set-key (kbd "<f12>") 'aethanyc-find-user-init-file)
+(bind-key "<f12>" 'aethanyc-find-user-init-file)
 
 ;; `hippie-expand' is more powerful than dabbrev-expand
-(global-set-key (kbd "M-/") 'hippie-expand)
-
-;; Set keybindings to the functions in ErgoEmacs's functions.el
-;; (global-set-key (kbd "C-z") 'ergoemacs-toggle-letter-case)
-;; (global-set-key (kbd "M-6") 'ergoemacs-select-current-line)
-;; (global-set-key (kbd "M-7") 'ergoemacs-select-current-block)
-;; (global-set-key (kbd "C-w") 'ergoemacs-cut-line-or-region)
-;; (global-set-key (kbd "M-w") 'ergoemacs-copy-line-or-region)
+(bind-key "M-/" 'hippie-expand)
 
 ;; C-c keybindings
-(global-set-key (kbd "C-c h") 'helm-mini)
-(global-set-key (kbd "C-c i") 'helm-imenu)
-(global-set-key (kbd "C-c J") 'join-line)
-(global-set-key (kbd "C-c j") 'aethanyc-join-next-line)
-(global-set-key (kbd "C-c r") 'revert-buffer)
+(bind-key "C-c J" 'join-line)
+(bind-key "C-c j" 'aethanyc-join-next-line)
+(bind-key "C-c r" 'revert-buffer)
 
 ;; Expand-region
-(global-set-key (kbd "M-8") 'er/expand-region)
-
-;; multiple-cursors
-(global-set-key (kbd "M-9") 'mc/mark-next-like-this)
+(bind-key "M-8" 'er/expand-region)
 
 
 (provide 'aethanyc-keybindings)
