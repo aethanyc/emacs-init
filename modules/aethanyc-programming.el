@@ -1,4 +1,18 @@
-;; -*- coding: utf-8-unix; -*-
+;;; aethanyc-programming.el --- Settings for programming
+
+;; Copyright (C) 2013 Ting-Yu Lin
+
+;; Author: Ting-Yu Lin <aethanyc@gmail.com>
+;; Keywords: convenience
+;; URL: https://github.com/aethanyc/emacs-init
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This file hosts settings for various programming modes.
+
+;;; Code:
 
 ;;;-------------------------------------------------------------------
 ;;; Prog Mode
@@ -175,3 +189,12 @@
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
 (add-hook 'after-save-hook 'aethanyc-byte-compile-current-buffer)
+
+
+(provide 'aethanyc-programming)
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
+
+;;; aethanyc-programming.el ends here

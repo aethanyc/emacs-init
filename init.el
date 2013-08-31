@@ -32,11 +32,6 @@ throught MELPA.")
 (add-to-list 'load-path aethanyc-modules-dir)
 (add-to-list 'load-path aethanyc-site-lisp-dir)
 
-(defvar user-init-files '(
-                          "mode-hooks"
-                          )
-  "The names of my customization files.")
-
 ;; Set coding system to utf-8
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -58,13 +53,12 @@ throught MELPA.")
 
 (require 'aethanyc-editor)
 
+(require 'aethanyc-programming)
+
 (require 'aethanyc-keybindings)
 
 (require 'aethanyc-alias)
 
-;; Load all modules.
-(dolist (file user-init-files)
-  (load (concat aethanyc-modules-dir file)))
 
 ;; Local Variables:
 ;; coding: utf-8
