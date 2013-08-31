@@ -288,6 +288,7 @@
           (expand-file-name "projectile.cache" aethanyc-savefiles-dir)
           projectile-known-projects-file
           (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
+    (setq projectile-indexing-method 'alien)
     (projectile-global-mode 1))
   :ensure projectile)
 
