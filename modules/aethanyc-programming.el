@@ -28,30 +28,14 @@
 
 ;;; Lisp Mode
 
-(defun my-lisp-mode-common-hook ()
-  (turn-on-eldoc-mode)
-  (paredit-mode 1)
-  (eldoc-add-command 'paredit-backward-delete
-                     'paredit-close-round))
+(use-package lisp-mode
+  :config
+  (progn
+    (aethanyc-hook-into-modes 'turn-on-eldoc-mode
+                              '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
+    (bind-key "M-g" 'aethanyc-find-at-point emacs-lisp-mode-map)
+    (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)))
 
-(defun my-emacs-lisp-mode-hook ()
-  (my-lisp-mode-common-hook)
-  (my-lisp-mode-keybindings-hook)
-  (local-set-key (kbd "M-g") 'aethanyc-find-function-or-variable-at-point))
-
-(defun my-lisp-keybindings ()
-  (local-set-key (kbd "C-c v") 'eval-buffer)
-  (local-set-key (kbd "RET") 'paredit-newline))
-
-(defun my-lisp-mode-keybindings-hook ()
-  (setq inferior-lisp-program "sbcl")
-  (my-lisp-mode-common-hook)
-  (my-lisp-keybindings))
-
-(add-hook 'lisp-mode-hook 'my-lisp-mode-keybindings-hook)
-(add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-mode-hook)
-(add-hook 'lisp-interaction-mode-hook 'my-lisp-mode-keybindings-hook)
-(add-hook 'ielm-mode-hook 'my-lisp-mode-common-hook)
 
 ;;;-------------------------------------------------------------------
 ;;; Semantic mode

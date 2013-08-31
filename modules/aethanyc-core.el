@@ -54,7 +54,7 @@ in its frame, then `delete-frame' too."
 
 ;; This is adapted from `find-function-or-variable-at-point' in:
 ;; http://www.emacswiki.org/emacs/find-func-extension.el
-(defun aethanyc-find-function-or-variable-at-point (&optional other-window)
+(defun aethanyc-find-at-point (&optional other-window)
   "Find function or variable at point."
   (interactive "P")
   (let ((vsymb (variable-at-point))
@@ -74,6 +74,11 @@ in its frame, then `delete-frame' too."
 (defun aethanyc-font-candidate (fonts)
   "Return the existing font which first matched."
   (find-if (lambda (f) (find-font (font-spec :name f))) fonts))
+
+(defun aethanyc-hook-into-modes (function mode-hooks)
+  "Add FUNCTION to each hooks in MODE-HOOKS."
+  (dolist (mode-hook mode-hooks)
+    (add-hook mode-hook function)))
 
 
 (provide 'aethanyc-core)

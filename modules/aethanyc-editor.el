@@ -265,6 +265,10 @@
 
 
 (use-package paredit
+  :init
+  (progn
+    (aethanyc-hook-into-modes 'enable-paredit-mode
+                              '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
   :bind (("M-B" . paredit-backward)
          ("M-F" . paredit-forward))
   :config (use-package paredit-menu
