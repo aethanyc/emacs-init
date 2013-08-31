@@ -14,18 +14,18 @@
 
 ;;; Code:
 
-;;;-------------------------------------------------------------------
+
 ;;; Prog Mode
 
-(defun my-prog-mode-hook ()
+(defun aethanyc-prog-mode-hook ()
+  "Enable utilities which are useful for all programming modes."
   (electric-pair-mode 1)
-  (highlight-symbol-mode 1)
   (linum-mode 1)
   (subword-mode 1))
 
-(add-hook 'prog-mode-hook 'my-prog-mode-hook)
+(add-hook 'prog-mode-hook 'aethanyc-prog-mode-hook)
 
-;;;-------------------------------------------------------------------
+
 ;;; Lisp Mode
 
 (defun my-lisp-mode-common-hook ()

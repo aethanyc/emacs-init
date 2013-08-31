@@ -49,6 +49,7 @@
 
 
 (use-package highlight-symbol
+  :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   :bind (("<C-f3>" . highlight-symbol-at-point)
          ("<f3>" . highlight-symbol-next)
          ("<S-f3>" . highlight-symbol-prev)
@@ -61,7 +62,7 @@
 
 
 (use-package rainbow-delimiters
-  :init (global-rainbow-delimiters-mode)
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   :ensure rainbow-delimiters)
 
 
