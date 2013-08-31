@@ -44,7 +44,7 @@
 
 
 (use-package git-gutter-fringe
-  :init (global-git-gutter-mode 1)
+  :disabled t
   :ensure git-gutter-fringe)
 
 
