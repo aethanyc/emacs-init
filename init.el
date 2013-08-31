@@ -24,39 +24,21 @@
   "This folder contains other packages that are not installed
 throught MELPA.")
 
-;; Create directory if it does not exist.
-(unless (file-exists-p aethanyc-savefiles-dir)
-  (make-directory aethanyc-savefiles-dir))
-
 ;; Add directories to Emacs's `load-path'.
 (add-to-list 'load-path aethanyc-modules-dir)
 (add-to-list 'load-path aethanyc-site-lisp-dir)
 
-;; Set coding system to utf-8
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-;; (set-selection-coding-system 'utf-8)
 
 ;; Use common-lisp utilities.
 (require 'cl)
 
 (require 'aethanyc-packages)
-
 (require 'aethanyc-core)
-
-(when (eq system-type 'darwin)
-    (require 'aethanyc-osx))
-
+(when (eq system-type 'darwin) (require 'aethanyc-osx))
 (require 'aethanyc-ui)
-
 (require 'aethanyc-editor)
-
 (require 'aethanyc-programming)
-
 (require 'aethanyc-keybindings)
-
 (require 'aethanyc-alias)
 
 

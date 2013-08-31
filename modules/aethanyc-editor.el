@@ -14,6 +14,9 @@
 
 ;;; Code:
 
+;; Unicode is good.
+(prefer-coding-system 'utf-8)
+
 ;; Solution to the problem "server directory is unsafe on Windows."
 ;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
 (eval-after-load 'server
