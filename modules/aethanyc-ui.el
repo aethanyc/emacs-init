@@ -57,6 +57,11 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
+(use-package git-gutter-fringe
+  :init (global-git-gutter-mode 1)
+  :ensure git-gutter-fringe)
+
+
 (use-package highlight-symbol
   :config
   (progn
