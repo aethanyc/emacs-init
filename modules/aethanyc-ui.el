@@ -28,20 +28,13 @@
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
 (setq visible-bell t)
+(column-number-mode 1)
 
 ;; Prevent cursor going into minibuffer prompt. This is the same as:
 ;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
 ;; Select "Don't enter" option and save.
 (setq minibuffer-prompt-properties
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
-
-;; Use zenburn theme.
-(use-package zenburn-theme
-  :init (load-theme 'zenburn t)
-  :ensure zenburn-theme)
-
-;; Display line and column number in the status bar.
-(column-number-mode 1)
 
 ;; Let ediff split window horizontally rather than vertically.
 (setq ediff-split-window-function 'split-window-horizontally)
@@ -76,6 +69,11 @@
 (use-package rainbow-mode
   :defer t
   :ensure rainbow-mode)
+
+
+(use-package zenburn-theme
+  :init (load-theme 'zenburn t)
+  :ensure zenburn-theme)
 
 
 ;; Frame operations
