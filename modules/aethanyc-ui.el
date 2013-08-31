@@ -108,6 +108,8 @@ A maximized frame still has window manager decorations."
 
 ;; Prompt for a target window when there are more than 2.
 (use-package switch-window
+  :init (setq switch-window-shortcut-style 'qwerty
+              switch-window-qwerty-shortcuts '("a" "o" "e" "u" "h" "t"))
   :bind ("M-o" . switch-window)
   :ensure switch-window)
 
