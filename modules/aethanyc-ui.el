@@ -17,9 +17,10 @@
 (defvar aethanyc-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
 (defvar aethanyc-font-size (if (eq system-type 'darwin) 13 12))
 
+;; Set the first available font.
 (when (display-graphic-p)
-  (set-frame-font (font-spec :name (aethanyc-font-candidate aethanyc-fonts)
-                             :size aethanyc-font-size) t t))
+  (set-frame-font (format "%s-%d" (aethanyc-font-candidate aethanyc-fonts)
+                          aethanyc-font-size) t t))
 
 (setq frame-title-format '("%b" (buffer-file-name ": %f")))
 (tool-bar-mode -1)
