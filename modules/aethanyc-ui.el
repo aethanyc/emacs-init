@@ -14,21 +14,14 @@
 
 ;;; Code:
 
-(defvar my-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
-(defvar my-font-size (if (eq system-type 'darwin) 13 12))
+(defvar aethanyc-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
+(defvar aethanyc-font-size (if (eq system-type 'darwin) 13 12))
 
-(defun set-my-font (&optional frame)
-  (set-frame-font (format "%s-%d" (first my-fonts) my-font-size) nil t))
-
-;; Set font when initialzing
 (when (display-graphic-p)
-  (set-my-font))
+  (set-frame-font (font-spec :name (aethanyc-font-candidate aethanyc-fonts)
+                             :size aethanyc-font-size) t t))
 
-;; When launch emacs daemon by emacs --daemon, the font cannot be set.
-;; We have to set font again after the frame is created.
-(add-hook 'after-make-frame-functions 'set-my-font)
-
-(setq-default frame-title-format '("%b" (buffer-file-name ": %f")))
+(setq frame-title-format '("%b" (buffer-file-name ": %f")))
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (blink-cursor-mode -1)

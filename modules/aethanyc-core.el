@@ -71,6 +71,11 @@ in its frame, then `delete-frame' too."
                     fsymb))
           (t (message "Neither function nor variable at point.")))))
 
+(defun aethanyc-font-candidate (fonts)
+  "Return the existing font which first matched."
+  (find-if (lambda (f) (find-font (font-spec :name f))) fonts))
+
+
 (provide 'aethanyc-core)
 
 ;; Local Variables:
