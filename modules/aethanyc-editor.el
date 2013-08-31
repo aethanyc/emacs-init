@@ -189,12 +189,9 @@
 
 
 (use-package eshell
-  :init
-  (progn
-    (setq eshell-directory-name
-          (expand-file-name "eshell/" aethanyc-savefiles-dir))
-    (bind-key "C-x m" 'eshell)
-    (bind-key "C-x M" (lambda () (interactive) (eshell t)))))
+  :init (setq eshell-directory-name
+              (expand-file-name "eshell/" aethanyc-savefiles-dir))
+  :bind ("C-x m" . eshell))
 
 
 (use-package expand-region
@@ -203,10 +200,12 @@
 
 
 (use-package gitconfig-mode
+  :defer t
   :ensure gitconfig-mode)
 
 
 (use-package gitignore-mode
+  :defer t
   :ensure gitignore-mode)
 
 
@@ -261,6 +260,7 @@
 
 
 (use-package markdown-mode
+  :defer t
   :ensure markdown-mode)
 
 
