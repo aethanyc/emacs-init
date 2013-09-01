@@ -136,13 +136,6 @@
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 (add-hook 'inferior-python-mode-hook 'jedi:setup)
 
-;;;-------------------------------------------------------------------
-;;; Ibuffer Mode
-
-(defun my-ibuffer-mode-hook ()
-  (local-set-key (kbd "C-x C-f") 'aethanyc-ibuffer-ido-find-file))
-
-(add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
 
 ;;;-------------------------------------------------------------------
 ;;; Javascript Mode (js-mode)
