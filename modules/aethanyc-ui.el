@@ -88,27 +88,23 @@
 
 ;; Frame operations
 
-(defun aethanyc-toggle-frame-fullscreen-state (parameter)
-  "Helper function to set the fullscreen parameter of a frame."
-  (set-frame-parameter nil 'fullscreen
-                       (if (eq (frame-parameter nil 'fullscreen) parameter)
-                           nil
-                         parameter)))
-
 (defun aethanyc-toggle-frame-maximized ()
-  "Toggle the frame state between maximized and windowed.
-
-A maximized frame still has window manager decorations."
+  "This function works exactly the same as built-in
+`toggle-frame-maximized' except that it sends w32 command to
+toggle frame maximized on Windows."
   (interactive)
-  (aethanyc-toggle-frame-fullscreen-state 'maximized))
+  (toggle-frame-maximized)
+  ;; Fix frame maximized does not work on Windows.
+  ;; See the document of w32-send-sys-command for more system commands.
+  (when (eq system-type 'windows-nt)
+    (if (eq (frame-parameter nil 'fullscreen) 'maximized)
+        (w32-send-sys-command #xf030)
+      (w32-send-sys-command #xf120))))
 
-(defun aethanyc-toggle-frame-fullscreen ()
-  "Toggle the frame state between fullscreen and windowed."
-  (interactive)
-  (aethanyc-toggle-frame-fullscreen-state 'fullboth))
+(bind-key "<M-f10>" 'aethanyc-toggle-frame-maximized)
 
-(bind-key "<f11>" 'aethanyc-toggle-frame-maximized)
-(bind-key "<M-f11>" 'aethanyc-toggle-frame-fullscreen)
+;; Maximize the frame after initializing.
+(add-hook 'after-init-hook 'aethanyc-toggle-frame-maximized)
 
 
 ;; Window operations
