@@ -178,7 +178,7 @@
 
 
 (use-package expand-region
-  :bind ("M-n" . er/expand-region)
+  :bind ("M-8" . er/expand-region)
   :ensure expand-region)
 
 
