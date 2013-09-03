@@ -53,8 +53,12 @@
 
 ;; Save the last place of the cursor.
 (setq-default save-place t)
-(setq-default save-place-file (concat aethanyc-savefiles-dir "save-place"))
+(setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
 (require 'saveplace)
+
+;; Save the history of minibuffer.
+(setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
+(require 'savehist)
 
 ;; Stop creating those backup~ files
 (setq-default make-backup-files nil)
