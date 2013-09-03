@@ -38,9 +38,6 @@
 ;; Apropos more info.
 (bind-key "a" 'apropos help-map)
 
-;; Open user init files quickly
-(bind-key "<f12>" 'aethanyc-find-user-init-file)
-
 ;; `hippie-expand' is more powerful than dabbrev-expand
 (bind-key "M-/" 'hippie-expand)
 

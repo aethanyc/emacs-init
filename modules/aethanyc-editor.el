@@ -87,52 +87,6 @@
 ;; line after the s-expr.
 (setq kill-whole-line nil)
 
-;;;-------------------------------------------------------------------
-;;; Desktop Save Mode
-;;; http://www.emacswiki.org/DeskTop#toc5
-
-(setq desktop-path (list aethanyc-savefiles-dir))
-(setq desktop-dirname aethanyc-savefiles-dir)
-(setq desktop-base-file-name "emacs-desktop")
-(setq desktop-base-lock-name "emacs-desktop-lock")
-
-;; remove desktop after it's been read
-(add-hook 'desktop-after-read-hook
-          '(lambda ()
-             ;; desktop-remove clears desktop-dirname
-             (setq desktop-dirname-tmp desktop-dirname)
-             (desktop-remove)
-             (setq desktop-dirname desktop-dirname-tmp)))
-
-(defun desktop-session-saved-p ()
-  (file-exists-p (concat desktop-dirname desktop-base-file-name)))
-
-;; Use session-restore to restore the desktop manually.
-(defun desktop-restore-session ()
-  "Restore a saved emacs session."
-  (interactive)
-  (if (desktop-session-saved-p)
-      (desktop-read)
-    (message "No desktop found.")))
-
-;; Use session-save to save the desktop manually.
-(defun desktop-save-session ()
-  "Save an emacs session."
-  (interactive)
-  (if (desktop-session-saved-p)
-      (if (y-or-n-p "Overwrite existing desktop? ")
-          (desktop-save-in-desktop-dir)
-        (message "Session not saved."))
-    (desktop-save-in-desktop-dir)))
-
-;; Ask user whether to restore desktop at start-up
-;; (add-hook 'after-init-hook
-;;           '(lambda ()
-;;              (if (desktop-session-saved-p)
-;;                  (if (y-or-n-p "Restore desktop? ")
-;;                      (desktop-restore-session)))))
-
-
 
 (use-package ace-jump-mode
   :init (setq ace-jump-mode-gray-background nil
@@ -190,6 +144,31 @@
     (bind-key* "C-M-b" 'back-button-global-backward)
     (bind-key* "C-M-f" 'back-button-global-forward)
     (back-button-mode 1)))
+
+
+;;; http://www.emacswiki.org/DeskTop#toc5
+(use-package desktop
+  :init
+  (progn
+    (require 'desktop)
+
+    (setq desktop-path (list aethanyc-savefiles-dir))
+    (setq desktop-dirname aethanyc-savefiles-dir)
+    (setq desktop-base-file-name "desktop")
+    (setq desktop-base-lock-name "desktop.lock")
+
+    (defun aethanyc-desktop-after-read-hook ()
+      "Remove the desktop saved file after it's been read."
+      ;; desktop-remove clears the desktop-dirname. Let's restore it.
+      (let ((desktop-dirname-old desktop-dirname))
+        (desktop-remove)
+        (setq desktop-dirname desktop-dirname-old)))
+
+    (add-hook 'desktop-after-read-hook 'aethanyc-desktop-after-read-hook)
+    (add-hook 'kill-emacs-hook 'desktop-save-in-desktop-dir))
+
+  :bind (("<f12>" . desktop-read)
+         ("<M-f12>" . desktop-save-in-desktop-dir)))
 
 
 (use-package eshell
