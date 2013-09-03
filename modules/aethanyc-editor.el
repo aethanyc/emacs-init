@@ -305,6 +305,10 @@
   :ensure smex)
 
 
+(use-package smooth-scrolling
+  :ensure smooth-scrolling)
+
+
 (use-package undo-tree
   :init (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
