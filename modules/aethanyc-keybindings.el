@@ -50,6 +50,10 @@
 ;; Smarter move to beginning of the line
 (bind-key "C-a" 'aethanyc-move-beginning-of-line)
 
+;; Remap goto-line
+(global-set-key [remap goto-line] 'aethanyc-goto-line-with-feedback)
+
+
 (provide 'aethanyc-keybindings)
 
 ;; Local Variables:
