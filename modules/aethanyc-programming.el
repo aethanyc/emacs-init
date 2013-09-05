@@ -146,16 +146,20 @@
 
 (add-hook 'js-mode-hook 'my-js-mode-hook)
 
-;;;-------------------------------------------------------------------
+
 ;;; Lua Mode
 
-(defun my-lua-mode-hook ()
-  (setq lua-indent-level 4)
-  (define-key lua-mode-map "}" nil)
-  (define-key lua-mode-map "]" nil)
-  (define-key lua-mode-map ")" nil))
+(use-package lua-mode
+  :init
+  (progn
+    (setq lua-indent-level 4))
+  :config
+  (progn
+    (bind-key "}" nil lua-mode-map)
+    (bind-key "]" nil lua-mode-map)
+    (bind-key ")" nil lua-mode-map))
+  :ensure lua-mode)
 
-(add-hook 'lua-mode-hook 'my-lua-mode-hook)
 
 ;;;-------------------------------------------------------------------
 ;;; Other
