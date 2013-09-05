@@ -19,6 +19,7 @@
   (interactive)
   (join-line 1))
 
+
 ;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
 (defun aethanyc-byte-compile-current-buffer ()
   "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."
@@ -27,10 +28,6 @@
              (file-exists-p (byte-compile-dest-file buffer-file-name)))
     (byte-compile-file buffer-file-name)))
 
-(defun aethanyc-find-user-init-file ()
-  "Open user init file quickly."
-  (interactive)
-  (find-file user-init-file))
 
 ;; This is adapted from `delete-window' in:
 ;; http://www.emacswiki.org/emacs/frame-cmds.el
@@ -40,6 +37,7 @@ in its frame, then `delete-frame' too."
   (interactive)
   (save-current-buffer
     (if (one-window-p t) (delete-frame) (delete-window))))
+
 
 ;; This is adapted from `find-function-or-variable-at-point' in:
 ;; http://www.emacswiki.org/emacs/find-func-extension.el
@@ -60,14 +58,19 @@ in its frame, then `delete-frame' too."
                     fsymb))
           (t (message "Neither function nor variable at point.")))))
 
+
+;; http://www.emacswiki.org/emacs/SetFonts
 (defun aethanyc-font-candidate (fonts)
   "Return the existing font which first matched."
   (find-if (lambda (f) (find-font (font-spec :name f))) fonts))
 
+
+;; https://github.com/jwiegley/dot-emacs
 (defun aethanyc-hook-into-modes (function mode-hooks)
   "Add FUNCTION to each hooks in MODE-HOOKS."
   (dolist (mode-hook mode-hooks)
     (add-hook mode-hook function)))
+
 
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
 (defun aethanyc-move-beginning-of-line (arg)
@@ -92,6 +95,7 @@ point reaches the beginning or end of the buffer, stop there."
     (back-to-indentation)
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
+
 
 ;; http://whattheemacsd.com/key-bindings.el-01.html
 (defun aethanyc-goto-line-with-feedback ()

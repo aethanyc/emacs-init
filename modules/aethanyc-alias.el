@@ -23,7 +23,6 @@
 (defalias 'gl 'goto-line-with-feedback)
 (defalias 'lp 'list-packages)
 (defalias 'mb 'magit-blame-mode)
-(defalias 'rf 'restore-frame)
 (defalias 'sl 'sort-lines)
 
 (provide 'aethanyc-alias)
