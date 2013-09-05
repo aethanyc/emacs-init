@@ -93,6 +93,19 @@ point reaches the beginning or end of the buffer, stop there."
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
+;; http://whattheemacsd.com/key-bindings.el-01.html
+(defun aethanyc-goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (if (and (boundp 'linum-mode)
+           linum-mode)
+      (call-interactively 'goto-line)
+    (unwind-protect
+        (progn
+          (linum-mode 1)
+          (call-interactively 'goto-line))
+      (linum-mode -1))))
+
 
 (provide 'aethanyc-core)
 

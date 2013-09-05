@@ -20,7 +20,7 @@
 ;; Use ibuffer.
 (defalias 'list-buffers 'ibuffer)
 
-(defalias 'gl 'goto-line)
+(defalias 'gl 'goto-line-with-feedback)
 (defalias 'lp 'list-packages)
 (defalias 'mb 'magit-blame-mode)
 (defalias 'rf 'restore-frame)

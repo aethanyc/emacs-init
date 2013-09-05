@@ -20,7 +20,6 @@
 (defun aethanyc-prog-mode-hook ()
   "Enable utilities which are useful for all programming modes."
   (electric-pair-mode 1)
-  (linum-mode 1)
   (subword-mode 1))
 
 (add-hook 'prog-mode-hook 'aethanyc-prog-mode-hook)
