@@ -145,7 +145,6 @@
     (bind-key* "C-M-f" 'back-button-global-forward)
     (back-button-mode 1)))
 
-
 ;;; http://www.emacswiki.org/DeskTop#toc5
 (use-package desktop
   :init
@@ -164,11 +163,21 @@
         (desktop-remove)
         (setq desktop-dirname desktop-dirname-old)))
 
-    (add-hook 'desktop-after-read-hook 'aethanyc-desktop-after-read-hook)
-    (add-hook 'kill-emacs-hook 'desktop-save-in-desktop-dir))
+    (defun aethanyc-desktop-save ()
+      "Save the desktop in directory `desktop-dirname'."
+      (interactive)
+      (if (file-exists-p (desktop-full-file-name))
+          (if (yes-or-no-p "Overwrite existing desktop? ")
+              (desktop-save desktop-dirname t)
+            (message "Desktop not saved."))
+        (desktop-save desktop-dirname t))
+      (message "Desktop saved in %s" (abbreviate-file-name desktop-dirname)))
 
-  :bind (("<f12>" . desktop-read)
-         ("<M-f12>" . desktop-save-in-desktop-dir)))
+    (add-hook 'desktop-after-read-hook 'aethanyc-desktop-after-read-hook)
+    (add-hook 'kill-emacs-hook 'aethanyc-desktop-save))
+
+  :bind (("<f12>" . desktop-revert)
+         ("<M-f12>" . aethanyc-desktop-save)))
 
 
 (use-package eshell
