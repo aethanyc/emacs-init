@@ -47,6 +47,8 @@
 ;; M-^ is join-line
 (bind-key "C-^" 'aethanyc-join-next-line)
 
+;; Smarter move to beginning of the line
+(bind-key "C-a" 'aethanyc-move-beginning-of-line)
 
 (provide 'aethanyc-keybindings)
 
