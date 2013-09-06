@@ -48,7 +48,7 @@
 (bind-key "C-^" 'aethanyc-join-next-line)
 
 ;; Smarter move to beginning of the line
-(bind-key "C-a" 'aethanyc-move-beginning-of-line)
+(global-set-key [remap move-beginning-of-line] 'aethanyc-move-beginning-of-line)
 
 ;; Remap goto-line
 (global-set-key [remap goto-line] 'aethanyc-goto-line-with-feedback)
