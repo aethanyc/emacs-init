@@ -247,7 +247,8 @@
         (ignore-errors
           (jump-to-register :magit-fullscreen))))
 
-    (bind-key "q" 'magit-quit-session magit-status-mode-map))
+    (bind-key "q" 'magit-quit-session magit-status-mode-map)
+    (defalias 'mb 'magit-blame-mode))
   :ensure magit)
 
 
