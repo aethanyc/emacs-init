@@ -161,8 +161,10 @@
   :ensure lua-mode)
 
 
-;;;-------------------------------------------------------------------
 ;;; Other
+
+;; Set whitespace mode styles
+(setq-default whitespace-style '(face trailing lines-tail tabs empty indentation))
 
 ;; Clean up white spaces before saving a buffer.
 (add-hook 'before-save-hook 'whitespace-cleanup)

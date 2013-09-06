@@ -36,20 +36,17 @@
 (setq-default major-mode 'text-mode)
 
 ;; Adjust the behavior of the hippie-expand
-(setq-default hippie-expand-try-functions-list
-              '(try-complete-file-name
-                try-expand-all-abbrevs
-                try-expand-dabbrev
-                try-expand-dabbrev-all-buffers
-                try-expand-dabbrev-from-kill
-                try-complete-lisp-symbol-partially
-                try-complete-lisp-symbol
-                try-complete-file-name-partially
-                try-expand-list
-                try-expand-line))
-
-;; Set whitespace mode styles
-(setq-default whitespace-style '(face trailing lines-tail tabs empty indentation))
+(setq hippie-expand-try-functions-list
+      '(try-complete-file-name
+        try-expand-all-abbrevs
+        try-expand-dabbrev
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol
+        try-complete-file-name-partially
+        try-expand-list
+        try-expand-line))
 
 ;; Save the last place of the cursor.
 (setq-default save-place t)
@@ -61,19 +58,19 @@
 (require 'savehist)
 
 ;; Stop creating those backup~ files
-(setq-default make-backup-files nil)
+(setq make-backup-files nil)
 
 ;; Stop creating those #autosave# files
-(setq-default auto-save-default nil
-              auto-save-list-file-prefix nil)
+(setq auto-save-default nil
+      auto-save-list-file-prefix nil)
 
 ;; Keep a list of recently opened files
-(setq-default recentf-save-file (concat aethanyc-savefiles-dir "recentf"))
+(setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir))
 (recentf-mode 1)
 
 ;; Unique buffer name
 (require 'uniquify)
-(setq-default uniquify-buffer-name-style 'forward)
+(setq uniquify-buffer-name-style 'forward)
 
 ;; Reload the buffers automatically if they are changed outside.
 (global-auto-revert-mode 1)
@@ -82,11 +79,8 @@
 ;; http://stackoverflow.com/questions/5748814/how-does-one-disable-vc-git-in-emacs
 (setq vc-handled-backends nil)
 
-;; Do Not kill the whole line including the line ending. When using
-;; paredit-mode to kill the whole s-expr, this will kill the blank
-;; line after the s-expr.
-(setq kill-whole-line nil)
 
+;; Packages
 
 (use-package ace-jump-mode
   :init (setq ace-jump-mode-gray-background nil
@@ -144,6 +138,7 @@
     (bind-key* "C-M-b" 'back-button-global-backward)
     (bind-key* "C-M-f" 'back-button-global-forward)
     (back-button-mode 1)))
+
 
 ;;; http://www.emacswiki.org/DeskTop#toc5
 (use-package desktop
