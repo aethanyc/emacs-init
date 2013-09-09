@@ -168,8 +168,14 @@
         (desktop-save desktop-dirname t))
       (message "Desktop saved in %s" (abbreviate-file-name desktop-dirname)))
 
+    (defun aethanyc-desktop-save-on-exit ()
+      "Save desktop automatically on exit only when it has been loaded."
+      (interactive)
+      (if (file-exists-p (desktop-full-lock-name))
+          (aethanyc-desktop-save)))
+
     (add-hook 'desktop-after-read-hook 'aethanyc-desktop-after-read-hook)
-    (add-hook 'kill-emacs-hook 'aethanyc-desktop-save))
+    (add-hook 'kill-emacs-hook 'aethanyc-desktop-save-on-exit))
 
   :bind (("<f12>" . desktop-revert)
          ("<M-f12>" . aethanyc-desktop-save)))
