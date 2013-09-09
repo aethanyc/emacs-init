@@ -17,21 +17,25 @@
 
 ;;; Prog Mode
 
-(defun aethanyc-prog-mode-hook ()
-  "Enable utilities which are useful for all programming modes."
-  (electric-pair-mode 1)
-  (subword-mode 1))
+(use-package electric
+  :init (add-hook 'prog-mode-hook 'electric-pair-mode))
 
-(add-hook 'prog-mode-hook 'aethanyc-prog-mode-hook)
+(use-package subword
+  :init (add-hook 'prog-mode-hook 'subword-mode)
+  :diminish "")
 
 
 ;;; Lisp Mode
 
+(use-package eldoc
+  :init (aethanyc-hook-into-modes 'turn-on-eldoc-mode
+                                  '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
+  :diminish "")
+
+
 (use-package lisp-mode
   :config
   (progn
-    (aethanyc-hook-into-modes 'turn-on-eldoc-mode
-                              '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
     (bind-key "M-g" 'aethanyc-find-at-point emacs-lisp-mode-map)
     (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)))
 

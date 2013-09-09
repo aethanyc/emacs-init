@@ -123,6 +123,7 @@
                              sh-mode
                              text-mode))))
   :bind ("<C-tab>" . auto-complete)
+  :diminish ""
   :ensure auto-complete)
 
 
@@ -137,7 +138,8 @@
       "Replace push-mark to preserve current position before jumping around.")
     (bind-key* "C-M-b" 'back-button-global-backward)
     (bind-key* "C-M-f" 'back-button-global-forward)
-    (back-button-mode 1)))
+    (back-button-mode 1))
+  :diminish "")
 
 
 ;;; http://www.emacswiki.org/DeskTop#toc5
@@ -267,6 +269,7 @@
          ("M-F" . paredit-forward))
   :config (use-package paredit-menu
             :ensure paredit-menu)
+  :diminish ""
   :ensure paredit)
 
 
@@ -284,6 +287,7 @@
           (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
     (setq projectile-indexing-method 'alien)
     (projectile-global-mode 1))
+  :diminish ""
   :ensure projectile)
 
 
@@ -306,6 +310,7 @@
 (use-package undo-tree
   :init (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
+  :diminish ""
   :ensure undo-tree)
 
 

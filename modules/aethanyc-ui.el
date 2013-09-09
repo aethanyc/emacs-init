@@ -59,6 +59,7 @@
   (progn
     (setq highlight-symbol-on-navigation-p t)
     (set-face-attribute 'highlight-symbol-face nil :background "gray35"))
+  :diminish ""
   :ensure highlight-symbol)
 
 
@@ -127,47 +128,6 @@ toggle frame maximized on Windows."
          ("<C-S-right>" . buf-move-right))
   :ensure buffer-move)
 
-
-;; Clean mode line
-;; http://www.masteringemacs.org/articles/2012/09/10/hiding-replacing-modeline-strings/
-;; There is a diminish mode. But it requires the minor mode to be active to be diminished.
-(defvar mode-line-cleaner-alist
-  '(;; Minor modes
-    (abbrev-mode "")
-    (auto-complete-mode "")
-    (auto-fill-function " Fi")
-    (eldoc-mode "")
-    (hi-lock-mode "")
-    (highlight-symbol-mode "")
-    (paredit-mode " Par")
-    (projectile-mode " Proj")
-    (undo-tree-mode "")
-    (yas-minor-mode "")
-    ;; Major modes
-    (emacs-lisp-mode "EL")
-    (inferior-python-mode "Inf Py")
-    (js-mode "JS")
-    (lisp-interaction-mode "LI")
-    (python-mode "Py"))
-  "Alist for `clean-mode-line'.
-
-Be sure to add the correct major/minor mode symbol, and the string you
-want to use in the mode line. See minor-mode-alist for the original alist.")
-
-(defun clean-mode-line ()
-  (interactive)
-  (dolist (cleaner mode-line-cleaner-alist)
-    (let* ((mode (first cleaner))
-           (mode-str (second cleaner))
-           (old-mode (assq mode minor-mode-alist)))
-      ;; Replace the minor mode string
-      (when old-mode
-        (setcar (cdr old-mode) mode-str))
-      ;; Replace the major mode string
-      (when (eq mode major-mode)
-        (setq mode-name mode-str)))))
-
-(add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
 (provide 'aethanyc-ui)
 
