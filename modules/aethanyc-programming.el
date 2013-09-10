@@ -87,57 +87,63 @@
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
-;;;-------------------------------------------------------------------
+
 ;;; Python Mode
 
 ;; External python packages to install:
-;; $ sudo easy_install3 ipython
+;; $ sudo pip3 ipython
 ;; $ sudo pip3 install -r requirements.txt # Under jedi's install path
 ;; $ sudo pip3 install flake8
 
-(setq python-shell-interpreter
-      (cond ((executable-find "ipython3") "ipython3")
-            ((executable-find "python3") "python3")
-            (t "python")))
+(use-package python
+  :init
+  (progn
+    ;; Set preferred python interpreter
+    (setq python-shell-interpreter
+        (cond ((executable-find "ipython3") "ipython3")
+              ((executable-find "python3") "python3")
+              (t "python")))
 
-;; Jedi - Python auto-completion for Emacs
-;; jedi:setup-keys and jedi:complete-on-dot must be set *before* jedi is loaded
-(setq jedi:setup-keys t)
-(setq jedi:complete-on-dot t)
+    ;; Ipython settings was copied from the document of python-mode.
+    (when (executable-find "ipython3")
+      (setq python-shell-interpreter-args ""
+            python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+            python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+            python-shell-completion-setup-code
+            "from IPython.core.completerlib import module_completion"
+            python-shell-completion-module-string-code
+            "';'.join(module_completion('''%s'''))\n"
+            python-shell-completion-string-code
+            "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))))
 
-(eval-after-load 'jedi
-  '(progn
-     (setq jedi:server-command
-           (list python-shell-interpreter jedi:server-script))
-     ;; Push mark before goto definition
-     (defadvice jedi:goto-definition (before jedi:goto-definition-advice)
-       (push-mark))
-     (ad-activate 'jedi:goto-definition)))
 
-(defun my-python-mode-hook ()
-  (cond ((executable-find "ipython3")
-         ;; Ipython settings was copied from the document of python-mode.
-         (setq python-shell-interpreter-args ""
-               python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-               python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-               python-shell-completion-setup-code
-               "from IPython.core.completerlib import module_completion"
-               python-shell-completion-module-string-code
-               "';'.join(module_completion('''%s'''))\n"
-               python-shell-completion-string-code
-               "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
-  ;; flymake-python-pyflakes settings
-  (when (executable-find "flake8")
-    (setq flymake-python-pyflakes-executable "flake8")
-    (flymake-python-pyflakes-load)
-    (local-set-key (kbd "C-c C-n") 'flymake-goto-next-error)
-    (local-set-key (kbd "C-c C-p") 'flymake-goto-prev-error))
-  ;; Jedi settings
-  (jedi:setup)
-  (local-set-key (kbd "M-g") 'jedi:goto-definition))
+(use-package jedi
+  :init
+  (progn
+    (setq jedi:setup-keys t
+          jedi:complete-on-dot t)
+    (setq jedi:server-command
+          (list python-shell-interpreter jedi:server-script))
 
-(add-hook 'python-mode-hook 'my-python-mode-hook)
-(add-hook 'inferior-python-mode-hook 'jedi:setup)
+    (defun aethanyc-jedi:goto-definition ()
+      "Push mark before goto definition."
+      (interactive)
+      (push-mark)
+      (call-interactively 'jedi:goto-definition))
+
+    (aethanyc-hook-into-modes 'jedi:setup
+                              '(python-mode-hook inferior-python-mode-hook)))
+  :config (bind-key "M-g" 'aethanyc-jedi:goto-definition python-mode-map)
+  :ensure jedi)
+
+
+(use-package flymake-python-pyflakes
+  :init
+  (progn
+    (when (executable-find "flake8")
+      (setq flymake-python-pyflakes-executable "flake8")
+      (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)))
+  :ensure flymake-python-pyflakes)
 
 
 ;;;-------------------------------------------------------------------

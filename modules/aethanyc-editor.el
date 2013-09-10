@@ -194,6 +194,11 @@
   :ensure expand-region)
 
 
+(use-package flymake
+  :bind (("M-n" . flymake-goto-next-error)
+         ("M-p" . flymake-goto-prev-error)))
+
+
 (use-package gitconfig-mode
   :defer t
   :ensure gitconfig-mode)
