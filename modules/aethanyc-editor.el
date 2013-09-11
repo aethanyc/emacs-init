@@ -194,9 +194,14 @@
   :ensure expand-region)
 
 
-(use-package flymake
-  :bind (("M-n" . flymake-goto-next-error)
-         ("M-p" . flymake-goto-prev-error)))
+(use-package flycheck
+  :init
+  (progn
+    (setq-default flycheck-flake8-maximum-line-length 85)
+    (add-hook 'after-init-hook 'global-flycheck-mode))
+  :bind (("M-n" . flycheck-next-error)
+         ("M-p" . flycheck-previous-error))
+  :ensure flycheck)
 
 
 (use-package gitconfig-mode

@@ -137,15 +137,6 @@
   :ensure jedi)
 
 
-(use-package flymake-python-pyflakes
-  :init
-  (progn
-    (when (executable-find "flake8")
-      (setq flymake-python-pyflakes-executable "flake8")
-      (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)))
-  :ensure flymake-python-pyflakes)
-
-
 ;;;-------------------------------------------------------------------
 ;;; Javascript Mode (js-mode)
 
