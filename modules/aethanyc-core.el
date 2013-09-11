@@ -99,7 +99,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; http://whattheemacsd.com/key-bindings.el-01.html
 (defun aethanyc-goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
+  "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
   (if (and (boundp 'linum-mode)
            linum-mode)
@@ -109,6 +109,22 @@ point reaches the beginning or end of the buffer, stop there."
           (linum-mode 1)
           (call-interactively 'goto-line))
       (linum-mode -1))))
+
+;; http://whattheemacsd.com/editing-defuns.el-01.html
+(defun aethanyc-open-line-below ()
+  "Open a new line below the cursor."
+  (interactive)
+  (end-of-line)
+  (newline)
+  (indent-for-tab-command))
+
+(defun aethanyc-open-line-above ()
+  "Open a new line above the cursor."
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-for-tab-command))
 
 
 (provide 'aethanyc-core)

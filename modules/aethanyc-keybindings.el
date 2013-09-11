@@ -16,6 +16,8 @@
 
 ;; Basic keys
 (bind-key "RET" 'newline-and-indent)
+(bind-key "<C-return>" 'aethanyc-open-line-below)
+(bind-key "<C-S-return>" 'aethanyc-open-line-above)
 
 ;; Frame operations
 (bind-key "M-`" 'other-frame)
