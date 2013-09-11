@@ -34,7 +34,9 @@
   :config
   (progn
     (bind-key "M-g" 'aethanyc-find-at-point emacs-lisp-mode-map)
-    (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)))
+    (bind-key "M-g" 'aethanyc-find-at-point lisp-interaction-mode-map)
+    (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)
+    (bind-key "C-c v" 'eval-buffer lisp-interaction-mode-map)))
 
 
 ;;;-------------------------------------------------------------------
