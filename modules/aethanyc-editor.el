@@ -107,9 +107,10 @@
     (ac-config-default)            ; Enables global-auto-complete-mode
     (setq-default ac-sources
                   '(ac-source-abbrev
+                    ac-source-yasnippet
                     ac-source-dictionary
                     ac-source-words-in-same-mode-buffers
-                    ac-source-words-in-all-buffer))    (ac-linum-workaround)
+                    ac-source-words-in-all-buffer))
     (setq ac-use-menu-map t
           ac-auto-show-menu t)
     (setq ac-comphist-file
@@ -335,6 +336,10 @@
   :bind ("C-=" . undo-tree-redo)
   :diminish ""
   :ensure undo-tree)
+
+(use-package yasnippet
+  :idle (yas-global-mode 1)
+  :ensure yasnippet)
 
 
 (provide 'aethanyc-editor)
