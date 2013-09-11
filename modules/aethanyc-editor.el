@@ -286,6 +286,7 @@
 
 (use-package paredit-everywhere
   :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
+  :diminish ""
   :ensure paredit-everywhere)
 
 
