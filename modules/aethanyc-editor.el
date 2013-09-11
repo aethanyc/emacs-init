@@ -274,7 +274,7 @@
 (use-package paredit
   :init
   (progn
-    (aethanyc-hook-into-modes 'enable-paredit-mode
+    (aethanyc-hook-into-modes 'paredit-mode
                               '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
   :bind (("M-B" . paredit-backward)
          ("M-F" . paredit-forward))
@@ -301,6 +301,17 @@
     (projectile-global-mode 1))
   :diminish ""
   :ensure projectile)
+
+
+(use-package smartparens
+  :init
+  (progn
+    (require 'smartparens-config)
+    (setq sp-base-key-bindings 'paredit)
+    (add-hook 'prog-mode 'smartparens-mode)
+    (add-hook 'prog-mode 'show-smartparens-mode))
+  :diminish ""
+  :ensure smartparens)
 
 
 (use-package smex

@@ -64,15 +64,7 @@
 
 
 (use-package rainbow-delimiters
-  :init
-  (progn
-    (defun aethanyc-delimiters-mode-hook ()
-      "Color the delimiters."
-      (rainbow-delimiters-mode 1)
-      (show-paren-mode 1)
-      (set-face-attribute 'show-paren-match nil :inverse-video t)
-      (set-face-attribute 'show-paren-mismatch nil :inverse-video t))
-    (add-hook 'prog-mode-hook 'aethanyc-delimiters-mode-hook))
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   :ensure rainbow-delimiters)
 
 

@@ -17,9 +17,6 @@
 
 ;;; Prog Mode
 
-(use-package electric
-  :init (add-hook 'prog-mode-hook 'electric-pair-mode))
-
 (use-package subword
   :init (add-hook 'prog-mode-hook 'subword-mode)
   :diminish "")
