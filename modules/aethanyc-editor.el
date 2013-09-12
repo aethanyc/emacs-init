@@ -351,6 +351,7 @@
 
 (use-package yasnippet
   :idle (yas-global-mode 1)
+  :diminish yas-minor-mode
   :ensure yasnippet)
 
 
