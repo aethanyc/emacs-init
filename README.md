@@ -1,39 +1,36 @@
 # Emacs-init #
-Here are my Emacs customization files, which only compatible with Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
+
+Here are my Emacs customization files, which only compatible with
+Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 
 ## Where to get the latest Emacs 24? ##
 
-* [Windows Executable][]
-* [Debian Packages][]
-* [Ubuntu Packages][]
-* [Mac Universal Binary][]
-* [Via Homebrew on Mac][]: ```brew install emacs --cocoa --srgb```
+* [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
+* [Unofficial Windows Snapshot](https://www.dropbox.com/sh/zmxzw7pk2ml7qip/jS1Fuz1pZr)
+* [Debian Snapshot Packages](http://emacs.naquadah.org/)
+* [Ubuntu Snapshot Packages](https://launchpad.net/~cassou/+archive/emacs)
+* [Mac Universal Binaries](http://emacsformacosx.com/)
+* [By Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb): ```brew install emacs --cocoa --srgb```
 
 ## Where to find Emacs packages? ##
 
-[MELPA][] and [Marmalade][] host many useful packages. Add following lines to your emacs init file to use them.
-
-```lisp
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
-(package-initialize)
-```
+[MELPA](http://melpa.milkbox.net/) hosts many useful packages. Add
+following lines to your emacs init file to use them.  See
+[Usage](https://github.com/milkypostman/melpa) section on MELPA Github
+to learn how to use it.
 
 Then you can use `M-x list-packages` to browse and install packages.
 
+## Where to find informations? ##
+
+* [EmacsWiki](http://www.emacswiki.org/)
+* [WikEmacs](http://wikemacs.org/)
+
+
 ## How to install Emacs-init? ##
+
 Simply clone this repository to your home directory.
 
 ```bash
 git clone git://github.com/aethanyc/emacs-init.git ~/.emacs.d
 ```
-
-[Windows Executable]: http://ftp.gnu.org/gnu/emacs/windows/
-[Debian Packages]: http://emacs.naquadah.org/
-[Ubuntu Packages]: https://launchpad.net/~cassou/+archive/emacs
-[Mac Universal Binary]: http://emacsformacosx.com/
-[Via Homebrew on Mac]: https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb
-[MELPA]: http://melpa.milkbox.net/
-[Marmalade]: http://marmalade-repo.org/
