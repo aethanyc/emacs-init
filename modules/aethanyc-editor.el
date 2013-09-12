@@ -316,9 +316,9 @@
   (progn
     (require 'smartparens-config)
     (setq sp-base-key-bindings 'paredit)
-    (add-hook 'prog-mode 'smartparens-mode)
-    (add-hook 'prog-mode 'show-smartparens-mode))
-  :diminish ""
+    (show-smartparens-global-mode 1)
+    (aethanyc-hook-into-modes 'smartparens-mode
+                              '(markdown-mode-hook)))
   :ensure smartparens)
 
 
