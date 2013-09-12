@@ -261,13 +261,12 @@
          ("M-F" . paredit-forward))
   :config (use-package paredit-menu
             :ensure paredit-menu)
-  :diminish ""
+  :diminish "Par"
   :ensure paredit)
 
 
 (use-package paredit-everywhere
   :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
-  :diminish ""
   :ensure paredit-everywhere)
 
 
