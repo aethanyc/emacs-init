@@ -14,6 +14,9 @@
 
 ;;; Code:
 
+(eval-when-compile
+  (require 'use-package))
+
 ;; When Emacs is launched by UI, it does not seen the PATH from the
 ;; shell. Let's fix this.
 (use-package exec-path-from-shell

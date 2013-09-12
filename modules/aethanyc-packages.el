@@ -40,7 +40,8 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Require use-package that are essential to customization.
 (require-package 'use-package)
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 ;; To see the summary of all the personal keybinds:
 ;; M-x describe-personal-keybindings

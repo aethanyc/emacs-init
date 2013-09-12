@@ -22,7 +22,7 @@
 
 ;; http://ergoemacs.org/emacs/organize_your_dot_emacs.html
 (defun aethanyc-byte-compile-current-buffer ()
-  "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."
+  "`byte-compile' current buffer if it's `emacs-lisp-mode' and compiled file exists."
   (interactive)
   (when (and (eq major-mode 'emacs-lisp-mode)
              (file-exists-p (byte-compile-dest-file buffer-file-name)))
@@ -32,8 +32,9 @@
 ;; This is adapted from `delete-window' in:
 ;; http://www.emacswiki.org/emacs/frame-cmds.el
 (defun aethanyc-delete-window-or-frame ()
-  "Remove `select-window' from the display. If it is the only one
-in its frame, then `delete-frame' too."
+  "Delete current window or frame.
+Remove `select-window' from the display.  If it is the only one in
+its frame, then `delete-frame' too."
   (interactive)
   (save-current-buffer
     (if (one-window-p t) (delete-frame) (delete-window))))
@@ -42,7 +43,8 @@ in its frame, then `delete-frame' too."
 ;; This is adapted from `find-function-or-variable-at-point' in:
 ;; http://www.emacswiki.org/emacs/find-func-extension.el
 (defun aethanyc-find-at-point (&optional other-window)
-  "Find function or variable at point."
+  "Find function or variable at point.
+If OTHER-WINDOW is non-nil, open the result in other window."
   (interactive "P")
   (let ((vsymb (variable-at-point))
         (fsymb (function-called-at-point)))
@@ -61,8 +63,10 @@ in its frame, then `delete-frame' too."
 
 ;; http://www.emacswiki.org/emacs/SetFonts
 (defun aethanyc-font-candidate (fonts)
-  "Return the existing font which first matched."
-  (find-if (lambda (f) (find-font (font-spec :name f))) fonts))
+  "Return the existing font which first matched in FONTS."
+  (when fonts
+    (or (car (member (car fonts) (font-family-list)))
+        (aethanyc-font-candidate (cdr fonts)))))
 
 
 ;; https://github.com/jwiegley/dot-emacs

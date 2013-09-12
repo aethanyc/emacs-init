@@ -14,6 +14,8 @@
 
 ;;; Code:
 
+(require 'use-package)
+
 (defvar aethanyc-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
 (defvar aethanyc-font-size (if (eq system-type 'darwin) 13 12))
 
@@ -37,11 +39,12 @@
 (setq minibuffer-prompt-properties
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
-;; Let ediff split window horizontally rather than vertically.
-(setq ediff-split-window-function 'split-window-horizontally)
 
-;; Put ediff control panel in single frame.
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(use-package ediff-util
+  :init
+  (progn
+    ;; Let ediff split window horizontally rather than vertically.
+    (setq ediff-split-window-function 'split-window-horizontally)))
 
 
 (use-package git-gutter-fringe
@@ -82,7 +85,9 @@
 ;; Frame operations
 
 (defun aethanyc-toggle-frame-maximized ()
-  "This function works exactly the same as built-in
+  "Toggle maximization state of the selected frame.
+
+This function works exactly the same as built-in
 `toggle-frame-maximized' except that it sends w32 command to
 toggle frame maximized on Windows."
   (interactive)

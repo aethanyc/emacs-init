@@ -14,14 +14,11 @@
 
 ;;; Code:
 
+(eval-when-compile
+  (require 'use-package))
+
 ;; Unicode is good.
 (prefer-coding-system 'utf-8)
-
-;; Solution to the problem "server directory is unsafe on Windows."
-;; http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
-(eval-after-load 'server
-  '(progn
-     (setq server-auth-dir aethanyc-savefiles-dir)))
 
 ;; Delete the seleted text when typing.
 (delete-selection-mode 1)
@@ -48,29 +45,12 @@
         try-expand-list
         try-expand-line))
 
-;; Save the last place of the cursor.
-(setq-default save-place t)
-(setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
-(require 'saveplace)
-
-;; Save the history of minibuffer.
-(setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
-(require 'savehist)
-
 ;; Stop creating those backup~ files
 (setq make-backup-files nil)
 
 ;; Stop creating those #autosave# files
 (setq auto-save-default nil
       auto-save-list-file-prefix nil)
-
-;; Keep a list of recently opened files
-(setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir))
-(recentf-mode 1)
-
-;; Unique buffer name
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
 
 ;; Reload the buffers automatically if they are changed outside.
 (global-auto-revert-mode 1)
@@ -304,6 +284,33 @@
   :ensure projectile)
 
 
+;; Keep a list of recently opened files
+(use-package recentf
+  :init
+  (progn
+    (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir))
+    (recentf-mode 1)))
+
+
+;; Save the history of minibuffer.
+(use-package savehist
+  :init
+  (progn
+    (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))))
+
+
+;; Save the last place of the cursor.
+(use-package saveplace
+  :init
+  (progn
+    (setq-default save-place t)
+    (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))))
+
+
+(use-package server
+  :init (setq server-auth-dir aethanyc-savefiles-dir))
+
+
 (use-package smartparens
   :init
   (progn
@@ -336,6 +343,11 @@
   :bind ("C-=" . undo-tree-redo)
   :diminish ""
   :ensure undo-tree)
+
+;; Unique buffer name
+(use-package uniquify
+  :init (setq uniquify-buffer-name-style 'forward))
+
 
 (use-package yasnippet
   :idle (yas-global-mode 1)

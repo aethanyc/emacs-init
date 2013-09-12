@@ -48,5 +48,8 @@ Emacs Tips and Useful links
 - Generate Eshell alias from bash alias
 - http://www.emacswiki.org/emacs/EshellAlias#toc8
 - alias | sed -E "s/^alias ([^=]+)='(.*)'$/alias \1 \2 \$*/g; s/'\\\''/'/g;"
+** Server
+- Solution to the problem "server directory is unsafe on Windows."
+- http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
 * Misc
 - Enter greek letters: C-u C-\ greek RET then C-\

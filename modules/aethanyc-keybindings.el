@@ -14,6 +14,9 @@
 
 ;;; Code:
 
+(eval-when-compile
+  (require 'bind-key))
+
 ;; Basic keys
 (bind-key "RET" 'newline-and-indent)
 (bind-key "<C-return>" 'aethanyc-open-line-below)

@@ -14,6 +14,8 @@
 
 ;;; Code:
 
+(eval-when-compile
+  (require 'use-package))
 
 ;;; Prog Mode
 
@@ -119,8 +121,7 @@
 (use-package jedi
   :init
   (progn
-    (setq jedi:setup-keys t
-          jedi:complete-on-dot t)
+    (setq jedi:complete-on-dot t)
     (setq jedi:server-command
           (list python-shell-interpreter jedi:server-script))
 

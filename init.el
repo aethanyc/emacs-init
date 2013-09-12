@@ -21,8 +21,7 @@
   "This folder contains all the automatically generated files.")
 
 (defvar aethanyc-site-lisp-dir (locate-user-emacs-file "site-lisp/")
-  "This folder contains other packages that are not installed
-throught MELPA.")
+  "This folder contains other packages that are not installed throught MELPA.")
 
 ;; Add directories to Emacs's `load-path'.
 (add-to-list 'load-path aethanyc-modules-dir)
@@ -30,9 +29,6 @@ throught MELPA.")
 
 ;; Reduce the frequency of garbage collection.
 (setq gc-cons-threshold (* 50 1024 1024))
-
-;; Use common-lisp utilities.
-(require 'cl)
 
 (require 'aethanyc-packages)
 (require 'aethanyc-core)
