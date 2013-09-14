@@ -47,11 +47,6 @@
     (setq ediff-split-window-function 'split-window-horizontally)))
 
 
-(use-package git-gutter-fringe
-  :disabled t
-  :ensure git-gutter-fringe)
-
-
 (use-package highlight-symbol
   :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   :bind (("<C-f3>" . highlight-symbol-at-point)
