@@ -349,8 +349,10 @@
 
 
 (use-package yasnippet
-  :idle (yas-global-mode 1)
-  :diminish yas-minor-mode
+  :init
+  (progn
+    (aethanyc-hook-into-modes 'yas-minor-mode
+                              '(python-mode-hook)))
   :ensure yasnippet)
 
 
