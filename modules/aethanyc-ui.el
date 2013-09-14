@@ -87,17 +87,16 @@
 (defun aethanyc-toggle-frame-maximized ()
   "Toggle maximization state of the selected frame.
 
-This function works exactly the same as built-in
-`toggle-frame-maximized' except that it sends w32 command to
-toggle frame maximized on Windows."
+This function sends w32 command to toggle frame maximized on
+Windows, and use `set-frame-parameter' on other systems"
   (interactive)
-  (toggle-frame-maximized)
-  ;; Fix frame maximized does not work on Windows.
-  ;; See the document of w32-send-sys-command for more system commands.
-  (when (eq system-type 'windows-nt)
-    (if (eq (frame-parameter nil 'fullscreen) 'maximized)
-        (w32-send-sys-command #xf030)
-      (w32-send-sys-command #xf120))))
+  (let ((status (frame-parameter nil 'fullscreen)))
+    ;; Fix frame maximized does not work on Windows.
+    ;; See the document of w32-send-sys-command for more system commands.
+    (if (eq system-type 'windows-nt)
+        (w32-send-sys-command (if (eq status 'maximized) #xf030 #xf120))
+      (set-frame-parameter nil 'fullscreen
+                           (if (eq status 'maximized) nil 'maximized)))))
 
 (bind-key "<M-f10>" 'aethanyc-toggle-frame-maximized)
 
