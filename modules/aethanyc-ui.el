@@ -86,12 +86,12 @@ This function sends w32 command to toggle frame maximized on
 Windows, and use `set-frame-parameter' on other systems"
   (interactive)
   (let ((status (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+                         (if (eq status 'maximized) nil 'maximized))
     ;; Fix frame maximized does not work on Windows.
     ;; See the document of w32-send-sys-command for more system commands.
-    (if (eq system-type 'windows-nt)
-        (w32-send-sys-command (if (eq status 'maximized) #xf030 #xf120))
-      (set-frame-parameter nil 'fullscreen
-                           (if (eq status 'maximized) nil 'maximized)))))
+    (when (eq system-type 'windows-nt)
+      (w32-send-sys-command (if (eq status 'maximized) #xf120 #xf030)))))
 
 (bind-key "<M-f10>" 'aethanyc-toggle-frame-maximized)
 
