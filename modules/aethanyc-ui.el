@@ -103,9 +103,12 @@ Windows, and use `set-frame-parameter' on other systems"
 
 ;; Prompt for a target window when there are more than 2.
 (use-package switch-window
-  :init (setq switch-window-shortcut-style 'qwerty
-              switch-window-qwerty-shortcuts '("a" "o" "e" "u" "h" "t"))
-  :bind ("M-o" . switch-window)
+  :init
+  (progn
+    (setq switch-window-shortcut-style 'qwerty
+          switch-window-qwerty-shortcuts '("a" "o" "e" "u" "h" "t"))
+    (global-set-key [remap other-window] 'switch-window)
+    (bind-key* "M-o" 'switch-window))
   :ensure switch-window)
 
 ;; Using S-arrow keys to move between windows.
