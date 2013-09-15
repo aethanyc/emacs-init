@@ -40,27 +40,6 @@ its frame, then `delete-frame' too."
     (if (one-window-p t) (delete-frame) (delete-window))))
 
 
-;; This is adapted from `find-function-or-variable-at-point' in:
-;; http://www.emacswiki.org/emacs/find-func-extension.el
-(defun aethanyc-find-at-point (&optional other-window)
-  "Find function or variable at point.
-If OTHER-WINDOW is non-nil, open the result in other window."
-  (interactive "P")
-  (let ((vsymb (variable-at-point))
-        (fsymb (function-called-at-point)))
-    ;; Push current position to the global mark ring.
-    (push-mark)
-    ;; (function-called-at-point) gets function name symbol even if
-    ;; cursor is on a variable name, so we check vsymb first.
-    (cond ((and vsymb (not (equal vsymb 0)))
-           (funcall (if other-window 'find-variable-other-window 'find-variable)
-                    vsymb))
-          (fsymb
-           (funcall (if other-window 'find-function-other-window 'find-function)
-                    fsymb))
-          (t (message "Neither function nor variable at point.")))))
-
-
 ;; http://www.emacswiki.org/emacs/SetFonts
 (defun aethanyc-font-candidate (fonts)
   "Return the existing font which first matched in FONTS."

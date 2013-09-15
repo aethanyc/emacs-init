@@ -32,11 +32,20 @@
   :diminish "")
 
 
+(use-package elisp-slime-nav
+  :init
+  (progn
+    (aethanyc-hook-into-modes 'elisp-slime-nav-mode
+                              '(emacs-lisp-mode-hook ielm-mode-hook))
+    (bind-key "M-g" 'elisp-slime-nav-find-elisp-thing-at-point
+              elisp-slime-nav-mode-map))
+  :diminish ""
+  :ensure elisp-slime-nav)
+
+
 (use-package lisp-mode
   :config
   (progn
-    (bind-key "M-g" 'aethanyc-find-at-point emacs-lisp-mode-map)
-    (bind-key "M-g" 'aethanyc-find-at-point lisp-interaction-mode-map)
     (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)
     (bind-key "C-c v" 'eval-buffer lisp-interaction-mode-map)))
 
