@@ -134,6 +134,10 @@
     (setq desktop-base-file-name "desktop")
     (setq desktop-base-lock-name "desktop.lock")
 
+    ;; Specify modes that need not to be saved.
+    (dolist (mode '(dired-mode fundamental-mode help-mode))
+      (add-to-list 'desktop-modes-not-to-save mode))
+
     (defun aethanyc-desktop-after-read-hook ()
       "Remove the desktop saved file after it's been read."
       ;; desktop-remove clears the desktop-dirname. Let's restore it.
