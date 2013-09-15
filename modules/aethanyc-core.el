@@ -130,6 +130,25 @@ point reaches the beginning or end of the buffer, stop there."
   (forward-line -1)
   (indent-for-tab-command))
 
+;; http://ergoemacs.org/emacs/emacs_copy_cut_current_line.html
+(defun aethanyc-save-line-or-region (&optional arg)
+  "Save current line or region.
+If no region is selected, save current line or ARG line if
+prefix argument is supplied.  Otherwise save the region."
+  (interactive "p")
+  (or arg (setq arg 1))
+  (if (use-region-p)
+      (call-interactively 'kill-ring-save)
+    (kill-ring-save (line-beginning-position) (line-beginning-position (1+ arg)))))
+
+(defun aethanyc-kill-line-or-region ()
+  "Kill the current line, or current region.
+If no region is selected, kill current line as function
+`kill-whole-line' does.  Othewise call `kill-region'."
+  (interactive)
+  (if (use-region-p)
+      (call-interactively 'kill-region)
+    (call-interactively 'kill-whole-line)))
 
 ;; http://ergoemacs.org/emacs/modernization_upcase-word.html
 (defun aethanyc-toggle-letter-case ()
