@@ -237,17 +237,23 @@
       ad-do-it
       (delete-other-windows))
 
-    (defun magit-quit-session ()
-      "Restores the previous window configuration and kills the magit buffer."
-      (interactive)
-      (kill-buffer)
-      (when (get-register :magit-fullscreen)
-        (ignore-errors
-          (jump-to-register :magit-fullscreen))))
-
-    (bind-key "q" 'magit-quit-session magit-status-mode-map)
-    (defalias 'mb 'magit-blame-mode))
+    ;; http://whattheemacsd.com/setup-magit.el-01.html
+    (defadvice magit-quit-window (around magit-restore-screen activate)
+      "Restores the previous window configuration."
+      ad-do-it
+      (jump-to-register :magit-fullscreen)))
   :ensure magit)
+
+
+;; Install git-wip to ~/bin
+;; https://raw.github.com/bartman/git-wip/master/git-wip
+;; $ git config --global --add magit.extension wip-save
+(when (executable-find "git-wip")
+  (use-package magit-wip
+    :init
+    (progn
+      (magit-wip-mode 1)
+      (global-magit-wip-save-mode 1))))
 
 
 (use-package markdown-mode
