@@ -329,7 +329,8 @@
     (setq sp-base-key-bindings 'paredit)
     (show-smartparens-global-mode 1)
     (aethanyc-hook-into-modes 'smartparens-mode
-                              '(markdown-mode-hook)))
+                              '(c-mode-common-hook
+                                markdown-mode-hook)))
   :ensure smartparens)
 
 
@@ -363,8 +364,10 @@
 (use-package yasnippet
   :init
   (progn
+    (yas-reload-all)
     (aethanyc-hook-into-modes 'yas-minor-mode
-                              '(python-mode-hook)))
+                              '(c-mode-common-hook
+                                python-mode-hook)))
   :ensure yasnippet)
 
 

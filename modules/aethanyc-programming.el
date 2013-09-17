@@ -50,52 +50,26 @@
     (bind-key "C-c v" 'eval-buffer lisp-interaction-mode-map)))
 
 
-;;;-------------------------------------------------------------------
-;;; Semantic mode
-;; http://www.emacswiki.org/emacs/CEDET_Quickstart
-
-(require 'semantic)
-(require 'semantic/analyze/refs)
-(require 'semantic/mru-bookmark)
-(require 'pulse)
-
-(setq semantic-default-submodes
-      '(global-semanticdb-minor-mode
-        global-semantic-idle-scheduler-mode
-        global-semantic-decoration-mode
-        global-semantic-highlight-func-mode
-        global-semantic-mru-bookmark-mode))
-
-(setq pulse-flag 'never)
-(setq semanticdb-default-save-directory
-      (concat aethanyc-savefiles-dir "semanticdb"))
-
-(defun my-semantic-hook ()
-  (local-set-key (kbd "M-g") 'semantic-ia-fast-jump)
-  (local-set-key (kbd "C-c t") 'semantic-analyze-proto-impl-toggle))
-
-(add-hook 'semantic-init-hook 'my-semantic-hook)
-
-;;;-------------------------------------------------------------------
 ;;; C/C++ Mode
 
-(defconst my-c/c++-style
-  '("stroustrup"
-    (c-offsets-alist
-     (topmost-intro-cont . +)
-     (arglist-intro . 0)
-     (arglist-close . 0)
-     (member-init-intro . 0)
-     (cpp-macro . 0))))
+(use-package auto-complete-clang
+  :init
+  (progn
+    (defun ac-clang-setup ()
+      (add-to-list 'ac-sources 'ac-source-clang))
+    (add-hook 'c-mode-common-hook 'ac-clang-setup t))
+  :ensure auto-complete-clang)
 
-(defun my-c-mode-common-hook ()
-  (semantic-mode 1)
-  (add-to-list 'ac-sources 'ac-source-semantic t)
-  (c-add-style "my-c/c++-style" my-c/c++-style)
-  (c-set-style "my-c/c++-style")
-  (local-set-key (kbd "RET") 'c-context-line-break))
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(use-package cc-mode
+  :init
+  (progn
+    (defun c-mode-common-setup ()
+      (c-set-style "stroustrup"))
+    (add-hook 'c-mode-common-hook 'c-mode-common-setup))
+  :config
+  (progn
+    (bind-key "RET" 'c-context-line-break c-mode-base-map)))
 
 
 ;;; Python Mode
