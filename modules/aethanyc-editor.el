@@ -72,6 +72,22 @@
     (setq-default save-place t)))
 
 
+;; Keep a list of recently opened files
+(use-package recentf
+  :init
+  (progn
+    (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir))
+    (recentf-mode 1)))
+
+
+;; Save the history of minibuffer.
+(use-package savehist
+  :init
+  (progn
+    (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
+    (savehist-mode 1)))
+
+
 ;; Packages
 
 (use-package ace-jump-mode
@@ -304,21 +320,6 @@
     (projectile-global-mode 1))
   :diminish ""
   :ensure projectile)
-
-
-;; Keep a list of recently opened files
-(use-package recentf
-  :init
-  (progn
-    (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir))
-    (recentf-mode 1)))
-
-
-;; Save the history of minibuffer.
-(use-package savehist
-  :init
-  (progn
-    (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))))
 
 
 (use-package server
