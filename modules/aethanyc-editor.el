@@ -60,6 +60,18 @@
 (setq vc-handled-backends nil)
 
 
+;; Built-in packages
+
+;; Save the last place of the cursor.  This should be loaded as early
+;; as possible.  I don't know why it fails to load save-place-file if
+;; it is loaded too late.
+(use-package saveplace
+  :init
+  (progn
+    (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
+    (setq-default save-place t)))
+
+
 ;; Packages
 
 (use-package ace-jump-mode
@@ -308,14 +320,6 @@
   :init
   (progn
     (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))))
-
-
-;; Save the last place of the cursor.
-(use-package saveplace
-  :init
-  (progn
-    (setq-default save-place t)
-    (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))))
 
 
 (use-package server
