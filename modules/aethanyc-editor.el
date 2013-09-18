@@ -282,7 +282,6 @@
   (progn
     (bind-key "M-B" 'paredit-backward paredit-mode-map)
     (bind-key "M-F" 'paredit-forward paredit-mode-map)
-    (bind-key "RET" 'paredit-newline paredit-mode-map)
     (use-package paredit-menu
       :ensure paredit-menu))
   :diminish "Par"
