@@ -88,6 +88,37 @@
     (savehist-mode 1)))
 
 
+(use-package webjump
+  :bind ("C-c j" . webjump)
+  :config
+  (progn
+    (setq webjump-sites
+          '(("DuckDuckGo" .
+             [simple-query "duckduckgo.com"
+                           "duckduckgo.com/?q=" ""])
+            ("EmacsWiki" .
+             [simple-query "www.emacswiki.org"
+                           "duckduckgo.com/?q="
+                           "+site:emacswiki.org"])
+            ("Github" .
+             [simple-query "github.com"
+                           "github.com/search?q=" "&ref=cmdform"])
+            ("Google" .
+             [simple-query "www.google.com"
+                           "www.google.com/search?q=" ""])
+            ("OxfordDictionary" .
+             [simple-query "oaadonline.oxfordlearnersdictionaries.com"
+                           "oaadonline.oxfordlearnersdictionaries.com/dictionary/" ""])
+            ("StackOverflow" .
+             [simple-query "stackoverflow.com"
+                           "stackoverflow.com/search?q=" ""])
+            ("Wikipedia" .
+             [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
+            ("Youtube" .
+             [simple-query "www.youtube.com"
+                           "www.youtube.com/results?search_query=" ""])))))
+
+
 ;; Packages
 
 (use-package ace-jump-mode
