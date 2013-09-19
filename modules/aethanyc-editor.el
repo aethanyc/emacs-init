@@ -253,6 +253,11 @@
   :ensure ido-ubiquitous)
 
 
+(use-package imenu-anywhere
+  :bind ("C-c i" . imenu-anywhere)
+  :ensure imenu-anywhere)
+
+
 (use-package flx-ido
   :init
   (progn
