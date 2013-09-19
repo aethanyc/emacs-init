@@ -25,13 +25,16 @@
                           aethanyc-font-size) t t))
 
 (setq frame-title-format '("%b" (buffer-file-name ": %f")))
+
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (blink-cursor-mode -1)
 (scroll-bar-mode -1)
-(setq inhibit-startup-screen t)
-(setq visible-bell t)
 (column-number-mode 1)
+
+(setq blink-matching-paren nil
+      inhibit-startup-screen t
+      visible-bell t)
 
 ;; Prevent cursor going into minibuffer prompt. This is the same as:
 ;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>

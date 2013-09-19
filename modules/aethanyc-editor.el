@@ -326,11 +326,6 @@
   :ensure paredit)
 
 
-(use-package paredit-everywhere
-  :init (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
-  :ensure paredit-everywhere)
-
-
 (use-package projectile
   :init
   (progn
@@ -352,7 +347,9 @@
   :init
   (progn
     (require 'smartparens-config)
-    (setq sp-base-key-bindings 'paredit)
+    (setq sp-base-key-bindings 'paredit
+          sp-autoskip-closing-pair 'always)
+    (sp-use-paredit-bindings)
     (show-smartparens-global-mode 1)
     (aethanyc-hook-into-modes 'smartparens-mode
                               '(c-mode-common-hook
