@@ -111,6 +111,12 @@
 (use-package auto-complete
   :init
   (progn
+    ;; Packages that enhance auto-complete.
+    (use-package fuzzy
+      :ensure fuzzy)
+    (use-package pos-tip
+      :ensure pos-tip)
+
     (require 'auto-complete-config)
     (ac-config-default)            ; Enables global-auto-complete-mode
     (setq-default ac-sources
@@ -120,7 +126,9 @@
                     ac-source-words-in-same-mode-buffers
                     ac-source-words-in-all-buffer))
     (setq ac-use-menu-map t
-          ac-auto-show-menu t)
+          ac-auto-show-menu t
+          ac-use-fuzzy t
+          ac-quick-help-delay 0.7)
     (setq ac-comphist-file
           (expand-file-name "ac-comphist.dat" aethanyc-savefiles-dir))
     (setq ac-modes (append ac-modes
