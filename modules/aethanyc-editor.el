@@ -384,9 +384,9 @@
           sp-autoskip-closing-pair 'always)
     (sp-use-paredit-bindings)
     (show-smartparens-global-mode 1)
-    (aethanyc-hook-into-modes 'smartparens-mode
-                              '(c-mode-common-hook
-                                markdown-mode-hook)))
+    (smartparens-global-mode 1)
+    (aethanyc-hook-into-modes 'turn-off-smartparens-mode
+                              '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
   :ensure smartparens)
 
 
