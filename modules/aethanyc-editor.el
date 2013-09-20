@@ -166,6 +166,7 @@
     (setq ac-modes (append ac-modes
                            '(git-commit-mode
                              html-mode
+                             inferior-emacs-lisp-mode
                              markdown-mode
                              nxml-mode
                              org-mode
