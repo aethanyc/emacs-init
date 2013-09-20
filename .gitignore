@@ -6,3 +6,4 @@ flycheck-*
 *.elc
 TAGS
 tips.html
+.DS_Store
