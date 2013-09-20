@@ -93,7 +93,8 @@
   :config
   (progn
     (setq webjump-sites
-          '(("DuckDuckGo" .
+          '(("FileBrowser" . "")         ; Dummy entry to open file browser
+            ("DuckDuckGo" .
              [simple-query "duckduckgo.com"
                            "duckduckgo.com/?q=" ""])
             ("EmacsWiki" .
