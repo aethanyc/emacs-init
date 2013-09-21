@@ -62,6 +62,12 @@
     :ensure auto-complete-clang))
 
 
+(when (executable-find "global")
+  (use-package ggtags
+    :init (add-hook 'c-mode-common-hook 'ggtags-mode)
+    :ensure ggtags))
+
+
 (use-package cc-mode
   :init
   (progn
