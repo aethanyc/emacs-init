@@ -76,7 +76,9 @@
 (use-package recentf
   :init
   (progn
-    (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir))
+    (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir)
+          recentf-max-menu-items 20
+          recentf-max-saved-items 500)
     (recentf-mode 1)))
 
 
