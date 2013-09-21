@@ -17,6 +17,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(require 'aethanyc-core)
+
 ;; Unicode is good.
 (prefer-coding-system 'utf-8)
 
@@ -253,7 +255,12 @@
 (use-package flycheck
   :init
   (progn
-    (setq-default flycheck-flake8-maximum-line-length 85)
+    ;; C-c ! ? to describe the syntax checker.
+    (setq-default flycheck-clang-include-path '(".")
+                  flycheck-emacs-lisp-initialize-packages t
+                  flycheck-emacs-lisp-load-path load-path
+                  flycheck-flake8-maximum-line-length 85)
+
     (add-hook 'after-init-hook 'global-flycheck-mode))
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))

@@ -16,6 +16,7 @@
 
 (eval-when-compile
   (require 'use-package))
+(require 'aethanyc-core)
 
 ;;; Prog Mode
 

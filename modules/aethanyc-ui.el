@@ -14,7 +14,9 @@
 
 ;;; Code:
 
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
+(require 'aethanyc-core)
 
 (defvar aethanyc-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
 (defvar aethanyc-font-size (if (eq system-type 'darwin) 13 12))
