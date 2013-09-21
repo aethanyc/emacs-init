@@ -298,6 +298,14 @@
   :ensure imenu-anywhere)
 
 
+(use-package keyfreq
+  :init
+  (progn
+    (keyfreq-mode 1)
+    (keyfreq-autosave-mode 1))
+  :ensure keyfreq)
+
+
 (use-package magit
   :bind ("C-c g" . magit-status)
   :config
