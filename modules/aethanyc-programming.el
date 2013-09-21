@@ -91,9 +91,9 @@
   (progn
     ;; Set preferred python interpreter
     (setq python-shell-interpreter
-        (cond ((executable-find "ipython3") "ipython3")
-              ((executable-find "python3") "python3")
-              (t "python")))
+          (cond ((executable-find "ipython3") "ipython3")
+                ((executable-find "python3") "python3")
+                (t "python")))
 
     ;; Ipython settings was copied from the document of python-mode.
     (when (executable-find "ipython3")
