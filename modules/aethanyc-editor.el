@@ -319,18 +319,8 @@
         (unbind-key 'key-unbind magit-mode-map)
         (bind-key 'key-bind func-bind magit-mode-map)))
 
-    ;; https://github.com/purcell/emacs.d/blob/master/init-git.el
-    (defadvice magit-status (around magit-fullscreen activate)
-      "Show magit status in full frame."
-      (window-configuration-to-register :magit-fullscreen)
-      ad-do-it
-      (delete-other-windows))
-
-    ;; http://whattheemacsd.com/setup-magit.el-01.html
-    (defadvice magit-quit-window (around magit-restore-screen activate)
-      "Restores the previous window configuration."
-      ad-do-it
-      (jump-to-register :magit-fullscreen)))
+    ;; Allow magit to restore provious window configuration after quitting.
+    (setq magit-restore-window-configuration t))
   :ensure magit)
 
 
