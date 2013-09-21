@@ -52,13 +52,14 @@
 
 ;;; C/C++ Mode
 
-(use-package auto-complete-clang
-  :init
-  (progn
-    (defun ac-clang-setup ()
-      (add-to-list 'ac-sources 'ac-source-clang))
-    (add-hook 'c-mode-common-hook 'ac-clang-setup t))
-  :ensure auto-complete-clang)
+(when (executable-find "clang")
+  (use-package auto-complete-clang
+    :init
+    (progn
+      (defun ac-clang-setup ()
+        (add-to-list 'ac-sources 'ac-source-clang))
+      (add-hook 'c-mode-common-hook 'ac-clang-setup t))
+    :ensure auto-complete-clang))
 
 
 (use-package cc-mode
