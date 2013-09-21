@@ -278,26 +278,24 @@
     (setq ido-save-directory-list-file
           (expand-file-name "ido-last" aethanyc-savefiles-dir))
     (ido-mode 1)
-    (ido-everywhere 1)))
+    (ido-everywhere 1)
 
+    (use-package ido-ubiquitous
+      :init (ido-ubiquitous-mode 1)
+      :ensure ido-ubiquitous)
 
-(use-package ido-ubiquitous
-  :init (ido-ubiquitous-mode 1)
-  :ensure ido-ubiquitous)
+    (use-package flx-ido
+      :init
+      (progn
+        ;; Disable ido faces to see flx highlights.
+        (setq ido-use-faces nil)
+        (flx-ido-mode 1))
+      :ensure flx-ido)))
 
 
 (use-package imenu-anywhere
   :bind ("C-c i" . imenu-anywhere)
   :ensure imenu-anywhere)
-
-
-(use-package flx-ido
-  :init
-  (progn
-    ;; Disable ido faces to see flx highlights.
-    (setq ido-use-faces nil)
-    (flx-ido-mode 1))
-  :ensure flx-ido)
 
 
 (use-package magit
