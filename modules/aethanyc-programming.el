@@ -37,9 +37,7 @@
   :init
   (progn
     (aethanyc-hook-into-modes 'elisp-slime-nav-mode
-                              '(emacs-lisp-mode-hook ielm-mode-hook))
-    (bind-key "M-g" 'elisp-slime-nav-find-elisp-thing-at-point
-              elisp-slime-nav-mode-map))
+                              '(emacs-lisp-mode-hook ielm-mode-hook)))
   :diminish ""
   :ensure elisp-slime-nav)
 
@@ -65,7 +63,20 @@
 
 (when (executable-find "global")
   (use-package ggtags
-    :init (add-hook 'c-mode-common-hook 'ggtags-mode)
+    :init
+    (progn
+      (add-hook 'c-mode-common-hook 'ggtags-mode))
+    :config
+    (progn
+      ;; Refine keys in `ggtags-mode-map'
+      (bind-key "M-," 'pop-tag-mark ggtags-mode-map)
+      (bind-key "M-*" 'ggtags-find-tag-resume ggtags-mode-map)
+
+      ;; Refine keys in `ggtags-navigation-mode-map'
+      (bind-key "M-," 'previous-error ggtags-navigation-mode-map)
+      (bind-key "M-." 'next-error ggtags-navigation-mode-map)
+      (bind-key "C-g" 'ggtags-navigation-mode-abort ggtags-navigation-mode-map)
+      (unbind-key "M-o" ggtags-navigation-mode-map))
     :ensure ggtags))
 
 
@@ -112,19 +123,13 @@
 (use-package jedi
   :init
   (progn
-    (setq jedi:complete-on-dot t)
+    (setq jedi:complete-on-dot t
+          jedi:use-shortcuts t)
     (setq jedi:server-command
           (list python-shell-interpreter jedi:server-script))
 
-    (defun aethanyc-jedi:goto-definition ()
-      "Push mark before goto definition."
-      (interactive)
-      (push-mark)
-      (call-interactively 'jedi:goto-definition))
-
     (aethanyc-hook-into-modes 'jedi:setup
                               '(python-mode-hook inferior-python-mode-hook)))
-  :config (bind-key "M-g" 'aethanyc-jedi:goto-definition python-mode-map)
   :ensure jedi)
 
 

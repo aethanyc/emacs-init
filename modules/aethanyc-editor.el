@@ -131,6 +131,7 @@
               ace-jump-mode-case-fold nil)
   :bind (("M-m" . ace-jump-word-mode)
          ("M-M" . ace-jump-char-mode))
+  :config (ace-jump-mode-enable-mark-sync)
   :ensure ace-jump-mode)
 
 
@@ -188,10 +189,8 @@
 (use-package back-button
   :init
   (progn
-    (defalias 'push-mark 'back-button-push-mark-local-and-global
-      "Replace push-mark to preserve current position before jumping around.")
-    (bind-key* "C-M-b" 'back-button-global-backward)
-    (bind-key* "C-M-f" 'back-button-global-forward)
+    (bind-key* "C-M-b" 'back-button-local-backward)
+    (bind-key* "C-M-f" 'back-button-local-forward)
     (back-button-mode 1))
   :diminish "")
 
