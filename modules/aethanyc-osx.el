@@ -30,6 +30,9 @@
 
 (setq mouse-wheel-scroll-amount '(0.01))
 
+;; http://www.masteringemacs.org/articles/2010/10/10/introduction-to-ido-mode/
+(add-to-list 'completion-ignored-extensions ".DS_Store")
+
 (provide 'aethanyc-osx)
 
 ;; Local Variables:
