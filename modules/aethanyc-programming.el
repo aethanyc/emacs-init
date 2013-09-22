@@ -149,12 +149,6 @@
 
 ;;; Other
 
-;; Set whitespace mode styles
-(setq-default whitespace-style '(face trailing lines-tail tabs empty indentation))
-
-;; Clean up white spaces before saving a buffer.
-(add-hook 'before-save-hook 'whitespace-cleanup)
-
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
 (add-hook 'after-save-hook 'aethanyc-byte-compile-current-buffer)
 
