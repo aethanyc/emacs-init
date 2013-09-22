@@ -51,5 +51,10 @@ Emacs Tips and Useful links
 ** Server
 - Solution to the problem "server directory is unsafe on Windows."
 - http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error
+** Hunspell
+- Check installed dictionaries: `hunspell -D`
+- en_US dictionary: http://wordlist.sourceforge.net/
+- On Mac OS, dictionaries can be installed under `~/Library/Spelling/`
+- Hunspell executable for Windows: https://github.com/zdenop/hunspell-mingw/downloads
 * Misc
 - Enter greek letters: C-u C-\ greek RET then C-\

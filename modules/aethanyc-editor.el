@@ -74,6 +74,17 @@
     (setq-default save-place t)))
 
 
+(use-package ispell
+  :init
+  (progn
+    ;; Check available dictionaries: hunspell -D
+    (setq ispell-program-name (executable-find "hunspell")
+          ispell-extra-args '("-d" "en_US"))
+    (when ispell-program-name
+      (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+      (add-hook 'text-mode-hook 'flyspell-mode))))
+
+
 ;; Keep a list of recently opened files
 (use-package recentf
   :init
@@ -156,6 +167,7 @@
 
     (require 'auto-complete-config)
     (ac-config-default)            ; Enables global-auto-complete-mode
+    (ac-flyspell-workaround)
     (setq-default ac-sources
                   '(ac-source-abbrev
                     ac-source-yasnippet
