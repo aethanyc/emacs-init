@@ -133,17 +133,6 @@
   :ensure jedi)
 
 
-;;;-------------------------------------------------------------------
-;;; Javascript Mode (js-mode)
-
-(defun my-js-mode-hook ()
-  (js2-minor-mode 1)
-  (skewer-mode 1)
-  (ac-js2-mode 1))
-
-(add-hook 'js-mode-hook 'my-js-mode-hook)
-
-
 ;;; Lua Mode
 
 (use-package lua-mode
