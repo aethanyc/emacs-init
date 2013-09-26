@@ -220,6 +220,11 @@
   :diminish "")
 
 
+(use-package browse-kill-ring
+  :bind ("C-c k" . browse-kill-ring)
+  :ensure browse-kill-ring)
+
+
 ;;; http://www.emacswiki.org/DeskTop#toc5
 (use-package desktop
   :init
