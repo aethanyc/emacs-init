@@ -221,7 +221,7 @@
 
 
 (use-package browse-kill-ring
-  :bind ("C-c k" . browse-kill-ring)
+  :bind ("C-c y" . browse-kill-ring)
   :ensure browse-kill-ring)
 
 
