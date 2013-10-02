@@ -214,8 +214,8 @@
 (use-package back-button
   :init
   (progn
-    (bind-key* "C-M-b" 'back-button-local-backward)
-    (bind-key* "C-M-f" 'back-button-local-forward)
+    (bind-key* "C-M-b" 'back-button-global-backward)
+    (bind-key* "C-M-f" 'back-button-global-forward)
     (back-button-mode 1))
   :diminish "")
 
