@@ -89,6 +89,16 @@
       (add-hook 'text-mode-hook 'flyspell-mode))))
 
 
+(use-package org
+  :init
+  (progn
+    (setq org-completion-use-ido t
+          org-ctrl-k-protect-subtree t
+          org-special-ctrl-k t
+          org-startup-indented t
+          org-special-ctrl-a/e t)))
+
+
 ;; Keep a list of recently opened files
 (use-package recentf
   :init
