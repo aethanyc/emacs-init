@@ -96,7 +96,8 @@
           org-ctrl-k-protect-subtree t
           org-special-ctrl-k t
           org-startup-indented t
-          org-special-ctrl-a/e t)))
+          org-special-ctrl-a/e t
+          org-M-RET-may-split-line '((default)))))
 
 
 ;; Keep a list of recently opened files

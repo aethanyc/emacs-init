@@ -20,36 +20,36 @@
 - http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
 - http://www.reai.us/windows-emacs-encoding
 * Packages
-** Undo Tree
-- http://ergoemacs.org/emacs/emacs_best_redo_mode.html
-- http://www.dr-qubit.org/emacs.php#undo-tree
-- C-x u: undo-tree-visualize
 ** Ace Jump Mode
 - https://github.com/winterTTr/ace-jump-mode
 ** Ack
 - http://betterthangrep.com/
 - https://github.com/jhelwig/ack-and-a-half
-** Markdown mode
-- http://daringfireball.net/projects/markdown/syntax
-- http://jblevins.org/projects/markdown-mode/
-** Dired
-- Helpful for refactor codes. ``[[http://ergoemacs.org/emacs/find_replace_inter.html][Interactively Find & Replace String Patterns on Multiple Files]]''
-** Org mode
-- C-c C-e b: export the file to HTML and show it in browser.
-- C-c ^: sort the plain list.
-- [[http://orgmode.org/manual/Headings-and-sections.html#Headings-and-sections][Adjust exported headline levels]]
 ** Auto Complete Mode
 - http://cx4a.org/software/auto-complete/manual.html
 ** CEDET
 - http://www.emacswiki.org/emacs/CEDET_Quickstart
+** Dired
+- Helpful for refactor codes. ``[[http://ergoemacs.org/emacs/find_replace_inter.html][Interactively Find & Replace String Patterns on Multiple Files]]''
 ** Eshell
 - [[http://www.emacswiki.org/emacs/EshellAlias#toc8][Generate Eshell alias from bash alias]]
-** Server
-- [[http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error][Solution to the problem "server directory is unsafe on Windows."]]
 ** Hunspell
 - Check installed dictionaries: `hunspell -D`
 - [[http://wordlist.sourceforge.net/][Download en\_US dictionary]]
 - On Mac OS, dictionaries can be installed under `~/Library/Spelling/`
 - [[https://github.com/zdenop/hunspell-mingw/downloads][Hunspell executable for Windows]]
+** Markdown mode
+- http://daringfireball.net/projects/markdown/syntax
+- http://jblevins.org/projects/markdown-mode/
+** Org mode
+- C-c C-e b: export the file to HTML and show it in browser.
+- C-c ^: sort the plain list.
+- [[http://orgmode.org/manual/Headings-and-sections.html#Headings-and-sections][Adjust exported headline levels]]
+** Server
+- [[http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error][Solution to the problem "server directory is unsafe on Windows."]]
+** Undo Tree
+- http://ergoemacs.org/emacs/emacs_best_redo_mode.html
+- http://www.dr-qubit.org/emacs.php#undo-tree
+- C-x u: undo-tree-visualize
 * Misc
 - Enter greek letters: C-u C-\ greek RET then C-\
