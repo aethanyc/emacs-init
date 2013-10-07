@@ -61,6 +61,9 @@
 ;; http://stackoverflow.com/questions/5748814/how-does-one-disable-vc-git-in-emacs
 (setq vc-handled-backends nil)
 
+;; Let `fill-paragraph' leaves just one space at the end of the sentence.
+(setq-default sentence-end-double-space nil)
+
 
 ;; Built-in packages
 
