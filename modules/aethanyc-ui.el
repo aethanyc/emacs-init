@@ -46,6 +46,13 @@
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
 
+;; Show number of matches in mode-line while searching
+(use-package anzu
+  :init (global-anzu-mode 1)
+  :diminish ""
+  :ensure anzu)
+
+
 (use-package ediff-util
   :init
   (progn
