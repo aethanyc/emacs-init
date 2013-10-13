@@ -50,9 +50,8 @@
 ;; Stop creating those backup~ files
 (setq make-backup-files nil)
 
-;; Stop creating those #autosave# files
-(setq auto-save-default nil
-      auto-save-list-file-prefix nil)
+;; Make auto-save files visible.
+(setq auto-save-list-file-prefix (concat aethanyc-savefiles-dir "auto-save-"))
 
 ;; Reload the buffers automatically if they are changed outside.
 (global-auto-revert-mode 1)
