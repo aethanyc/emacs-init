@@ -163,8 +163,9 @@
 (use-package whitespace
   :init
   (progn
-    ;; Set whitespace mode styles
-    (setq-default whitespace-style '(face trailing lines-tail tab-mark empty))
+    (setq-default whitespace-style '(face trailing tab-mark empty))
+    (global-whitespace-mode 1)
+
     ;; Clean up white spaces before saving a buffer.
     (add-hook 'before-save-hook 'whitespace-cleanup)))
 
