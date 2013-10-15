@@ -104,6 +104,9 @@
 
     ;; Export org-mode content to reveal.js
     (use-package ox-reveal
+      :init (setq org-reveal-history nil
+                  org-reveal-rolling-links nil)
+      :bind (("<f5>" . org-reveal-export-to-html))
       :ensure ox-reveal)))
 
 
