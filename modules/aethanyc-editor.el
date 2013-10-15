@@ -99,7 +99,8 @@
           org-special-ctrl-k t
           org-startup-indented nil
           org-special-ctrl-a/e t
-          org-M-RET-may-split-line '((default)))
+          org-M-RET-may-split-line '((default))
+          org-export-dispatch-use-expert-ui t)
 
     ;; Export org-mode content to reveal.js
     (use-package ox-reveal
