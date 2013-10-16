@@ -167,8 +167,6 @@
   :init
   (progn
     (setq-default whitespace-style '(face trailing tab-mark empty))
-    (global-whitespace-mode 1)
-
     ;; Clean up white spaces before saving a buffer.
     (add-hook 'before-save-hook 'whitespace-cleanup)))
 
