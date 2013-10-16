@@ -107,7 +107,10 @@
       :init (setq org-reveal-history nil
                   org-reveal-rolling-links nil)
       :bind (("<f5>" . org-reveal-export-to-html))
-      :ensure ox-reveal)))
+      :ensure ox-reveal)
+
+    (use-package htmlize
+      :ensure htmlize)))
 
 
 ;; Keep a list of recently opened files
