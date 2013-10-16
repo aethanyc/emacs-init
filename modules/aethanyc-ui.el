@@ -33,7 +33,6 @@
 (blink-cursor-mode -1)
 (scroll-bar-mode -1)
 (column-number-mode 1)
-(global-hl-line-mode 1)
 
 (setq blink-matching-paren nil
       inhibit-startup-screen t
