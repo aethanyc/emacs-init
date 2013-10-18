@@ -105,15 +105,22 @@
           org-M-RET-may-split-line '((default))
           org-export-dispatch-use-expert-ui t)
 
+    ;; Highlight the source code in html exported.
+    (use-package htmlize
+      :ensure htmlize)
+
+    ;; Grab link in various app on Mac OS.
+    (when (eq system-type 'darwin)
+      (use-package org-mac-link
+        :init (progn (bind-key "C-c C-g" 'org-mac-grab-link org-mode-map))
+        :ensure org-mac-link))
+
     ;; Export org-mode content to reveal.js
     (use-package ox-reveal
       :init (setq org-reveal-history nil
                   org-reveal-rolling-links nil)
       :bind (("<f5>" . org-reveal-export-to-html))
-      :ensure ox-reveal)
-
-    (use-package htmlize
-      :ensure htmlize)))
+      :ensure ox-reveal)))
 
 
 ;; Keep a list of recently opened files
