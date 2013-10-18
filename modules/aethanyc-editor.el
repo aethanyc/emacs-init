@@ -381,10 +381,7 @@
             (key-bind (format "C-x %d" i))
             (func-bind (intern (format "magit-show-level-%d-all" i))))
         (unbind-key 'key-unbind magit-mode-map)
-        (bind-key 'key-bind func-bind magit-mode-map)))
-
-    ;; Allow magit to restore provious window configuration after quitting.
-    (setq magit-restore-window-configuration t))
+        (bind-key 'key-bind func-bind magit-mode-map))))
   :ensure magit)
 
 
