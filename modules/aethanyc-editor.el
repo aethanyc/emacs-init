@@ -87,8 +87,11 @@
     (setq ispell-program-name (executable-find "hunspell")
           ispell-extra-args '("-d" "en_US"))
     (when ispell-program-name
-      (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-      (add-hook 'text-mode-hook 'flyspell-mode))))
+      (use-package flyspell
+        :init
+        (progn
+          (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+          (add-hook 'text-mode-hook 'flyspell-mode))))))
 
 
 (use-package org
