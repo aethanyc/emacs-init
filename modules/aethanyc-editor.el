@@ -91,7 +91,16 @@
         :init
         (progn
           (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-          (add-hook 'text-mode-hook 'flyspell-mode))))))
+          (add-hook 'text-mode-hook 'flyspell-mode)))
+
+      ;; Fix slow cursor movement on windows.
+      (when (eq system-type 'windows-nt)
+        (use-package flyspell-lazy
+          :init
+          (progn
+            (add-hook 'prog-mode-hook 'flyspell-lazy-mode)
+            (add-hook 'text-mode-hook 'flyspell-lazy-mode))
+          :ensure flyspell-lazy)))))
 
 
 (use-package org
