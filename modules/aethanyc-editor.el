@@ -112,7 +112,8 @@
           org-startup-indented nil
           org-special-ctrl-a/e t
           org-M-RET-may-split-line '((default))
-          org-export-dispatch-use-expert-ui t)
+          org-export-dispatch-use-expert-ui t
+          org-export-with-sub-superscripts (quote {}))
 
     ;; Highlight the source code in html exported.
     (use-package htmlize

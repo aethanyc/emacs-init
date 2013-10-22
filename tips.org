@@ -1,4 +1,5 @@
 #+STARTUP: content
+#+OPTIONS: ^:{}
 #+TITLE: Emacs Tips and Useful links
 
 * Emacs Lisp
@@ -35,7 +36,7 @@
 - [[http://www.emacswiki.org/emacs/EshellAlias#toc8][Generate Eshell alias from bash alias]]
 ** Hunspell
 - Check installed dictionaries: `hunspell -D`
-- [[http://wordlist.sourceforge.net/][Download en\_US dictionary]]
+- [[http://wordlist.sourceforge.net/][Download en_US dictionary]]
 - On Mac OS, dictionaries can be installed under `~/Library/Spelling/`
 - [[https://github.com/zdenop/hunspell-mingw/downloads][Hunspell executable for Windows]]
 ** Markdown mode
@@ -52,6 +53,8 @@
 - C-u C-c C-l: insert a file link.
 - [[http://orgmode.org/manual/Headings-and-sections.html#Headings-and-sections][Adjust exported headline levels]]
 - [[http://orgmode.org/worg/org-contrib/babel/languages.html][Support languages in source code block]]
+- =org-export-with-sub-superscripts=: Interpret "_" and "^" for export. Set =^:{}=
+
 ** Server
 - [[http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error][Solution to the problem "server directory is unsafe on Windows."]]
 ** Undo Tree
