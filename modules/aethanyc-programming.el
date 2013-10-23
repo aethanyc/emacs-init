@@ -29,7 +29,7 @@
 
 (use-package eldoc
   :init (aethanyc-hook-into-modes 'turn-on-eldoc-mode
-                                  '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
+          '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
   :diminish "")
 
 
@@ -37,7 +37,7 @@
   :init
   (progn
     (aethanyc-hook-into-modes 'elisp-slime-nav-mode
-                              '(emacs-lisp-mode-hook ielm-mode-hook)))
+      '(emacs-lisp-mode-hook ielm-mode-hook)))
   :diminish ""
   :ensure elisp-slime-nav)
 
@@ -129,7 +129,7 @@
           (list python-shell-interpreter jedi:server-script))
 
     (aethanyc-hook-into-modes 'jedi:setup
-                              '(python-mode-hook inferior-python-mode-hook)))
+      '(python-mode-hook inferior-python-mode-hook)))
   :ensure jedi)
 
 

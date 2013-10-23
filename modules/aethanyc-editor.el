@@ -422,7 +422,7 @@
   :init
   (progn
     (aethanyc-hook-into-modes 'paredit-mode
-                              '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
+      '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
   :config
   (progn
     (bind-key "M-B" 'paredit-backward paredit-mode-map)
@@ -460,7 +460,7 @@
     (show-smartparens-global-mode 1)
     (smartparens-global-mode 1)
     (aethanyc-hook-into-modes 'turn-off-smartparens-mode
-                              '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
+      '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
   :ensure smartparens)
 
 
@@ -496,8 +496,7 @@
   (progn
     (yas-reload-all)
     (aethanyc-hook-into-modes 'yas-minor-mode
-                              '(c-mode-common-hook
-                                python-mode-hook)))
+      '(c-mode-common-hook python-mode-hook)))
   :ensure yasnippet)
 
 

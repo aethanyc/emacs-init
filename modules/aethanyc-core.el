@@ -51,6 +51,7 @@ its frame, then `delete-frame' too."
 ;; https://github.com/jwiegley/dot-emacs
 (defun aethanyc-hook-into-modes (function mode-hooks)
   "Add FUNCTION to each hooks in MODE-HOOKS."
+  (declare (indent defun))
   (dolist (mode-hook mode-hooks)
     (add-hook mode-hook function)))
 
