@@ -38,6 +38,9 @@
       inhibit-startup-screen t
       visible-bell t)
 
+;; Highlight trailing whitespaces.
+(setq-default show-trailing-whitespace t)
+
 ;; Prevent cursor going into minibuffer prompt. This is the same as:
 ;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
 ;; Select "Don't enter" option and save.
