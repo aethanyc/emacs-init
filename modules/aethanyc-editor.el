@@ -109,6 +109,7 @@
     (setq org-completion-use-ido t
           org-ctrl-k-protect-subtree t
           org-special-ctrl-k t
+          org-src-fontify-natively t
           org-startup-indented nil
           org-special-ctrl-a/e t
           org-M-RET-may-split-line '((default))
