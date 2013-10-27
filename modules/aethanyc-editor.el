@@ -442,6 +442,9 @@
           projectile-known-projects-file
           (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
     (setq projectile-indexing-method 'alien)
+    ;; The known project list is loaded when projectile is required.
+    ;; It should be reloaded since the file path is changed.
+    (projectile-load-known-projects)
     (projectile-global-mode 1))
   :diminish ""
   :ensure projectile)
