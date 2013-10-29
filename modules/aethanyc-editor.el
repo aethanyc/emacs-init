@@ -419,6 +419,12 @@
   :ensure markdown-mode)
 
 
+(use-package multiple-cursors
+  :bind (("M-9" . mc/mark-next-like-this)
+         ("C-c M-9" . mc/mark-all-like-this))
+  :ensure multiple-cursors)
+
+
 (use-package paredit
   :init
   (progn
