@@ -258,6 +258,8 @@
 (use-package back-button
   :init
   (progn
+    (defalias 'push-mark 'back-button-push-mark-local-and-global
+      "Replace push-mark to preserve current position before jumping around.")
     (bind-key* "C-M-b" 'back-button-global-backward)
     (bind-key* "C-M-f" 'back-button-global-forward)
     (back-button-mode 1))
