@@ -197,7 +197,7 @@
 (use-package ace-jump-mode
   :init (setq ace-jump-mode-gray-background nil
               ace-jump-mode-case-fold nil)
-  :bind (("M-m" . ace-jump-word-mode)
+  :bind (("M-m" . ace-jump-mode)
          ("M-M" . ace-jump-char-mode))
   :config (ace-jump-mode-enable-mark-sync)
   :ensure ace-jump-mode)
