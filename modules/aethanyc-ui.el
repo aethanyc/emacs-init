@@ -38,9 +38,6 @@
       inhibit-startup-screen t
       visible-bell t)
 
-;; Highlight trailing whitespaces.
-(setq-default show-trailing-whitespace t)
-
 ;; Prevent cursor going into minibuffer prompt. This is the same as:
 ;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
 ;; Select "Don't enter" option and save.
@@ -85,6 +82,19 @@
 (use-package rainbow-mode
   :defer t
   :ensure rainbow-mode)
+
+
+(use-package whitespace
+  :init
+  (progn
+    (setq-default whitespace-style '(face trailing tab-mark empty))
+    ;; Clean up white spaces before saving a buffer.
+    (add-hook 'before-save-hook 'whitespace-cleanup)
+
+    ;; Highlight trailing whitespaces only in file buffer.
+    (defun whitespace-setup ()
+      (setq show-trailing-whitespace t))
+    (add-hook 'find-file-hook 'whitespace-setup)))
 
 
 (use-package zenburn-theme

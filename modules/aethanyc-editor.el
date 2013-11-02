@@ -194,14 +194,6 @@
                            "www.youtube.com/results?search_query=" ""])))))
 
 
-(use-package whitespace
-  :init
-  (progn
-    (setq-default whitespace-style '(face trailing tab-mark empty))
-    ;; Clean up white spaces before saving a buffer.
-    (add-hook 'before-save-hook 'whitespace-cleanup)))
-
-
 ;; Packages
 
 (use-package ace-jump-mode
