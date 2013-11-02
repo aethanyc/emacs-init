@@ -431,7 +431,11 @@
 (use-package paredit
   :init
   (progn
-    (aethanyc-hook-into-modes 'paredit-mode
+    (defun paredit-mode-setup ()
+      (when (derived-mode-p 'lisp-mode 'emacs-lisp-mode)
+        (bind-key "RET" 'paredit-newline paredit-mode-map))
+      (paredit-mode 1))
+    (aethanyc-hook-into-modes 'paredit-mode-setup
       '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
   :config
   (progn
