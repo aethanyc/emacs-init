@@ -25,7 +25,8 @@
 
 ;; Add directories to Emacs's `load-path'.
 (add-to-list 'load-path aethanyc-modules-dir)
-(add-to-list 'load-path aethanyc-site-lisp-dir)
+(let ((default-directory aethanyc-site-lisp-dir))
+  (normal-top-level-add-subdirs-to-load-path))
 
 ;; Reduce the frequency of garbage collection.
 (setq gc-cons-threshold (* 50 1024 1024))
