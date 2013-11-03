@@ -328,6 +328,10 @@
   :bind ("C-x m" . eshell))
 
 
+(use-package evil
+  :ensure evil)
+
+
 (use-package expand-region
   :bind ("M-8" . er/expand-region)
   :ensure expand-region)
