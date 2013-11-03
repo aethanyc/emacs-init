@@ -215,6 +215,10 @@
   :ensure ack-and-a-half)
 
 
+(use-package ag
+  :ensure ag)
+
+
 (use-package auto-complete
   :init
   (progn
