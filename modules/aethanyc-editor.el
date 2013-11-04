@@ -134,11 +134,8 @@
         (defun org-reveal-save-then-export ()
           "Save buffer and then export to html."
           (interactive)
-          (if (buffer-modified-p)
-              (progn
-                (save-buffer)
-                (org-reveal-export-to-html))
-            (message "This buffer is not modified. No need to export again.")))
+          (save-buffer)
+          (org-reveal-export-to-html))
 
         (bind-key "<f5>" 'org-reveal-save-then-export org-mode-map))
       :ensure ox-reveal)))
