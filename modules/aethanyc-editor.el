@@ -431,6 +431,7 @@
 
 
 (use-package multiple-cursors
+  :init (setq mc/list-file (expand-file-name "mc-lists.el" aethanyc-savefiles-dir))
   :bind (("M-9" . mc/mark-next-like-this)
          ("C-c M-9" . mc/mark-all-like-this))
   :ensure multiple-cursors)
