@@ -63,6 +63,9 @@
 ;; Let `fill-paragraph' leaves just one space at the end of the sentence.
 (setq-default sentence-end-double-space nil)
 
+;; Do not display message in scratch buffer.
+(setq initial-scratch-message nil)
+
 
 ;; Built-in packages
 
