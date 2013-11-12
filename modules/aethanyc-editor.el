@@ -273,7 +273,9 @@
 
 
 (use-package browse-kill-ring
-  :bind ("C-c y" . browse-kill-ring)
+  :init
+  (progn
+    (browse-kill-ring-default-keybindings))
   :ensure browse-kill-ring)
 
 
