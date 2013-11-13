@@ -24,9 +24,7 @@
   :ensure exec-path-from-shell)
 
 (setq mac-command-modifier 'meta)
-(setq mac-function-modifier 'control)
 (setq mac-option-modifier 'super)
-(setq mac-right-option-modifier 'control)
 
 (setq mouse-wheel-scroll-amount '(0.01))
 
