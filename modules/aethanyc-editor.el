@@ -117,7 +117,6 @@
           org-special-ctrl-a/e t
           org-M-RET-may-split-line '((default))
           org-export-copy-to-kill-ring nil
-          org-export-dispatch-use-expert-ui t
           org-export-with-sub-superscripts (quote {}))
 
     ;; Highlight the source code in html exported.
