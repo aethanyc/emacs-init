@@ -120,9 +120,6 @@ Windows, and use `set-frame-parameter' on other systems"
 
 (bind-key "<M-f10>" 'aethanyc-toggle-frame-maximized)
 
-;; Maximize the frame after initializing.
-(add-hook 'after-init-hook 'aethanyc-toggle-frame-maximized)
-
 
 ;; Window operations
 
