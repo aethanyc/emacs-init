@@ -425,7 +425,6 @@
   (use-package magit-wip
     :init
     (progn
-      (magit-wip-mode 1)
       (global-magit-wip-save-mode 1))))
 
 
