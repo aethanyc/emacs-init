@@ -482,14 +482,23 @@
 (use-package smartparens
   :init
   (progn
-    (require 'smartparens-config)
+    ;; Configuration from smartparens-config.el
+    (--each sp--html-modes
+      (eval-after-load (symbol-name it) '(require 'smartparens-html)))
+    (eval-after-load "lua-mode" '(require 'smartparens-lua))
+
     (setq sp-base-key-bindings 'paredit
           sp-autoskip-closing-pair 'always)
     (sp-use-paredit-bindings)
+
+    ;; Do not turn on smartparens-mode in lisp family mode.
+    (setq sp-ignore-modes-list
+          (append sp-ignore-modes-list
+                  '(lisp-mode lisp-interaction-mode emacs-lisp-mode
+                              inferior-emacs-lisp-mode)))
+
     (show-smartparens-global-mode 1)
-    (smartparens-global-mode 1)
-    (aethanyc-hook-into-modes 'turn-off-smartparens-mode
-      '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
+    (smartparens-global-mode 1))
   :ensure smartparens)
 
 
