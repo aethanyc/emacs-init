@@ -388,7 +388,10 @@
         ;; Disable ido faces to see flx highlights.
         (setq ido-use-faces nil)
         (flx-ido-mode 1))
-      :ensure flx-ido)))
+      :ensure flx-ido)
+
+    (use-package ido-vertical-mode
+      :init (ido-vertical-mode 1))))
 
 
 (use-package imenu-anywhere
