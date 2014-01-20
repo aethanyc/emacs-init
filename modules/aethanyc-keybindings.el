@@ -18,7 +18,6 @@
   (require 'bind-key))
 
 ;; Basic keys
-(bind-key "RET" 'newline-and-indent)
 (bind-key "<C-return>" 'aethanyc-open-line-below)
 (bind-key "<C-S-return>" 'aethanyc-open-line-above)
 

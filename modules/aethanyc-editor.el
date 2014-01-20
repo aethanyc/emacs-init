@@ -25,6 +25,9 @@
 ;; Delete the seleted text when typing.
 (delete-selection-mode 1)
 
+;; Trigger reindentation when typing RET.
+(electric-indent-mode 1)
+
 ;; Paste at the cursor position.
 (setq mouse-yank-at-point t)
 
