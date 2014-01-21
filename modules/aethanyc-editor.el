@@ -391,7 +391,8 @@
       :ensure flx-ido)
 
     (use-package ido-vertical-mode
-      :init (ido-vertical-mode 1))))
+      :init (ido-vertical-mode 1)
+      :ensure ido-vertical-mode)))
 
 
 (use-package imenu-anywhere
