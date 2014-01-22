@@ -6,7 +6,6 @@ Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 ## Where to get the latest Emacs 24? ##
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
-* [Unofficial Windows Snapshot](https://www.dropbox.com/sh/zmxzw7pk2ml7qip/jS1Fuz1pZr)
 * [Debian Snapshot Packages](http://emacs.naquadah.org/)
 * [Ubuntu Snapshot Packages](https://launchpad.net/~cassou/+archive/emacs)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
