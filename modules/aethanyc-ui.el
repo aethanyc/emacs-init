@@ -19,12 +19,17 @@
 (require 'aethanyc-core)
 
 (defvar aethanyc-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
+(defvar aethanyc-unicode-fonts '("Lantinghei TC"))
 (defvar aethanyc-font-size (if (eq system-type 'darwin) 13 12))
 
-;; Set the first available font.
 (when (display-graphic-p)
+  ;; Set font for ASCII characters.
   (set-frame-font (format "%s-%d" (aethanyc-font-candidate aethanyc-fonts)
-                          aethanyc-font-size) t t))
+                          aethanyc-font-size) t t)
+  ;; Set font for Unicode characters.
+  (set-fontset-font t 'unicode
+                    (format "%s-%d" (aethanyc-font-candidate aethanyc-unicode-fonts)
+                            aethanyc-font-size)))
 
 (setq frame-title-format '("%b" (buffer-file-name ": %f")))
 
