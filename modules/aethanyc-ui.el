@@ -18,18 +18,24 @@
   (require 'use-package))
 (require 'aethanyc-core)
 
-(defvar aethanyc-fonts '("PragmataPro" "Droid Sans Mono" "Consolas"))
-(defvar aethanyc-unicode-fonts '("Lantinghei TC"))
+(defvar aethanyc-fonts-alist '(("PragmataPro" . ascii)
+                               ("Droid Sans Mono" . ascii)
+                               ("Consolas" . ascii)
+                               ("Lantinghei TC" . unicode))
+  "Alist of prefered font name with its charset.
+The value should be an alist of elements (FONT . CHARSET).")
+
 (defvar aethanyc-font-size (if (eq system-type 'darwin) 13 12))
 
+;; C-u M-x list-fontsets: list the fonts contained in each fontset.
+;; C-h r m Fontsets <RET>: see the info about fontset.
+;; M-x describe-char or C-u C-x =: see the char info under cursor.
 (when (display-graphic-p)
-  ;; Set font for ASCII characters.
-  (set-frame-font (format "%s-%d" (aethanyc-font-candidate aethanyc-fonts)
-                          aethanyc-font-size) t t)
-  ;; Set font for Unicode characters.
-  (set-fontset-font t 'unicode
-                    (format "%s-%d" (aethanyc-font-candidate aethanyc-unicode-fonts)
-                            aethanyc-font-size)))
+  (dolist (font-charset (reverse aethanyc-fonts-alist))
+    (let ((font-name-string (format "%s-%d" (car font-charset) aethanyc-font-size))
+          (charset (cdr font-charset)))
+      ;; Second parameter `nil' means fontset of FRAME.
+      (set-fontset-font nil charset font-name-string nil 'prepend))))
 
 (setq frame-title-format '("%b" (buffer-file-name ": %f")))
 

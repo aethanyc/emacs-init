@@ -40,14 +40,6 @@ its frame, then `delete-frame' too."
     (if (one-window-p t) (delete-frame) (delete-window))))
 
 
-;; http://www.emacswiki.org/emacs/SetFonts
-(defun aethanyc-font-candidate (fonts)
-  "Return the existing font which first matched in FONTS."
-  (when fonts
-    (or (car (member (car fonts) (font-family-list)))
-        (aethanyc-font-candidate (cdr fonts)))))
-
-
 ;; https://github.com/jwiegley/dot-emacs
 (defun aethanyc-hook-into-modes (function mode-hooks)
   "Add FUNCTION to each hooks in MODE-HOOKS."
