@@ -30,12 +30,20 @@ The value should be an alist of elements (FONT . CHARSET).")
 ;; C-u M-x list-fontsets: list the fonts contained in each fontset.
 ;; C-h r m Fontsets <RET>: see the info about fontset.
 ;; M-x describe-char or C-u C-x =: see the char info under cursor.
-(when (display-graphic-p)
-  (dolist (font-charset (reverse aethanyc-fonts-alist))
-    (let ((font-name-string (format "%s-%d" (car font-charset) aethanyc-font-size))
-          (charset (cdr font-charset)))
-      ;; Second parameter `nil' means fontset of FRAME.
-      (set-fontset-font nil charset font-name-string nil 'prepend))))
+(create-fontset-from-fontset-spec standard-fontset-spec)
+(dolist (font-charset (reverse aethanyc-fonts-alist))
+  (let ((font-name-string (format "%s-%d" (car font-charset) aethanyc-font-size))
+        (charset (cdr font-charset)))
+    (set-fontset-font "fontset-standard" charset font-name-string nil 'prepend)))
+
+;; Set the second parameter of `set-frame-font' to t so that the
+;; initial frame would have proper maximized height and width. The
+;; first font should be available or `set-frame-font' will fail.
+(when (member (caar aethanyc-fonts-alist) (font-family-list))
+  (set-frame-font "fontset-standard" t t))
+
+;; Set this so that the subsequent frames could use the correct fonts.
+(add-to-list 'default-frame-alist '(font . "fontset-standard"))
 
 (setq frame-title-format '("%b" (buffer-file-name ": %f")))
 
