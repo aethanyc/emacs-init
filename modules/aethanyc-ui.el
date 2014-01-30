@@ -45,6 +45,9 @@ The value should be an alist of elements (FONT . CHARSET).")
 ;; Set this so that the subsequent frames could use the correct fonts.
 (add-to-list 'default-frame-alist '(font . "fontset-standard"))
 
+;; Make frames a bit wider.
+(add-to-list 'default-frame-alist '(width . 90))
+
 (setq frame-title-format '("%b" (buffer-file-name ": %f")))
 
 (tool-bar-mode -1)
