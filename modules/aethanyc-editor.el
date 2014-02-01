@@ -249,6 +249,7 @@
                            '(git-commit-mode
                              html-mode
                              inferior-emacs-lisp-mode
+                             latex-mode
                              markdown-mode
                              nxml-mode
                              org-mode
