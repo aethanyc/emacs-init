@@ -95,6 +95,13 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure highlight-symbol)
 
 
+;; Add spaces between Chinese and English characters.
+(use-package pangu-spacing
+  :init (global-pangu-spacing-mode 1)
+  :diminish ""
+  :ensure pangu-spacing)
+
+
 (use-package rainbow-delimiters
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   :ensure rainbow-delimiters)
