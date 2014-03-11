@@ -100,7 +100,6 @@
 
 ;; External python packages to install:
 ;; $ sudo pip3 ipython
-;; $ sudo pip3 install -r requirements.txt # Under jedi's install path
 ;; $ sudo pip3 install flake8
 
 (use-package python
@@ -130,8 +129,6 @@
   (progn
     (setq jedi:complete-on-dot t
           jedi:use-shortcuts t)
-    (setq jedi:server-command
-          (list python-shell-interpreter jedi:server-script))
 
     (aethanyc-hook-into-modes 'jedi:setup
       '(python-mode-hook inferior-python-mode-hook)))
