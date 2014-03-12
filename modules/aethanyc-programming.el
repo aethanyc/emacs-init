@@ -96,6 +96,21 @@
     (bind-key "RET" 'c-context-line-break c-mode-base-map)))
 
 
+;;; LaTeX Mode
+
+(use-package tex
+  :init
+  (progn
+    (setq-default TeX-engine 'xetex
+                  TeX-PDF-mode t)
+    (when (eq system-type 'darwin)
+      (add-to-list 'TeX-view-program-list
+                   '("Open" "open %o"))
+      (add-to-list 'TeX-view-program-selection
+                   '(output-pdf "Open"))))
+  :ensure auctex)
+
+
 ;;; Python Mode
 
 ;; External python packages to install:
