@@ -68,6 +68,7 @@
 
 (when (executable-find "global")
   (use-package ggtags
+    :defer t
     :init
     (progn
       (add-hook 'c-mode-common-hook 'ggtags-mode))
@@ -86,6 +87,7 @@
 
 
 (use-package cc-mode
+  :defer t
   :init
   (progn
     (defun c-mode-common-setup ()
@@ -99,7 +101,8 @@
 ;;; LaTeX Mode
 
 (use-package tex
-  :init
+  :defer t
+  :config
   (progn
     (setq-default TeX-engine 'xetex
                   TeX-PDF-mode t)
@@ -118,7 +121,8 @@
 ;; $ sudo pip3 install flake8
 
 (use-package python
-  :init
+  :defer t
+  :config
   (progn
     ;; Set preferred python interpreter
     (setq python-shell-interpreter
@@ -136,18 +140,17 @@
             python-shell-completion-module-string-code
             "';'.join(module_completion('''%s'''))\n"
             python-shell-completion-string-code
-            "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))))
+            "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
 
+  (use-package jedi
+    :init
+    (progn
+      (setq jedi:complete-on-dot t
+            jedi:use-shortcuts t)
 
-(use-package jedi
-  :init
-  (progn
-    (setq jedi:complete-on-dot t
-          jedi:use-shortcuts t)
-
-    (aethanyc-hook-into-modes 'jedi:setup
-      '(python-mode-hook inferior-python-mode-hook)))
-  :ensure jedi)
+      (aethanyc-hook-into-modes 'jedi:setup
+        '(python-mode-hook inferior-python-mode-hook)))
+    :ensure jedi))
 
 
 ;;; Lua Mode

@@ -110,7 +110,8 @@
 
 
 (use-package org
-  :init
+  :defer t
+  :config
   (progn
     (setq org-completion-use-ido t
           org-ctrl-k-protect-subtree t
@@ -334,6 +335,7 @@
 
 
 (use-package evil
+  :defer t
   :ensure evil)
 
 
