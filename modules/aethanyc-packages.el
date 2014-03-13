@@ -43,6 +43,8 @@ re-downloaded in order to locate PACKAGE."
 (eval-when-compile
   (require 'use-package))
 
+(setq use-package-verbose t)
+
 ;; To see the summary of all the personal keybinds:
 ;; M-x describe-personal-keybindings
 (use-package bind-key
