@@ -531,6 +531,7 @@
   :diminish ""
   :ensure undo-tree)
 
+
 ;; Unique buffer name
 (use-package uniquify
   :init (setq uniquify-buffer-name-style 'forward))
@@ -541,7 +542,7 @@
   (progn
     (yas-reload-all)
     (aethanyc-hook-into-modes 'yas-minor-mode
-      '(c-mode-common-hook python-mode-hook)))
+      '(c-mode-common-hook python-mode-hook LaTeX-mode-hook)))
   :ensure yasnippet)
 
 
