@@ -2,7 +2,7 @@ auto-save-list
 elpa
 savefiles
 
-flycheck-*
+**/flycheck_*
 *.elc
 TAGS
 tips.html
