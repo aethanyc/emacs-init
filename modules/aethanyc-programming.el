@@ -110,7 +110,10 @@
       (add-to-list 'TeX-view-program-list
                    '("Open" "open %o"))
       (add-to-list 'TeX-view-program-selection
-                   '(output-pdf "Open"))))
+                   '(output-pdf "Open")))
+
+    (use-package latex
+      :init (setq LaTeX-indent-level 0)))
   :ensure auctex)
 
 
