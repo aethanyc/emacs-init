@@ -1,4 +1,4 @@
-#+STARTUP: content
+#+STARTUP: content indent
 #+OPTIONS: ^:{}
 #+TITLE: Emacs Tips and Useful links
 
@@ -28,6 +28,8 @@
 - https://github.com/jhelwig/ack-and-a-half
 ** Auto Complete Mode
 - http://cx4a.org/software/auto-complete/manual.html
+** cc-mode
+- C-c C-q: indent function
 ** CEDET
 - http://www.emacswiki.org/emacs/CEDET_Quickstart
 ** Dired

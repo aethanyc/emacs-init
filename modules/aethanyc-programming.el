@@ -91,7 +91,11 @@
   :init
   (progn
     (defun c-mode-common-setup ()
-      (c-set-style "stroustrup"))
+      (c-add-style "aethanyc"
+                   '("stroustrup"
+                     (c-offsets-alist
+                      (inline-open . 0))))
+      (c-set-style "aethanyc"))
     (add-hook 'c-mode-common-hook 'c-mode-common-setup))
   :config
   (progn
