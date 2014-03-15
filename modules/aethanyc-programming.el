@@ -107,6 +107,11 @@
     (setq-default TeX-engine 'xetex
                   TeX-PDF-mode t)
 
+    (add-to-list 'TeX-command-list
+                 '("Latexmk" "latexmk -pvc -xelatex %(mode) %t"
+                   TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode)
+                   :help "Run Latexmk"))
+
     (when (eq system-type 'darwin)
       (add-to-list 'TeX-view-program-list
                    '("Open" "open %o"))
