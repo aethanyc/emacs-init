@@ -56,6 +56,20 @@
 
 ;;; C/C++ Mode
 
+(use-package auto-complete-c-headers
+  :config
+  (progn
+    (when (eq system-type 'darwin)
+      (add-to-list 'achead:include-directories "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/c++/v1"))
+
+    (defun ac-c-headers-setup ()
+      (add-to-list 'ac-sources 'ac-source-c-headers))
+
+    (aethanyc-hook-into-modes 'ac-c-headers-setup
+      '(c-mode-hook c++-mode-hook)))
+  :ensure auto-complete-c-headers)
+
+
 (when (executable-find "clang")
   (use-package auto-complete-clang
     :init
