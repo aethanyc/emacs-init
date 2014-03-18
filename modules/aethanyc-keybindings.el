@@ -30,6 +30,7 @@
 (bind-key "M-3" 'split-window-horizontally)
 (bind-key "M-4" 'ctl-x-4-prefix)
 (bind-key "M-5" 'ctl-x-5-prefix)
+(bind-key "M-7" 'aethanyc-select-current-line)
 
 ;; Use regex searches by default.
 (bind-key "C-s" 'isearch-forward-regexp)

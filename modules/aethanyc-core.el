@@ -73,6 +73,16 @@ point reaches the beginning or end of the buffer, stop there."
       (move-beginning-of-line 1))))
 
 
+;; http://ergoemacs.org/emacs/modernization_mark-word.html
+(defun aethanyc-select-current-line ()
+  "Select the current line.
+
+Note that the mark goes to the end of the line."
+  (interactive)
+  (end-of-line)
+  (set-mark (line-beginning-position)))
+
+
 ;; http://whattheemacsd.com/key-bindings.el-01.html
 (defun aethanyc-goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."
