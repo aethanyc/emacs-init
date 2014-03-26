@@ -131,25 +131,6 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure zenburn-theme)
 
 
-;; Frame operations
-
-(defun aethanyc-toggle-frame-maximized ()
-  "Toggle maximization state of the selected frame.
-
-This function sends w32 command to toggle frame maximized on
-Windows, and use `set-frame-parameter' on other systems"
-  (interactive)
-  (let ((status (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-                         (if (eq status 'maximized) nil 'maximized))
-    ;; Fix frame maximized does not work on Windows.
-    ;; See the document of w32-send-sys-command for more system commands.
-    (when (eq system-type 'windows-nt)
-      (w32-send-sys-command (if (eq status 'maximized) #xf120 #xf030)))))
-
-(bind-key "<M-f10>" 'aethanyc-toggle-frame-maximized)
-
-
 ;; Window operations
 
 ;; Prompt for a target window when there are more than 2.
