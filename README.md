@@ -6,12 +6,11 @@ Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 ## Where to get the latest Emacs 24? ##
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
-* [Debian Snapshot Packages](http://emacs.naquadah.org/)
 * [Ubuntu Snapshot Packages](https://launchpad.net/~cassou/+archive/emacs)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
 * [By Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
   * Stable version: ```brew install emacs --cocoa --srgb```
-  * Development version on git: ```brew install emacs --cocoa --srgb --use-git-head --HEAD```
+  * Development version on git: ```brew install emacs --cocoa --use-git-head --HEAD```
 
 ## Where to find Emacs packages? ##
 
