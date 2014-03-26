@@ -90,8 +90,11 @@
   :init
   (progn
     ;; Check available dictionaries: hunspell -D
-    (setq ispell-program-name (executable-find "hunspell")
-          ispell-extra-args '("-d" "en_US"))
+    ;; Name hunspell English dictionary files as default.aff and default.dic
+    (setq ispell-program-name
+          (or (executable-find "hunspell")
+              (executable-find "ispell")))
+
     (when ispell-program-name
       (use-package flyspell
         :init
