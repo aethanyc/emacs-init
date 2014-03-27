@@ -56,6 +56,9 @@
 ;; Make auto-save files visible.
 (setq auto-save-list-file-prefix (concat aethanyc-savefiles-dir "auto-save-"))
 
+;; Auto save buffer for every 5 seconds.
+(setq auto-save-timeout 5)
+
 ;; Reload the buffers automatically if they are changed outside.
 (global-auto-revert-mode 1)
 
