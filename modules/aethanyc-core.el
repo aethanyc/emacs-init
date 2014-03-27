@@ -166,6 +166,13 @@ Toggles between: 'all lower', 'Init Caps', 'ALL CAPS'."
         (downcase-region p1 p2) (put this-command 'state "all lower"))))))
 
 
+;; http://www.emacswiki.org/emacs/SwitchingBuffers#toc5
+(defun aethanyc-switch-to-recent-buffer ()
+  "Switch between two recently used buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer))))
+
+
 (provide 'aethanyc-core)
 
 ;; Local Variables:
