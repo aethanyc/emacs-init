@@ -117,13 +117,9 @@ The value should be an alist of elements (FONT . CHARSET).")
   :init
   (progn
     (setq-default whitespace-style '(face trailing tab-mark empty))
-    ;; Clean up white spaces before saving a buffer.
-    (add-hook 'before-save-hook 'whitespace-cleanup)
 
-    ;; Highlight trailing whitespaces only in file buffer.
-    (defun whitespace-setup ()
-      (setq show-trailing-whitespace t))
-    (add-hook 'find-file-hook 'whitespace-setup)))
+    ;; Turn on whitespace-mode only in file buffers.
+    (add-hook 'find-file-hook 'whitespace-mode)))
 
 
 (use-package zenburn-theme

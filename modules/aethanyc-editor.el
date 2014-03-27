@@ -72,6 +72,9 @@
 ;; Do not display message in scratch buffer.
 (setq initial-scratch-message nil)
 
+;; Remove trailing whitespaces before saving a buffer.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 
 ;; Built-in packages
 
