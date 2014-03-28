@@ -423,7 +423,7 @@
 
 
 (use-package magit
-  :bind ("C-c g" . magit-status)
+  :bind ("<f4>" . magit-status)
   :config
   (progn
     ;; Do not allow magit overrides the window management keys.
