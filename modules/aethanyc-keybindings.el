@@ -72,6 +72,9 @@
 ;; Switch between two recently used buffers.
 (bind-key "C-x C-b" 'aethanyc-switch-to-recent-buffer)
 
+;; Kill current buffer
+(bind-key "C-x C-k" 'aethanyc-kill-current-buffer)
+
 
 (provide 'aethanyc-keybindings)
 

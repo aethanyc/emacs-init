@@ -134,6 +134,12 @@ If no region is selected, kill current line as function
       (call-interactively 'kill-region)
     (call-interactively 'kill-whole-line)))
 
+;; http://www.masteringemacs.org/articles/2014/02/28/my-emacs-keybindings/
+(defun aethanyc-kill-current-buffer ()
+  "Kill current buffer without asking."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
 ;; http://ergoemacs.org/emacs/modernization_upcase-word.html
 (defun aethanyc-toggle-letter-case ()
   "Toggle the letter case of current word or text selection.
