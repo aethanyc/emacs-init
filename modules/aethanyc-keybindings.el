@@ -46,9 +46,6 @@
 ;; `hippie-expand' is more powerful than dabbrev-expand
 (bind-key "M-/" 'hippie-expand)
 
-;; C-c keybindings
-(bind-key "C-c r" 'revert-buffer)
-
 ;; M-^ is join-line
 (bind-key "C-^" 'aethanyc-join-next-line)
 
