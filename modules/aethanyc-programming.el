@@ -42,11 +42,6 @@
   :ensure elisp-slime-nav)
 
 
-(use-package paren
-  :init (aethanyc-hook-into-modes 'show-paren-mode
-          '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook)))
-
-
 (use-package lisp-mode
   :config
   (progn

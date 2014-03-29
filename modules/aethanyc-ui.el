@@ -55,6 +55,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 (blink-cursor-mode -1)
 (scroll-bar-mode -1)
 (column-number-mode 1)
+(show-paren-mode 1)
 
 (setq blink-matching-paren nil
       inhibit-startup-screen t
