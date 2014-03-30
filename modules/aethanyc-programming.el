@@ -75,6 +75,8 @@
     :ensure auto-complete-clang))
 
 
+;; To install global on Mac OS X
+;; $ brew install global --with-exuberant-ctags
 (when (executable-find "global")
   (use-package ggtags
     :defer t
@@ -83,15 +85,12 @@
       (add-hook 'c-mode-common-hook 'ggtags-mode))
     :config
     (progn
-      ;; Refine keys in `ggtags-mode-map'
-      (bind-key "M-," 'pop-tag-mark ggtags-mode-map)
-      (bind-key "M-*" 'ggtags-find-tag-resume ggtags-mode-map)
-
-      ;; Refine keys in `ggtags-navigation-mode-map'
-      (bind-key "M-," 'previous-error ggtags-navigation-mode-map)
-      (bind-key "M-." 'next-error ggtags-navigation-mode-map)
       (bind-key "C-g" 'ggtags-navigation-mode-abort ggtags-navigation-mode-map)
-      (unbind-key "M-o" ggtags-navigation-mode-map))
+
+      ;; Call (push-mark) to jump back later by (back-button-global-backward)
+      (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
+        (push-mark)))
+    :diminish ""
     :ensure ggtags))
 
 
