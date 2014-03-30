@@ -34,10 +34,17 @@
 
 
 (use-package elisp-slime-nav
+  :defer t
   :init
   (progn
     (aethanyc-hook-into-modes 'elisp-slime-nav-mode
       '(emacs-lisp-mode-hook ielm-mode-hook)))
+  :config
+  (progn
+    ;; Call (push-mark) to jump back later by (back-button-global-backward)
+    (defadvice elisp-slime-nav-find-elisp-thing-at-point
+        (before elisp-slime-nav-find-elisp-thing-at-point-advice activate)
+      (push-mark)))
   :diminish ""
   :ensure elisp-slime-nav)
 
