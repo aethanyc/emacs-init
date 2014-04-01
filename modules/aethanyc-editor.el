@@ -447,6 +447,10 @@
       (global-magit-wip-save-mode 1))))
 
 
+(use-package mark-tools
+  :ensure mark-tools)
+
+
 (use-package markdown-mode
   :defer t
   :ensure markdown-mode)
