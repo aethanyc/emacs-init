@@ -148,8 +148,9 @@
 ;;; Python Mode
 
 ;; External python packages to install:
-;; $ sudo pip3 ipython
-;; $ sudo pip3 install flake8
+;; $ pip3 install ipython
+;; $ pip3 install virtualenv
+;; $ pip3 install flake8
 
 (use-package python
   :defer t
@@ -171,17 +172,20 @@
             python-shell-completion-module-string-code
             "';'.join(module_completion('''%s'''))\n"
             python-shell-completion-string-code
-            "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
+            "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))))
 
-  (use-package jedi
-    :init
-    (progn
-      (setq jedi:complete-on-dot t
-            jedi:use-shortcuts t)
 
-      (aethanyc-hook-into-modes 'jedi:setup
-        '(python-mode-hook inferior-python-mode-hook)))
-    :ensure jedi))
+(use-package jedi
+  :defer t
+  :init
+  (progn
+    (aethanyc-hook-into-modes 'jedi:setup
+      '(python-mode-hook inferior-python-mode-hook)))
+  :config
+  (progn
+    (setq jedi:complete-on-dot t
+          jedi:use-shortcuts t))
+  :ensure jedi)
 
 
 ;;; Lua Mode
