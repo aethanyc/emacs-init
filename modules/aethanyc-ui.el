@@ -117,7 +117,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 (use-package whitespace
   :init
   (progn
-    (setq-default whitespace-style '(face trailing tab-mark empty))
+    (setq-default whitespace-style '(face trailing tab-mark))
 
     ;; Turn on whitespace-mode only in file buffers.
     (add-hook 'find-file-hook 'whitespace-mode)))
