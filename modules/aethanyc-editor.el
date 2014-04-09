@@ -120,6 +120,10 @@
 
 (use-package org
   :defer t
+  :init
+  (progn
+    (add-hook 'org-mode-hook 'org-indent-mode)
+    (add-hook 'org-mode-hook 'visual-line-mode))
   :config
   (progn
     (setq org-completion-use-ido t
