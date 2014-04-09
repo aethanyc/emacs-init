@@ -143,6 +143,7 @@
     ;; Grab link in various app on Mac OS.
     (when (eq system-type 'darwin)
       (use-package org-mac-link
+        :disabled t
         :init (progn (bind-key "C-c C-g" 'org-mac-grab-link org-mode-map))
         :ensure org-mac-link))
 
