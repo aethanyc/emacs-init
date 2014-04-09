@@ -98,7 +98,10 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 ;; Add spaces between Chinese and English characters.
 (use-package pangu-spacing
-  :init (global-pangu-spacing-mode 1)
+  :init
+  (progn
+    (setq pangu-spacing-real-insert-separtor t)
+    (global-pangu-spacing-mode 1))
   :diminish ""
   :ensure pangu-spacing)
 
