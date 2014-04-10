@@ -431,6 +431,9 @@
   :bind ("<f4>" . magit-status)
   :config
   (progn
+    ;; Diminish magit auto revert mode lighter.
+    (setq magit-auto-revert-mode-lighter "")
+
     ;; Do not allow magit overrides the window management keys.
     ;; Bind those show level keys to C-x 1, C-x 2, etc.
     (dolist (i '(1 2 3 4))
