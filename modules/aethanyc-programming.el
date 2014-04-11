@@ -92,7 +92,9 @@
       (add-hook 'c-mode-common-hook 'ggtags-mode))
     :config
     (progn
-      (bind-key "C-g" 'ggtags-navigation-mode-abort ggtags-navigation-mode-map)
+      (bind-key "C-g" 'ggtags-navigation-mode-abort ggtags-navigation-map)
+      (bind-key "C-M-o" 'ggtags-navigation-visible-mode ggtags-navigation-map)
+      (unbind-key "M-o" ggtags-navigation-map)
 
       ;; Call (push-mark) to jump back later by (back-button-global-backward)
       (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
