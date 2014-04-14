@@ -63,9 +63,6 @@
 ;; 'all lower', 'Init Caps', 'ALL CAPS'.
 (bind-key "M-z" 'aethanyc-toggle-letter-case)
 
-;; It is easier to switch buffer on single key.
-(bind-key "<f2>" 'ido-switch-buffer)
-
 ;; Switch between two recently used buffers.
 (bind-key "C-x C-b" 'aethanyc-switch-to-recent-buffer)
 

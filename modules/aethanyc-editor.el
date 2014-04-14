@@ -392,6 +392,12 @@
           ido-use-virtual-buffers t)
     (setq ido-save-directory-list-file
           (expand-file-name "ido-last" aethanyc-savefiles-dir))
+
+    ;; It is easier to switch buffer on single key.
+    (bind-key "<f2>" 'ido-switch-buffer)
+    (bind-key "<f2>" 'ido-switch-buffer-other-window ctl-x-4-map)
+    (bind-key "<f2>" 'ido-switch-buffer-other-frame ctl-x-5-map)
+
     (ido-mode 1)
     (ido-everywhere 1)
 
