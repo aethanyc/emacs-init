@@ -185,6 +185,9 @@
   (progn
     (setq webjump-sites
           '(("FileBrowser" . "")         ; Dummy entry to open file browser
+            ("Bugzilla" .
+             [simple-query "https://bugzilla.mozilla.org/"
+                           "https://bugzilla.mozilla.org/buglist.cgi?quicksearch=" ""])
             ("DuckDuckGo" .
              [simple-query "duckduckgo.com"
                            "duckduckgo.com/?q=" ""])
