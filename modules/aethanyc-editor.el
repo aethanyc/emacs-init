@@ -513,7 +513,11 @@
 
 
 (use-package server
-  :init (setq server-auth-dir aethanyc-savefiles-dir))
+  :init
+  (progn
+    (setq server-auth-dir aethanyc-savefiles-dir)
+    (unless (server-running-p)
+      (server-start))))
 
 
 (use-package smartparens
