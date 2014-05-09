@@ -191,6 +191,9 @@
             ("DuckDuckGo" .
              [simple-query "duckduckgo.com"
                            "duckduckgo.com/?q=" ""])
+            ("DXR" .
+             [simple-query "dxr.mozilla.org"
+                           "dxr.mozilla.org/mozilla-central/search?q=" ""])
             ("EmacsWiki" .
              [simple-query "www.emacswiki.org"
                            "duckduckgo.com/?q="
@@ -201,6 +204,12 @@
             ("Google" .
              [simple-query "www.google.com"
                            "www.google.com/search?q=" ""])
+            ("MozillaWiki" .
+             [simple-query "wiki.mozilla.org"
+                           "wiki.mozilla.org/Special:Search?search=" ""])
+            ("MDN" .
+             [simple-query "developer.mozilla.org/en-US"
+                           "developer.mozilla.org/en-US/search?q=" ""])
             ("OxfordDictionary" .
              [simple-query "oaadonline.oxfordlearnersdictionaries.com"
                            "oaadonline.oxfordlearnersdictionaries.com/dictionary/" ""])
