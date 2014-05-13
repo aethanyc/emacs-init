@@ -192,20 +192,6 @@
   :ensure jedi)
 
 
-;;; Lua Mode
-
-(use-package lua-mode
-  :init
-  (progn
-    (setq lua-indent-level 4))
-  :config
-  (progn
-    (bind-key "}" nil lua-mode-map)
-    (bind-key "]" nil lua-mode-map)
-    (bind-key ")" nil lua-mode-map))
-  :ensure lua-mode)
-
-
 ;;; Other
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
