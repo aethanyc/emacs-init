@@ -93,6 +93,12 @@
     :config
     (progn
       (setq ggtags-global-ignore-case t)
+      (setq ggtags-completing-read-function
+            (lambda (&rest args)
+              (apply #'ido-completing-read
+                     (car args)
+                     (all-completions "" ggtags-completion-table)
+                     (cddr args))))
 
       (bind-key "C-g" 'ggtags-navigation-mode-abort ggtags-navigation-map)
       (bind-key "C-M-o" 'ggtags-navigation-visible-mode ggtags-navigation-map)
