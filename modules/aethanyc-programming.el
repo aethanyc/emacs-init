@@ -195,7 +195,11 @@
   :config
   (progn
     (setq jedi:complete-on-dot t
-          jedi:use-shortcuts t))
+          jedi:use-shortcuts t)
+
+    ;; Call (push-mark) to jump back later by (back-button-global-backward)
+    (defadvice jedi:goto-definition (before jedi:goto-definition-advice activate)
+      (push-mark)))
   :ensure jedi)
 
 
