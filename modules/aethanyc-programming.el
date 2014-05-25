@@ -168,12 +168,12 @@
   (progn
     ;; Set preferred python interpreter
     (setq python-shell-interpreter
-          (cond ((executable-find "ipython3") "ipython3")
+          (cond ((executable-find "ipython") "ipython")
                 ((executable-find "python3") "python3")
                 (t "python")))
 
     ;; Ipython settings was copied from the document of python-mode.
-    (when (executable-find "ipython3")
+    (when (executable-find "ipython")
       (setq python-shell-interpreter-args ""
             python-shell-prompt-regexp "In \\[[0-9]+\\]: "
             python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
