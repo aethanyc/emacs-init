@@ -72,6 +72,9 @@
 ;; Do not display message in scratch buffer.
 (setq initial-scratch-message nil)
 
+;; Set default fill column to 80.
+(setq-default fill-column 80)
+
 ;; Remove trailing whitespaces before saving a buffer.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
