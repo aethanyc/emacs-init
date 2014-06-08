@@ -78,6 +78,9 @@
 ;; Remove trailing whitespaces before saving a buffer.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Add newline at the end automatically when the file is about to be saved.
+(setq-default require-final-newline t)
+
 
 ;; Built-in packages
 
