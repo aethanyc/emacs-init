@@ -537,6 +537,7 @@
 
 
 (use-package smartparens
+  :disabled t
   :init
   (progn
     ;; Configuration from smartparens-config.el

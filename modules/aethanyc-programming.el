@@ -24,6 +24,9 @@
   :init (add-hook 'prog-mode-hook 'subword-mode)
   :diminish "")
 
+(use-package elec-pair
+  :init (add-hook 'prog-mode-hook 'electric-pair-mode))
+
 
 ;;; Lisp Mode
 
