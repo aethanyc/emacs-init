@@ -122,7 +122,9 @@
       (c-add-style "aethanyc"
                    '("stroustrup"
                      (c-offsets-alist
-                      (inline-open . 0))))
+                      (inline-open . 0)
+                      (innamespace . 0)
+                      (c-basic-offset . 2))))
       (c-set-style "aethanyc"))
     (add-hook 'c-mode-common-hook 'c-mode-common-setup))
   :config
@@ -207,6 +209,16 @@
 
 
 ;;; Web development
+(use-package css-mode
+  :config
+  (progn
+    (setq css-indent-offset 2)))
+
+(use-package js
+  :config
+  (progn
+    (setq js-indent-level 2)))
+
 (use-package web-mode
   :init
   (progn
