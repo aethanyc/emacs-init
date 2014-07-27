@@ -206,6 +206,18 @@
   :ensure jedi)
 
 
+;;; Web development
+(use-package web-mode
+  :init
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+  :config
+  (progn
+    (setq web-mode-script-padding 0
+          web-mode-style-padding 0))
+  :ensure web-mode)
+
+
 ;;; Other
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
