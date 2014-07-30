@@ -274,7 +274,6 @@
                     ac-source-words-in-same-mode-buffers
                     ac-source-words-in-all-buffer))
     (setq ac-use-menu-map t
-          ac-auto-show-menu t
           ac-use-fuzzy t
           ac-quick-help-delay 0.7)
     (setq ac-comphist-file
