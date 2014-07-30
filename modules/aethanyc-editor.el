@@ -391,6 +391,11 @@
   :ensure flycheck)
 
 
+(use-package git-timemachine
+  :defer t
+  :ensure git-timemachine)
+
+
 (use-package gitconfig-mode
   :defer t
   :ensure gitconfig-mode)
