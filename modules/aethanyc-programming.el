@@ -121,10 +121,10 @@
     (defun c-mode-common-setup ()
       (c-add-style "aethanyc"
                    '("stroustrup"
+                     (c-basic-offset . 2)
                      (c-offsets-alist
                       (inline-open . 0)
-                      (innamespace . 0)
-                      (c-basic-offset . 2))))
+                      (innamespace . 0))))
       (c-set-style "aethanyc"))
     (add-hook 'c-mode-common-hook 'c-mode-common-setup))
   :config
