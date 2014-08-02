@@ -129,7 +129,6 @@
     (add-hook 'c-mode-common-hook 'c-mode-common-setup))
   :config
   (progn
-    (bind-key "RET" 'c-context-line-break c-mode-base-map)
     (bind-key "C-c o" 'ff-find-other-file c-mode-base-map)))
 
 
