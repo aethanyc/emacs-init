@@ -27,6 +27,9 @@
 (use-package elec-pair
   :init (add-hook 'prog-mode-hook 'electric-pair-mode))
 
+(use-package linum
+  :init (add-hook 'prog-mode-hook 'linum-mode))
+
 
 ;;; Lisp Mode
 
