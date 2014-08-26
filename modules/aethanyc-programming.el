@@ -62,6 +62,7 @@
 ;;; C/C++ Mode
 
 (use-package auto-complete-c-headers
+  :disabled t
   :config
   (progn
     (when (eq system-type 'darwin)
@@ -77,6 +78,7 @@
 
 (when (executable-find "clang")
   (use-package auto-complete-clang
+    :disabled t
     :init
     (progn
       (defun ac-clang-setup ()
