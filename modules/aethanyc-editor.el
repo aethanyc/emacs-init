@@ -516,6 +516,13 @@
   :ensure paredit)
 
 
+(use-package paredit-everywhere
+  :init
+  (progn
+    (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
+  :ensure paredit-everywhere)
+
+
 (use-package projectile
   :init
   (progn
