@@ -2,13 +2,6 @@
 #+OPTIONS: ^:{}
 #+TITLE: Emacs Tips and Useful links
 
-* Build Emacs from source on Mac OS X
-- Download emacs source from git@github.com:mirrors/emacs.git
-- $ ./autogen.sh
-- $ ./configure --with-ns
-- $ make install # assemble the app in nextstep/Emacs.app
-- Link or copy nextstep/Emacs.app to /Applications
-- Read nextstep/INSTALL for more infomation
 * Emacs Lisp
 - [[http://stackoverflow.com/q/1250846/1083056]["Wrong type argument: commandp" error]]
 - [[http://stackoverflow.com/q/2736087/1083056][eval-after-load vs. mode hook]]

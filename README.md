@@ -11,7 +11,12 @@ Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 * [By Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
   * Stable version: ```brew install emacs --cocoa --srgb```
   * Development version on git: ```brew install emacs --cocoa --use-git-head --HEAD```
-* [Build Emacs from Git Repository](http://ergoemacs.org/emacs/building_emacs_from_git_repository.html)
+* Build Emacs from Git Repository for Mac
+  * Download Emacs source code from ```git@github.com:mirrors/emacs.git```
+  * ```./autogen.sh```
+  * ```./configure --with-ns  # Read nextstep/INSTALL for more information```
+  * ```make install  # Assemble the app in nextstep/Emacs.app```
+  * Link or copy ```nextstep/Emacs.app``` to ```/Applications```
 
 ## Where to find Emacs packages? ##
 
