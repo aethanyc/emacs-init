@@ -285,9 +285,7 @@
                              latex-mode
                              markdown-mode
                              nxml-mode
-                             org-mode
-                             sh-mode
-                             text-mode))))
+                             sh-mode))))
   :bind ("<C-tab>" . auto-complete)
   :diminish ""
   :ensure auto-complete)
