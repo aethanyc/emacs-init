@@ -98,6 +98,7 @@ Note that the mark goes to the end of the line."
           (call-interactively 'goto-line))
       (linum-mode -1))))
 
+
 ;; http://whattheemacsd.com/editing-defuns.el-01.html
 (defun aethanyc-open-line-below ()
   "Open a new line below the cursor."
@@ -106,6 +107,7 @@ Note that the mark goes to the end of the line."
   (newline)
   (indent-for-tab-command))
 
+
 (defun aethanyc-open-line-above ()
   "Open a new line above the cursor."
   (interactive)
@@ -113,6 +115,7 @@ Note that the mark goes to the end of the line."
   (newline)
   (forward-line -1)
   (indent-for-tab-command))
+
 
 ;; http://ergoemacs.org/emacs/emacs_copy_cut_current_line.html
 (defun aethanyc-save-line-or-region (&optional arg)
@@ -125,6 +128,7 @@ prefix argument is supplied.  Otherwise save the region."
       (call-interactively 'kill-ring-save)
     (kill-ring-save (line-beginning-position) (line-beginning-position (1+ arg)))))
 
+
 (defun aethanyc-kill-line-or-region ()
   "Kill the current line, or current region.
 If no region is selected, kill current line as function
@@ -134,11 +138,13 @@ If no region is selected, kill current line as function
       (call-interactively 'kill-region)
     (call-interactively 'kill-whole-line)))
 
+
 ;; http://www.masteringemacs.org/articles/2014/02/28/my-emacs-keybindings/
 (defun aethanyc-kill-current-buffer ()
   "Kill current buffer without asking."
   (interactive)
   (kill-buffer (current-buffer)))
+
 
 ;; http://ergoemacs.org/emacs/modernization_upcase-word.html
 (defun aethanyc-toggle-letter-case ()
