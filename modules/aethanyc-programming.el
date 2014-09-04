@@ -227,11 +227,14 @@
   :init
   (progn
     (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
-  :bind (("C-c C-v" . browse-url-of-buffer))
   :config
   (progn
     (setq web-mode-script-padding 0
-          web-mode-style-padding 0))
+          web-mode-style-padding 0)
+    (use-package browse-url
+      :init
+      (progn
+        (bind-key "C-c C-v" 'browse-url-of-buffer web-mode-map))))
   :ensure web-mode)
 
 
