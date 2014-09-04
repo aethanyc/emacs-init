@@ -179,6 +179,22 @@ Toggles between: 'all lower', 'Init Caps', 'ALL CAPS'."
   (switch-to-buffer (other-buffer (current-buffer))))
 
 
+;; http://ergoemacs.org/emacs/emacs_copy_file_path.html
+;; http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
+(defun aethanyc-copy-file-name-to-clipboard (&optional full-path-p)
+  "Copy the current buffer's file name to `kill-ring'.
+With `universal-argument' FULL-PATH-P, copy the full path."
+  (interactive "P")
+  (let ((full-path-name (buffer-file-name)))
+    (if full-path-name
+        (let ((name (if full-path-p
+                        full-path-name
+                      (file-name-nondirectory full-path-name))))
+          (kill-new name)
+          (message "%s" name))
+      (message "Buffer not associated with a file."))))
+
+
 (provide 'aethanyc-core)
 
 ;; Local Variables:
