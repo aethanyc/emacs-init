@@ -385,6 +385,10 @@
                   flycheck-emacs-lisp-load-path load-path
                   flycheck-flake8-maximum-line-length 85)
 
+    (defun flycheck-c++-setup ()
+      (setq flycheck-clang-language-standard "c++11"))
+    (add-hook 'c++-mode-hook 'flycheck-c++-setup)
+
     (add-hook 'after-init-hook 'global-flycheck-mode))
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))
