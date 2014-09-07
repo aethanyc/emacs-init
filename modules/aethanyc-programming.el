@@ -98,6 +98,18 @@
     :ensure auto-complete-clang))
 
 
+;; $ brew install emacs-clang-complete-async
+(when (executable-find "clang-complete")
+  (use-package auto-complete-clang-async
+    :init
+    (progn
+      (defun ac-clang-async-setup ()
+        (add-to-list 'ac-sources 'ac-source-clang-async)
+        (ac-clang-launch-completion-process))
+      (add-hook 'c-mode-common-hook 'ac-clang-async-setup))
+    :ensure auto-complete-clang-async))
+
+
 ;; To install global on Mac OS X
 ;; $ brew install global --with-exuberant-ctags
 (when (executable-find "global")
