@@ -24,11 +24,19 @@
   :init (add-hook 'prog-mode-hook 'subword-mode)
   :diminish "")
 
+
 (use-package elec-pair
   :init (add-hook 'prog-mode-hook 'electric-pair-mode))
 
+
 (use-package linum
+  :disabled t
   :init (add-hook 'prog-mode-hook 'linum-mode))
+
+
+(use-package nlinum
+  :init (add-hook 'prog-mode-hook 'nlinum-mode)
+  :ensure nlinum)
 
 
 ;;; Lisp Mode
