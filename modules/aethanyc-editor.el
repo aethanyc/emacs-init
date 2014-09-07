@@ -265,7 +265,7 @@
       :ensure pos-tip)
 
     (require 'auto-complete-config)
-    (ac-config-default)            ; Enables global-auto-complete-mode
+    (global-auto-complete-mode 1)
     (ac-flyspell-workaround)
     (setq-default ac-sources
                   '(ac-source-abbrev
