@@ -117,15 +117,6 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure rainbow-mode)
 
 
-(use-package whitespace
-  :init
-  (progn
-    (setq-default whitespace-style '(face trailing tab-mark))
-
-    ;; Turn on whitespace-mode only in file buffers.
-    (add-hook 'find-file-hook 'whitespace-mode)))
-
-
 (use-package zenburn-theme
   :init (load-theme 'zenburn t)
   :ensure zenburn-theme)

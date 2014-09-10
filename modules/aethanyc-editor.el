@@ -604,6 +604,15 @@
   :init (setq uniquify-buffer-name-style 'forward))
 
 
+(use-package whitespace
+  :init
+  (progn
+    (setq-default whitespace-style '(face trailing tab-mark))
+
+    ;; Turn on whitespace-mode only in file buffers.
+    (add-hook 'find-file-hook 'whitespace-mode)))
+
+
 (use-package whitespace-cleanup-mode
   :init (global-whitespace-cleanup-mode 1)
   :ensure whitespace-cleanup-mode)
