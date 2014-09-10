@@ -21,7 +21,7 @@
 ;;; Prog Mode
 
 (use-package subword
-  :init (add-hook 'prog-mode-hook 'subword-mode)
+  :init (add-hook 'prog-mode-hook 'subword-mode t)
   :diminish "")
 
 

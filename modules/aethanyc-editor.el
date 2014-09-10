@@ -75,9 +75,6 @@
 ;; Set default fill column to 80.
 (setq-default fill-column 80)
 
-;; Remove trailing whitespaces before saving a buffer.
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; Add newline at the end automatically when the file is about to be saved.
 (setq-default require-final-newline t)
 
@@ -601,6 +598,11 @@
 ;; Unique buffer name
 (use-package uniquify
   :init (setq uniquify-buffer-name-style 'forward))
+
+
+(use-package whitespace-cleanup-mode
+  :init (global-whitespace-cleanup-mode 1)
+  :ensure whitespace-cleanup-mode)
 
 
 (use-package yasnippet
