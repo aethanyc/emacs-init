@@ -89,14 +89,17 @@ Note that the mark goes to the end of the line."
 (defun aethanyc-goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
-  (if (and (boundp 'linum-mode)
-           linum-mode)
-      (call-interactively 'goto-line)
-    (unwind-protect
-        (progn
-          (linum-mode 1)
-          (call-interactively 'goto-line))
-      (linum-mode -1))))
+  (let ((prefered-linum-mode (if (boundp 'nlinum-mode)
+                                 'nlinum-mode
+                               'linum-mode)))
+    (if (and (boundp prefered-linum-mode)
+             (eval prefered-linum-mode))
+        (call-interactively 'goto-line)
+      (unwind-protect
+          (progn
+            (funcall prefered-linum-mode 1)
+            (call-interactively 'goto-line))
+        (funcall prefered-linum-mode -1)))))
 
 
 ;; http://whattheemacsd.com/editing-defuns.el-01.html
