@@ -625,7 +625,7 @@
   (progn
     (yas-reload-all)
     (aethanyc-hook-into-modes 'yas-minor-mode
-      '(c-mode-common-hook python-mode-hook LaTeX-mode-hook)))
+      '(c-mode-common-hook python-mode-hook LaTeX-mode-hook org-mode-hook)))
   :ensure yasnippet)
 
 
