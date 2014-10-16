@@ -35,7 +35,8 @@
 
 
 (use-package nlinum
-  :init (add-hook 'prog-mode-hook 'nlinum-mode)
+  :init (aethanyc-hook-into-modes 'nlinum-mode
+          '(css-mode-hook prog-mode-hook))
   :ensure nlinum)
 
 
