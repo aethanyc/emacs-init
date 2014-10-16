@@ -40,6 +40,24 @@
   :ensure nlinum)
 
 
+(use-package which-func
+  :init
+  (progn
+    (setq mode-line-misc-info
+          ;; Remove Which Function Mode from the mode line, because it's mostly
+          ;; invisible here anyway.
+          (assq-delete-all 'which-func-mode mode-line-misc-info))
+
+    (defun which-function-mode-setup ()
+      (which-function-mode 1)
+
+      ;; Show the current function name in the header line
+      (setq header-line-format
+            '((which-func-mode ("" which-func-format " ")))))
+
+    (add-hook 'prog-mode-hook 'which-function-mode-setup)))
+
+
 ;;; Lisp Mode
 
 (use-package eldoc
