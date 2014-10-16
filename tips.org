@@ -41,6 +41,8 @@
 - [[http://wordlist.sourceforge.net/][Download en_US dictionary]]
 - On Mac OS, dictionaries can be installed under `~/Library/Spelling/`
 - [[https://github.com/zdenop/hunspell-mingw/downloads][Hunspell executable for Windows]]
+** Magit
+- View file history: `magit-file-log`
 ** Markdown mode
 - http://daringfireball.net/projects/markdown/syntax
 - http://jblevins.org/projects/markdown-mode/
