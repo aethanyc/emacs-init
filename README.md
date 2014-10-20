@@ -3,19 +3,32 @@
 Here are my Emacs customization files, which only compatible with
 Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 
-## Where to get the latest Emacs 24? ##
+## Where to get the latest Emacs 24 binaries? ##
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
 * [By Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
   * Stable version: ```brew install emacs --cocoa --srgb```
   * Development version on git: ```brew install emacs --cocoa --use-git-head --HEAD```
-* Build Emacs from Git Repository for Mac
-  * Download Emacs source code from ```git@github.com:mirrors/emacs.git```
+
+## How to build Emacs manually?
+Download Emacs source code from ```git@github.com:mirrors/emacs.git```
+
+* Build Emacs on Mac
+  * See ```nextstep/INSTALL``` for instructions. Basically, it's:
   * ```./autogen.sh```
-  * ```./configure --with-ns  # Read nextstep/INSTALL for more information```
+  * ```./configure --with-ns```
   * ```make install  # Assemble the app in nextstep/Emacs.app```
   * Link or copy ```nextstep/Emacs.app``` to ```/Applications```
+* Build Emacs on Debian-based GNU/Linux
+  * ```apt-get install build-essential```
+  * ```apt-get build-dep emacs24  # Install packages for build-dependencies.```
+  * See ```INSTALL.REPO``` in emacs repository for instructions. Basically, it's:
+  * ```./autogen.sh```
+  * ```./configure```
+  * ```make bootstrap```
+  * ```make```
+  * ```emacs``` and ```emacsclient``` will be available under ```src``` and ```lib-src```, respectively.
 
 ## Where to find Emacs packages? ##
 
