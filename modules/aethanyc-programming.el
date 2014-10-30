@@ -265,9 +265,7 @@
   :ensure js2-mode)
 
 (use-package web-mode
-  :init
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+  :mode "\\.html?\\'"
   :config
   (progn
     (setq web-mode-script-padding 0
