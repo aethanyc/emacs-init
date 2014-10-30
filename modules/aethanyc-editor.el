@@ -264,12 +264,12 @@
     (require 'auto-complete-config)
     (global-auto-complete-mode 1)
     (ac-flyspell-workaround)
-    (setq-default ac-sources
-                  '(ac-source-abbrev
-                    ac-source-yasnippet
-                    ac-source-dictionary
-                    ac-source-words-in-same-mode-buffers
-                    ac-source-words-in-all-buffer))
+    (defvar aethanyc-ac-sources '(ac-source-abbrev
+                                  ac-source-yasnippet
+                                  ac-source-dictionary
+                                  ac-source-words-in-same-mode-buffers
+                                  ac-source-words-in-all-buffer))
+    (setq-default ac-sources aethanyc-ac-sources)
     (setq ac-use-menu-map t
           ac-use-fuzzy t
           ac-quick-help-delay 0.7)
@@ -282,7 +282,8 @@
                              latex-mode
                              markdown-mode
                              nxml-mode
-                             sh-mode))))
+                             sh-mode
+                             web-mode))))
   :bind ("<C-tab>" . auto-complete)
   :diminish ""
   :ensure auto-complete)
