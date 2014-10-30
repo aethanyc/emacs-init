@@ -257,10 +257,12 @@
   (progn
     (setq css-indent-offset 2)))
 
-(use-package js
+(use-package js2-mode
+  :mode "\\.js\\'"
   :config
   (progn
-    (setq js-indent-level 2)))
+    (setq js2-basic-offset 2))
+  :ensure js2-mode)
 
 (use-package web-mode
   :init
