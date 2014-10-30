@@ -17,7 +17,7 @@
 
 (require 'package)
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 ;; On-demand installation of packages
 ;; From https://github.com/purcell/emacs.d/blob/master/init-elpa.el
