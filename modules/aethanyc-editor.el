@@ -122,18 +122,13 @@
 
 
 (use-package org
-  :defer t
-  :init
-  (progn
-    (add-hook 'org-mode-hook 'org-indent-mode)
-    (add-hook 'org-mode-hook 'visual-line-mode))
   :config
   (progn
     (setq org-completion-use-ido t
           org-ctrl-k-protect-subtree t
           org-special-ctrl-k t
           org-src-fontify-natively t
-          org-startup-indented nil
+          org-startup-indented t
           org-special-ctrl-a/e t
           org-M-RET-may-split-line '((default))
           org-export-copy-to-kill-ring nil
