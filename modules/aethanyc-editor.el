@@ -130,7 +130,6 @@
           org-src-fontify-natively t
           org-startup-indented t
           org-special-ctrl-a/e t
-          org-M-RET-may-split-line '((default))
           org-export-copy-to-kill-ring nil
           org-export-with-sub-superscripts (quote {}))
 
