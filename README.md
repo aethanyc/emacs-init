@@ -12,7 +12,7 @@ Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
   * Development version on git: `brew install emacs --cocoa --HEAD`
 
 ## How to build Emacs manually?
-Download Emacs source code from ```git@github.com:mirrors/emacs.git```
+Clone Emacs source code from official repository with ```git clone git://git.sv.gnu.org/emacs.git```
 
 * Build Emacs on Mac
   * See ```nextstep/INSTALL``` for instructions. Basically, it's:
