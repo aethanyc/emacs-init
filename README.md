@@ -8,8 +8,8 @@ Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
 * [By Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
-  * Stable version: ```brew install emacs --cocoa --srgb```
-  * Development version on git: ```brew install emacs --cocoa --use-git-head --HEAD```
+  * Stable version: `brew install emacs --cocoa`
+  * Development version on git: `brew install emacs --cocoa --HEAD`
 
 ## How to build Emacs manually?
 Download Emacs source code from ```git@github.com:mirrors/emacs.git```
