@@ -121,6 +121,15 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure rainbow-mode)
 
 
+(use-package smart-mode-line
+  :init
+  (progn
+    (setq sml/no-confirm-load-theme t)
+    (sml/setup)
+    (sml/apply-theme 'respectful))
+  :ensure smart-mode-line)
+
+
 (use-package zenburn-theme
   :init (load-theme 'zenburn t)
   :ensure zenburn-theme)
