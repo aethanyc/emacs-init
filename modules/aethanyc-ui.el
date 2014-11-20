@@ -106,6 +106,10 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure pangu-spacing)
 
 
+(use-package paradox
+  :ensure paradox)
+
+
 (use-package rainbow-delimiters
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   :ensure rainbow-delimiters)
