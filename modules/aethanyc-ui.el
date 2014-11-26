@@ -107,6 +107,9 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package paradox
+  :config
+  (progn
+    (setq paradox-github-token t))
   :ensure paradox)
 
 
