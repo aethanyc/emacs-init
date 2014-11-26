@@ -269,7 +269,11 @@
   :config
   (progn
     (setq web-mode-script-padding 0
-          web-mode-style-padding 0)
+          web-mode-style-padding 0
+          web-mode-markup-indent-offset 2
+          web-mode-css-indent-offset 2
+          web-mode-code-indent-offset 2
+          web-mode-sql-indent-offset 2)
     (let ((css-ac-sources (append '(ac-source-css-property) aethanyc-ac-sources)))
       (setq web-mode-ac-sources-alist
             `(("css" . ,css-ac-sources)
