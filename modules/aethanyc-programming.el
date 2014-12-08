@@ -286,6 +286,11 @@
   :ensure web-mode)
 
 
+;;; Rust Mode
+(use-package rust-mode
+  :ensure rust-mode)
+
+
 ;;; Other
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
