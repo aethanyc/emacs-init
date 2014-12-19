@@ -134,7 +134,12 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package zenburn-theme
-  :init (load-theme 'zenburn t)
+  :init
+  (progn
+    (load-theme 'zenburn t)
+    (set-face-attribute 'region nil
+                        :background (cdr (assoc "zenburn-bg+2"
+                                                zenburn-colors-alist))))
   :ensure zenburn-theme)
 
 
