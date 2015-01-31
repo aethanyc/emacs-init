@@ -279,7 +279,6 @@
 ;; Although back-button is available in melpa, it depends on too many
 ;; packages that are not strictly required. So I add it directly to
 ;; the repository.
-;; https://raw.github.com/rolandwalker/back-button/master/back-button.el
 (use-package back-button
   :init
   (progn
