@@ -300,6 +300,11 @@
   :ensure browse-kill-ring)
 
 
+(use-package discover-my-major
+  :bind ("C-h C-m" . discover-my-major)
+  :ensure t)
+
+
 ;;; http://www.emacswiki.org/DeskTop#toc5
 (use-package desktop
   :init
