@@ -400,6 +400,14 @@
   :ensure gitignore-mode)
 
 
+(use-package git-messenger
+  :init
+  (progn
+    (setq git-messenger:show-detail t))
+  :bind ("C-c m" . git-messenger:popup-message)
+  :ensure t)
+
+
 (use-package guide-key
   :init
   (progn
