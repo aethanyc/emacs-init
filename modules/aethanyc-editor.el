@@ -59,6 +59,9 @@
 ;; Auto save buffer for every 5 seconds.
 (setq auto-save-timeout 5)
 
+;; Create no interlocking files so I won't see them in git status.
+(setq create-lockfiles nil)
+
 ;; Reload the buffers automatically if they are changed outside.
 (global-auto-revert-mode 1)
 
