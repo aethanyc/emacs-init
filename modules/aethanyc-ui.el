@@ -79,8 +79,8 @@ The value should be an alist of elements (FONT . CHARSET).")
 (use-package ediff-util
   :init
   (progn
-    ;; Let ediff split window horizontally rather than vertically.
-    (setq ediff-split-window-function 'split-window-horizontally)))
+    (setq ediff-split-window-function 'split-window-horizontally)
+    (setq ediff-window-setup-function 'ediff-setup-windows-plain)))
 
 
 (use-package highlight-symbol
