@@ -179,6 +179,13 @@
     (savehist-mode 1)))
 
 
+(use-package sort
+  :init
+  (progn
+    ;; Ignore case when calling sort-lines.
+    (setq sort-fold-case nil)))
+
+
 (use-package webjump
   :bind ("C-c j" . webjump)
   :config
