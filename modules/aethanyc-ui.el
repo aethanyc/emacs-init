@@ -79,12 +79,12 @@ The value should be an alist of elements (FONT . CHARSET).")
 (use-package ediff-util
   :init
   (progn
-    (setq ediff-split-window-function 'split-window-horizontally)
-    (setq ediff-window-setup-function 'ediff-setup-windows-plain)))
+    (setq ediff-split-window-function #'split-window-horizontally)
+    (setq ediff-window-setup-function #'ediff-setup-windows-plain)))
 
 
 (use-package highlight-symbol
-  :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+  :init (add-hook 'prog-mode-hook #'highlight-symbol-mode)
   :bind (("<C-f3>" . highlight-symbol-at-point)
          ("<f3>" . highlight-symbol-next)
          ("<S-f3>" . highlight-symbol-prev)
@@ -118,7 +118,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package rainbow-delimiters
-  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   :ensure rainbow-delimiters)
 
 
@@ -157,8 +157,8 @@ The value should be an alist of elements (FONT . CHARSET).")
   (progn
     (setq switch-window-shortcut-style 'qwerty
           switch-window-qwerty-shortcuts '("a" "o" "e" "u" "h" "t"))
-    (global-set-key [remap other-window] 'switch-window)
-    (bind-key* "M-o" 'switch-window))
+    (global-set-key [remap other-window] #'switch-window)
+    (bind-key* "M-o" #'switch-window))
   :ensure switch-window)
 
 ;; Using S-arrow keys to move between windows.

@@ -89,16 +89,16 @@ Note that the mark goes to the end of the line."
 (defun aethanyc-goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
-  (let ((prefered-linum-mode (if (boundp 'nlinum-mode)
-                                 'nlinum-mode
-                               'linum-mode)))
+  (let ((prefered-linum-mode (if (boundp #'nlinum-mode)
+                                 #'nlinum-mode
+                               #'linum-mode)))
     (if (and (boundp prefered-linum-mode)
              (eval prefered-linum-mode))
-        (call-interactively 'goto-line)
+        (call-interactively #'goto-line)
       (unwind-protect
           (progn
             (funcall prefered-linum-mode 1)
-            (call-interactively 'goto-line))
+            (call-interactively #'goto-line))
         (funcall prefered-linum-mode -1)))))
 
 
@@ -128,7 +128,7 @@ prefix argument is supplied.  Otherwise save the region."
   (interactive "p")
   (or arg (setq arg 1))
   (if (use-region-p)
-      (call-interactively 'kill-ring-save)
+      (call-interactively #'kill-ring-save)
     (kill-ring-save (line-beginning-position) (line-beginning-position (1+ arg)))))
 
 
@@ -138,8 +138,8 @@ If no region is selected, kill current line as function
 `kill-whole-line' does.  Othewise call `kill-region'."
   (interactive)
   (if (use-region-p)
-      (call-interactively 'kill-region)
-    (call-interactively 'kill-whole-line)))
+      (call-interactively #'kill-region)
+    (call-interactively #'kill-whole-line)))
 
 
 ;; http://www.masteringemacs.org/articles/2014/02/28/my-emacs-keybindings/

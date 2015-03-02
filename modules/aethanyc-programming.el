@@ -21,21 +21,21 @@
 ;;; Prog Mode
 
 (use-package subword
-  :init (add-hook 'prog-mode-hook 'subword-mode t)
+  :init (add-hook 'prog-mode-hook #'subword-mode t)
   :diminish "")
 
 
 (use-package elec-pair
-  :init (add-hook 'prog-mode-hook 'electric-pair-mode))
+  :init (add-hook 'prog-mode-hook #'electric-pair-mode))
 
 
 (use-package linum
   :disabled t
-  :init (add-hook 'prog-mode-hook 'linum-mode))
+  :init (add-hook 'prog-mode-hook #'linum-mode))
 
 
 (use-package nlinum
-  :init (aethanyc-hook-into-modes 'nlinum-mode
+  :init (aethanyc-hook-into-modes #'nlinum-mode
           '(css-mode-hook prog-mode-hook))
   :ensure nlinum)
 
@@ -55,13 +55,13 @@
       (setq header-line-format
             '((which-func-mode ("" which-func-format " ")))))
 
-    (add-hook 'prog-mode-hook 'which-function-mode-setup)))
+    (add-hook 'prog-mode-hook #'which-function-mode-setup)))
 
 
 ;;; Lisp Mode
 
 (use-package eldoc
-  :init (aethanyc-hook-into-modes 'turn-on-eldoc-mode
+  :init (aethanyc-hook-into-modes #'turn-on-eldoc-mode
           '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
   :diminish "")
 
@@ -70,7 +70,7 @@
   :defer t
   :init
   (progn
-    (aethanyc-hook-into-modes 'elisp-slime-nav-mode
+    (aethanyc-hook-into-modes #'elisp-slime-nav-mode
       '(emacs-lisp-mode-hook ielm-mode-hook)))
   :config
   (progn
@@ -101,7 +101,7 @@
     (defun ac-c-headers-setup ()
       (add-to-list 'ac-sources 'ac-source-c-headers))
 
-    (aethanyc-hook-into-modes 'ac-c-headers-setup
+    (aethanyc-hook-into-modes #'ac-c-headers-setup
       '(c-mode-hook c++-mode-hook)))
   :ensure auto-complete-c-headers)
 
@@ -113,7 +113,7 @@
     (progn
       (defun ac-clang-setup ()
         (add-to-list 'ac-sources 'ac-source-clang))
-      (add-hook 'c-mode-common-hook 'ac-clang-setup t))
+      (add-hook 'c-mode-common-hook #'ac-clang-setup t))
     :ensure auto-complete-clang))
 
 
@@ -125,7 +125,7 @@
       (defun ac-clang-async-setup ()
         (add-to-list 'ac-sources 'ac-source-clang-async)
         (ac-clang-launch-completion-process))
-      (add-hook 'c-mode-common-hook 'ac-clang-async-setup))
+      (add-hook 'c-mode-common-hook #'ac-clang-async-setup))
     :ensure auto-complete-clang-async))
 
 
@@ -136,7 +136,7 @@
     :defer t
     :init
     (progn
-      (add-hook 'c-mode-common-hook 'ggtags-mode))
+      (add-hook #'c-mode-common-hook 'ggtags-mode))
     :config
     (progn
       (setq ggtags-global-ignore-case t)
@@ -147,8 +147,8 @@
                      (all-completions "" ggtags-completion-table)
                      (cddr args))))
 
-      (bind-key "C-g" 'ggtags-navigation-mode-abort ggtags-navigation-map)
-      (bind-key "C-M-o" 'ggtags-navigation-visible-mode ggtags-navigation-map)
+      (bind-key "C-g" #'ggtags-navigation-mode-abort ggtags-navigation-map)
+      (bind-key "C-M-o" #'ggtags-navigation-visible-mode ggtags-navigation-map)
       (unbind-key "M-o" ggtags-navigation-map)
 
       ;; Call (push-mark) to jump back later by (back-button-global-backward)
@@ -170,10 +170,10 @@
                       (inline-open . 0)
                       (innamespace . 0))))
       (c-set-style "aethanyc"))
-    (add-hook 'c-mode-common-hook 'c-mode-common-setup))
+    (add-hook 'c-mode-common-hook #'c-mode-common-setup))
   :config
   (progn
-    (bind-key "C-c o" 'ff-find-other-file c-mode-base-map)))
+    (bind-key "C-c o" #'ff-find-other-file c-mode-base-map)))
 
 
 ;;; LaTeX Mode
@@ -238,7 +238,7 @@
   :defer t
   :init
   (progn
-    (aethanyc-hook-into-modes 'jedi:setup
+    (aethanyc-hook-into-modes #'jedi:setup
       '(python-mode-hook inferior-python-mode-hook)))
   :config
   (progn
@@ -282,7 +282,7 @@
     (use-package browse-url
       :init
       (progn
-        (bind-key "C-c C-v" 'browse-url-of-buffer web-mode-map))))
+        (bind-key "C-c C-v" #'browse-url-of-buffer web-mode-map))))
   :ensure web-mode)
 
 
@@ -294,7 +294,7 @@
 ;;; Other
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
-(add-hook 'after-save-hook 'aethanyc-byte-compile-current-buffer)
+(add-hook 'after-save-hook #'aethanyc-byte-compile-current-buffer)
 
 
 (provide 'aethanyc-programming)

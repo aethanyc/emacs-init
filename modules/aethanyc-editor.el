@@ -111,16 +111,16 @@
       (use-package flyspell
         :init
         (progn
-          (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-          (add-hook 'text-mode-hook 'flyspell-mode)))
+          (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+          (add-hook 'text-mode-hook #'flyspell-mode)))
 
       ;; Fix slow cursor movement on windows.
       (when (eq system-type 'windows-nt)
         (use-package flyspell-lazy
           :init
           (progn
-            (add-hook 'prog-mode-hook 'flyspell-lazy-mode)
-            (add-hook 'text-mode-hook 'flyspell-lazy-mode))
+            (add-hook 'prog-mode-hook #'flyspell-lazy-mode)
+            (add-hook 'text-mode-hook #'flyspell-lazy-mode))
           :ensure flyspell-lazy)))))
 
 
@@ -144,7 +144,7 @@
     (when (eq system-type 'darwin)
       (use-package org-mac-link
         :disabled t
-        :init (progn (bind-key "C-c C-g" 'org-mac-grab-link org-mode-map))
+        :init (progn (bind-key "C-c C-g" #'org-mac-grab-link org-mode-map))
         :ensure org-mac-link))
 
     ;; Export org-mode content to reveal.js
@@ -157,7 +157,7 @@
           (save-buffer)
           (org-reveal-export-to-html))
 
-        (bind-key "<f5>" 'org-reveal-save-then-export org-mode-map))
+        (bind-key "<f5>" #'org-reveal-save-then-export org-mode-map))
       :ensure ox-reveal)))
 
 
@@ -289,12 +289,12 @@
 (use-package back-button
   :init
   (progn
-    (defalias 'push-mark 'back-button-push-mark-local-and-global
+    (defalias 'push-mark #'back-button-push-mark-local-and-global
       "Replace push-mark to preserve current position before jumping around.")
-    (bind-key "M-B" 'backward-sexp)
-    (bind-key "M-F" 'forward-sexp)
-    (bind-key* "C-M-b" 'back-button-global-backward)
-    (bind-key* "C-M-f" 'back-button-global-forward)
+    (bind-key "M-B" #'backward-sexp)
+    (bind-key "M-F" #'forward-sexp)
+    (bind-key* "C-M-b" #'back-button-global-backward)
+    (bind-key* "C-M-f" #'back-button-global-forward)
     (back-button-mode 1))
   :diminish "")
 
@@ -349,8 +349,8 @@
       (if (file-exists-p (desktop-full-lock-name))
           (aethanyc-desktop-save)))
 
-    (add-hook 'desktop-after-read-hook 'aethanyc-desktop-after-read-hook)
-    (add-hook 'kill-emacs-hook 'aethanyc-desktop-save-on-exit))
+    (add-hook 'desktop-after-read-hook #'aethanyc-desktop-after-read-hook)
+    (add-hook 'kill-emacs-hook #'aethanyc-desktop-save-on-exit))
 
   :bind (("<f9>" . desktop-revert)
          ("<M-f9>" . aethanyc-desktop-save)))
@@ -385,7 +385,7 @@
       (setq flycheck-clang-language-standard "c++11"))
     (add-hook 'c++-mode-hook 'flycheck-c++-setup)
 
-    (add-hook 'after-init-hook 'global-flycheck-mode))
+    (add-hook 'after-init-hook #'global-flycheck-mode))
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))
   :ensure flycheck)
@@ -434,9 +434,9 @@
           (expand-file-name "ido-last" aethanyc-savefiles-dir))
 
     ;; It is easier to switch buffer on single key.
-    (bind-key "<f2>" 'ido-switch-buffer)
-    (bind-key "<f2>" 'ido-switch-buffer-other-window ctl-x-4-map)
-    (bind-key "<f2>" 'ido-switch-buffer-other-frame ctl-x-5-map)
+    (bind-key "<f2>" #'ido-switch-buffer)
+    (bind-key "<f2>" #'ido-switch-buffer-other-window ctl-x-4-map)
+    (bind-key "<f2>" #'ido-switch-buffer-other-frame ctl-x-5-map)
 
     (ido-mode 1)
     (ido-everywhere 1)
@@ -529,9 +529,9 @@
       '(lisp-mode-hook emacs-lisp-mode-hook)))
   :config
   (progn
-    (bind-key "M-B" 'paredit-backward paredit-mode-map)
-    (bind-key "M-F" 'paredit-forward paredit-mode-map)
-    (bind-key "RET" 'paredit-newline paredit-mode-map)
+    (bind-key "M-B" #'paredit-backward paredit-mode-map)
+    (bind-key "M-F" #'paredit-forward paredit-mode-map)
+    (bind-key "RET" #'paredit-newline paredit-mode-map)
     (use-package paredit-menu
       :ensure paredit-menu))
   :diminish "Par"
@@ -541,7 +541,7 @@
 (use-package paredit-everywhere
   :init
   (progn
-    (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
+    (add-hook 'prog-mode-hook #'paredit-everywhere-mode))
   :config
   (progn
     (unbind-key "M-DEL" paredit-everywhere-mode-map)
@@ -632,7 +632,7 @@
     (setq-default whitespace-style '(face trailing tab-mark))
 
     ;; Turn on whitespace-mode only in file buffers.
-    (add-hook 'find-file-hook 'whitespace-mode))
+    (add-hook 'find-file-hook #'whitespace-mode))
   :diminish whitespace-mode)
 
 
@@ -646,7 +646,7 @@
   :init
   (progn
     (yas-reload-all)
-    (aethanyc-hook-into-modes 'yas-minor-mode
+    (aethanyc-hook-into-modes #'yas-minor-mode
       '(c-mode-common-hook python-mode-hook LaTeX-mode-hook org-mode-hook)))
   :ensure yasnippet)
 
