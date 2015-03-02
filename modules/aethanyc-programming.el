@@ -61,7 +61,7 @@
 ;;; Lisp Mode
 
 (use-package eldoc
-  :init (aethanyc-hook-into-modes #'turn-on-eldoc-mode
+  :init (aethanyc-hook-into-modes #'eldoc-mode
           '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
   :diminish "")
 
