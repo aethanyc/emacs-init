@@ -256,6 +256,7 @@
 
 
 (use-package auto-complete
+  :disabled t
   :init
   (progn
     ;; Packages that enhance auto-complete.

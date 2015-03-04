@@ -58,6 +58,19 @@
     (add-hook 'prog-mode-hook #'which-function-mode-setup)))
 
 
+(use-package company
+  :init
+  (progn
+    (global-company-mode 1))
+  :config
+  (progn
+    (bind-key "<C-tab>" #'company-complete company-mode-map)
+    (bind-key "C-n" #'company-select-next company-active-map)
+    (bind-key "C-p" #'company-select-previous company-active-map))
+  :diminish ""
+  :ensure t)
+
+
 ;;; Lisp Mode
 
 (use-package eldoc
@@ -120,6 +133,7 @@
 ;; $ brew install emacs-clang-complete-async
 (when (executable-find "clang-complete")
   (use-package auto-complete-clang-async
+    :disabled t
     :init
     (progn
       (defun ac-clang-async-setup ()
