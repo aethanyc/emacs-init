@@ -242,6 +242,15 @@
   :ensure ace-jump-mode)
 
 
+(use-package ace-window
+  :init
+  (progn
+    (setq aw-background nil)
+    (setq aw-keys '(?h ?t ?n ?s ?u ?e ?o ?a)))
+  :bind* (("M-o" . ace-window))
+  :ensure ace-window)
+
+
 (use-package ag
   :ensure ag)
 
