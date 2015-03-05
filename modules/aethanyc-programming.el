@@ -191,7 +191,8 @@
       (c-set-style "aethanyc")
       (setq company-backends '(company-dabbrev-code
                                company-capf
-                               company-keywords)))
+                               company-keywords
+                               company-dabbrev)))
     (add-hook 'c-mode-common-hook #'c-mode-common-setup))
   :config
   (progn
