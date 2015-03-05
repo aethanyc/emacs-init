@@ -653,6 +653,7 @@
 
 
 (use-package yasnippet
+  :disabled t
   :init
   (progn
     (yas-reload-all)
