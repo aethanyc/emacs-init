@@ -29,11 +29,6 @@
   :init (add-hook 'prog-mode-hook #'electric-pair-mode))
 
 
-(use-package linum
-  :disabled t
-  :init (add-hook 'prog-mode-hook #'linum-mode))
-
-
 (use-package nlinum
   :init (aethanyc-hook-into-modes #'nlinum-mode
           '(css-mode-hook prog-mode-hook))
@@ -106,45 +101,6 @@
 
 
 ;;; C/C++ Mode
-
-(use-package auto-complete-c-headers
-  :disabled t
-  :config
-  (progn
-    (when (eq system-type 'darwin)
-      (add-to-list 'achead:include-directories "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/c++/v1"))
-
-    (defun ac-c-headers-setup ()
-      (add-to-list 'ac-sources 'ac-source-c-headers))
-
-    (aethanyc-hook-into-modes #'ac-c-headers-setup
-      '(c-mode-hook c++-mode-hook)))
-  :ensure auto-complete-c-headers)
-
-
-(when (executable-find "clang")
-  (use-package auto-complete-clang
-    :disabled t
-    :init
-    (progn
-      (defun ac-clang-setup ()
-        (add-to-list 'ac-sources 'ac-source-clang))
-      (add-hook 'c-mode-common-hook #'ac-clang-setup t))
-    :ensure auto-complete-clang))
-
-
-;; $ brew install emacs-clang-complete-async
-(when (executable-find "clang-complete")
-  (use-package auto-complete-clang-async
-    :disabled t
-    :init
-    (progn
-      (defun ac-clang-async-setup ()
-        (add-to-list 'ac-sources 'ac-source-clang-async)
-        (ac-clang-launch-completion-process))
-      (add-hook 'c-mode-common-hook #'ac-clang-async-setup))
-    :ensure auto-complete-clang-async))
-
 
 ;; To install global on Mac OS X
 ;; $ brew install global --with-exuberant-ctags
@@ -255,26 +211,9 @@
                                company-dabbrev-code
                                company-keywords
                                company-dabbrev)))
-    (add-hook 'python-mode-hook #'aethanyc-company-jedi-setup))
-  :ensure t)
-
-
-(use-package jedi
-  :disabled t
-  :defer t
-  :init
-  (progn
-    (aethanyc-hook-into-modes #'jedi:setup
+    (aethanyc-hook-into-modes #'aethanyc-company-jedi-setup
       '(python-mode-hook inferior-python-mode-hook)))
-  :config
-  (progn
-    (setq jedi:complete-on-dot t
-          jedi:use-shortcuts t)
-
-    ;; Call (push-mark) to jump back later by (back-button-global-backward)
-    (defadvice jedi:goto-definition (before jedi:goto-definition-advice activate)
-      (push-mark)))
-  :ensure jedi)
+  :ensure t)
 
 
 ;;; Web development
@@ -300,11 +239,6 @@
           web-mode-css-indent-offset 2
           web-mode-code-indent-offset 2
           web-mode-sql-indent-offset 2)
-    (let ((css-ac-sources (append '(ac-source-css-property) aethanyc-ac-sources)))
-      (setq web-mode-ac-sources-alist
-            `(("css" . ,css-ac-sources)
-              ("html" . ,aethanyc-ac-sources)
-              ("javascript" . ,aethanyc-ac-sources))))
     (use-package browse-url
       :init
       (progn

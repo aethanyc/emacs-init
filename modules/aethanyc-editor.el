@@ -140,13 +140,6 @@
     (use-package htmlize
       :ensure htmlize)
 
-    ;; Grab link in various app on Mac OS.
-    (when (eq system-type 'darwin)
-      (use-package org-mac-link
-        :disabled t
-        :init (progn (bind-key "C-c C-g" #'org-mac-grab-link org-mode-map))
-        :ensure org-mac-link))
-
     ;; Export org-mode content to reveal.js
     (use-package ox-reveal
       :init
@@ -255,44 +248,6 @@
   :ensure ag)
 
 
-(use-package auto-complete
-  :disabled t
-  :init
-  (progn
-    ;; Packages that enhance auto-complete.
-    (use-package fuzzy
-      :ensure fuzzy)
-    (use-package pos-tip
-      :ensure pos-tip)
-
-    (require 'auto-complete-config)
-    (global-auto-complete-mode 1)
-    (ac-flyspell-workaround)
-    (defvar aethanyc-ac-sources '(ac-source-abbrev
-                                  ac-source-yasnippet
-                                  ac-source-dictionary
-                                  ac-source-words-in-same-mode-buffers
-                                  ac-source-words-in-all-buffer))
-    (setq-default ac-sources aethanyc-ac-sources)
-    (setq ac-use-menu-map t
-          ac-use-fuzzy t
-          ac-quick-help-delay 0.7)
-    (setq ac-comphist-file
-          (expand-file-name "ac-comphist.dat" aethanyc-savefiles-dir))
-    (setq ac-modes (append ac-modes
-                           '(git-commit-mode
-                             html-mode
-                             inferior-emacs-lisp-mode
-                             latex-mode
-                             markdown-mode
-                             nxml-mode
-                             sh-mode
-                             web-mode))))
-  :bind ("<C-tab>" . auto-complete)
-  :diminish ""
-  :ensure auto-complete)
-
-
 ;; Although back-button is available in melpa, it depends on too many
 ;; packages that are not strictly required. So I add it directly to
 ;; the repository.
@@ -372,11 +327,6 @@
   :bind ("C-x m" . eshell))
 
 
-(use-package evil
-  :defer t
-  :ensure evil)
-
-
 (use-package expand-region
   :bind ("M-8" . er/expand-region)
   :ensure expand-region)
@@ -417,10 +367,8 @@
 
 
 (use-package git-messenger
-  :init
-  (progn
-    (setq git-messenger:show-detail t))
   :bind ("C-c m" . git-messenger:popup-message)
+  :config (setq git-messenger:show-detail t)
   :ensure t)
 
 
@@ -506,16 +454,6 @@
   :ensure magit)
 
 
-;; Install git-wip to ~/bin
-;; https://raw.github.com/bartman/git-wip/master/git-wip
-;; $ git config --global --add magit.extension wip-save
-(when (executable-find "git-wip")
-  (use-package magit-wip
-    :init
-    (progn
-      (global-magit-wip-save-mode 1))))
-
-
 (use-package mark-tools
   :ensure mark-tools)
 
@@ -584,30 +522,6 @@
       (server-start))))
 
 
-(use-package smartparens
-  :disabled t
-  :init
-  (progn
-    ;; Configuration from smartparens-config.el
-    (--each sp--html-modes
-      (eval-after-load (symbol-name it) '(require 'smartparens-html)))
-    (eval-after-load "lua-mode" '(require 'smartparens-lua))
-
-    (setq sp-base-key-bindings 'paredit
-          sp-autoskip-closing-pair 'always)
-    (sp-use-paredit-bindings)
-
-    ;; Do not turn on smartparens-mode in lisp family mode.
-    (setq sp-ignore-modes-list
-          (append sp-ignore-modes-list
-                  '(lisp-mode lisp-interaction-mode emacs-lisp-mode
-                              inferior-emacs-lisp-mode)))
-
-    (show-smartparens-global-mode 1)
-    (smartparens-global-mode 1))
-  :ensure smartparens)
-
-
 (use-package smex
   :init (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))
   :bind (("<menu>" . smex)
@@ -650,16 +564,6 @@
   :init (global-whitespace-cleanup-mode 1)
   :diminish whitespace-cleanup-mode
   :ensure whitespace-cleanup-mode)
-
-
-(use-package yasnippet
-  :disabled t
-  :init
-  (progn
-    (yas-reload-all)
-    (aethanyc-hook-into-modes #'yas-minor-mode
-      '(c-mode-common-hook python-mode-hook LaTeX-mode-hook org-mode-hook)))
-  :ensure yasnippet)
 
 
 (provide 'aethanyc-editor)

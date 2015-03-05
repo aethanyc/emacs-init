@@ -150,35 +150,6 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure zenburn-theme)
 
 
-;; Window operations
-
-;; Prompt for a target window when there are more than 2.
-(use-package switch-window
-  :disabled t
-  :init
-  (progn
-    (setq switch-window-shortcut-style 'qwerty
-          switch-window-qwerty-shortcuts '("a" "o" "e" "u" "h" "t"))
-    (global-set-key [remap other-window] #'switch-window)
-    (bind-key* "M-o" #'switch-window))
-  :ensure switch-window)
-
-;; Using S-arrow keys to move between windows.
-(use-package windmove
-  :disabled t
-  :init (windmove-default-keybindings))
-
-
-;; Using C-S-arrow keys to move buffer to a new place.
-(use-package buffer-move
-  :disabled t
-  :bind (("<C-S-up>" . buf-move-up)
-         ("<C-S-down>" . buf-move-down)
-         ("<C-S-left>" . buf-move-left)
-         ("<C-S-right>" . buf-move-right))
-  :ensure buffer-move)
-
-
 (provide 'aethanyc-ui)
 
 ;; Local Variables:
