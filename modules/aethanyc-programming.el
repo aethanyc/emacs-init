@@ -245,7 +245,22 @@
                 (t "python")))))
 
 
+(use-package company-jedi
+  :init
+  (progn
+    (setq jedi:use-shortcuts t)
+    (defun aethanyc-company-jedi-setup ()
+      (jedi:setup)
+      (setq company-backends '(company-jedi
+                               company-dabbrev-code
+                               company-keywords
+                               company-dabbrev)))
+    (add-hook 'python-mode-hook #'aethanyc-company-jedi-setup))
+  :ensure t)
+
+
 (use-package jedi
+  :disabled t
   :defer t
   :init
   (progn
