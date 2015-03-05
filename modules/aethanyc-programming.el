@@ -176,6 +176,8 @@
   :defer t
   :init
   (progn
+    (require 'cc-styles)
+    (require 'cc-vars)
     (defun c-mode-common-setup ()
       (c-add-style "aethanyc"
                    '("stroustrup"
@@ -183,7 +185,10 @@
                      (c-offsets-alist
                       (inline-open . 0)
                       (innamespace . 0))))
-      (c-set-style "aethanyc"))
+      (c-set-style "aethanyc")
+      (setq company-backends '(company-dabbrev-code
+                               company-capf
+                               company-keywords)))
     (add-hook 'c-mode-common-hook #'c-mode-common-setup))
   :config
   (progn
