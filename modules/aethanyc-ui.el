@@ -132,6 +132,7 @@ The value should be an alist of elements (FONT . CHARSET).")
   :init
   (progn
     (setq sml/no-confirm-load-theme t)
+    (setq sml/name-width 36)
     (sml/setup)
     (sml/apply-theme 'respectful))
   :ensure smart-mode-line)
