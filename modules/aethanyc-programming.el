@@ -150,7 +150,7 @@
     :defer t
     :init
     (progn
-      (add-hook #'c-mode-common-hook 'ggtags-mode))
+      (add-hook 'c-mode-common-hook #'ggtags-mode))
     :config
     (progn
       (setq ggtags-global-ignore-case t)
