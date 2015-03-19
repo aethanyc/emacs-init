@@ -16,6 +16,8 @@
 
 (eval-when-compile
   (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
 
 (require 'aethanyc-core)
 
@@ -249,19 +251,18 @@
 
 
 ;; Although back-button is available in melpa, it depends on too many
-;; packages that are not strictly required. So I add it directly to
-;; the repository.
+;; packages that are not strictly required. So I add it directly as a
+;; git submodule.
 (use-package back-button
-  :init
-  (progn
-    (defalias 'push-mark #'back-button-push-mark-local-and-global
-      "Replace push-mark to preserve current position before jumping around.")
-    (bind-key "M-B" #'backward-sexp)
-    (bind-key "M-F" #'forward-sexp)
-    (bind-key* "C-M-b" #'back-button-global-backward)
-    (bind-key* "C-M-f" #'back-button-global-forward)
-    (back-button-mode 1))
-  :diminish "")
+  :bind (("M-B" . backward-sexp)
+         ("M-F" . forward-sexp))
+  :bind* (("C-M-b" . back-button-global-backward)
+          ("C-M-f" . back-button-global-forward))
+  :config
+  (defalias 'push-mark #'back-button-push-mark-local-and-global
+    "Replace push-mark to preserve current position before jumping around.")
+  (back-button-mode 1)
+  :diminish back-button-mode)
 
 
 (use-package browse-kill-ring
@@ -499,27 +500,25 @@
 
 (use-package projectile
   :init
-  (progn
-    (setq projectile-cache-file
-          (expand-file-name "projectile.cache" aethanyc-savefiles-dir)
-          projectile-known-projects-file
-          (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
-    (setq projectile-indexing-method 'alien)
-    (setq projectile-enable-caching t)
-    ;; The known project list is loaded when projectile is required.
-    ;; It should be reloaded since the file path is changed.
-    (projectile-load-known-projects)
-    (projectile-global-mode 1))
-  :diminish ""
-  :ensure projectile)
+  (setq projectile-cache-file
+        (expand-file-name "projectile.cache" aethanyc-savefiles-dir))
+  (setq projectile-known-projects-file
+        (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
+  (setq projectile-indexing-method 'alien)
+  (setq projectile-enable-caching t)
+  :config
+  (projectile-global-mode 1)
+  :diminish projectile-mode
+  :ensure t)
 
 
 (use-package server
+  :defer 5
   :init
-  (progn
-    (setq server-auth-dir aethanyc-savefiles-dir)
-    (unless (server-running-p)
-      (server-start))))
+  (setq server-auth-dir aethanyc-savefiles-dir)
+  :config
+  (unless (server-running-p)
+    (server-start)))
 
 
 (use-package smex
