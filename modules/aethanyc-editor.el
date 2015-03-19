@@ -96,8 +96,8 @@
     (setq-default save-place t)))
 
 
-;; For key C-x C-j: `dired-jump'
-(use-package dired-x)
+(use-package dired-x
+  :bind ("C-c d" . dired-jump))
 
 
 (use-package ispell
