@@ -152,17 +152,17 @@
 
 ;; Save the history of minibuffer.
 (use-package savehist
+  :defer 5
   :init
-  (progn
-    (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
-    (savehist-mode 1)))
+  (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
+  :config
+  (savehist-mode 1))
 
 
 (use-package sort
-  :init
-  (progn
-    ;; Ignore case when calling sort-lines.
-    (setq sort-fold-case nil)))
+  :commands sort-lines
+  :config
+  (setq sort-fold-case t))
 
 
 (use-package webjump
