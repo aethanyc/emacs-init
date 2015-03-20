@@ -141,12 +141,13 @@
 
 ;; Keep a list of recently opened files
 (use-package recentf
+  :defer 5
   :init
-  (progn
-    (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir)
-          recentf-max-menu-items 20
-          recentf-max-saved-items 500)
-    (recentf-mode 1)))
+  (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir)
+        recentf-max-menu-items 20
+        recentf-max-saved-items 500)
+  :config
+  (recentf-mode 1))
 
 
 ;; Save the history of minibuffer.
