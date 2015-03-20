@@ -44,6 +44,7 @@ re-downloaded in order to locate PACKAGE."
   (require 'use-package))
 
 (setq use-package-verbose t)
+(setq use-package-minimum-reported-time 0.01)
 
 ;; To see the summary of all the personal keybinds:
 ;; M-x describe-personal-keybindings
