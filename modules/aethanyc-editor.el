@@ -91,9 +91,8 @@
 ;; it is loaded too late.
 (use-package saveplace
   :init
-  (progn
-    (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
-    (setq-default save-place t)))
+  (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
+  (setq-default save-place t))
 
 
 (use-package dired-x
