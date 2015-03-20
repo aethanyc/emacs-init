@@ -100,30 +100,15 @@
   :bind ("C-c d" . dired-jump))
 
 
-(use-package ispell
-  :init
-  (progn
-    ;; Check available dictionaries: hunspell -D
-    ;; Name hunspell English dictionary files as default.aff and default.dic
-    (setq ispell-program-name
-          (or (executable-find "hunspell")
-              (executable-find "ispell")))
-
-    (when ispell-program-name
-      (use-package flyspell
-        :init
-        (progn
-          (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-          (add-hook 'text-mode-hook #'flyspell-mode)))
-
-      ;; Fix slow cursor movement on windows.
-      (when (eq system-type 'windows-nt)
-        (use-package flyspell-lazy
-          :init
-          (progn
-            (add-hook 'prog-mode-hook #'flyspell-lazy-mode)
-            (add-hook 'text-mode-hook #'flyspell-lazy-mode))
-          :ensure flyspell-lazy)))))
+;; Check available dictionaries: hunspell -D
+;; Name hunspell English dictionary files as default.aff and default.dic
+(use-package flyspell
+  :init (setq ispell-program-name
+              (or (executable-find "hunspell")
+                  (executable-find "ispell")))
+  :config
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+  (add-hook 'text-mode-hook #'flyspell-mode))
 
 
 (use-package org
