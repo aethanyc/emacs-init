@@ -112,33 +112,32 @@
 
 
 (use-package org
+  :mode "\\.org\\'"
   :config
-  (progn
-    (setq org-completion-use-ido t
-          org-ctrl-k-protect-subtree t
-          org-special-ctrl-k t
-          org-src-fontify-natively t
-          org-startup-indented t
-          org-special-ctrl-a/e t
-          org-export-copy-to-kill-ring nil
-          org-export-with-sub-superscripts (quote {}))
+  (setq org-completion-use-ido t
+        org-ctrl-k-protect-subtree t
+        org-special-ctrl-k t
+        org-src-fontify-natively t
+        org-startup-indented t
+        org-special-ctrl-a/e t
+        org-export-copy-to-kill-ring nil
+        org-export-with-sub-superscripts (quote {}))
 
-    ;; Highlight the source code in html exported.
-    (use-package htmlize
-      :ensure htmlize)
+  ;; Highlight the source code in html exported.
+  (use-package htmlize
+    :ensure t)
 
-    ;; Export org-mode content to reveal.js
-    (use-package ox-reveal
-      :init
-      (progn
-        (defun org-reveal-save-then-export ()
-          "Save buffer and then export to html."
-          (interactive)
-          (save-buffer)
-          (org-reveal-export-to-html))
-
-        (bind-key "<f5>" #'org-reveal-save-then-export org-mode-map))
-      :ensure ox-reveal)))
+  ;; Export org-mode content to reveal.js
+  (use-package ox-reveal
+    :init
+    (defun aethanyc-org-reveal-save-then-export ()
+      "Save buffer and then export to html."
+      (interactive)
+      (save-buffer)
+      (org-reveal-export-to-html))
+    :config
+    (bind-key "<f5>" #'aethanyc-org-reveal-save-then-export org-mode-map)
+    :ensure t))
 
 
 ;; Keep a list of recently opened files
