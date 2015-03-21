@@ -251,10 +251,9 @@
 
 
 (use-package browse-kill-ring
-  :init
-  (progn
-    (browse-kill-ring-default-keybindings))
-  :ensure browse-kill-ring)
+  :config
+  (browse-kill-ring-default-keybindings)
+  :ensure t)
 
 
 (use-package discover-my-major
