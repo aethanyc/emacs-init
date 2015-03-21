@@ -264,43 +264,41 @@
 ;;; http://www.emacswiki.org/DeskTop#toc5
 (use-package desktop
   :init
-  (progn
-    (require 'desktop)
+  (setq desktop-path (list aethanyc-savefiles-dir))
+  (setq desktop-dirname aethanyc-savefiles-dir)
+  (setq desktop-base-file-name "desktop")
+  (setq desktop-base-lock-name "desktop.lock")
 
-    (setq desktop-path (list aethanyc-savefiles-dir))
-    (setq desktop-dirname aethanyc-savefiles-dir)
-    (setq desktop-base-file-name "desktop")
-    (setq desktop-base-lock-name "desktop.lock")
+  :config
+  ;; Specify modes that need not to be saved.
+  (dolist (mode '(dired-mode fundamental-mode help-mode))
+    (add-to-list 'desktop-modes-not-to-save mode))
 
-    ;; Specify modes that need not to be saved.
-    (dolist (mode '(dired-mode fundamental-mode help-mode))
-      (add-to-list 'desktop-modes-not-to-save mode))
+  (defun aethanyc-desktop-after-read-hook ()
+    "Remove the desktop saved file after it's been read."
+    ;; desktop-remove clears the desktop-dirname. Let's restore it.
+    (let ((desktop-dirname-old desktop-dirname))
+      (desktop-remove)
+      (setq desktop-dirname desktop-dirname-old)))
 
-    (defun aethanyc-desktop-after-read-hook ()
-      "Remove the desktop saved file after it's been read."
-      ;; desktop-remove clears the desktop-dirname. Let's restore it.
-      (let ((desktop-dirname-old desktop-dirname))
-        (desktop-remove)
-        (setq desktop-dirname desktop-dirname-old)))
+  (defun aethanyc-desktop-save ()
+    "Save the desktop in directory `desktop-dirname'."
+    (interactive)
+    (if (file-exists-p (desktop-full-file-name))
+        (if (yes-or-no-p "Overwrite existing desktop? ")
+            (desktop-save desktop-dirname t)
+          (message "Desktop not saved."))
+      (desktop-save desktop-dirname t))
+    (message "Desktop saved in %s" (abbreviate-file-name desktop-dirname)))
 
-    (defun aethanyc-desktop-save ()
-      "Save the desktop in directory `desktop-dirname'."
-      (interactive)
-      (if (file-exists-p (desktop-full-file-name))
-          (if (yes-or-no-p "Overwrite existing desktop? ")
-              (desktop-save desktop-dirname t)
-            (message "Desktop not saved."))
-        (desktop-save desktop-dirname t))
-      (message "Desktop saved in %s" (abbreviate-file-name desktop-dirname)))
+  (defun aethanyc-desktop-save-on-exit ()
+    "Save desktop automatically on exit only when it has been loaded."
+    (interactive)
+    (if (file-exists-p (desktop-full-lock-name))
+        (aethanyc-desktop-save)))
 
-    (defun aethanyc-desktop-save-on-exit ()
-      "Save desktop automatically on exit only when it has been loaded."
-      (interactive)
-      (if (file-exists-p (desktop-full-lock-name))
-          (aethanyc-desktop-save)))
-
-    (add-hook 'desktop-after-read-hook #'aethanyc-desktop-after-read-hook)
-    (add-hook 'kill-emacs-hook #'aethanyc-desktop-save-on-exit))
+  (add-hook 'desktop-after-read-hook #'aethanyc-desktop-after-read-hook)
+  (add-hook 'kill-emacs-hook #'aethanyc-desktop-save-on-exit)
 
   :bind (("<f9>" . desktop-revert)
          ("<M-f9>" . aethanyc-desktop-save)))
