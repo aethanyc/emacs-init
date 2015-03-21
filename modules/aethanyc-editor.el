@@ -231,6 +231,7 @@
 
 
 (use-package ag
+  :defer t
   :ensure ag)
 
 
