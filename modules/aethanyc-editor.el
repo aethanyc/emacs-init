@@ -312,7 +312,7 @@
 
 (use-package expand-region
   :bind ("M-8" . er/expand-region)
-  :ensure expand-region)
+  :ensure t)
 
 
 (use-package flycheck
