@@ -351,11 +351,10 @@
 
 
 (use-package guide-key
-  :init
-  (progn
-    (setq guide-key/guide-key-sequence '("C-c !" "C-c p" "C-x r"))
-    (guide-key-mode 1))
-  :diminish ""
+  :config
+  (setq guide-key/guide-key-sequence '("C-c !" "C-c p" "C-x r"))
+  (guide-key-mode 1)
+  :diminish guide-key-mode
   :ensure t)
 
 
