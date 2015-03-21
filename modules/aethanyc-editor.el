@@ -212,13 +212,14 @@
 ;; Packages
 
 (use-package ace-jump-mode
-  :init (setq ace-jump-mode-gray-background nil
-              ace-jump-mode-case-fold nil
-              ace-jump-mode-scope 'frame)
   :bind (("M-m" . ace-jump-mode)
          ("M-M" . ace-jump-char-mode))
-  :config (ace-jump-mode-enable-mark-sync)
-  :ensure ace-jump-mode)
+  :config
+  (setq ace-jump-mode-gray-background nil
+              ace-jump-mode-case-fold nil
+              ace-jump-mode-scope 'frame)
+  (ace-jump-mode-enable-mark-sync)
+  :ensure t)
 
 
 (use-package ace-window
