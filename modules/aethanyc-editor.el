@@ -398,13 +398,14 @@
 
 
 (use-package keyfreq
+  :defer 5
   :init
-  (progn
-    (setq keyfreq-file (expand-file-name "keyfreq" aethanyc-savefiles-dir)
-          keyfreq-file-lock (expand-file-name "keyfreq.lock" aethanyc-savefiles-dir))
-    (keyfreq-mode 1)
-    (keyfreq-autosave-mode 1))
-  :ensure keyfreq)
+  (setq keyfreq-file (expand-file-name "keyfreq" aethanyc-savefiles-dir)
+        keyfreq-file-lock (expand-file-name "keyfreq.lock" aethanyc-savefiles-dir))
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  :ensure t)
 
 
 (use-package magit
