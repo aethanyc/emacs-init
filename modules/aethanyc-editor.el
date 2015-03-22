@@ -458,13 +458,11 @@
 
 (use-package paredit-everywhere
   :init
-  (progn
-    (add-hook 'prog-mode-hook #'paredit-everywhere-mode))
+  (add-hook 'prog-mode-hook #'paredit-everywhere-mode)
   :config
-  (progn
-    (unbind-key "M-DEL" paredit-everywhere-mode-map)
-    (unbind-key "M-d" paredit-everywhere-mode-map))
-  :ensure paredit-everywhere)
+  (unbind-key "M-DEL" paredit-everywhere-mode-map)
+  (unbind-key "M-d" paredit-everywhere-mode-map)
+  :ensure t)
 
 
 (use-package projectile
