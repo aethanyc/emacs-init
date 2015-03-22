@@ -83,6 +83,9 @@
 ;; Add newline at the end automatically when the file is about to be saved.
 (setq-default require-final-newline t)
 
+;; Uniquify buffer name
+(setq uniquify-buffer-name-style 'forward)
+
 
 ;; Built-in packages
 
@@ -509,11 +512,6 @@
   :bind ("C-=" . undo-tree-redo)
   :diminish undo-tree-mode
   :ensure t)
-
-
-;; Unique buffer name
-(use-package uniquify
-  :init (setq uniquify-buffer-name-style 'forward))
 
 
 (use-package whitespace
