@@ -497,7 +497,7 @@
          ("M-<menu>" . smex-major-mode-commands)
          ("M-<apps>" . smex-major-mode-commands)
          ("<M-f12>" . smex-major-mode-commands))
-  :ensure smex)
+  :ensure t)
 
 
 (use-package smooth-scrolling
@@ -505,10 +505,10 @@
 
 
 (use-package undo-tree
-  :init (global-undo-tree-mode 1)
+  :config (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
-  :diminish ""
-  :ensure undo-tree)
+  :diminish undo-tree-mode
+  :ensure t)
 
 
 ;; Unique buffer name
