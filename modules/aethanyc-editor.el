@@ -426,6 +426,7 @@
 
 
 (use-package mark-tools
+  :commands list-marks
   :ensure mark-tools)
 
 
