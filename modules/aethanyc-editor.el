@@ -493,10 +493,10 @@
   :bind (("<menu>" . smex)
          ("<apps>" . smex) ; the key with a menu icon
          ("<f12>" . smex)
+         ("M-x" . smex)
          ("M-<menu>" . smex-major-mode-commands)
          ("M-<apps>" . smex-major-mode-commands)
          ("<M-f12>" . smex-major-mode-commands))
-  :config (global-set-key [remap execute-extended-command] 'smex)
   :ensure smex)
 
 
