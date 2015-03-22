@@ -360,37 +360,36 @@
 
 (use-package ido
   :init
-  (progn
-    (setq ido-create-new-buffer 'always
-          ido-enable-flex-matching t
-          ido-use-filename-at-point 'guess
-          ido-use-virtual-buffers t)
-    (setq ido-save-directory-list-file
-          (expand-file-name "ido-last" aethanyc-savefiles-dir))
+  (setq ido-create-new-buffer 'always
+        ido-enable-flex-matching t
+        ido-use-filename-at-point 'guess
+        ido-use-virtual-buffers t)
+  (setq ido-save-directory-list-file
+        (expand-file-name "ido-last" aethanyc-savefiles-dir))
 
-    ;; It is easier to switch buffer on single key.
-    (bind-key "<f2>" #'ido-switch-buffer)
-    (bind-key "<f2>" #'ido-switch-buffer-other-window ctl-x-4-map)
-    (bind-key "<f2>" #'ido-switch-buffer-other-frame ctl-x-5-map)
+  :config
+  ;; It is easier to switch buffer on single key.
+  (bind-key "<f2>" #'ido-switch-buffer)
+  (bind-key "<f2>" #'ido-switch-buffer-other-window ctl-x-4-map)
+  (bind-key "<f2>" #'ido-switch-buffer-other-frame ctl-x-5-map)
 
-    (ido-mode 1)
-    (ido-everywhere 1)
+  (ido-mode 1)
+  (ido-everywhere 1)
 
-    (use-package ido-ubiquitous
-      :init (ido-ubiquitous-mode 1)
-      :ensure ido-ubiquitous)
+  (use-package ido-ubiquitous
+    :config (ido-ubiquitous-mode 1)
+    :ensure t)
 
-    (use-package flx-ido
-      :init
-      (progn
-        ;; Disable ido faces to see flx highlights.
-        (setq ido-use-faces nil)
-        (flx-ido-mode 1))
-      :ensure flx-ido)
+  (use-package flx-ido
+    :config
+    ;; Disable ido faces to see flx highlights.
+    (setq ido-use-faces nil)
+    (flx-ido-mode 1)
+    :ensure t)
 
-    (use-package ido-vertical-mode
-      :init (ido-vertical-mode 1)
-      :ensure ido-vertical-mode)))
+  (use-package ido-vertical-mode
+    :config (ido-vertical-mode 1)
+    :ensure t))
 
 
 (use-package imenu-anywhere
