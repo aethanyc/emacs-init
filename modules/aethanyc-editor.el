@@ -516,18 +516,18 @@
 
 (use-package whitespace
   :init
-  (progn
-    (setq-default whitespace-style '(face trailing tab-mark))
-
-    ;; Turn on whitespace-mode only in file buffers.
-    (add-hook 'find-file-hook #'whitespace-mode))
+  (setq-default whitespace-style '(face trailing tab-mark))
+  ;; Turn on whitespace-mode only in file buffers.
+  (add-hook 'find-file-hook #'whitespace-mode)
   :diminish whitespace-mode)
 
 
 (use-package whitespace-cleanup-mode
-  :init (global-whitespace-cleanup-mode 1)
+  :defer 5
+  :config
+  (global-whitespace-cleanup-mode 1)
   :diminish whitespace-cleanup-mode
-  :ensure whitespace-cleanup-mode)
+  :ensure t)
 
 
 (provide 'aethanyc-editor)
