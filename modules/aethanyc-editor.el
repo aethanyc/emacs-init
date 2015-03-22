@@ -444,18 +444,16 @@
 
 (use-package paredit
   :init
-  (progn
-    (aethanyc-hook-into-modes 'paredit-mode
-      '(lisp-mode-hook emacs-lisp-mode-hook)))
+  (aethanyc-hook-into-modes 'paredit-mode
+    '(lisp-mode-hook emacs-lisp-mode-hook))
   :config
-  (progn
-    (bind-key "M-B" #'paredit-backward paredit-mode-map)
-    (bind-key "M-F" #'paredit-forward paredit-mode-map)
-    (bind-key "RET" #'paredit-newline paredit-mode-map)
-    (use-package paredit-menu
-      :ensure paredit-menu))
+  (bind-key "M-B" #'paredit-backward paredit-mode-map)
+  (bind-key "M-F" #'paredit-forward paredit-mode-map)
+  (bind-key "RET" #'paredit-newline paredit-mode-map)
+  (use-package paredit-menu
+    :ensure paredit-menu)
   :diminish "Par"
-  :ensure paredit)
+  :ensure t)
 
 
 (use-package paredit-everywhere
