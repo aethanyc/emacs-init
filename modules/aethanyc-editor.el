@@ -411,24 +411,18 @@
 (use-package magit
   :bind ("<f4>" . magit-status)
   :config
-  (progn
-    ;; Diminish magit auto revert mode lighter.
-    (setq magit-auto-revert-mode-lighter "")
+  ;; Diminish magit auto revert mode lighter.
+  (setq magit-auto-revert-mode-lighter "")
 
-    ;; Do not allow magit overrides the window management keys.
-    ;; Bind those show level keys to C-x 1, C-x 2, etc.
-    (dolist (i '(1 2 3 4))
-      (let ((key-unbind (format "M-%d" i))
-            (key-bind (format "C-x %d" i))
-            (func-bind (intern (format "magit-show-level-%d-all" i))))
-        (unbind-key key-unbind magit-mode-map)
-        (bind-key key-bind func-bind magit-mode-map)))
-
-    (use-package git-commit-mode
-      :init
-      (progn
-        (setq git-commit-mode-hook nil))))
-  :ensure magit)
+  ;; Do not allow magit overrides the window management keys.
+  ;; Bind those show level keys to C-x 1, C-x 2, etc.
+  (dolist (i '(1 2 3 4))
+    (let ((key-unbind (format "M-%d" i))
+          (key-bind (format "C-x %d" i))
+          (func-bind (intern (format "magit-show-level-%d-all" i))))
+      (unbind-key key-unbind magit-mode-map)
+      (bind-key key-bind func-bind magit-mode-map)))
+  :ensure t)
 
 
 (use-package mark-tools
