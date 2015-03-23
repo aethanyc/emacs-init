@@ -1,45 +1,44 @@
 # Emacs-init #
 
-Here are my Emacs customization files, which only compatible with
-Emacs 24. I've used Emacs on Windows, GNU/Linux, and Mac OS X.
+This repository contains my own Emacs customization, tested only on Emacs 24 on
+Mac OS X and GNU/Linux.
 
 ## Where to get the latest Emacs 24 binaries? ##
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
-* [By Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
+* [Via Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
   * Stable version: `brew install emacs --cocoa`
   * Development version on git: `brew install emacs --cocoa --HEAD`
+* [Emacs Mac Port](https://github.com/railwaycat/emacs-mac-port/wiki/Downloads)
 
 ## How to build Emacs manually?
-Clone Emacs source code from official repository with ```git clone git://git.sv.gnu.org/emacs.git```
+Clone Emacs source code from official repository by `git clone git://git.sv.gnu.org/emacs.git`
 
 * Build Emacs on Mac
-  * See ```nextstep/INSTALL``` for instructions. Basically, it's:
-  * ```./autogen.sh```
-  * ```./configure --with-ns```
-  * ```make install  # Assemble the app in nextstep/Emacs.app```
-  * Link or copy ```nextstep/Emacs.app``` to ```/Applications```
+  * See `nextstep/INSTALL` for instructions. Basically, it's:
+  * `./autogen.sh`
+  * `./configure --with-ns`
+  * `make install  # Assemble the app in nextstep/Emacs.app`
+  * Link or copy `nextstep/Emacs.app` to `/Applications`
 * Build Emacs on Debian-based GNU/Linux
-  * ```apt-get install build-essential```
-  * ```apt-get build-dep emacs24  # Install packages for build-dependencies.```
-  * See ```INSTALL.REPO``` in emacs repository for instructions. Basically, it's:
-  * ```./autogen.sh```
-  * ```./configure```
-  * ```make bootstrap```
-  * ```make```
-  * ```emacs``` and ```emacsclient``` will be available under ```src``` and ```lib-src```, respectively.
+  * `apt-get install build-essential`
+  * `apt-get build-dep emacs24  # Install packages for build-dependencies.`
+  * See `INSTALL.REPO` in emacs repository for instructions. Basically, it's:
+  * `./autogen.sh`
+  * `./configure`
+  * `make bootstrap`
+  * `make`
+  * `emacs` and `emacsclient` will be available under `src` and `lib-src`, respectively.
 
 ## Where to find Emacs packages? ##
 
-[MELPA](http://melpa.milkbox.net/) hosts many useful packages. Add
-following lines to your emacs init file to use them.  See
-[Usage](https://github.com/milkypostman/melpa) section on MELPA Github
-to learn how to use it.
+[MELPA](http://melpa.org/) hosts up-to-date packages.
+[MELPA Stable](http://stable.melpa.org/) hosts stable packages.
 
-Then you can use `M-x list-packages` to browse and install packages.
+Use `M-x list-packages` to browse and install packages.
 
-## Where to find informations? ##
+## Where to find information? ##
 
 * [EmacsWiki](http://www.emacswiki.org/)
 * [WikEmacs](http://wikemacs.org/)
@@ -47,7 +46,7 @@ Then you can use `M-x list-packages` to browse and install packages.
 
 ## How to install Emacs-init? ##
 
-Simply clone this repository to your home directory.
+Simply clone this repository to your home directory via:
 
 ```bash
 git clone --recursive git://github.com/aethanyc/emacs-init.git ~/.emacs.d
