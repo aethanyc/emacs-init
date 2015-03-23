@@ -17,6 +17,8 @@
 (eval-when-compile
   (require 'use-package))
 (require 'aethanyc-core)
+(require 'diminish)
+(require 'bind-key)
 
 (defvar aethanyc-fonts-alist '(("PragmataPro" . ascii)
                                ("Droid Sans Mono" . ascii)
@@ -71,9 +73,9 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 ;; Show number of matches in mode-line while searching
 (use-package anzu
-  :init (global-anzu-mode 1)
-  :diminish ""
-  :ensure anzu)
+  :config (global-anzu-mode 1)
+  :diminish anzu-mode
+  :ensure t)
 
 
 (use-package ediff-util
