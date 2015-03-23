@@ -83,8 +83,11 @@
 ;; Add newline at the end automatically when the file is about to be saved.
 (setq-default require-final-newline t)
 
-;; Uniquify buffer name
+;; Uniquify buffer name.
 (setq uniquify-buffer-name-style 'forward)
+
+;; Use text-mode for *scratch* buffer.
+(setq initial-major-mode 'text-mode)
 
 
 ;; Built-in packages
