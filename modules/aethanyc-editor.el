@@ -117,7 +117,7 @@
 
 
 (use-package org
-  :mode "\\.org\\'"
+  :defer t
   :config
   (setq org-completion-use-ido t
         org-ctrl-k-protect-subtree t
