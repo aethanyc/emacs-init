@@ -20,8 +20,8 @@
 ;; When Emacs is launched by UI, it does not seen the PATH from the
 ;; shell. Let's fix this.
 (use-package exec-path-from-shell
-  :init (exec-path-from-shell-initialize)
-  :ensure exec-path-from-shell)
+  :config (exec-path-from-shell-initialize)
+  :ensure t)
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
