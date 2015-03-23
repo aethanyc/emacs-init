@@ -211,6 +211,7 @@
 
 ;;; Web development
 (use-package css-mode
+  :defer t
   :config
   (progn
     (setq css-indent-offset 2)))
@@ -218,25 +219,22 @@
 (use-package js2-mode
   :mode "\\.js\\'"
   :config
-  (progn
-    (setq-default js2-basic-offset 2))
-  :ensure js2-mode)
+  (setq-default js2-basic-offset 2)
+  :ensure t)
 
 (use-package web-mode
   :mode "\\.html?\\'"
   :config
-  (progn
-    (setq web-mode-script-padding 0
-          web-mode-style-padding 0
-          web-mode-markup-indent-offset 2
-          web-mode-css-indent-offset 2
-          web-mode-code-indent-offset 2
-          web-mode-sql-indent-offset 2)
-    (use-package browse-url
-      :init
-      (progn
-        (bind-key "C-c C-v" #'browse-url-of-buffer web-mode-map))))
-  :ensure web-mode)
+  (setq web-mode-script-padding 0
+        web-mode-style-padding 0
+        web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-sql-indent-offset 2)
+  (use-package browse-url
+    :config
+    (bind-key "C-c C-v" #'browse-url-of-buffer web-mode-map))
+  :ensure t)
 
 
 ;;; Rust Mode
