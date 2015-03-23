@@ -130,13 +130,12 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package smart-mode-line
-  :init
-  (progn
-    (setq sml/no-confirm-load-theme t)
-    (setq sml/name-width 36)
-    (sml/setup)
-    (sml/apply-theme 'respectful))
-  :ensure smart-mode-line)
+  :config
+  (setq sml/no-confirm-load-theme t)
+  (setq sml/name-width 36)
+  (sml/setup)
+  (sml/apply-theme 'respectful)
+  :ensure t)
 
 
 (use-package zenburn-theme
