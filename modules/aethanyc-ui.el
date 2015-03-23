@@ -79,10 +79,10 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package ediff-util
+  :defer t
   :init
-  (progn
-    (setq ediff-split-window-function #'split-window-horizontally)
-    (setq ediff-window-setup-function #'ediff-setup-windows-plain)))
+  (setq ediff-split-window-function #'split-window-horizontally)
+  (setq ediff-window-setup-function #'ediff-setup-windows-plain))
 
 
 (use-package highlight-symbol
