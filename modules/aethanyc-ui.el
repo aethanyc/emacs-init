@@ -92,11 +92,10 @@ The value should be an alist of elements (FONT . CHARSET).")
          ("<S-f3>" . highlight-symbol-prev)
          ("<M-S-f3>" . highlight-symbol-query-replace))
   :config
-  (progn
-    (setq highlight-symbol-on-navigation-p t)
-    (set-face-attribute 'highlight-symbol-face nil :background "gray35"))
-  :diminish ""
-  :ensure highlight-symbol)
+  (setq highlight-symbol-on-navigation-p t)
+  (set-face-attribute 'highlight-symbol-face nil :background "gray35")
+  :diminish highlight-symbol-mode
+  :ensure t)
 
 
 ;; Add spaces between Chinese and English characters.
