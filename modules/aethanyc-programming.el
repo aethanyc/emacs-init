@@ -75,32 +75,31 @@
 ;;; Lisp Mode
 
 (use-package eldoc
+  :defer t
   :init (aethanyc-hook-into-modes #'eldoc-mode
           '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
-  :diminish "")
+  :diminish eldoc-mode)
 
 
 (use-package elisp-slime-nav
   :defer t
   :init
-  (progn
-    (aethanyc-hook-into-modes #'elisp-slime-nav-mode
-      '(emacs-lisp-mode-hook ielm-mode-hook)))
+  (aethanyc-hook-into-modes #'elisp-slime-nav-mode
+    '(emacs-lisp-mode-hook ielm-mode-hook))
   :config
-  (progn
-    ;; Call (push-mark) to jump back later by (back-button-global-backward)
-    (defadvice elisp-slime-nav-find-elisp-thing-at-point
-        (before elisp-slime-nav-find-elisp-thing-at-point-advice activate)
-      (push-mark)))
-  :diminish ""
+  ;; Call (push-mark) to jump back later by (back-button-global-backward)
+  (defadvice elisp-slime-nav-find-elisp-thing-at-point
+      (before elisp-slime-nav-find-elisp-thing-at-point-advice activate)
+    (push-mark))
+  :diminish elisp-slime-nav-mode
   :ensure elisp-slime-nav)
 
 
 (use-package lisp-mode
+  :defer t
   :config
-  (progn
-    (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)
-    (bind-key "C-c v" 'eval-buffer lisp-interaction-mode-map)))
+  (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)
+  (bind-key "C-c v" 'eval-buffer lisp-interaction-mode-map))
 
 
 ;;; C/C++ Mode
