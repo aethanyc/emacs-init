@@ -106,55 +106,50 @@
 
 ;; To install global on Mac OS X
 ;; $ brew install global --with-exuberant-ctags
-(when (executable-find "global")
-  (use-package ggtags
-    :defer t
-    :init
-    (progn
-      (add-hook 'c-mode-common-hook #'ggtags-mode))
-    :config
-    (progn
-      (setq ggtags-global-ignore-case t)
-      (setq ggtags-completing-read-function
-            (lambda (&rest args)
-              (apply #'ido-completing-read
-                     (car args)
-                     (all-completions "" ggtags-completion-table)
-                     (cddr args))))
+(use-package ggtags
+  :if (executable-find "global")
+  :defer t
+  :init
+  (add-hook 'c-mode-common-hook #'ggtags-mode)
+  :config
+  (setq ggtags-global-ignore-case t)
+  (setq ggtags-completing-read-function
+        (lambda (&rest args)
+          (apply #'ido-completing-read
+                 (car args)
+                 (all-completions "" ggtags-completion-table)
+                 (cddr args))))
 
-      (bind-key "C-g" #'ggtags-navigation-mode-abort ggtags-navigation-map)
-      (bind-key "C-M-o" #'ggtags-navigation-visible-mode ggtags-navigation-map)
-      (unbind-key "M-o" ggtags-navigation-map)
+  (bind-key "C-g" #'ggtags-navigation-mode-abort ggtags-navigation-map)
+  (bind-key "C-M-o" #'ggtags-navigation-visible-mode ggtags-navigation-map)
+  (unbind-key "M-o" ggtags-navigation-map)
 
-      ;; Call (push-mark) to jump back later by (back-button-global-backward)
-      (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
-        (push-mark)))
-    :diminish ""
-    :ensure ggtags))
+  ;; Call (push-mark) to jump back later by (back-button-global-backward)
+  (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
+    (push-mark))
+  :diminish ggtags-mode)
 
 
 (use-package cc-mode
   :defer t
   :init
-  (progn
-    (require 'cc-styles)
-    (require 'cc-vars)
-    (defun c-mode-common-setup ()
-      (c-add-style "aethanyc"
-                   '("stroustrup"
-                     (c-basic-offset . 2)
-                     (c-offsets-alist
-                      (inline-open . 0)
-                      (innamespace . 0))))
-      (c-set-style "aethanyc")
-      (setq company-backends '(company-dabbrev-code
-                               company-capf
-                               company-keywords
-                               company-dabbrev)))
-    (add-hook 'c-mode-common-hook #'c-mode-common-setup))
+  (require 'cc-styles)
+  (require 'cc-vars)
+  (defun c-mode-common-setup ()
+    (c-add-style "aethanyc"
+                 '("stroustrup"
+                   (c-basic-offset . 2)
+                   (c-offsets-alist
+                    (inline-open . 0)
+                    (innamespace . 0))))
+    (c-set-style "aethanyc")
+    (setq company-backends '(company-dabbrev-code
+                             company-capf
+                             company-keywords
+                             company-dabbrev)))
+  (add-hook 'c-mode-common-hook #'c-mode-common-setup)
   :config
-  (progn
-    (bind-key "C-c o" #'ff-find-other-file c-mode-base-map)))
+  (bind-key "C-c o" #'ff-find-other-file c-mode-base-map))
 
 
 ;;; LaTeX Mode
