@@ -334,17 +334,17 @@
 
 (use-package git-timemachine
   :defer t
-  :ensure git-timemachine)
+  :ensure t)
 
 
 (use-package gitconfig-mode
   :defer t
-  :ensure gitconfig-mode)
+  :ensure t)
 
 
 (use-package gitignore-mode
   :defer t
-  :ensure gitignore-mode)
+  :ensure t)
 
 
 (use-package git-messenger
@@ -397,7 +397,7 @@
 
 (use-package imenu-anywhere
   :bind ("C-c i" . imenu-anywhere)
-  :ensure imenu-anywhere)
+  :ensure t)
 
 
 (use-package keyfreq
@@ -430,19 +430,19 @@
 
 (use-package mark-tools
   :commands list-marks
-  :ensure mark-tools)
+  :ensure t)
 
 
 (use-package markdown-mode
   :defer t
-  :ensure markdown-mode)
+  :ensure t)
 
 
 (use-package multiple-cursors
   :init (setq mc/list-file (expand-file-name "mc-lists.el" aethanyc-savefiles-dir))
   :bind (("M-9" . mc/mark-next-like-this)
          ("C-c M-9" . mc/mark-all-like-this))
-  :ensure multiple-cursors)
+  :ensure t)
 
 
 (use-package paredit
@@ -454,7 +454,7 @@
   (bind-key "M-F" #'paredit-forward paredit-mode-map)
   (bind-key "RET" #'paredit-newline paredit-mode-map)
   (use-package paredit-menu
-    :ensure paredit-menu)
+    :ensure t)
   :diminish "Par"
   :ensure t)
 
@@ -504,7 +504,7 @@
 
 
 (use-package smooth-scrolling
-  :ensure smooth-scrolling)
+  :ensure t)
 
 
 (use-package undo-tree
