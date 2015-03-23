@@ -239,6 +239,7 @@
 
 ;;; Rust Mode
 (use-package rust-mode
+  :defer t
   :ensure rust-mode)
 
 
