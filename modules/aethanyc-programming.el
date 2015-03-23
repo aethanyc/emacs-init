@@ -17,55 +17,58 @@
 (eval-when-compile
   (require 'use-package))
 (require 'aethanyc-core)
+(require 'diminish)
+(require 'bind-key)
 
 ;;; Prog Mode
 
 (use-package subword
+  :defer t
   :init (add-hook 'prog-mode-hook #'subword-mode t)
-  :diminish "")
+  :diminish subword-mode)
 
 
 (use-package elec-pair
+  :defer t
   :init (add-hook 'prog-mode-hook #'electric-pair-mode))
 
 
 (use-package nlinum
+  :defer t
   :init (aethanyc-hook-into-modes #'nlinum-mode
           '(css-mode-hook prog-mode-hook))
-  :ensure nlinum)
+  :ensure t)
 
 
 (use-package which-func
+  :defer t
   :init
-  (progn
-    (setq mode-line-misc-info
-          ;; Remove Which Function Mode from the mode line, because it's mostly
-          ;; invisible here anyway.
-          (assq-delete-all 'which-func-mode mode-line-misc-info))
+  (setq mode-line-misc-info
+        ;; Remove Which Function Mode from the mode line, because it's mostly
+        ;; invisible here anyway.
+        (assq-delete-all 'which-func-mode mode-line-misc-info))
 
-    (defun which-function-mode-setup ()
-      (which-function-mode 1)
+  (defun which-function-mode-setup ()
+    (which-function-mode 1)
 
-      ;; Show the current function name in the header line
-      (setq header-line-format
-            '((which-func-mode ("" which-func-format " ")))))
+    ;; Show the current function name in the header line
+    (setq header-line-format
+          '((which-func-mode ("" which-func-format " ")))))
 
-    (add-hook 'prog-mode-hook #'which-function-mode-setup)))
+  (add-hook 'prog-mode-hook #'which-function-mode-setup))
 
 
 (use-package company
-  :init
-  (progn
-    (global-company-mode 1))
+  :defer 5
+  :bind ("<C-tab>" . company-complete)
   :config
-  (progn
-    (bind-key "<C-tab>" #'company-complete company-mode-map)
-    (bind-key "C-n" #'company-select-next company-active-map)
-    (bind-key "C-p" #'company-select-previous company-active-map)
+  (global-company-mode 1)
+  (bind-key "C-n" #'company-select-next company-active-map)
+  (bind-key "C-p" #'company-select-previous company-active-map)
 
-    (use-package company-dabbrev-code
-      :init (setq company-dabbrev-code-everywhere t)))
-  :diminish ""
+  (use-package company-dabbrev-code
+    :config (setq company-dabbrev-code-everywhere t))
+  :diminish company-mode
   :ensure t)
 
 
