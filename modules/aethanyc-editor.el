@@ -446,6 +446,7 @@
 
 
 (use-package paredit
+  :defer t
   :init
   (aethanyc-hook-into-modes 'paredit-mode
     '(lisp-mode-hook emacs-lisp-mode-hook))
@@ -460,6 +461,7 @@
 
 
 (use-package paredit-everywhere
+  :defer t
   :init
   (add-hook 'prog-mode-hook #'paredit-everywhere-mode)
   :config
