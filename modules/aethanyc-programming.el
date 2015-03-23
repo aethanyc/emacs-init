@@ -157,26 +157,23 @@
 (use-package tex
   :defer t
   :config
-  (progn
-    (setq-default TeX-engine 'xetex
-                  TeX-PDF-mode t)
+  (setq-default TeX-engine 'xetex
+                TeX-PDF-mode t)
+  (add-to-list 'TeX-command-list
+               '("Latexmk" "latexmk -pvc -xelatex %(mode) %t"
+                 TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode)
+                 :help "Run Latexmk"))
+  (when (eq system-type 'darwin)
+    (add-to-list 'TeX-view-program-list
+                 '("Open" "open %o"))
+    (add-to-list 'TeX-view-program-selection
+                 '(output-pdf "Open")))
 
-    (add-to-list 'TeX-command-list
-                 '("Latexmk" "latexmk -pvc -xelatex %(mode) %t"
-                   TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode)
-                   :help "Run Latexmk"))
+  (use-package tex-buf
+    :init (setq TeX-save-query nil))
 
-    (when (eq system-type 'darwin)
-      (add-to-list 'TeX-view-program-list
-                   '("Open" "open %o"))
-      (add-to-list 'TeX-view-program-selection
-                   '(output-pdf "Open")))
-
-    (use-package tex-buf
-      :init (setq TeX-save-query nil))
-
-    (use-package latex
-      :init (setq LaTeX-indent-level 0)))
+  (use-package latex
+    :init (setq LaTeX-indent-level 0))
   :ensure auctex)
 
 
