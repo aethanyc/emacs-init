@@ -118,14 +118,15 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package rainbow-delimiters
+  :defer t
   :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  :ensure rainbow-delimiters)
+  :ensure t)
 
 
 ;; Sometimes it is useful to color text that represent colors.
 (use-package rainbow-mode
   :defer t
-  :ensure rainbow-mode)
+  :ensure t)
 
 
 (use-package smart-mode-line
