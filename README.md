@@ -33,10 +33,10 @@ Clone Emacs source code from official repository by `git clone git://git.sv.gnu.
 
 ## Where to find Emacs packages? ##
 
-[MELPA](http://melpa.org/) hosts up-to-date packages.
-[MELPA Stable](http://stable.melpa.org/) hosts stable packages.
+* [MELPA](http://melpa.org/) hosts up-to-date packages.
+* [MELPA Stable](http://stable.melpa.org/) hosts stable packages.
 
-Use `M-x list-packages` to browse and install packages.
+Use <kbd>M-x list-packages</kbd> to browse and install packages.
 
 ## Where to find information? ##
 
