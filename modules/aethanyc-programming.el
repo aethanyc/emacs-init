@@ -187,26 +187,25 @@
 (use-package python
   :defer t
   :config
-  (progn
-    ;; Set preferred python interpreter
-    (setq python-shell-interpreter
-          (cond ((executable-find "ipython") "ipython")
-                ((executable-find "python3") "python3")
-                (t "python")))))
+  ;; Set preferred python interpreter
+  (setq python-shell-interpreter
+        (cond ((executable-find "ipython") "ipython")
+              ((executable-find "python3") "python3")
+              (t "python"))))
 
 
 (use-package company-jedi
+  :defer t
   :init
-  (progn
-    (setq jedi:use-shortcuts t)
-    (defun aethanyc-company-jedi-setup ()
-      (jedi:setup)
-      (setq company-backends '(company-jedi
-                               company-dabbrev-code
-                               company-keywords
-                               company-dabbrev)))
-    (aethanyc-hook-into-modes #'aethanyc-company-jedi-setup
-      '(python-mode-hook inferior-python-mode-hook)))
+  (setq jedi:use-shortcuts t)
+  (defun aethanyc-company-jedi-setup ()
+    (jedi:setup)
+    (setq company-backends '(company-jedi
+                             company-dabbrev-code
+                             company-keywords
+                             company-dabbrev)))
+  (aethanyc-hook-into-modes #'aethanyc-company-jedi-setup
+    '(python-mode-hook inferior-python-mode-hook))
   :ensure t)
 
 
