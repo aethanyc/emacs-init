@@ -244,6 +244,12 @@
 
 
 ;;; Other
+(use-package graphviz-dot-mode
+  :defer t
+  :config
+  (setq graphviz-dot-auto-indent-on-semi nil
+        graphviz-dot-indent-width 2)
+  :ensure t)
 
 ;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
 (add-hook 'after-save-hook #'aethanyc-byte-compile-current-buffer)
