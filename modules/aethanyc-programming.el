@@ -67,7 +67,9 @@
   (bind-key "C-p" #'company-select-previous company-active-map)
 
   (use-package company-dabbrev-code
-    :config (setq company-dabbrev-code-everywhere t))
+    :config (setq company-dabbrev-code-everywhere t
+                  company-dabbrev-downcase nil
+                  company-dabbrev-ignore-case nil))
   :diminish company-mode
   :ensure t)
 
