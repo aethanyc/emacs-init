@@ -89,6 +89,10 @@
 ;; Use text-mode for *scratch* buffer.
 (setq initial-major-mode 'text-mode)
 
+;; Variable-value paris that are considered safe in file local variables.
+(setq safe-local-variable-values
+      '((js-indent-level . 2)))
+
 
 ;; Built-in packages
 
