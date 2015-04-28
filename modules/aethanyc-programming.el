@@ -219,7 +219,7 @@
     (setq css-indent-offset 2)))
 
 (use-package js2-mode
-  :mode "\\.js\\'"
+  :mode "\\.jsm?\\'"
   :config
   (setq-default js2-basic-offset 2)
   :ensure t)
