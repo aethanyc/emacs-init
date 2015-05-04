@@ -129,7 +129,8 @@
   ;; Call (push-mark) to jump back later by (back-button-global-backward)
   (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
     (push-mark))
-  :diminish ggtags-mode)
+  :diminish ggtags-mode
+  :ensure t)
 
 
 (use-package cc-mode
