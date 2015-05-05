@@ -419,6 +419,8 @@
 
 
 (use-package magit
+  :init
+  (setq magit-last-seen-setup-instructions "1.4.0")
   :bind ("<f4>" . magit-status)
   :config
   ;; Diminish magit auto revert mode lighter.
