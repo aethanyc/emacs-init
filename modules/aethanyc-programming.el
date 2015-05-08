@@ -145,11 +145,7 @@
                    (c-offsets-alist
                     (inline-open . 0)
                     (innamespace . 0))))
-    (c-set-style "aethanyc")
-    (setq company-backends '(company-dabbrev-code
-                             company-capf
-                             company-keywords
-                             company-dabbrev)))
+    (c-set-style "aethanyc"))
   (add-hook 'c-mode-common-hook #'c-mode-common-setup)
   :config
   (bind-key "C-c o" #'ff-find-other-file c-mode-base-map))
@@ -202,11 +198,7 @@
   :init
   (setq jedi:use-shortcuts t)
   (defun aethanyc-company-jedi-setup ()
-    (jedi:setup)
-    (setq company-backends '(company-jedi
-                             company-dabbrev-code
-                             company-keywords
-                             company-dabbrev)))
+    (jedi:setup))
   (aethanyc-hook-into-modes #'aethanyc-company-jedi-setup
     '(python-mode-hook inferior-python-mode-hook))
   :ensure t)
