@@ -221,17 +221,6 @@
 
 ;; Packages
 
-(use-package ace-jump-mode
-  :bind (("M-m" . ace-jump-mode)
-         ("M-M" . ace-jump-char-mode))
-  :config
-  (setq ace-jump-mode-gray-background nil
-              ace-jump-mode-case-fold nil
-              ace-jump-mode-scope 'frame)
-  (ace-jump-mode-enable-mark-sync)
-  :ensure t)
-
-
 (use-package ace-window
   :bind* (("M-o" . ace-window))
   :config
@@ -243,6 +232,16 @@
 (use-package ag
   :defer t
   :ensure ag)
+
+
+(use-package avy
+  :bind (("M-m" . avy-goto-word-1)
+         ("M-M" . avy-goto-char-timer)
+         ("M-g l" . avy-goto-line))
+  :config
+  (setq avy-keys (number-sequence ?a ?z))
+  (setq avy-style 'at-full)
+  :ensure t)
 
 
 ;; Although back-button is available in melpa, it depends on too many
