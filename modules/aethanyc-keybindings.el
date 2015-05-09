@@ -71,6 +71,9 @@
 ;; Kill current buffer
 (bind-key "C-x C-k" #'aethanyc-kill-current-buffer)
 
+;; Quit minibuffer without focusing on it.
+(bind-key [remap keyboard-quit] #'aethanyc-almighty-quit)
+
 
 (provide 'aethanyc-keybindings)
 

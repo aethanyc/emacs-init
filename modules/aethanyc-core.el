@@ -208,6 +208,15 @@ With `universal-argument' FULL-PATH-P, copy the full path."
       (message "Buffer not associated with a file."))))
 
 
+;; http://trey-jackson.blogspot.tw/2010/04/emacs-tip-36-abort-minibuffer-when.html
+(defun aethanyc-almighty-quit ()
+  "Exit recursive edit or minibuffer, and signal keyboard quit."
+  (interactive)
+  (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
+    (abort-recursive-edit))
+  (keyboard-quit))
+
+
 (provide 'aethanyc-core)
 
 ;; Local Variables:
