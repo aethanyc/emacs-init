@@ -52,14 +52,14 @@
 (bind-key "C-^" #'aethanyc-join-next-line)
 
 ;; Smarter move to beginning of the line
-(global-set-key [remap move-beginning-of-line] #'aethanyc-move-beginning-of-line)
+(bind-key [remap move-beginning-of-line] #'aethanyc-move-beginning-of-line)
 
 ;; Remap goto-line
-(global-set-key [remap goto-line] #'aethanyc-goto-line-with-feedback)
+(bind-key [remap goto-line] #'aethanyc-goto-line-with-feedback)
 
 ;; Smarter copy/cut region
-(global-set-key [remap kill-region] #'aethanyc-kill-line-or-region)
-(global-set-key [remap kill-ring-save] #'aethanyc-save-line-or-region)
+(bind-key [remap kill-region] #'aethanyc-kill-line-or-region)
+(bind-key [remap kill-ring-save] #'aethanyc-save-line-or-region)
 
 ;; Toggle the letter case of current word or text selection between:
 ;; 'all lower', 'Init Caps', 'ALL CAPS'.
