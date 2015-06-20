@@ -339,6 +339,11 @@
                 flycheck-emacs-lisp-load-path load-path
                 flycheck-flake8-maximum-line-length 85)
   (add-hook 'after-init-hook #'global-flycheck-mode)
+
+  (use-package flycheck-rust
+    :init (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+    :ensure t)
+
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))
   :ensure t)
