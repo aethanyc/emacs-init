@@ -530,6 +530,11 @@
   :ensure t)
 
 
+(use-package toml-mode
+  :defer t
+  :ensure t)
+
+
 (use-package undo-tree
   :config (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
