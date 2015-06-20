@@ -403,7 +403,9 @@
     :ensure t)
 
   (use-package ido-vertical-mode
-    :config (ido-vertical-mode 1)
+    :config
+    (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+    (ido-vertical-mode 1)
     :ensure t))
 
 
