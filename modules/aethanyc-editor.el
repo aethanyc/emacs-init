@@ -431,21 +431,19 @@
 
 
 (use-package magit
-  :init
-  (setq magit-last-seen-setup-instructions "1.4.0")
-  :bind ("<f4>" . magit-status)
+  :bind (("<f4>" . magit-status)
+         ("<C-f4>" . magit-dispatch-popup))
   :config
-  ;; Diminish magit auto revert mode lighter.
-  (setq magit-auto-revert-mode-lighter "")
+  (setq magit-completing-read-function 'magit-ido-completing-read)
 
   ;; Do not allow magit overrides the window management keys.
   ;; Bind those show level keys to C-x 1, C-x 2, etc.
   (dolist (i '(1 2 3 4))
-    (let ((key-unbind (format "M-%d" i))
-          (key-bind (format "C-x %d" i))
-          (func-bind (intern (format "magit-show-level-%d-all" i))))
-      (unbind-key key-unbind magit-mode-map)
-      (bind-key key-bind func-bind magit-mode-map)))
+    (let ((key-to-unbind (format "M-%d" i))
+          (key-to-bind (format "C-x %d" i))
+          (func-to-bind (intern (format "magit-section-show-level-%d-all" i))))
+      (unbind-key key-to-unbind magit-mode-map)
+      (bind-key key-to-bind func-to-bind magit-mode-map)))
   :ensure t)
 
 
