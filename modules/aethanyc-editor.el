@@ -444,6 +444,12 @@
           (func-to-bind (intern (format "magit-section-show-level-%d-all" i))))
       (unbind-key key-to-unbind magit-mode-map)
       (bind-key key-to-bind func-to-bind magit-mode-map)))
+
+  (use-package git-commit
+    :config
+    (setq git-commit-finish-query-functions
+          (delete #'git-commit-check-style-conventions
+                  git-commit-finish-query-functions)))
   :ensure t)
 
 
