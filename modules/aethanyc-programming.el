@@ -139,13 +139,14 @@
   (require 'cc-styles)
   (require 'cc-vars)
   (defun c-mode-common-setup ()
-    (c-add-style "aethanyc"
+    (c-add-style "Mozilla"
                  '("stroustrup"
                    (c-basic-offset . 2)
                    (c-offsets-alist
+                    (case-label . +)
                     (inline-open . 0)
                     (innamespace . 0))))
-    (c-set-style "aethanyc"))
+    (c-set-style "Mozilla"))
   (add-hook 'c-mode-common-hook #'c-mode-common-setup)
   :config
   (bind-key "C-c o" #'ff-find-other-file c-mode-base-map))
