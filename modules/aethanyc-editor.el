@@ -434,7 +434,8 @@
   :bind (("<f4>" . magit-status)
          ("<C-f4>" . magit-dispatch-popup))
   :config
-  (setq magit-completing-read-function 'magit-ido-completing-read)
+  (setq magit-completing-read-function 'magit-ido-completing-read
+        magit-restore-window-configuration nil)
 
   ;; Do not allow magit overrides the window management keys.
   ;; Bind those show level keys to C-x 1, C-x 2, etc.
