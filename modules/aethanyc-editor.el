@@ -232,6 +232,7 @@
   :config
   (setq aw-background nil)
   (setq aw-keys '(?h ?t ?n ?s ?u ?e ?o ?a))
+  (setq aw-scope 'frame)
   :ensure t)
 
 
