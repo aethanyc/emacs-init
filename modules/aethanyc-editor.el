@@ -120,6 +120,12 @@
   (add-hook 'text-mode-hook #'flyspell-mode))
 
 
+(use-package git-gutter-fringe
+  :config
+  (global-git-gutter-mode 1)
+  :ensure t)
+
+
 (use-package org
   :defer t
   :config
