@@ -62,7 +62,8 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 (setq blink-matching-paren nil
       inhibit-startup-screen t
-      visible-bell t)
+      visible-bell nil
+      ring-bell-function #'ignore)
 
 ;; Prevent cursor going into minibuffer prompt. This is the same as:
 ;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
