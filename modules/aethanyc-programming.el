@@ -195,10 +195,10 @@
 
 
 (use-package company-jedi
-  :defer t
-  :init
+  :config
   (setq jedi:use-shortcuts t)
   (defun aethanyc-company-jedi-setup ()
+    (add-to-list 'company-backends 'company-jedi)
     (jedi:setup))
   (aethanyc-hook-into-modes #'aethanyc-company-jedi-setup
     '(python-mode-hook inferior-python-mode-hook))
