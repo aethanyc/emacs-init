@@ -74,6 +74,22 @@
   :ensure t)
 
 
+(use-package ycmd
+  :config
+  (setq ycmd-server-command `("python" ,(expand-file-name "~/Projects/ycmd/ycmd"))
+        ycmd-extra-conf-whitelist '("~/Projects/*")
+        ycmd-request-message-level -1)
+  (add-hook 'c-mode-common-hook #'ycmd-mode)
+  :diminish ycmd-mode
+  :ensure t)
+
+
+(use-package company-ycmd
+  :config
+  (add-hook 'c-mode-common-hook #'company-ycmd-setup)
+  :ensure t)
+
+
 ;;; Lisp Mode
 
 (use-package eldoc
