@@ -123,6 +123,7 @@
 (use-package git-gutter-fringe
   :config
   (global-git-gutter-mode 1)
+  :diminish git-gutter-mode
   :ensure t)
 
 
