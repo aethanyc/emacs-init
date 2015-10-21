@@ -62,6 +62,7 @@
   :defer 5
   :bind ("<C-tab>" . company-complete)
   :config
+  (setq company-idle-delay 0.2)
   (global-company-mode 1)
   (bind-key "C-n" #'company-select-next company-active-map)
   (bind-key "C-p" #'company-select-previous company-active-map)
