@@ -75,20 +75,25 @@
   :ensure t)
 
 
-(use-package ycmd
-  :config
-  (setq ycmd-server-command `("python" ,(expand-file-name "~/Projects/ycmd/ycmd"))
-        ycmd-extra-conf-whitelist '("~/Projects/*")
-        ycmd-request-message-level -1)
-  (add-hook 'c-mode-common-hook #'ycmd-mode)
-  :diminish ycmd-mode
-  :ensure t)
+(let ((ycmd-project-location (expand-file-name "~/Projects/ycmd/ycmd")))
+  (use-package ycmd
+    :if (file-exists-p ycmd-project-location)
+    :config
+    (setq ycmd-server-command `("python" ,ycmd-project-location)
+          ycmd-extra-conf-whitelist '("~/Projects/*")
+          ycmd-request-message-level -1)
+    (add-hook 'c-mode-common-hook #'ycmd-mode)
 
+    (use-package company-ycmd
+      :config
+      (defun aethanyc-company-ycmd-setup ()
+        (add-to-list 'company-backends
+                     '(company-ycmd company-capf company-dabbrev-code)))
+      (add-hook 'c-mode-common-hook #'aethanyc-company-ycmd-setup)
+      :ensure t)
 
-(use-package company-ycmd
-  :config
-  (add-hook 'c-mode-common-hook #'company-ycmd-setup)
-  :ensure t)
+    :diminish ycmd-mode
+    :ensure t))
 
 
 ;;; Lisp Mode
