@@ -444,6 +444,7 @@
   :config
   (setq magit-bury-buffer-function #'magit-mode-quit-window)
   (setq magit-completing-read-function #'magit-ido-completing-read)
+  (setq magit-rebase-arguments '("--autosquash"))
   (setq magit-revert-buffers 'silent)
   (setq magit-revision-show-gravatars nil)
 
