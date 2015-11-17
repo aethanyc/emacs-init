@@ -194,15 +194,15 @@ Toggles between: 'all lower', 'Init Caps', 'ALL CAPS'."
 
 ;; http://ergoemacs.org/emacs/emacs_copy_file_path.html
 ;; http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
-(defun aethanyc-copy-file-name-to-clipboard (&optional full-path-p)
-  "Copy the current buffer's file name to `kill-ring'.
-With `universal-argument' FULL-PATH-P, copy the full path."
+(defun aethanyc-copy-path-name-to-clipboard (&optional file-name-only-p)
+  "Copy the current buffer's full path to `kill-ring'.
+With `universal-argument' FILE-NAME-ONLY-P, copy only the file name."
   (interactive "P")
   (let ((full-path-name (buffer-file-name)))
     (if full-path-name
-        (let ((name (if full-path-p
-                        full-path-name
-                      (file-name-nondirectory full-path-name))))
+        (let ((name (if file-name-only-p
+                        (file-name-nondirectory full-path-name)
+                        full-path-name)))
           (kill-new name)
           (message "%s" name))
       (message "Buffer not associated with a file."))))
