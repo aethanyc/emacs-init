@@ -16,6 +16,7 @@ Mac OS X and GNU/Linux.
 Clone Emacs source code from official repository by `git clone git://git.sv.gnu.org/emacs.git`
 
 * Build Emacs on Mac
+  * Install Xcode command line tools by `xcode-select --install`
   * See `nextstep/INSTALL` for instructions. Basically, it's:
   * `./autogen.sh`
   * `./configure --with-ns`
