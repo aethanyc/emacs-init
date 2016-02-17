@@ -34,6 +34,7 @@
 - http://www.emacswiki.org/emacs/CEDET_Quickstart
 ** Dired
 - Helpful for refactor codes. ``[[http://ergoemacs.org/emacs/find_replace_inter.html][Interactively Find & Replace String Patterns on Multiple Files]]''
+- C-x C-q: enter editable dired mode to edit file names, etc in buffer.
 ** Eshell
 - [[http://www.emacswiki.org/emacs/EshellAlias#toc8][Generate Eshell alias from bash alias]]
 ** Hunspell
