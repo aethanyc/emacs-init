@@ -1,16 +1,16 @@
 # Emacs-init #
 
-This repository contains my own Emacs customization, tested only on Emacs 24 on
-Mac OS X and GNU/Linux.
+This repository contains my own Emacs customization, tested against lastest
+Emacs release on Mac OS X and GNU/Linux.
 
-## Where to get the latest Emacs 24 binaries? ##
+## Where to get the latest Emacs binaries? ##
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
 * [Via Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
   * Stable version: `brew install emacs --cocoa`
   * Development version on git: `brew install emacs --cocoa --HEAD`
-* [Emacs Mac Port](https://github.com/railwaycat/emacs-mac-port/wiki/Downloads)
+* [Emacs Mac Port](https://github.com/railwaycat/homebrew-emacsmacport/releases)
 
 ## How to build Emacs manually?
 Clone Emacs source code from official repository by `git clone git://git.sv.gnu.org/emacs.git`

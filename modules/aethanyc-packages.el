@@ -10,7 +10,7 @@
 
 ;;; Commentary:
 
-;; This file sets up Emacs 24 package system and adds popular archives
+;; This file sets up Emacs package system and adds popular archives
 ;; such as MELPA.
 
 ;;; Code:
