@@ -100,9 +100,9 @@
 ;; as possible.  I don't know why it fails to load save-place-file if
 ;; it is loaded too late.
 (use-package saveplace
-  :init
+  :config
   (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
-  (setq-default save-place t))
+  (save-place-mode 1))
 
 
 (use-package dired-x
