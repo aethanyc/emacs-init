@@ -81,7 +81,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 (use-package ediff-util
   :defer t
-  :init
+  :config
   (setq ediff-split-window-function #'split-window-horizontally)
   (setq ediff-window-setup-function #'ediff-setup-windows-plain))
 
@@ -102,7 +102,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 ;; Add spaces between Chinese and English characters.
 (use-package pangu-spacing
   :defer t
-  :init
+  :config
   (setq pangu-spacing-real-insert-separtor t)
   (add-hook 'org-mode-hook #'pangu-spacing-mode)
   :diminish pangu-spacing-mode
