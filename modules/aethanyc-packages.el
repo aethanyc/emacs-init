@@ -33,11 +33,6 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (require-package package min-version t)))))
 
-;; Emacs will activated packages after reading the init file, but it is too
-;; late. We disable it and call (package-initialize) ourselves.
-(setq package-enable-at-startup nil)
-(package-initialize)
-
 ;; Require use-package that are essential to customization.
 (require-package 'use-package)
 (eval-when-compile
