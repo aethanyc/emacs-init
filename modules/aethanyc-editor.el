@@ -444,8 +444,9 @@
   :config
   (setq magit-bury-buffer-function #'magit-mode-quit-window)
   (setq magit-completing-read-function #'magit-ido-completing-read)
-  (setq magit-revert-buffers 'silent)
   (setq magit-revision-show-gravatars nil)
+
+  (magit-auto-revert-mode 1)
 
   ;; Do not allow magit overrides the window management keys.
   ;; Bind those show level keys to C-x 1, C-x 2, etc.
