@@ -41,8 +41,7 @@
 
 
 (use-package which-func
-  :defer t
-  :init
+  :config
   (setq mode-line-misc-info
         ;; Remove Which Function Mode from the mode line, because it's mostly
         ;; invisible here anyway.

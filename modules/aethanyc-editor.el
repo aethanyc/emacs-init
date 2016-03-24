@@ -158,12 +158,10 @@
 
 ;; Keep a list of recently opened files
 (use-package recentf
-  :defer 5
-  :init
+  :config
   (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir)
         recentf-max-menu-items 20
         recentf-max-saved-items 500)
-  :config
   (recentf-mode 1))
 
 
@@ -387,7 +385,7 @@
 
 
 (use-package ido
-  :init
+  :config
   (setq ido-create-new-buffer 'always
         ido-enable-flex-matching t
         ido-use-filename-at-point 'guess
@@ -395,7 +393,6 @@
   (setq ido-save-directory-list-file
         (expand-file-name "ido-last" aethanyc-savefiles-dir))
 
-  :config
   ;; It is easier to switch buffer on single key.
   (bind-key "<f2>" #'ido-switch-buffer)
   (bind-key "<f2>" #'ido-switch-buffer-other-window ctl-x-4-map)
