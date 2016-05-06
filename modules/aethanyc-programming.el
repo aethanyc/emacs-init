@@ -257,6 +257,15 @@
 ;;; Rust Mode
 (use-package rust-mode
   :defer t
+  :config
+  (use-package racer
+    :config
+    (setq racer-rust-src-path "~/Projects/rust/src")
+    (add-hook 'racer-mode-hook #'eldoc-mode)
+    :diminish racer-mode
+    :ensure t)
+
+  (add-hook 'rust-mode-hook #'racer-mode)
   :ensure t)
 
 
