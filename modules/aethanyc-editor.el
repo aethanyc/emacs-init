@@ -112,10 +112,12 @@
 ;; Check available dictionaries: hunspell -D
 ;; Name hunspell English dictionary files as default.aff and default.dic
 (use-package flyspell
-  :init (setq ispell-program-name
-              (or (executable-find "hunspell")
-                  (executable-find "ispell")))
   :config
+  (cond ((executable-find "hunspell")
+         (setq ispell-program-name "hunspell")
+         (setq ispell-dictionary "default")
+         (setq ispell-dictionary-alist
+               '(("default" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))))
   (add-hook 'prog-mode-hook #'flyspell-prog-mode)
   (add-hook 'text-mode-hook #'flyspell-mode))
 
