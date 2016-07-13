@@ -219,6 +219,9 @@
             ("RustAPI" .
              [simple-query "http://doc.rust-lang.org/std"
                            "http://doc.rust-lang.org/std/?search=" ""])
+            ("Searchfox" .
+             [simple-query "http://searchfox.org"
+                           "http://searchfox.org/mozilla-central/search?q=" ""])
             ("StackOverflow" .
              [simple-query "stackoverflow.com"
                            "stackoverflow.com/search?q=" ""])
