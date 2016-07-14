@@ -25,10 +25,7 @@ Clone Emacs source code from official repository by `git clone git://git.sv.gnu.
 * Build Emacs on Debian-based GNU/Linux
   * `apt-get install build-essential`
   * `apt-get build-dep emacs24  # Install packages for build-dependencies.`
-  * See `INSTALL.REPO` in emacs repository for instructions. Basically, it's:
-  * `./autogen.sh`
-  * `./configure`
-  * `make bootstrap`
+  * See `INSTALL.REPO` in emacs repository for instructions. Basically, it's simply:
   * `make`
   * `emacs` and `emacsclient` will be available under `src` and `lib-src`, respectively.
 
