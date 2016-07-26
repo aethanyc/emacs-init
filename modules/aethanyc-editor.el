@@ -466,7 +466,8 @@
     :config
     (setq git-commit-finish-query-functions
           (delete #'git-commit-check-style-conventions
-                  git-commit-finish-query-functions)))
+                  git-commit-finish-query-functions))
+    (remove-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill))
   :ensure t)
 
 
