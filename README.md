@@ -7,9 +7,7 @@ Emacs release on Mac OS X and GNU/Linux.
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
 * [Mac Universal Binaries](http://emacsformacosx.com/)
-* [Via Homebrew on Mac](https://github.com/mxcl/homebrew/blob/master/Library/Formula/emacs.rb):
-  * Stable version: `brew install emacs --cocoa`
-  * Development version on git: `brew install emacs --cocoa --HEAD`
+* [Via Homebrew on Mac](https://github.com/Homebrew/homebrew-core/blob/master/Formula/emacs.rb) (Type `brew info emacs` to see install options)
 * [Emacs Mac Port](https://github.com/railwaycat/homebrew-emacsmacport/releases)
 
 ## How to build Emacs manually?
@@ -18,8 +16,6 @@ Clone Emacs source code from official repository by `git clone git://git.sv.gnu.
 * Build Emacs on Mac
   * Install Xcode command line tools by `xcode-select --install`
   * See `nextstep/INSTALL` for instructions. Basically, it's:
-  * `./autogen.sh`
-  * `./configure --with-ns`
   * `make install  # Assemble the app in nextstep/Emacs.app`
   * Link or copy `nextstep/Emacs.app` to `/Applications`
 * Build Emacs on Debian-based GNU/Linux
