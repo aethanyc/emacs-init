@@ -260,7 +260,8 @@
   :config
   (use-package racer
     :config
-    (setq racer-rust-src-path "~/Projects/rust/src")
+    (setq racer-rust-src-path
+          "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
     (add-hook 'racer-mode-hook #'eldoc-mode)
     :diminish racer-mode
     :ensure t)
