@@ -550,9 +550,9 @@
 
 (use-package smooth-scrolling
   :config
+  (smooth-scrolling-mode 1)
   (disable-smooth-scroll-for-function scroll-up-command)
   (disable-smooth-scroll-for-function scroll-down-command)
-  (smooth-scrolling-mode 1)
   :ensure t)
 
 
