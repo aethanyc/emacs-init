@@ -266,7 +266,11 @@
     :diminish racer-mode
     :ensure t)
 
+  (use-package cargo
+    :ensure t)
+
   (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'rust-mode-hook #'cargo-minor-mode)
   :ensure t)
 
 
