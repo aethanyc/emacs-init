@@ -216,9 +216,9 @@
             ("OxfordDictionary" .
              [simple-query "oaadonline.oxfordlearnersdictionaries.com"
                            "oaadonline.oxfordlearnersdictionaries.com/dictionary/" ""])
-            ("RustAPI" .
-             [simple-query "http://doc.rust-lang.org/std"
-                           "http://doc.rust-lang.org/std/?search=" ""])
+            ("Rust" .
+             [simple-query "https://doc.rust-lang.org/std/"
+                           "https://doc.rust-lang.org/std/?search=" ""])
             ("Searchfox" .
              [simple-query "http://searchfox.org"
                            "http://searchfox.org/mozilla-central/search?q=" ""])
