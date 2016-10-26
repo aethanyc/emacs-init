@@ -222,6 +222,9 @@
             ("Searchfox" .
              [simple-query "http://searchfox.org"
                            "http://searchfox.org/mozilla-central/search?q=" ""])
+            ("Servo" .
+             [simple-query "https://doc.servo.org/servo/"
+                           "https://doc.servo.org/servo/?search=" ""])
             ("StackOverflow" .
              [simple-query "stackoverflow.com"
                            "stackoverflow.com/search?q=" ""])
