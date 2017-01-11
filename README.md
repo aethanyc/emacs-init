@@ -43,5 +43,5 @@ Use <kbd>M-x list-packages</kbd> to browse and install packages.
 Simply clone this repository to your home directory via:
 
 ```bash
-git clone --recursive git://github.com/aethanyc/emacs-init.git ~/.emacs.d
+git clone --recursive git@github.com:aethanyc/dotfiles.git ~/.emacs.d
 ```
