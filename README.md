@@ -6,7 +6,7 @@ Emacs release on Mac OS X and GNU/Linux.
 ## Where to get the latest Emacs binaries? ##
 
 * [GNU Official Windows Binaries](http://ftp.gnu.org/gnu/emacs/windows/)
-* [Mac Universal Binaries](http://emacsformacosx.com/)
+* [Mac Universal Binaries](http://emacsformacosx.com/) (`brew cask install emacs`)
 * [Via Homebrew on Mac](https://github.com/Homebrew/homebrew-core/blob/master/Formula/emacs.rb) (Type `brew info emacs` to see install options)
 * [Emacs Mac Port](https://github.com/railwaycat/homebrew-emacsmacport/releases)
 
