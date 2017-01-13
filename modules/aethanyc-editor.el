@@ -109,8 +109,9 @@
   :bind ("C-c d" . dired-jump))
 
 
-;; Check available dictionaries: hunspell -D
-;; Name hunspell English dictionary files as default.aff and default.dic
+;; Check available dictionaries: hunspell -D. Name hunspell English
+;; dictionary files as default.aff and default.dic, and put them under
+;; ~/Library/Spelling on mac.
 (use-package flyspell
   :config
   (cond ((executable-find "hunspell")
