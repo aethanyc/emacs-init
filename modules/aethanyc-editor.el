@@ -206,54 +206,53 @@
                            (concat query-prefix (webjump-url-encode query) query-suffix))))))
       (call-interactively #'webjump)))
 
-  (progn
-    (setq webjump-sites
-          '(("FileBrowser" . "")         ; Dummy entry to open file browser
-            ("Bugzilla" .
-             [simple-query "https://bugzilla.mozilla.org/"
-                           "https://bugzilla.mozilla.org/buglist.cgi?quicksearch=" ""])
-            ("DuckDuckGo" .
-             [simple-query "duckduckgo.com"
-                           "duckduckgo.com/?q=" ""])
-            ("DXR" .
-             [simple-query "dxr.mozilla.org"
-                           "dxr.mozilla.org/mozilla-central/search?q=" ""])
-            ("EmacsWiki" .
-             [simple-query "www.emacswiki.org"
-                           "duckduckgo.com/?q="
-                           "+site:emacswiki.org"])
-            ("Github" .
-             [simple-query "github.com"
-                           "github.com/search?q=" "&ref=cmdform"])
-            ("Google" .
-             [simple-query "www.google.com"
-                           "www.google.com/search?q=" ""])
-            ("MozillaWiki" .
-             [simple-query "wiki.mozilla.org"
-                           "wiki.mozilla.org/Special:Search?search=" ""])
-            ("MDN" .
-             [simple-query "developer.mozilla.org/en-US"
-                           "developer.mozilla.org/en-US/search?q=" ""])
-            ("OxfordDictionary" .
-             [simple-query "oaadonline.oxfordlearnersdictionaries.com"
-                           "oaadonline.oxfordlearnersdictionaries.com/dictionary/" ""])
-            ("Rust" .
-             [simple-query "https://doc.rust-lang.org/std/"
-                           "https://doc.rust-lang.org/std/?search=" ""])
-            ("Searchfox" .
-             [simple-query "http://searchfox.org"
-                           "http://searchfox.org/mozilla-central/search?q=" ""])
-            ("Servo" .
-             [simple-query "https://doc.servo.org/servo/"
-                           "https://doc.servo.org/servo/?search=" ""])
-            ("StackOverflow" .
-             [simple-query "stackoverflow.com"
-                           "stackoverflow.com/search?q=" ""])
-            ("Wikipedia" .
-             [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
-            ("Youtube" .
-             [simple-query "www.youtube.com"
-                           "www.youtube.com/results?search_query=" ""])))))
+  (setq webjump-sites
+        '(("FileBrowser" . "")         ; Dummy entry to open file browser
+          ("Bugzilla" .
+           [simple-query "https://bugzilla.mozilla.org/"
+                         "https://bugzilla.mozilla.org/buglist.cgi?quicksearch=" ""])
+          ("DuckDuckGo" .
+           [simple-query "duckduckgo.com"
+                         "duckduckgo.com/?q=" ""])
+          ("DXR" .
+           [simple-query "dxr.mozilla.org"
+                         "dxr.mozilla.org/mozilla-central/search?q=" ""])
+          ("EmacsWiki" .
+           [simple-query "www.emacswiki.org"
+                         "duckduckgo.com/?q="
+                         "+site:emacswiki.org"])
+          ("Github" .
+           [simple-query "github.com"
+                         "github.com/search?q=" "&ref=cmdform"])
+          ("Google" .
+           [simple-query "www.google.com"
+                         "www.google.com/search?q=" ""])
+          ("MozillaWiki" .
+           [simple-query "wiki.mozilla.org"
+                         "wiki.mozilla.org/Special:Search?search=" ""])
+          ("MDN" .
+           [simple-query "developer.mozilla.org/en-US"
+                         "developer.mozilla.org/en-US/search?q=" ""])
+          ("OxfordDictionary" .
+           [simple-query "oaadonline.oxfordlearnersdictionaries.com"
+                         "oaadonline.oxfordlearnersdictionaries.com/dictionary/" ""])
+          ("Rust" .
+           [simple-query "https://doc.rust-lang.org/std/"
+                         "https://doc.rust-lang.org/std/?search=" ""])
+          ("Searchfox" .
+           [simple-query "http://searchfox.org"
+                         "http://searchfox.org/mozilla-central/search?q=" ""])
+          ("Servo" .
+           [simple-query "https://doc.servo.org/servo/"
+                         "https://doc.servo.org/servo/?search=" ""])
+          ("StackOverflow" .
+           [simple-query "stackoverflow.com"
+                         "stackoverflow.com/search?q=" ""])
+          ("Wikipedia" .
+           [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
+          ("Youtube" .
+           [simple-query "www.youtube.com"
+                         "www.youtube.com/results?search_query=" ""]))))
 
 
 ;; Packages
