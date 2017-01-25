@@ -138,6 +138,7 @@
         org-special-ctrl-k t
         org-src-fontify-natively t
         org-startup-indented t
+        org-startup-truncated nil
         org-special-ctrl-a/e t
         org-export-copy-to-kill-ring nil
         org-export-with-sub-superscripts (quote {}))
