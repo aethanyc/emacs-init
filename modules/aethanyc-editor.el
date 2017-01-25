@@ -184,8 +184,28 @@
 
 
 (use-package webjump
-  :bind ("C-c j" . webjump)
+  :bind ("C-c j" . aethanyc-webjump-query-region)
   :config
+  (defun aethanyc-webjump-query-region ()
+    "Query webjump using the text in the active region."
+    (interactive)
+    (if (use-region-p)
+        (let* ((completion-ignore-case t)
+               (item (assoc-string
+                      (completing-read "WebJump to site: " webjump-sites nil t)
+                      webjump-sites t))
+               (name (car item))
+               (expr (cdr item)))
+          (browse-url (webjump-url-fix
+                       (if (not expr)
+                           ""
+                         (let ((nonquery-url (aref expr 1))
+                               (query-prefix (aref expr 2))
+                               (query-suffix (aref expr 3))
+                               (query (buffer-substring (mark) (point))))
+                           (concat query-prefix (webjump-url-encode query) query-suffix))))))
+      (call-interactively #'webjump)))
+
   (progn
     (setq webjump-sites
           '(("FileBrowser" . "")         ; Dummy entry to open file browser
