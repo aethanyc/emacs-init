@@ -258,10 +258,14 @@
 (use-package rust-mode
   :defer t
   :config
+  ;; cargo install racer
   (use-package racer
     :config
+    ;; Install rust source code: rustup component add rust-src
     (setq racer-rust-src-path
-          "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
+          (if (eq system-type 'darwin)
+              "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+            "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
     (add-hook 'racer-mode-hook #'eldoc-mode)
     :diminish racer-mode
     :ensure t)
