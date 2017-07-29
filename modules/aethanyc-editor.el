@@ -433,7 +433,7 @@
   (ido-mode 1)
   (ido-everywhere 1)
 
-  (use-package ido-ubiquitous
+  (use-package ido-completing-read+
     :config (ido-ubiquitous-mode 1)
     :ensure t)
 
