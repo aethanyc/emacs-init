@@ -33,11 +33,10 @@
   :init (add-hook 'prog-mode-hook #'electric-pair-mode))
 
 
-(use-package nlinum
+(use-package display-line-numbers
   :defer t
-  :init (aethanyc-hook-into-modes #'nlinum-mode
-          '(css-mode-hook prog-mode-hook))
-  :ensure t)
+  :init (aethanyc-hook-into-modes #'display-line-numbers-mode
+          '(css-mode-hook prog-mode-hook)))
 
 
 (use-package which-func
