@@ -93,17 +93,17 @@ Note that the mark goes to the end of the line."
 (defun aethanyc-goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
-  (let ((prefered-linum-mode (if (boundp #'nlinum-mode)
-                                 #'nlinum-mode
-                               #'linum-mode)))
-    (if (and (boundp prefered-linum-mode)
-             (eval prefered-linum-mode))
+  (let ((preferred-line-number-mode (if (boundp #'display-line-numbers-mode)
+                                        #'display-line-numbers-mode
+                                      #'linum-mode)))
+    (if (and (boundp preferred-line-number-mode)
+             (eval preferred-line-number-mode))
         (call-interactively #'goto-line)
       (unwind-protect
           (progn
-            (funcall prefered-linum-mode 1)
+            (funcall preferred-line-number-mode 1)
             (call-interactively #'goto-line))
-        (funcall prefered-linum-mode -1)))))
+        (funcall preferred-line-number-mode -1)))))
 
 
 ;; http://whattheemacsd.com/editing-defuns.el-01.html
