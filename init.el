@@ -46,6 +46,13 @@
 (require 'aethanyc-keybindings)
 (require 'aethanyc-alias)
 
+;; Set custom-file path to avoid cluttering init.el.
+(setq custom-file (expand-file-name "custom.el" aethanyc-savefiles-dir))
+(if (not (file-readable-p custom-file))
+    (with-temp-buffer
+      (write-file custom-file)))
+(load custom-file)
+
 
 ;; Local Variables:
 ;; coding: utf-8
