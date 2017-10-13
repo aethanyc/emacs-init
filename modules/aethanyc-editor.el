@@ -170,10 +170,8 @@
 
 ;; Save the history of minibuffer.
 (use-package savehist
-  :defer 5
-  :init
-  (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
   :config
+  (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
   (savehist-mode 1))
 
 
