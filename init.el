@@ -26,6 +26,9 @@
 (defvar aethanyc-site-lisp-dir (locate-user-emacs-file "site-lisp/")
   "This folder contains other packages that are not installed throught MELPA.")
 
+(defvar aethanyc-savefiles-dir (locate-user-emacs-file "savefiles/")
+  "This folder contains all the automatically generated files.")
+
 ;; Add directories to Emacs's `load-path'.
 (add-to-list 'load-path aethanyc-modules-dir)
 (let ((default-directory aethanyc-site-lisp-dir))

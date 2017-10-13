@@ -14,10 +14,6 @@
 
 ;;; Code:
 
-(defvar aethanyc-savefiles-dir (locate-user-emacs-file "savefiles/")
-  "This folder contains all the automatically generated files.")
-
-
 (defun aethanyc-join-next-line ()
   "Join the next line with current line."
   (interactive)
