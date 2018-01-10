@@ -466,7 +466,6 @@
 
 (use-package magit
   :bind (("<f4>" . magit-status)
-         ("<f5>" . magit-status)
          ("<C-f4>" . magit-dispatch-popup))
   :config
   (setq magit-bury-buffer-function #'magit-mode-quit-window)
