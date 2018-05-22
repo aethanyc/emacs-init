@@ -285,9 +285,6 @@
   :ensure t)
 
 
-;; Although back-button is available in melpa, it depends on too many
-;; packages that are not strictly required. So I add it directly as a
-;; git submodule.
 (use-package back-button
   :bind (("M-B" . backward-sexp)
          ("M-F" . forward-sexp))
@@ -297,7 +294,8 @@
   (defalias 'push-mark #'back-button-push-mark-local-and-global
     "Replace push-mark to preserve current position before jumping around.")
   (back-button-mode 1)
-  :diminish back-button-mode)
+  :diminish back-button-mode
+  :ensure t)
 
 
 (use-package browse-kill-ring
