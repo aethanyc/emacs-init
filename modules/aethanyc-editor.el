@@ -430,6 +430,11 @@
   (ido-mode 1)
   (ido-everywhere 1)
 
+  ;; Call (push-mark) to jump back later by (back-button-global-backward)
+  (defadvice ido-switch-buffer
+      (before ido-switch-buffer-advice activate)
+    (push-mark))
+
   (use-package ido-completing-read+
     :config (ido-ubiquitous-mode 1)
     :ensure t)
