@@ -35,6 +35,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Require use-package that are essential to customization.
 (require-package 'use-package)
+(require-package 'diminish)
 (eval-when-compile
   (require 'use-package))
 
