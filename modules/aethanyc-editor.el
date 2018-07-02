@@ -148,6 +148,7 @@
 
   ;; Export org-mode content to reveal.js
   (use-package ox-reveal
+    :disabled t
     :init
     (defun aethanyc-org-reveal-save-then-export ()
       "Save buffer and then export to html."
