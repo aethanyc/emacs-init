@@ -548,7 +548,7 @@
   (setq projectile-indexing-method 'alien)
   (setq projectile-enable-caching t)
   :config
-  (projectile-global-mode 1)
+  (projectile-mode 1)
   :diminish projectile-mode
   :ensure t)
 
