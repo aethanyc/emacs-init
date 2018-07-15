@@ -20,6 +20,9 @@
 (require 'aethanyc-core)
 
 ;; Basic keys
+(bind-key [f2] 'switch-to-buffer)
+(bind-key [f12] #'execute-extended-command)
+
 (bind-key "<C-return>" #'aethanyc-open-line-below)
 (bind-key "<C-S-return>" #'aethanyc-open-line-above)
 
@@ -35,8 +38,6 @@
 (bind-key "M-7" #'aethanyc-select-current-line)
 
 ;; Use regex searches by default.
-(bind-key "C-s" #'isearch-forward-regexp)
-(bind-key "C-r" #'isearch-backward-regexp)
 (bind-key "M-%" #'query-replace-regexp)
 (bind-key "C-M-s" #'isearch-forward)
 (bind-key "C-M-r" #'isearch-backward)

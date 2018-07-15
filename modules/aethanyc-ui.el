@@ -74,6 +74,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 ;; Show number of matches in mode-line while searching
 (use-package anzu
+  :disabled t
   :config (global-anzu-mode 1)
   :diminish anzu-mode
   :ensure t)

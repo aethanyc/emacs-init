@@ -299,8 +299,16 @@
 
 
 (use-package browse-kill-ring
+  :disabled t
   :config
   (browse-kill-ring-default-keybindings)
+  :ensure t)
+
+
+(use-package counsel
+  :config
+  (counsel-mode 1)
+  :diminish
   :ensure t)
 
 
@@ -412,6 +420,7 @@
 
 
 (use-package ido
+  :disabled t
   :bind
   (([f2] . ido-switch-buffer)
    :map ctl-x-4-map
@@ -455,6 +464,14 @@
 
 (use-package imenu-anywhere
   :bind ("C-c i" . imenu-anywhere)
+  :ensure t)
+
+
+(use-package ivy
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (ivy-mode 1)
+  :diminish
   :ensure t)
 
 
@@ -545,9 +562,8 @@
         (expand-file-name "projectile.cache" aethanyc-savefiles-dir))
   (setq projectile-known-projects-file
         (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
-  (setq projectile-indexing-method 'alien)
-  (setq projectile-enable-caching t)
   :config
+  (setq projectile-completion-system 'ivy)
   (projectile-mode 1)
   :diminish projectile-mode
   :ensure t)
@@ -563,6 +579,7 @@
 
 
 (use-package smex
+  :disabled t
   :init (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))
   :bind (("<menu>" . smex)
          ("<apps>" . smex) ; the key with a menu icon
@@ -579,6 +596,12 @@
   (smooth-scrolling-mode 1)
   (disable-smooth-scroll-for-function scroll-up-command)
   (disable-smooth-scroll-for-function scroll-down-command)
+  :ensure t)
+
+
+(use-package swiper
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper))
   :ensure t)
 
 
