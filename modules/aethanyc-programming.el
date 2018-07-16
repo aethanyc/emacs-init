@@ -73,28 +73,6 @@
   :ensure t)
 
 
-(let ((ycmd-project-location (expand-file-name "~/Projects/ycmd/ycmd")))
-  (use-package ycmd
-    :disabled t
-    :if (file-exists-p ycmd-project-location)
-    :config
-    (setq ycmd-server-command `("python" ,ycmd-project-location)
-          ycmd-extra-conf-whitelist '("~/Projects/*")
-          ycmd-request-message-level -1)
-    (add-hook 'c-mode-common-hook #'ycmd-mode)
-
-    (use-package company-ycmd
-      :config
-      (defun aethanyc-company-ycmd-setup ()
-        (add-to-list 'company-backends
-                     '(company-ycmd company-capf company-dabbrev-code)))
-      (add-hook 'c-mode-common-hook #'aethanyc-company-ycmd-setup)
-      :ensure t)
-
-    :diminish
-    :ensure t))
-
-
 ;;; Lisp Mode
 
 (use-package eldoc
@@ -126,33 +104,6 @@
 
 
 ;;; C/C++ Mode
-
-;; To install global on Mac OS X
-;; $ brew install global --with-exuberant-ctags
-(use-package ggtags
-  :if (executable-find "global")
-  :defer t
-  :init
-  (add-hook 'c-mode-common-hook #'ggtags-mode)
-  :config
-  (setq ggtags-global-ignore-case t)
-  (setq ggtags-completing-read-function
-        (lambda (&rest args)
-          (apply #'ido-completing-read
-                 (car args)
-                 (all-completions "" ggtags-completion-table)
-                 (cddr args))))
-
-  (bind-key "C-g" #'ggtags-navigation-mode-abort ggtags-navigation-map)
-  (bind-key "C-M-o" #'ggtags-navigation-visible-mode ggtags-navigation-map)
-  (unbind-key "M-o" ggtags-navigation-map)
-
-  ;; Call (push-mark) to jump back later by (back-button-global-backward)
-  (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
-    (push-mark))
-  :diminish
-  :ensure t)
-
 
 (use-package cc-mode
   :defer t

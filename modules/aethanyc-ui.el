@@ -72,14 +72,6 @@ The value should be an alist of elements (FONT . CHARSET).")
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
 
-;; Show number of matches in mode-line while searching
-(use-package anzu
-  :disabled t
-  :config (global-anzu-mode 1)
-  :diminish
-  :ensure t)
-
-
 (use-package ediff-util
   :defer t
   :config
@@ -96,16 +88,6 @@ The value should be an alist of elements (FONT . CHARSET).")
   :config
   (setq highlight-symbol-on-navigation-p t)
   (set-face-attribute 'highlight-symbol-face nil :background "gray35")
-  :diminish
-  :ensure t)
-
-
-;; Add spaces between Chinese and English characters.
-(use-package pangu-spacing
-  :disabled t
-  :config
-  (setq pangu-spacing-real-insert-separtor t)
-  (add-hook 'org-mode-hook #'pangu-spacing-mode)
   :diminish
   :ensure t)
 

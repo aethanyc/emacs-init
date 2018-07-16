@@ -144,19 +144,6 @@
 
   ;; Highlight the source code in html exported.
   (use-package htmlize
-    :ensure t)
-
-  ;; Export org-mode content to reveal.js
-  (use-package ox-reveal
-    :disabled t
-    :init
-    (defun aethanyc-org-reveal-save-then-export ()
-      "Save buffer and then export to html."
-      (interactive)
-      (save-buffer)
-      (org-reveal-export-to-html))
-    :config
-    (bind-key "<f5>" #'aethanyc-org-reveal-save-then-export org-mode-map)
     :ensure t))
 
 
@@ -256,13 +243,6 @@
 
 ;; Packages
 
-(use-package ace-link
-  :disabled t
-  :config
-  (ace-link-setup-default)
-  :ensure t)
-
-
 (use-package ace-window
   :bind* (("M-o" . ace-window))
   :config
@@ -299,13 +279,6 @@
   :ensure t)
 
 
-(use-package browse-kill-ring
-  :disabled t
-  :config
-  (browse-kill-ring-default-keybindings)
-  :ensure t)
-
-
 (use-package counsel
   :config
   (counsel-mode 1)
@@ -316,50 +289,6 @@
 (use-package discover-my-major
   :bind ("C-h C-m" . discover-my-major)
   :ensure t)
-
-
-;;; http://www.emacswiki.org/DeskTop#toc5
-(use-package desktop
-  :disabled t
-  :init
-  (setq desktop-path (list aethanyc-savefiles-dir))
-  (setq desktop-dirname aethanyc-savefiles-dir)
-  (setq desktop-base-file-name "desktop")
-  (setq desktop-base-lock-name "desktop.lock")
-
-  :config
-  ;; Specify modes that need not to be saved.
-  (dolist (mode '(dired-mode fundamental-mode help-mode))
-    (add-to-list 'desktop-modes-not-to-save mode))
-
-  (defun aethanyc-desktop-after-read-hook ()
-    "Remove the desktop saved file after it's been read."
-    ;; desktop-remove clears the desktop-dirname. Let's restore it.
-    (let ((desktop-dirname-old desktop-dirname))
-      (desktop-remove)
-      (setq desktop-dirname desktop-dirname-old)))
-
-  (defun aethanyc-desktop-save ()
-    "Save the desktop in directory `desktop-dirname'."
-    (interactive)
-    (if (file-exists-p (desktop-full-file-name))
-        (if (yes-or-no-p "Overwrite existing desktop? ")
-            (desktop-save desktop-dirname t)
-          (message "Desktop not saved."))
-      (desktop-save desktop-dirname t))
-    (message "Desktop saved in %s" (abbreviate-file-name desktop-dirname)))
-
-  (defun aethanyc-desktop-save-on-exit ()
-    "Save desktop automatically on exit only when it has been loaded."
-    (interactive)
-    (if (file-exists-p (desktop-full-lock-name))
-        (aethanyc-desktop-save)))
-
-  (add-hook 'desktop-after-read-hook #'aethanyc-desktop-after-read-hook)
-  (add-hook 'kill-emacs-hook #'aethanyc-desktop-save-on-exit)
-
-  :bind (("<f9>" . desktop-revert)
-         ("<M-f9>" . aethanyc-desktop-save)))
 
 
 (use-package eshell
@@ -421,49 +350,6 @@
   :ensure t)
 
 
-(use-package ido
-  :disabled t
-  :bind
-  (([f2] . ido-switch-buffer)
-   :map ctl-x-4-map
-   ([f2] . ido-switch-buffer-other-window)
-   :map ctl-x-5-map
-   ([f2] . ido-switch-buffer-other-frame))
-
-  :config
-  (setq ido-create-new-buffer 'always
-        ido-enable-flex-matching t
-        ido-use-filename-at-point 'guess
-        ido-use-virtual-buffers t)
-  (setq ido-save-directory-list-file
-        (expand-file-name "ido-last" aethanyc-savefiles-dir))
-
-  (ido-mode 1)
-  (ido-everywhere 1)
-
-  ;; Call (push-mark) to jump back later by (back-button-global-backward)
-  (defadvice ido-switch-buffer
-      (before ido-switch-buffer-advice activate)
-    (push-mark))
-
-  (use-package ido-completing-read+
-    :config (ido-ubiquitous-mode 1)
-    :ensure t)
-
-  (use-package flx-ido
-    :config
-    ;; Disable ido faces to see flx highlights.
-    (setq ido-use-faces nil)
-    (flx-ido-mode 1)
-    :ensure t)
-
-  (use-package ido-vertical-mode
-    :config
-    (setq ido-vertical-define-keys 'C-n-and-C-p-only)
-    (ido-vertical-mode 1)
-    :ensure t))
-
-
 (use-package imenu-anywhere
   :bind ("C-c i" . imenu-anywhere)
   :ensure t)
@@ -474,17 +360,6 @@
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1)
   :diminish
-  :ensure t)
-
-
-(use-package keyfreq
-  :disabled t
-  :init
-  (setq keyfreq-file (expand-file-name "keyfreq" aethanyc-savefiles-dir)
-        keyfreq-file-lock (expand-file-name "keyfreq.lock" aethanyc-savefiles-dir))
-  :config
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1)
   :ensure t)
 
 
@@ -513,12 +388,6 @@
           (delete #'git-commit-check-style-conventions
                   git-commit-finish-query-functions))
     (remove-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill))
-  :ensure t)
-
-
-(use-package mark-tools
-  :disabled t
-  :commands list-marks
   :ensure t)
 
 
@@ -580,19 +449,6 @@
   :config
   (unless (server-running-p)
     (server-start)))
-
-
-(use-package smex
-  :disabled t
-  :init (setq smex-save-file (concat aethanyc-savefiles-dir "smex-items"))
-  :bind (("<menu>" . smex)
-         ("<apps>" . smex) ; the key with a menu icon
-         ("<f12>" . smex)
-         ("M-x" . smex)
-         ("M-<menu>" . smex-major-mode-commands)
-         ("M-<apps>" . smex-major-mode-commands)
-         ("<M-f12>" . smex-major-mode-commands))
-  :ensure t)
 
 
 (use-package smooth-scrolling
