@@ -23,20 +23,16 @@
 ;;; Prog Mode
 
 (use-package subword
-  :defer t
-  :init (add-hook 'prog-mode-hook #'subword-mode t)
+  :hook (prog-mode . subword-mode)
   :diminish)
 
 
 (use-package elec-pair
-  :defer t
-  :init (add-hook 'prog-mode-hook #'electric-pair-mode))
+  :hook (prog-mode . electric-pair-mode))
 
 
 (use-package display-line-numbers
-  :defer t
-  :init (aethanyc-hook-into-modes #'display-line-numbers-mode
-          '(css-mode-hook prog-mode-hook)))
+  :hook ((css-mode prog-mode) . display-line-numbers-mode))
 
 
 (use-package which-func
@@ -52,18 +48,18 @@
     ;; Show the current function name in the header line
     (setq header-line-format
           '((which-func-mode ("" which-func-format " ")))))
-
-  (add-hook 'prog-mode-hook #'which-function-mode-setup))
+  :hook (prog-mode . which-function-mode-setup))
 
 
 (use-package company
   :defer 5
-  :bind ("<C-tab>" . company-complete)
+  :bind (("<C-tab>" . company-complete)
+         :map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
   :config
   (setq company-idle-delay 0.2)
   (global-company-mode 1)
-  (bind-key "C-n" #'company-select-next company-active-map)
-  (bind-key "C-p" #'company-select-previous company-active-map)
 
   (use-package company-dabbrev-code
     :config (setq company-dabbrev-code-everywhere t
@@ -76,37 +72,31 @@
 ;;; Lisp Mode
 
 (use-package eldoc
-  :defer t
-  :init (aethanyc-hook-into-modes #'eldoc-mode
-          '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
+  :hook ((lisp-mode emacs-lisp-mode ielm-mode) . eldoc-mode)
   :diminish)
 
 
 (use-package elisp-slime-nav
-  :defer t
-  :init
-  (aethanyc-hook-into-modes #'elisp-slime-nav-mode
-    '(emacs-lisp-mode-hook ielm-mode-hook))
   :config
   ;; Call (push-mark) to jump back later by (back-button-global-backward)
   (defadvice elisp-slime-nav-find-elisp-thing-at-point
       (before elisp-slime-nav-find-elisp-thing-at-point-advice activate)
     (push-mark))
+  :hook ((emacs-lisp-mode ielm-mode) . elisp-slime-nav-mode)
   :diminish
-  :ensure elisp-slime-nav)
+  :ensure t)
 
 
 (use-package lisp-mode
-  :defer t
-  :config
-  (bind-key "C-c v" 'eval-buffer emacs-lisp-mode-map)
-  (bind-key "C-c v" 'eval-buffer lisp-interaction-mode-map))
+  :bind (:map emacs-lisp-mode-map
+         ("C-c v" . eval-buffer)
+         :map lisp-interaction-mode-map
+         ("C-c v" . eval-buffer)))
 
 
 ;;; C/C++ Mode
 
 (use-package cc-mode
-  :defer t
   :init
   (require 'cc-styles)
   (require 'cc-vars)
@@ -119,9 +109,9 @@
                     (inline-open . 0)
                     (innamespace . 0))))
     (c-set-style "Mozilla"))
-  (add-hook 'c-mode-common-hook #'c-mode-common-setup)
-  :config
-  (bind-key "C-c o" #'ff-find-other-file c-mode-base-map))
+  :bind (:map c-mode-base-map
+         ("C-c o" . ff-find-other-file))
+  :hook (c-mode-common . c-mode-common-setup))
 
 
 ;;; LaTeX Mode
@@ -169,11 +159,10 @@
 (use-package company-jedi
   :config
   (setq jedi:use-shortcuts t)
-  (defun aethanyc-company-jedi-setup ()
+  (defun company-jedi-setup ()
     (add-to-list 'company-backends 'company-jedi)
     (jedi:setup))
-  (aethanyc-hook-into-modes #'aethanyc-company-jedi-setup
-    '(python-mode-hook inferior-python-mode-hook))
+  :hook ((python-mode inferior-python-mode) . company-jedi-setup)
   :ensure t)
 
 
@@ -204,7 +193,6 @@
 
 ;;; Rust Mode
 (use-package rust-mode
-  :defer t
   :config
   ;; cargo install racer
   (use-package racer
@@ -214,7 +202,6 @@
           (if (eq system-type 'darwin)
               "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
             "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
-    (add-hook 'racer-mode-hook #'eldoc-mode)
     :diminish
     :ensure t)
 
@@ -222,8 +209,10 @@
     :diminish cargo-minor-mode
     :ensure t)
 
-  (add-hook 'rust-mode-hook #'racer-mode)
-  (add-hook 'rust-mode-hook #'cargo-minor-mode)
+  :hook ((rust-mode . cargo-minor-mode)
+         (rust-mode . eldoc-mode)
+         (rust-mode . racer-mode))
+
   :ensure t)
 
 

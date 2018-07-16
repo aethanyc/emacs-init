@@ -80,7 +80,6 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package highlight-symbol
-  :init (add-hook 'prog-mode-hook #'highlight-symbol-mode)
   :bind (("<C-f3>" . highlight-symbol-at-point)
          ("<f3>" . highlight-symbol-next)
          ("<S-f3>" . highlight-symbol-prev)
@@ -102,8 +101,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 
 (use-package rainbow-delimiters
-  :defer t
-  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  :hook (prog-mode . rainbow-delimiters-mode)
   :ensure t)
 
 

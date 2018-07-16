@@ -40,16 +40,6 @@ its frame, then `delete-frame' too."
     (if (one-window-p t) (delete-frame) (delete-window))))
 
 
-;; https://github.com/jwiegley/dot-emacs
-(defun aethanyc-hook-into-modes (function mode-hooks &optional append)
-  "Add FUNCTION to each hooks in MODE-HOOKS.
-
-When APPEND is non-nil, FUNCTION is added at the end of each MODE-HOOKS."
-  (declare (indent defun))
-  (dolist (mode-hook mode-hooks)
-    (add-hook mode-hook function append)))
-
-
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
 (defun aethanyc-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.

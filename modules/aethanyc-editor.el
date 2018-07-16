@@ -119,8 +119,8 @@
          (setq ispell-dictionary "default")
          (setq ispell-dictionary-alist
                '(("default" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))))
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-  (add-hook 'text-mode-hook #'flyspell-mode))
+  :hook ((prog-mode . flyspell-prog-mode)
+         (text-mode . flyspell-mode)))
 
 
 (use-package git-gutter-fringe
@@ -310,14 +310,13 @@
                 flycheck-emacs-lisp-initialize-packages t
                 flycheck-emacs-lisp-load-path load-path
                 flycheck-flake8-maximum-line-length 85)
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-
-  (use-package flycheck-rust
-    :init (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-    :ensure t)
-
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))
+  :config
+  (use-package flycheck-rust
+    :hook (flycheck-mode . flycheck-rust-setup)
+    :ensure t)
+  :hook (after-init . global-flycheck-mode)
   :ensure t)
 
 
@@ -404,27 +403,23 @@
 
 
 (use-package paredit
-  :defer t
-  :init
-  (aethanyc-hook-into-modes 'paredit-mode
-    '(lisp-mode-hook emacs-lisp-mode-hook))
+  :bind (:map paredit-mode-map
+              ("M-B" . paredit-backward)
+              ("M-f" . paredit-forward)
+              ("RET" . paredit-newline))
   :config
-  (bind-key "M-B" #'paredit-backward paredit-mode-map)
-  (bind-key "M-F" #'paredit-forward paredit-mode-map)
-  (bind-key "RET" #'paredit-newline paredit-mode-map)
   (use-package paredit-menu
     :ensure t)
+  :hook ((lisp-mode emacs-lisp-mode) . paredit-mode)
   :diminish
   :ensure t)
 
 
 (use-package paredit-everywhere
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook #'paredit-everywhere-mode)
   :config
   (unbind-key "M-DEL" paredit-everywhere-mode-map)
   (unbind-key "M-d" paredit-everywhere-mode-map)
+  :hook (prog-mode . paredit-everywhere-mode)
   :diminish
   :ensure t)
 
@@ -481,7 +476,7 @@
   :init
   (setq-default whitespace-style '(face trailing tab-mark))
   ;; Turn on whitespace-mode only in file buffers.
-  (add-hook 'find-file-hook #'whitespace-mode)
+  :hook (find-file . whitespace-mode)
   :diminish)
 
 
