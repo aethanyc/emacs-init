@@ -102,7 +102,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 ;; Add spaces between Chinese and English characters.
 (use-package pangu-spacing
-  :defer t
+  :disabled t
   :config
   (setq pangu-spacing-real-insert-separtor t)
   (add-hook 'org-mode-hook #'pangu-spacing-mode)

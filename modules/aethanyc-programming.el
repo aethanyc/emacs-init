@@ -75,6 +75,7 @@
 
 (let ((ycmd-project-location (expand-file-name "~/Projects/ycmd/ycmd")))
   (use-package ycmd
+    :disabled t
     :if (file-exists-p ycmd-project-location)
     :config
     (setq ycmd-server-command `("python" ,ycmd-project-location)

@@ -257,6 +257,7 @@
 ;; Packages
 
 (use-package ace-link
+  :disabled t
   :config
   (ace-link-setup-default)
   :ensure t)
@@ -319,6 +320,7 @@
 
 ;;; http://www.emacswiki.org/DeskTop#toc5
 (use-package desktop
+  :disabled t
   :init
   (setq desktop-path (list aethanyc-savefiles-dir))
   (setq desktop-dirname aethanyc-savefiles-dir)
@@ -476,7 +478,7 @@
 
 
 (use-package keyfreq
-  :defer 5
+  :disabled t
   :init
   (setq keyfreq-file (expand-file-name "keyfreq" aethanyc-savefiles-dir)
         keyfreq-file-lock (expand-file-name "keyfreq.lock" aethanyc-savefiles-dir))
@@ -515,6 +517,7 @@
 
 
 (use-package mark-tools
+  :disabled t
   :commands list-marks
   :ensure t)
 
