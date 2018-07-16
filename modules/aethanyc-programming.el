@@ -247,9 +247,6 @@
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
         web-mode-sql-indent-offset 2)
-  (use-package browse-url
-    :config
-    (bind-key "C-c C-v" #'browse-url-of-buffer web-mode-map))
   :ensure t)
 
 

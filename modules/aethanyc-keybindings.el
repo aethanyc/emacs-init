@@ -72,6 +72,9 @@
 ;; Kill current buffer
 (bind-key "C-x C-k" #'aethanyc-kill-current-buffer)
 
+;; Open current buffer in a web browser.
+(bind-key "C-c C-v" #'browse-url-of-buffer)
+
 ;; Quit minibuffer without focusing on it.
 (bind-key [remap keyboard-quit] #'aethanyc-almighty-quit)
 
