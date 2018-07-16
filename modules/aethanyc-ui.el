@@ -76,7 +76,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 (use-package anzu
   :disabled t
   :config (global-anzu-mode 1)
-  :diminish anzu-mode
+  :diminish
   :ensure t)
 
 
@@ -96,7 +96,7 @@ The value should be an alist of elements (FONT . CHARSET).")
   :config
   (setq highlight-symbol-on-navigation-p t)
   (set-face-attribute 'highlight-symbol-face nil :background "gray35")
-  :diminish highlight-symbol-mode
+  :diminish
   :ensure t)
 
 
@@ -106,7 +106,7 @@ The value should be an alist of elements (FONT . CHARSET).")
   :config
   (setq pangu-spacing-real-insert-separtor t)
   (add-hook 'org-mode-hook #'pangu-spacing-mode)
-  :diminish pangu-spacing-mode
+  :diminish
   :ensure t)
 
 

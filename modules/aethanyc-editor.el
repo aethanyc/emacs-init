@@ -294,7 +294,7 @@
   (defalias 'push-mark #'back-button-push-mark-local-and-global
     "Replace push-mark to preserve current position before jumping around.")
   (back-button-mode 1)
-  :diminish back-button-mode
+  :diminish
   :ensure t)
 
 
@@ -415,7 +415,7 @@
   :config
   (setq guide-key/guide-key-sequence '("C-c !" "C-c p" "C-x r" "C-c C-c"))
   (guide-key-mode 1)
-  :diminish guide-key-mode
+  :diminish
   :ensure t)
 
 
@@ -542,7 +542,7 @@
   (bind-key "RET" #'paredit-newline paredit-mode-map)
   (use-package paredit-menu
     :ensure t)
-  :diminish "Par"
+  :diminish
   :ensure t)
 
 
@@ -553,6 +553,7 @@
   :config
   (unbind-key "M-DEL" paredit-everywhere-mode-map)
   (unbind-key "M-d" paredit-everywhere-mode-map)
+  :diminish
   :ensure t)
 
 
@@ -565,7 +566,7 @@
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode 1)
-  :diminish projectile-mode
+  :diminish
   :ensure t)
 
 
@@ -613,7 +614,7 @@
 (use-package undo-tree
   :config (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
-  :diminish undo-tree-mode
+  :diminish
   :ensure t)
 
 
@@ -622,14 +623,14 @@
   (setq-default whitespace-style '(face trailing tab-mark))
   ;; Turn on whitespace-mode only in file buffers.
   (add-hook 'find-file-hook #'whitespace-mode)
-  :diminish whitespace-mode)
+  :diminish)
 
 
 (use-package whitespace-cleanup-mode
   :defer 5
   :config
   (global-whitespace-cleanup-mode 1)
-  :diminish whitespace-cleanup-mode
+  :diminish
   :ensure t)
 
 

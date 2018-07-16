@@ -25,7 +25,7 @@
 (use-package subword
   :defer t
   :init (add-hook 'prog-mode-hook #'subword-mode t)
-  :diminish subword-mode)
+  :diminish)
 
 
 (use-package elec-pair
@@ -69,7 +69,7 @@
     :config (setq company-dabbrev-code-everywhere t
                   company-dabbrev-downcase nil
                   company-dabbrev-ignore-case nil))
-  :diminish company-mode
+  :diminish
   :ensure t)
 
 
@@ -90,7 +90,7 @@
       (add-hook 'c-mode-common-hook #'aethanyc-company-ycmd-setup)
       :ensure t)
 
-    :diminish ycmd-mode
+    :diminish
     :ensure t))
 
 
@@ -100,7 +100,7 @@
   :defer t
   :init (aethanyc-hook-into-modes #'eldoc-mode
           '(lisp-mode-hook emacs-lisp-mode-hook ielm-mode-hook))
-  :diminish eldoc-mode)
+  :diminish)
 
 
 (use-package elisp-slime-nav
@@ -113,7 +113,7 @@
   (defadvice elisp-slime-nav-find-elisp-thing-at-point
       (before elisp-slime-nav-find-elisp-thing-at-point-advice activate)
     (push-mark))
-  :diminish elisp-slime-nav-mode
+  :diminish
   :ensure elisp-slime-nav)
 
 
@@ -149,7 +149,7 @@
   ;; Call (push-mark) to jump back later by (back-button-global-backward)
   (defadvice ggtags-find-tag-dwim (before ggtags-find-tag-dwim-advice activate)
     (push-mark))
-  :diminish ggtags-mode
+  :diminish
   :ensure t)
 
 
@@ -266,7 +266,7 @@
               "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
             "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
     (add-hook 'racer-mode-hook #'eldoc-mode)
-    :diminish racer-mode
+    :diminish
     :ensure t)
 
   (use-package cargo
