@@ -45,7 +45,11 @@ re-downloaded in order to locate PACKAGE."
 ;; To see the summary of all the personal keybinds:
 ;; M-x describe-personal-keybindings
 (use-package bind-key
-  :ensure bind-key)
+  :ensure t)
+
+;; Add :ensure-system-package keyword.
+(use-package use-package-ensure-system-package
+  :ensure t)
 
 (provide 'aethanyc-packages)
 
