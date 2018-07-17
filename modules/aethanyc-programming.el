@@ -114,6 +114,13 @@
   :hook (c-mode-common . c-mode-common-setup))
 
 
+(use-package ggtags
+  :hook (c-mode-common . ggtags-mode)
+  :ensure-system-package global
+  :diminish
+  :ensure t)
+
+
 ;;; LaTeX Mode
 
 (use-package tex
