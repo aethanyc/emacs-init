@@ -201,6 +201,11 @@
 ;;; Rust Mode
 (use-package rust-mode
   :config
+  (use-package flycheck-rust
+    :hook (flycheck-mode . flycheck-rust-setup)
+    :requires flycheck
+    :ensure t)
+
   ;; cargo install racer
   (use-package racer
     :config

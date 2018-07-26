@@ -312,10 +312,6 @@
                 flycheck-flake8-maximum-line-length 85)
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))
-  :config
-  (use-package flycheck-rust
-    :hook (flycheck-mode . flycheck-rust-setup)
-    :ensure t)
   :hook (after-init . global-flycheck-mode)
   :ensure t)
 
