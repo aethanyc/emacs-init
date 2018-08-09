@@ -316,6 +316,10 @@
   :ensure t)
 
 
+(use-package flx
+  :ensure t)
+
+
 (use-package git-timemachine
   :defer t
   :ensure t)
@@ -352,8 +356,12 @@
 
 (use-package ivy
   :config
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-fuzzy)))
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1)
+  :requires flx
   :diminish
   :ensure t)
 
