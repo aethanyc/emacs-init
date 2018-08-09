@@ -435,6 +435,8 @@
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode 1)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
   :diminish
   :ensure t)
 
