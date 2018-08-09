@@ -371,8 +371,6 @@
          ("<C-f4>" . magit-dispatch-popup))
   :config
   (setq magit-bury-buffer-function #'magit-mode-quit-window)
-  (setq magit-completing-read-function #'magit-ido-completing-read)
-  (setq magit-revision-show-gravatars nil)
 
   (magit-auto-revert-mode 1)
 
