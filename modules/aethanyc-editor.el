@@ -358,7 +358,9 @@
   :config
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy)))
+        '((ivy-switch-buffer . ivy--regex-plus)
+          (swiper . ivy--regex-plus)
+          (t . ivy--regex-fuzzy)))
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1)
   :requires flx
