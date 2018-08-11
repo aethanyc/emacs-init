@@ -156,6 +156,10 @@
   (recentf-mode 1))
 
 
+(use-package ripgrep
+  :ensure t)
+
+
 ;; Save the history of minibuffer.
 (use-package savehist
   :config
