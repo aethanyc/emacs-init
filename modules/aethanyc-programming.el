@@ -115,6 +115,9 @@
 
 
 (use-package ggtags
+  :bind (:map ggtags-navigation-map
+              ("C-g" . ggtags-navigation-mode-abort)
+              ("M-o" . nil))
   :hook (c-mode-common . ggtags-mode)
   :ensure-system-package global
   :diminish
