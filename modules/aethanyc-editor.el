@@ -374,20 +374,15 @@
 
 (use-package magit
   :bind (("<f4>" . magit-status)
-         ("<C-f4>" . magit-dispatch-popup))
+         :map magit-mode-map
+         ("5" . magit-section-show-level-1-all)
+         ("6" . magit-section-show-level-2-all)
+         ("7" . magit-section-show-level-3-all)
+         ("8" . magit-section-show-level-4-all))
   :config
   (setq magit-bury-buffer-function #'magit-mode-quit-window)
 
   (magit-auto-revert-mode 1)
-
-  ;; Do not allow magit overrides the window management keys.
-  ;; Bind those show level keys to C-x 1, C-x 2, etc.
-  (dolist (i '(1 2 3 4))
-    (let ((key-to-unbind (format "M-%d" i))
-          (key-to-bind (format "C-x %d" i))
-          (func-to-bind (intern (format "magit-section-show-level-%d-all" i))))
-      (unbind-key key-to-unbind magit-mode-map)
-      (bind-key key-to-bind func-to-bind magit-mode-map)))
 
   (use-package git-commit
     :config
