@@ -11,7 +11,7 @@ Emacs release on Mac OS X and GNU/Linux.
 * [Emacs Mac Port](https://github.com/railwaycat/homebrew-emacsmacport/releases)
 
 ## How to build Emacs manually?
-Clone Emacs source code from official repository by `git clone git://git.sv.gnu.org/emacs.git`
+Clone Emacs source code from [official repository](https://savannah.gnu.org/projects/emacs) by `git clone git://git.sv.gnu.org/emacs.git`
 
 * Build Emacs on Mac
   * Install Xcode command line tools by `xcode-select --install`
@@ -19,8 +19,8 @@ Clone Emacs source code from official repository by `git clone git://git.sv.gnu.
   * `make install  # Assemble the app in nextstep/Emacs.app`
   * Link or copy `nextstep/Emacs.app` to `/Applications`
 * Build Emacs on Debian-based GNU/Linux
-  * `apt-get install build-essential`
-  * `apt-get build-dep emacs24  # Install packages for build-dependencies.`
+  * `apt install build-essential`
+  * `apt build-dep emacs25  # Install packages for build-dependencies.`
   * See `INSTALL.REPO` in emacs repository for instructions. Basically, it's simply:
   * `make`
   * `emacs` and `emacsclient` will be available under `src` and `lib-src`, respectively.
