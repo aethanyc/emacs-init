@@ -375,6 +375,10 @@
 (use-package magit
   :bind (("<f4>" . magit-status)
          :map magit-mode-map
+         ("M-1" . nil)                  ; was magit-section-show-level-1-all
+         ("M-2" . nil)                  ; was magit-section-show-level-2-all
+         ("M-3" . nil)                  ; was magit-section-show-level-3-all
+         ("M-4" . nil)                  ; was magit-section-show-level-4-all
          ("5" . magit-section-show-level-1-all)
          ("6" . magit-section-show-level-2-all)
          ("7" . magit-section-show-level-3-all)
