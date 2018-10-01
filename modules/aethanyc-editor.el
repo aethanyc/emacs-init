@@ -138,9 +138,15 @@
         org-src-fontify-natively t
         org-startup-indented t
         org-startup-truncated nil
-        org-special-ctrl-a/e t
-        org-export-copy-to-kill-ring nil
-        org-export-with-sub-superscripts (quote {}))
+        org-special-ctrl-a/e t)
+
+  (use-package org-archive
+    :config
+    (setq org-archive-default-command 'org-archive-to-archive-sibling))
+
+  (use-package ox
+    :config
+    (setq org-export-with-sub-superscripts (quote {})))
 
   ;; Highlight the source code in html exported.
   (use-package htmlize
