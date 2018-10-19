@@ -77,8 +77,8 @@
 ;; Do not display message in scratch buffer.
 (setq initial-scratch-message nil)
 
-;; Set default fill column to 76.
-(setq-default fill-column 76)
+;; Set the size of default fill column to 80.
+(setq-default fill-column 80)
 
 ;; Add newline at the end automatically when the file is about to be saved.
 (setq-default require-final-newline t)
