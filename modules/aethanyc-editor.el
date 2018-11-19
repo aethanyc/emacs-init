@@ -353,7 +353,12 @@
 
 (use-package guide-key
   :config
-  (setq guide-key/guide-key-sequence '("C-c !" "C-c p" "C-x r" "C-c C-c"))
+  (setq guide-key/guide-key-sequence
+        '("C-c !"
+          "C-c p"
+          "C-x r"
+          "C-c C-c"
+          (org-mode "C-c" "C-c C-x")))
   (guide-key-mode 1)
   :diminish
   :ensure t)
