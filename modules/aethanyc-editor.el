@@ -401,9 +401,10 @@
 
   (use-package git-commit
     :config
-    (setq git-commit-finish-query-functions
-          (delete #'git-commit-check-style-conventions
-                  git-commit-finish-query-functions))
+    (setq git-commit-style-convention-checks nil)
+    (defun my-git-commit-setup ()
+      (setq fill-column 72))
+    (add-hook 'git-commit-setup-hook #'my-git-commit-setup)
     (remove-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill))
   :ensure t)
 
