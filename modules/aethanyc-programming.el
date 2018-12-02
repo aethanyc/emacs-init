@@ -96,22 +96,15 @@
 
 ;;; C/C++ Mode
 
+(use-package google-c-style
+  :hook ((c-mode-common . google-set-c-style)
+         (c-mode-common . google-make-newline-indent))
+  :ensure t)
+
+
 (use-package cc-mode
-  :init
-  (require 'cc-styles)
-  (require 'cc-vars)
-  (defun c-mode-common-setup ()
-    (c-add-style "Mozilla"
-                 '("stroustrup"
-                   (c-basic-offset . 2)
-                   (c-offsets-alist
-                    (case-label . +)
-                    (inline-open . 0)
-                    (innamespace . 0))))
-    (c-set-style "Mozilla"))
   :bind (:map c-mode-base-map
-         ("C-c o" . ff-find-other-file))
-  :hook (c-mode-common . c-mode-common-setup))
+              ("C-c o" . ff-find-other-file)))
 
 
 (use-package ggtags
