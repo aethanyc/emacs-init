@@ -117,6 +117,15 @@
   :ensure t)
 
 
+(use-package clang-format
+  :config
+  ;; Use clang-format installed by ./mach bootstrap
+  (setq clang-format-executable
+        (or (expand-file-name "~/.mozbuild/clang-tools/clang-tidy/bin/clang-format")
+            (executable-find "clang-format")))
+  :ensure t)
+
+
 ;;; LaTeX Mode
 
 (use-package tex
