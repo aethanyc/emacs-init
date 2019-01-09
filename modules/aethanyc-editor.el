@@ -255,6 +255,12 @@
   :ensure ag)
 
 
+(use-package amx
+  :init
+  (setq amx-save-file (concat aethanyc-savefiles-dir "amx-items"))
+  :ensure t)
+
+
 (use-package avy
   :bind (("M-m" . avy-goto-word-1)
          ("M-M" . avy-goto-char-timer)
