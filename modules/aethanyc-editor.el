@@ -123,13 +123,6 @@
          (text-mode . flyspell-mode)))
 
 
-(use-package git-gutter-fringe
-  :config
-  (global-git-gutter-mode 1)
-  :diminish git-gutter-mode
-  :ensure t)
-
-
 (use-package org
   :defer t
   :config
@@ -160,10 +153,6 @@
         recentf-max-menu-items 20
         recentf-max-saved-items 500)
   (recentf-mode 1))
-
-
-(use-package ripgrep
-  :ensure t)
 
 
 ;; Save the history of minibuffer.
@@ -251,7 +240,7 @@
                          "www.youtube.com/results?search_query=" ""]))))
 
 
-;; Packages
+;; ELPA or MELPA Packages
 
 (use-package ace-window
   :bind* (("M-o" . ace-window))
@@ -327,6 +316,13 @@
 
 
 (use-package flx
+  :ensure t)
+
+
+(use-package git-gutter-fringe
+  :config
+  (global-git-gutter-mode 1)
+  :diminish git-gutter-mode
   :ensure t)
 
 
@@ -455,6 +451,10 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :diminish
+  :ensure t)
+
+
+(use-package ripgrep
   :ensure t)
 
 
