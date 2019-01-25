@@ -356,11 +356,11 @@
 (use-package guide-key
   :config
   (setq guide-key/guide-key-sequence
-        '("C-c !"
-          "C-c p"
-          "C-x r"
-          "C-c C-c"
-          (org-mode "C-c" "C-c C-x")))
+        '("C-x r"
+          (cargo-minor-mode "C-c C-c")
+          (flycheck-mode "C-c !")
+          (org-mode "C-c" "C-c C-x")
+          (projectile-mode "C-c p" "C-c p s" "C-c p x")))
   (guide-key-mode 1)
   :diminish
   :ensure t)
