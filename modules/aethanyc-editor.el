@@ -1,6 +1,6 @@
 ;;; aethanyc-editor.el --- Enhance editing experience
 
-;; Copyright (C) 2013 Ting-Yu Lin
+;; Copyright (C) 2013-2019 Ting-Yu Lin
 
 ;; Author: Ting-Yu Lin <aethanyc@gmail.com>
 ;; Keywords: convenience

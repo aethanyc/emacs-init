@@ -1,6 +1,6 @@
 ;;; aethanyc-osx.el --- Settings for Mac OS X
 
-;; Copyright (C) 2013 Ting-Yu Lin
+;; Copyright (C) 2013-2019 Ting-Yu Lin
 
 ;; Author: Ting-Yu Lin <aethanyc@gmail.com>
 ;; Keywords: convenience
