@@ -1,7 +1,7 @@
 # Emacs-init #
 
-This repository contains my own Emacs customization, tested against lastest
-Emacs release on Mac OS X and GNU/Linux.
+This repository contains my own Emacs customization, tested against latest Emacs
+release 26.1 on Mac OS X and GNU/Linux.
 
 ## Where to get the latest Emacs binaries? ##
 
@@ -43,5 +43,5 @@ Use <kbd>M-x list-packages</kbd> to browse and install packages.
 Simply clone this repository to your home directory via:
 
 ```bash
-git clone https://github.com/aethanyc/emacs-init.git ~/.emacs.d
+git clone --recurse-submodules https://github.com/aethanyc/emacs-init.git ~/.emacs.d
 ```
