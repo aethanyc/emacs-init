@@ -271,17 +271,20 @@
   :ensure t)
 
 
+;; back-button is available in melpa, but it depends on packages that are not
+;; strictly required. So I load it from a git submodule.
 (use-package back-button
+  :load-path "site-lisp/back-button/"
   :bind (("M-B" . backward-sexp)
          ("M-F" . forward-sexp))
-  :bind* (("C-M-b" . back-button-global-backward)
-          ("C-M-f" . back-button-global-forward))
+  :bind* (("C-M-b" . back-button-local-backward)
+          ("C-M-f" . back-button-local-forward))
   :config
-  (defalias 'push-mark #'back-button-push-mark-local-and-global
-    "Replace push-mark to preserve current position before jumping around.")
+  ;; Hard code the Unicode char.
+  (setq back-button-spacer-char #xb7    ; Middle Dot
+        back-button-thumb-char #x2299)  ; Circled Dot Operator
   (back-button-mode 1)
-  :diminish
-  :ensure t)
+  :diminish)
 
 
 (use-package counsel
