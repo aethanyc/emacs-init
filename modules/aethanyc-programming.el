@@ -77,21 +77,21 @@
 
 
 (use-package elisp-slime-nav
-  :config
-  ;; Call (push-mark) to jump back later by (back-button-global-backward)
-  (defadvice elisp-slime-nav-find-elisp-thing-at-point
-      (before elisp-slime-nav-find-elisp-thing-at-point-advice activate)
-    (push-mark))
   :hook ((emacs-lisp-mode ielm-mode) . elisp-slime-nav-mode)
   :diminish
   :ensure t)
 
 
-(use-package lisp-mode
+(use-package elisp-mode
+  :demand t
   :bind (:map emacs-lisp-mode-map
          ("C-c v" . eval-buffer)
          :map lisp-interaction-mode-map
-         ("C-c v" . eval-buffer)))
+         ("C-c v" . eval-buffer))
+  :config
+  (defun setup-byte-compile-buffer-after-save ()
+    (add-hook 'after-save-hook #'aethanyc-byte-compile-current-buffer nil t))
+  :hook (emacs-lisp-mode . setup-byte-compile-buffer-after-save))
 
 
 ;;; C/C++ Mode
@@ -251,9 +251,6 @@
   (setq graphviz-dot-auto-indent-on-semi nil
         graphviz-dot-indent-width 2)
   :ensure t)
-
-;; `byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists.
-(add-hook 'after-save-hook #'aethanyc-byte-compile-current-buffer)
 
 
 (provide 'aethanyc-programming)
