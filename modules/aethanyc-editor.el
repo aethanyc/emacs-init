@@ -450,6 +450,7 @@
 
 
 (use-package projectile
+  :demand t
   :init
   (setq projectile-cache-file
         (expand-file-name "projectile.cache" aethanyc-savefiles-dir))
