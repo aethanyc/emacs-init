@@ -123,17 +123,6 @@
   (setq clang-format-executable
         (or (expand-file-name "~/.mozbuild/clang-tools/clang-tidy/bin/clang-format")
             (executable-find "clang-format")))
-
-  ;; https://eklitzke.org/smarter-emacs-clang-format
-  (defun clang-format-buffer-smart ()
-    "Reformat buffer if .clang-format exists in the projectile root."
-    (when (file-exists-p (expand-file-name ".clang-format" (projectile-project-root)))
-      (clang-format-buffer)))
-
-  (defun setup-clang-format-buffer-before-save ()
-    (add-hook 'before-save-hook #'clang-format-buffer-smart nil t))
-
-  :hook (c-mode-common . setup-clang-format-buffer-before-save)
   :ensure t)
 
 
