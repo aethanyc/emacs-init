@@ -442,9 +442,6 @@
 
 
 (use-package paredit-everywhere
-  :config
-  (unbind-key "M-DEL" paredit-everywhere-mode-map)
-  (unbind-key "M-d" paredit-everywhere-mode-map)
   :hook (prog-mode . paredit-everywhere-mode)
   :diminish
   :ensure t)
