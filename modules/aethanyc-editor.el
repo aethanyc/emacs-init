@@ -273,6 +273,9 @@
 
 ;; back-button is available in melpa, but it depends on packages that are not
 ;; strictly required. So I load it from a git submodule.
+;;
+;; Note: if keybindings for (backward-sexp) and (forward-sexp) are changed,
+;; remember to change those in paredit, too.
 (use-package back-button
   :load-path "site-lisp/back-button/"
   :bind (("M-B" . backward-sexp)
@@ -428,7 +431,7 @@
 (use-package paredit
   :bind (:map paredit-mode-map
               ("M-B" . paredit-backward)
-              ("M-f" . paredit-forward)
+              ("M-F" . paredit-forward)
               ("RET" . paredit-newline))
   :config
   (use-package paredit-menu
