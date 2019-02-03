@@ -315,12 +315,10 @@
   :init
   ;; C-c ! ? to describe the syntax checker.
   (setq-default flycheck-clang-include-path '(".")
-                flycheck-clang-language-standard "c++11"
+                flycheck-clang-language-standard "c++14"
                 flycheck-emacs-lisp-initialize-packages t
                 flycheck-emacs-lisp-load-path load-path
                 flycheck-flake8-maximum-line-length 85)
-  :bind (("M-n" . flycheck-next-error)
-         ("M-p" . flycheck-previous-error))
   :hook (after-init . global-flycheck-mode)
   :ensure t)
 
