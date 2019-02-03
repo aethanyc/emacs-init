@@ -37,12 +37,6 @@
 (bind-key "M-5" #'ctl-x-5-prefix)
 (bind-key "M-7" #'aethanyc-select-current-line)
 
-;; Use regex searches by default.
-(bind-key "M-%" #'query-replace-regexp)
-(bind-key "C-M-s" #'isearch-forward)
-(bind-key "C-M-r" #'isearch-backward)
-(bind-key "C-M-%" #'query-replace)
-
 ;; Apropos more info.
 (bind-key "a" #'apropos help-map)
 
