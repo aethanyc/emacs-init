@@ -105,28 +105,6 @@ Note that the mark goes to the end of the line."
   (indent-for-tab-command))
 
 
-;; http://ergoemacs.org/emacs/emacs_copy_cut_current_line.html
-(defun aethanyc-save-line-or-region (&optional arg)
-  "Save current line or region.
-If no region is selected, save current line or ARG line if
-prefix argument is supplied.  Otherwise save the region."
-  (interactive "p")
-  (or arg (setq arg 1))
-  (if (use-region-p)
-      (call-interactively #'kill-ring-save)
-    (kill-ring-save (line-beginning-position) (line-beginning-position (1+ arg)))))
-
-
-(defun aethanyc-kill-line-or-region ()
-  "Kill the current line, or current region.
-If no region is selected, kill current line as function
-`kill-whole-line' does.  Othewise call `kill-region'."
-  (interactive)
-  (if (use-region-p)
-      (call-interactively #'kill-region)
-    (call-interactively #'kill-whole-line)))
-
-
 ;; http://www.masteringemacs.org/articles/2014/02/28/my-emacs-keybindings/
 (defun aethanyc-kill-current-buffer ()
   "Kill current buffer without asking."

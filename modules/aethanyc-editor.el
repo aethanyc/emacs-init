@@ -517,6 +517,13 @@
   :ensure t)
 
 
+(use-package whole-line-or-region
+  :config
+  (whole-line-or-region-global-mode)
+  :diminish whole-line-or-region-local-mode
+  :ensure t)
+
+
 (provide 'aethanyc-editor)
 
 ;; Local Variables:

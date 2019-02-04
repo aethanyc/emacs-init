@@ -52,10 +52,6 @@
 ;; Remap goto-line
 (bind-key [remap goto-line] #'aethanyc-goto-line-with-feedback)
 
-;; Smarter copy/cut region
-(bind-key [remap kill-region] #'aethanyc-kill-line-or-region)
-(bind-key [remap kill-ring-save] #'aethanyc-save-line-or-region)
-
 ;; Toggle the letter case of current word or text selection between:
 ;; 'all lower', 'Init Caps', 'ALL CAPS'.
 (bind-key "M-z" #'aethanyc-toggle-letter-case)
