@@ -372,7 +372,7 @@
 
 
 (use-package imenu-anywhere
-  :bind ("C-c i" . imenu-anywhere)
+  :bind ("C-c i" . ivy-imenu-anywhere)
   :ensure t)
 
 
