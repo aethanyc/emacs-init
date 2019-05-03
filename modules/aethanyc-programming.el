@@ -32,7 +32,7 @@
 
 
 (use-package display-line-numbers
-  :hook ((css-mode prog-mode) . display-line-numbers-mode))
+  :hook ((css-mode prog-mode sgml-mode) . display-line-numbers-mode))
 
 
 (use-package which-func
