@@ -33,6 +33,9 @@
 ;; Paste at the cursor position.
 (setq mouse-yank-at-point t)
 
+;; `yank' with the mouse selection.
+(setq select-enable-primary t)
+
 ;; Do not use tabs to indent code.
 (setq-default indent-tabs-mode nil)
 
