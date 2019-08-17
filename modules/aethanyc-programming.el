@@ -123,6 +123,14 @@
   (setq clang-format-executable
         (or (expand-file-name "~/.mozbuild/clang-tools/clang-tidy/bin/clang-format")
             (executable-find "clang-format")))
+  (defun clang-format-before-save ()
+    ;; Use clang-format-buffer only when finding .clang-format in the project
+    ;; root.
+    (when (locate-dominating-file "." ".clang-format")
+      (clang-format-buffer)))
+  (defun setup-clang-format-before-save ()
+    (add-hook 'before-save-hook #'clang-format-before-save nil t))
+  :hook (c-mode-common . setup-clang-format-before-save)
   :ensure t)
 
 
