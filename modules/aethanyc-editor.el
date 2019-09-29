@@ -317,18 +317,6 @@
   :ensure t)
 
 
-(use-package flycheck
-  :init
-  ;; C-c ! ? to describe the syntax checker.
-  (setq-default flycheck-clang-include-path '(".")
-                flycheck-clang-language-standard "c++14"
-                flycheck-emacs-lisp-initialize-packages t
-                flycheck-emacs-lisp-load-path load-path
-                flycheck-flake8-maximum-line-length 85)
-  :hook (after-init . global-flycheck-mode)
-  :ensure t)
-
-
 (use-package flx
   :ensure t)
 

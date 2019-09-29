@@ -35,6 +35,35 @@
   :hook ((css-mode prog-mode sgml-mode) . display-line-numbers-mode))
 
 
+(use-package flycheck
+  :init
+  ;; C-c ! ? to describe the syntax checker.
+  (setq-default flycheck-clang-include-path '(".")
+                flycheck-clang-language-standard "c++14"
+                flycheck-emacs-lisp-initialize-packages t
+                flycheck-emacs-lisp-load-path load-path
+                flycheck-flake8-maximum-line-length 85)
+  :hook (prog-mode . flycheck-mode)
+  :ensure t)
+
+
+(use-package lsp-mode
+  :config
+  (setq lsp-session-file
+        (expand-file-name "lsp-session-v1" aethanyc-savefiles-dir))
+  (setq lsp-enable-snippet nil)
+  (setq lsp-prefer-flymake nil)
+  :ensure t)
+
+
+(use-package lsp-ui
+  :config
+  ;; The flash of the doc frame causes distractions.
+  (setq lsp-ui-doc-enable nil)
+  :requires lsp-mode
+  :ensure t)
+
+
 (use-package which-func
   :config
   (setq mode-line-misc-info
@@ -52,7 +81,6 @@
 
 
 (use-package company
-  :defer 5
   :bind (("<C-tab>" . company-complete)
          :map company-active-map
          ("C-n" . company-select-next)
@@ -66,6 +94,13 @@
                   company-dabbrev-downcase nil
                   company-dabbrev-ignore-case nil))
   :diminish
+  :ensure t)
+
+
+(use-package company-lsp
+  :config
+  (add-to-list 'company-backends 'company-lsp)
+  :requires (company lsp-mode)
   :ensure t)
 
 
@@ -212,32 +247,25 @@
 
 
 ;;; Rust Mode
+
+;; lsp requires rls.
+;; Install rls by running "rustup component add rls rust-analysis rust-src".
+;; Setup instructions: https://github.com/rust-lang/rls
 (use-package rust-mode
-  :config
-  (use-package flycheck-rust
-    :hook (flycheck-mode . flycheck-rust-setup)
-    :requires flycheck
-    :ensure t)
+  :hook (rust-mode . lsp)
+  :ensure t)
 
-  ;; cargo install racer
-  (use-package racer
-    :config
-    ;; Install rust source code: rustup component add rust-src
-    (setq racer-rust-src-path
-          (if (eq system-type 'darwin)
-              "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-            "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
-    :diminish
-    :ensure t)
 
-  (use-package cargo
-    :diminish cargo-minor-mode
-    :ensure t)
+(use-package cargo
+  :hook (rust-mode . cargo-minor-mode)
+  :requires rust-mode
+  :diminish cargo-minor-mode
+  :ensure t)
 
-  :hook ((rust-mode . cargo-minor-mode)
-         (rust-mode . eldoc-mode)
-         (rust-mode . racer-mode))
 
+(use-package flycheck-rust
+  :hook (flycheck-mode . flycheck-rust-setup)
+  :requires (flycheck rust-mode)
   :ensure t)
 
 
