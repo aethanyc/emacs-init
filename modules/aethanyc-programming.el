@@ -143,6 +143,15 @@
               ("C-c o" . ff-find-other-file)))
 
 
+;; https://github.com/MaskRay/ccls
+(use-package ccls
+  :if (file-exists-p "~/Projects/ccls/Release/ccls")
+  :config
+  (setq ccls-executable "~/Projects/ccls/Release/ccls")
+  :hook (c-mode-common . (lambda () (require 'ccls) (lsp)))
+  :ensure t)
+
+
 (use-package ggtags
   :bind (:map ggtags-navigation-map
               ("C-g" . ggtags-navigation-mode-abort)
