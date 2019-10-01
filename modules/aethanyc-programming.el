@@ -208,17 +208,8 @@
   (setq python-shell-interpreter
         (cond ((executable-find "ipython") "ipython")
               ((executable-find "python3") "python3")
-              (t "python"))))
-
-
-(use-package company-jedi
-  :config
-  (setq jedi:use-shortcuts t)
-  (defun company-jedi-setup ()
-    (add-to-list 'company-backends 'company-jedi)
-    (jedi:setup))
-  :hook ((python-mode inferior-python-mode) . company-jedi-setup)
-  :ensure t)
+              (t "python")))
+  :hook (python-mode . lsp))
 
 
 ;;; Web development
