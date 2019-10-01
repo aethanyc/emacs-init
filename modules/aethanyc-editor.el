@@ -449,6 +449,7 @@
   (projectile-mode 1)
   :bind-keymap
   ("C-c p" . projectile-command-map)
+  :demand t
   :diminish
   :ensure t)
 
