@@ -58,8 +58,9 @@
 
 (use-package lsp-ui
   :config
-  ;; The flash of the doc frame causes distractions.
+  ;; Turn off distractions.
   (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-sideline-enable nil)
   :requires lsp-mode
   :ensure t)
 
