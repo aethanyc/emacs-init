@@ -108,6 +108,10 @@
   (save-place-mode 1))
 
 
+(use-package abbrev
+  :diminish)
+
+
 (use-package dired-x
   :bind ("C-c d" . dired-jump))
 
