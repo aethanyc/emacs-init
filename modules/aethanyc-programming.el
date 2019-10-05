@@ -152,16 +152,6 @@
   :ensure t)
 
 
-(use-package ggtags
-  :bind (:map ggtags-navigation-map
-              ("C-g" . ggtags-navigation-mode-abort)
-              ("M-o" . nil))
-  :hook (c-mode-common . ggtags-mode)
-  :ensure-system-package global
-  :diminish
-  :ensure t)
-
-
 (use-package clang-format
   :config
   ;; Use clang-format installed by ./mach bootstrap
