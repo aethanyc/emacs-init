@@ -53,6 +53,7 @@
         (expand-file-name "lsp-session-v1" aethanyc-savefiles-dir))
   (setq lsp-enable-snippet nil)
   (setq lsp-prefer-flymake nil)
+  (setq lsp-enable-file-watchers nil)
   :ensure t)
 
 
@@ -145,9 +146,12 @@
 
 ;; https://github.com/MaskRay/ccls
 (use-package ccls
-  :if (file-exists-p "~/Projects/ccls/Release/ccls")
+  :preface
+  (setq ccls-executable
+        (or (executable-find "~/Projects/ccls/Release/ccls") "ccls"))
+  :if ccls-executable
   :config
-  (setq ccls-executable "~/Projects/ccls/Release/ccls")
+  (setq ccls-initialization-options '(:cache (:directory "obj-ccls-cache")))
   :hook (c-mode-common . (lambda () (require 'ccls) (lsp)))
   :ensure t)
 
