@@ -85,9 +85,6 @@ The value should be an alist of elements (FONT . CHARSET).")
          ("<S-f3>" . highlight-symbol-prev)
          ("<M-S-f3>" . highlight-symbol-query-replace)
          ("<C-M-f3>" . highlight-symbol-remove-all))
-  :config
-  (setq highlight-symbol-on-navigation-p t)
-  (set-face-attribute 'highlight-symbol-face nil :background "gray35")
   :diminish
   :ensure t)
 
