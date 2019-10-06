@@ -85,6 +85,11 @@ The value should be an alist of elements (FONT . CHARSET).")
          ("<S-f3>" . highlight-symbol-prev)
          ("<M-S-f3>" . highlight-symbol-query-replace)
          ("<C-M-f3>" . highlight-symbol-remove-all))
+  :config
+  (zenburn-with-color-variables
+    (setq highlight-symbol-foreground-color `,zenburn-bg-1)
+    (setq highlight-symbol-colors
+          `(,zenburn-yellow ,zenburn-cyan ,zenburn-magenta ,zenburn-green+4)))
   :diminish
   :ensure t)
 
