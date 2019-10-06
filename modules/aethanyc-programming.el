@@ -54,6 +54,10 @@
   (setq lsp-enable-snippet nil)
   (setq lsp-prefer-flymake nil)
   (setq lsp-enable-file-watchers nil)
+  :custom-face
+  (lsp-face-highlight-textual ((t :weight bold)))
+  (lsp-face-highlight-read ((t :underline t)))
+  (lsp-face-highlight-write ((t :slant italic)))
   :ensure t)
 
 
