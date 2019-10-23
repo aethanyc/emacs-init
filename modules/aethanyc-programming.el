@@ -138,8 +138,8 @@
 ;;; C/C++ Mode
 
 (use-package google-c-style
-  :hook ((c-mode-common . google-set-c-style)
-         (c-mode-common . google-make-newline-indent))
+  :hook (((c-mode c++-mode) . google-set-c-style)
+         ((c-mode c++-mode) . google-make-newline-indent))
   :ensure t)
 
 
@@ -156,7 +156,7 @@
   :if ccls-executable
   :config
   (setq ccls-initialization-options '(:cache (:directory "obj-ccls-cache")))
-  :hook (c-mode-common . (lambda () (require 'ccls) (lsp)))
+  :hook ((c-mode c++-mode) . (lambda () (require 'ccls) (lsp)))
   :ensure t)
 
 
@@ -173,7 +173,7 @@
       (clang-format-buffer)))
   (defun setup-clang-format-before-save ()
     (add-hook 'before-save-hook #'clang-format-before-save nil t))
-  :hook (c-mode-common . setup-clang-format-before-save)
+  :hook ((c-mode c++-mode) . setup-clang-format-before-save)
   :ensure t)
 
 
