@@ -140,10 +140,6 @@
         org-startup-truncated nil
         org-special-ctrl-a/e t)
 
-  (use-package org-archive
-    :config
-    (setq org-archive-default-command 'org-archive-to-archive-sibling))
-
   (use-package ox
     :config
     (setq org-export-with-sub-superscripts (quote {})))
