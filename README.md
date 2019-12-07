@@ -13,10 +13,10 @@ release 26.1 on Mac OS X and GNU/Linux.
 ## How to build Emacs manually?
 Clone Emacs source code from [official repository](https://savannah.gnu.org/projects/emacs) by `git clone git://git.sv.gnu.org/emacs.git`
 
-* Build Emacs on Mac
+* Build Emacs on macOS
   * Install Xcode command line tools by `xcode-select --install`
-  * See `nextstep/INSTALL` for instructions. Basically, it's:
-  * `make install  # Assemble the app in nextstep/Emacs.app`
+  * Install dependencies by `brew install pkg-config gnutls` (Hint: `brew info emacs`)
+  * `make install` (This step will assemble the app in `nextstep/Emacs.app`. See `nextstep/INSTALL` for more information.)
   * Link or copy `nextstep/Emacs.app` to `/Applications`
 * Build Emacs on Debian-based GNU/Linux
   * `apt install build-essential`
