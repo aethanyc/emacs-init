@@ -177,31 +177,6 @@
   :ensure t)
 
 
-;;; LaTeX Mode
-
-(use-package tex
-  :defer t
-  :config
-  (setq-default TeX-engine 'xetex
-                TeX-PDF-mode t)
-  (add-to-list 'TeX-command-list
-               '("Latexmk" "latexmk -pvc -xelatex %(mode) %t"
-                 TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode)
-                 :help "Run Latexmk"))
-  (when (eq system-type 'darwin)
-    (add-to-list 'TeX-view-program-list
-                 '("Open" "open %o"))
-    (add-to-list 'TeX-view-program-selection
-                 '(output-pdf "Open")))
-
-  (use-package tex-buf
-    :init (setq TeX-save-query nil))
-
-  (use-package latex
-    :init (setq LaTeX-indent-level 0))
-  :ensure auctex)
-
-
 ;;; Python Mode
 
 ;; External python packages to install:
