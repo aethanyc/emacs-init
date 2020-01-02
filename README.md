@@ -1,7 +1,7 @@
 # Emacs-init #
 
 This repository contains my own Emacs customization, tested against latest Emacs
-release 26.1 on Mac OS X and GNU/Linux.
+27 release branch on macOS and GNU/Linux.
 
 ## Where to get the latest Emacs binaries? ##
 
@@ -17,6 +17,7 @@ Clone Emacs source code from [official repository](https://savannah.gnu.org/proj
   * Install Xcode command line tools by `xcode-select --install`
   * Install dependencies by `brew install pkg-config gnutls` (Hint: `brew info emacs`)
   * `make install` (This step will assemble the app in `nextstep/Emacs.app`. See `nextstep/INSTALL` for more information.)
+  * If the `libxml/tree.h` cannot be found, try [this workaround](https://lists.gnu.org/archive/html/emacs-devel/2019-10/msg00400.html)
   * Link or copy `nextstep/Emacs.app` to `/Applications`
 * Build Emacs on Debian-based GNU/Linux
   * `apt install build-essential`
