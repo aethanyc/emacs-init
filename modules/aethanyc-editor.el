@@ -349,19 +349,6 @@
   :ensure t)
 
 
-(use-package guide-key
-  :config
-  (setq guide-key/guide-key-sequence
-        '("C-x r"
-          (cargo-minor-mode "C-c C-c")
-          (flycheck-mode "C-c !")
-          (org-mode "C-c" "C-c C-x")
-          (projectile-mode "C-c p" "C-c p s" "C-c p x")))
-  (guide-key-mode 1)
-  :diminish
-  :ensure t)
-
-
 (use-package imenu-anywhere
   :bind ("C-c i" . ivy-imenu-anywhere)
   :ensure t)
@@ -489,6 +476,13 @@
 (use-package undo-tree
   :config (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
+  :diminish
+  :ensure t)
+
+
+(use-package which-key
+  :config
+  (which-key-mode)
   :diminish
   :ensure t)
 

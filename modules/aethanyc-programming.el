@@ -61,6 +61,7 @@
   (lsp-face-highlight-read ((t :underline t)))
   (lsp-face-highlight-write ((t :slant italic)))
   :commands lsp
+  :hook (lsp-mode . lsp-enable-which-key-integration)
   :ensure t)
 
 
