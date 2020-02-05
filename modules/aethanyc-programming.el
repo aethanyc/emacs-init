@@ -70,7 +70,6 @@
   ;; Turn off distractions.
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-sideline-enable nil)
-  :requires lsp-mode
   :ensure t)
 
 
@@ -110,7 +109,6 @@
 (use-package company-lsp
   :config
   (add-to-list 'company-backends 'company-lsp)
-  :requires (company lsp-mode)
   :ensure t)
 
 
