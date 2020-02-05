@@ -48,6 +48,8 @@
 
 
 (use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
   :config
   (setq lsp-session-file
         (expand-file-name "lsp-session-v1" aethanyc-savefiles-dir))
@@ -58,6 +60,7 @@
   (lsp-face-highlight-textual ((t :weight bold)))
   (lsp-face-highlight-read ((t :underline t)))
   (lsp-face-highlight-write ((t :slant italic)))
+  :commands lsp
   :ensure t)
 
 
