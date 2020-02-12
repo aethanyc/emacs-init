@@ -202,16 +202,6 @@
           ("DuckDuckGo" .
            [simple-query "duckduckgo.com"
                          "duckduckgo.com/?q=" ""])
-          ("DXR" .
-           [simple-query "dxr.mozilla.org"
-                         "dxr.mozilla.org/mozilla-central/search?q=" ""])
-          ("EmacsWiki" .
-           [simple-query "www.emacswiki.org"
-                         "duckduckgo.com/?q="
-                         "+site:emacswiki.org"])
-          ("Github" .
-           [simple-query "github.com"
-                         "github.com/search?q=" "&ref=cmdform"])
           ("Google" .
            [simple-query "www.google.com"
                          "www.google.com/search?q=" ""])
@@ -230,17 +220,8 @@
           ("Searchfox" .
            [simple-query "http://searchfox.org"
                          "http://searchfox.org/mozilla-central/search?q=" ""])
-          ("Servo" .
-           [simple-query "https://doc.servo.org/servo/"
-                         "https://doc.servo.org/servo/?search=" ""])
-          ("StackOverflow" .
-           [simple-query "stackoverflow.com"
-                         "stackoverflow.com/search?q=" ""])
           ("Wikipedia" .
-           [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
-          ("Youtube" .
-           [simple-query "www.youtube.com"
-                         "www.youtube.com/results?search_query=" ""]))))
+           [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""]))))
 
 
 ;; ELPA or MELPA Packages
