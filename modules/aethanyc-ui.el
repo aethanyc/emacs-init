@@ -89,7 +89,8 @@ The value should be an alist of elements (FONT . CHARSET).")
   (zenburn-with-color-variables
     (setq highlight-symbol-foreground-color `,zenburn-bg-1)
     (setq highlight-symbol-colors
-          `(,zenburn-yellow ,zenburn-cyan ,zenburn-magenta ,zenburn-green+4)))
+          `(,zenburn-yellow ,zenburn-cyan ,zenburn-magenta ,zenburn-blue+1
+                            ,zenburn-red+2 ,zenburn-green+4 ,zenburn-orange)))
   :diminish
   :ensure t)
 
