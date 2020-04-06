@@ -65,6 +65,9 @@
 ;; Open current buffer in a web browser.
 (bind-key "C-c C-v" #'browse-url-of-buffer)
 
+;; Open imenu to jump to definition in current buffer.
+(bind-key "C-c i" #'imenu)
+
 ;; Quit minibuffer without focusing on it.
 (bind-key [remap keyboard-quit] #'aethanyc-almighty-quit)
 

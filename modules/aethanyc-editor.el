@@ -331,7 +331,7 @@
 
 
 (use-package imenu-anywhere
-  :bind ("C-c i" . ivy-imenu-anywhere)
+  :bind ("C-c I" . ivy-imenu-anywhere)
   :ensure t)
 
 
