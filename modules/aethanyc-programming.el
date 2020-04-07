@@ -39,10 +39,9 @@
   :init
   ;; C-c ! ? to describe the syntax checker.
   (setq-default flycheck-clang-include-path '(".")
-                flycheck-clang-language-standard "c++14"
+                flycheck-clang-language-standard "c++17"
                 flycheck-emacs-lisp-initialize-packages t
-                flycheck-emacs-lisp-load-path load-path
-                flycheck-flake8-maximum-line-length 85)
+                flycheck-emacs-lisp-load-path load-path)
   :hook (prog-mode . flycheck-mode)
   :ensure t)
 
@@ -54,7 +53,6 @@
   (setq lsp-session-file
         (expand-file-name "lsp-session-v1" aethanyc-savefiles-dir))
   (setq lsp-enable-snippet nil)
-  (setq lsp-prefer-flymake nil)
   (setq lsp-enable-file-watchers nil)
   :custom-face
   (lsp-face-highlight-textual ((t :weight bold)))
