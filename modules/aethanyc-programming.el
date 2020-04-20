@@ -105,8 +105,8 @@
 
 
 (use-package company-lsp
-  :config
-  (add-to-list 'company-backends 'company-lsp)
+  ;; lsp-auto-configure defaults to t, so we don't need to tweak
+  ;; company-backends.
   :ensure t)
 
 
