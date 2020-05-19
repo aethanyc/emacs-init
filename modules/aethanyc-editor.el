@@ -326,7 +326,9 @@
 
 (use-package git-messenger
   :bind ("C-c m" . git-messenger:popup-message)
-  :config (setq git-messenger:show-detail t)
+  :config
+  (setq git-messenger:show-detail t)
+  (setq git-messenger:use-magit-popup t)
   :ensure t)
 
 
