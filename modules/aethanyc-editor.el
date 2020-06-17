@@ -424,7 +424,7 @@
   :ensure t)
 
 
-(use-package ripgrep
+(use-package deadgrep
   :ensure t)
 
 
