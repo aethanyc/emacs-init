@@ -20,11 +20,9 @@ Clone Emacs source code from [official repository](https://savannah.gnu.org/proj
   * If the `libxml/tree.h` cannot be found, try [this workaround](https://lists.gnu.org/archive/html/emacs-devel/2019-10/msg00400.html)
   * Link or copy `nextstep/Emacs.app` to `/Applications`
 * Build Emacs on Debian-based GNU/Linux
-  * `apt install build-essential`
-  * `apt build-dep emacs25  # Install packages for build-dependencies.`
-  * See `INSTALL.REPO` in emacs repository for instructions. Basically, it's simply:
-  * `make`
-  * `emacs` and `emacsclient` will be available under `src` and `lib-src`, respectively.
+  * `apt install build-essential` and `apt build-dep emacs`. These commands install the necessary dependent packages.
+  * `make`. See `INSTALL.REPO` in the emacs repository for more information.
+  * After the build finished, `emacs` and `emacsclient` will be available under `src` and `lib-src`, respectively. Add them to the loading path of your preferred shell.
 
 ## Where to find Emacs packages? ##
 
