@@ -234,11 +234,6 @@
   :ensure t)
 
 
-(use-package ag
-  :defer t
-  :ensure ag)
-
-
 (use-package amx
   :init
   (setq amx-save-file (concat aethanyc-savefiles-dir "amx-items"))
@@ -306,11 +301,6 @@
   :config
   (global-git-gutter-mode 1)
   :diminish git-gutter-mode
-  :ensure t)
-
-
-(use-package git-timemachine
-  :defer t
   :ensure t)
 
 
