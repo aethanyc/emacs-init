@@ -231,13 +231,6 @@
   :ensure t)
 
 
-(use-package cargo
-  :hook (rust-mode . cargo-minor-mode)
-  :requires rust-mode
-  :diminish cargo-minor-mode
-  :ensure t)
-
-
 (use-package flycheck-rust
   :hook (flycheck-mode . flycheck-rust-setup)
   :requires (flycheck rust-mode)
