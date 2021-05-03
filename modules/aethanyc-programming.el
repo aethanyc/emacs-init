@@ -223,9 +223,8 @@
 
 ;;; Rust Mode
 
-;; lsp requires rls.
-;; Install rls by running "rustup component add rls rust-analysis rust-src".
-;; Setup instructions: https://github.com/rust-lang/rls
+;; lsp-mode requires rust-analyzer.
+;; (Re-)install rust-analyzer: C-u M-x lsp-install-server, choose rust-analyzer.
 (use-package rust-mode
   :hook (rust-mode . lsp)
   :ensure t)
