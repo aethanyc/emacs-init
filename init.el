@@ -27,9 +27,6 @@
 (defvar aethanyc-modules-dir (locate-user-emacs-file "modules/")
   "This folder contains all the customization files.")
 
-(defvar aethanyc-savefiles-dir (locate-user-emacs-file "savefiles/")
-  "This folder contains all the automatically generated files.")
-
 ;; Add directories to Emacs's `load-path'.
 (add-to-list 'load-path aethanyc-modules-dir)
 
@@ -46,7 +43,7 @@
 (require 'aethanyc-alias)
 
 ;; Set custom-file path to avoid cluttering init.el.
-(setq custom-file (expand-file-name "custom.el" aethanyc-savefiles-dir))
+(setq custom-file (no-littering-expand-var-file-name "custom.el"))
 (if (not (file-readable-p custom-file))
     (with-temp-buffer
       (write-file custom-file)))

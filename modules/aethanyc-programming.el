@@ -50,8 +50,6 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
-  (setq lsp-session-file
-        (expand-file-name "lsp-session-v1" aethanyc-savefiles-dir))
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-file-watchers nil)
   :custom-face

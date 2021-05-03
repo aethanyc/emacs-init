@@ -15,7 +15,8 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'use-package))
+  (require 'use-package)
+  (require 'no-littering))
 (require 'diminish)
 (require 'bind-key)
 
@@ -57,9 +58,6 @@
 
 ;; Stop creating those backup~ files
 (setq make-backup-files nil)
-
-;; Make auto-save files visible.
-(setq auto-save-list-file-prefix (concat aethanyc-savefiles-dir "auto-save-"))
 
 ;; Auto save buffer for every 5 seconds.
 (setq auto-save-timeout 5)
@@ -104,7 +102,6 @@
 ;; it is loaded too late.
 (use-package saveplace
   :config
-  (setq save-place-file (expand-file-name "places" aethanyc-savefiles-dir))
   (save-place-mode 1))
 
 
@@ -152,16 +149,16 @@
 ;; Keep a list of recently opened files
 (use-package recentf
   :config
-  (setq recentf-save-file (expand-file-name "recentf" aethanyc-savefiles-dir)
-        recentf-max-menu-items 20
+  (setq recentf-max-menu-items 20
         recentf-max-saved-items 500)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
   (recentf-mode 1))
 
 
 ;; Save the history of minibuffer.
 (use-package savehist
   :config
-  (setq savehist-file (expand-file-name "history" aethanyc-savefiles-dir))
   (savehist-mode 1))
 
 
@@ -235,8 +232,6 @@
 
 
 (use-package amx
-  :init
-  (setq amx-save-file (concat aethanyc-savefiles-dir "amx-items"))
   :ensure t)
 
 
@@ -282,8 +277,6 @@
 
 
 (use-package eshell
-  :init (setq eshell-directory-name
-              (expand-file-name "eshell/" aethanyc-savefiles-dir))
   :bind ("C-x m" . eshell))
 
 
@@ -373,7 +366,6 @@
 
 
 (use-package multiple-cursors
-  :init (setq mc/list-file (expand-file-name "mc-lists.el" aethanyc-savefiles-dir))
   :bind (("M-9" . mc/mark-next-like-this)
          ("C-c M-9" . mc/mark-all-like-this))
   :ensure t)
@@ -399,11 +391,6 @@
 
 
 (use-package projectile
-  :init
-  (setq projectile-cache-file
-        (expand-file-name "projectile.cache" aethanyc-savefiles-dir))
-  (setq projectile-known-projects-file
-        (expand-file-name "projectile-bookmarks.eld" aethanyc-savefiles-dir))
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode 1)
@@ -420,8 +407,6 @@
 
 (use-package server
   :defer 5
-  :init
-  (setq server-auth-dir aethanyc-savefiles-dir)
   :config
   (unless (server-running-p)
     (server-start)))

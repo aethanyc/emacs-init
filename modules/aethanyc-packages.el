@@ -51,6 +51,9 @@ re-downloaded in order to locate PACKAGE."
 (use-package use-package-ensure-system-package
   :ensure t)
 
+(use-package no-littering
+  :ensure t)
+
 (provide 'aethanyc-packages)
 
 ;; Local Variables:

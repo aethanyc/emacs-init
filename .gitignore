@@ -1,6 +1,8 @@
-auto-save-list
+# Installed packages
 elpa
-savefiles
+
+# no-littering-var-directory
+var/
 
 **/flycheck_*
 *.elc
