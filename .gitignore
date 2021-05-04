@@ -6,8 +6,4 @@ var/
 
 **/flycheck_*
 *.elc
-TAGS
-tips.html
 .DS_Store
-README.html
-.python-environments/
