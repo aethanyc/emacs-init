@@ -177,10 +177,8 @@
 
 ;;; Python Mode
 
-;; External python packages to install:
-;; $ pip3 install ipython
-;; $ pip3 install virtualenv
-;; $ pip3 install flake8
+;; Install python-language-server:
+;; pip3 install 'python-language-server[all]'
 
 (use-package python
   :defer t
