@@ -102,6 +102,18 @@
   :ensure t)
 
 
+(use-package yasnippet-snippets
+  :ensure t)
+
+
+(use-package yasnippet
+  :config
+  (yas-reload-all)
+  :hook (prog-mode . yas-minor-mode)
+  :diminish yas-minor-mode
+  :ensure t)
+
+
 ;;; Lisp Mode
 
 (use-package eldoc
