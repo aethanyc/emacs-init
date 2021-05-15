@@ -215,14 +215,23 @@
 
 ;; lsp-mode requires rust-analyzer.
 ;; (Re-)install rust-analyzer: C-u M-x lsp-install-server, choose rust-analyzer.
-(use-package rust-mode
-  :hook (rust-mode . lsp)
+(use-package rustic
+  :config
+  (setq rustic-format-trigger 'on-compile)
   :ensure t)
+
+
+(use-package lsp-rust
+  :config
+  (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+  ;; https://emacs-lsp.github.io/lsp-mode/page/lsp-rust/#inlay-hints
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
+  :requires lsp-mode)
 
 
 (use-package flycheck-rust
   :hook (flycheck-mode . flycheck-rust-setup)
-  :requires (flycheck rust-mode)
+  :requires flycheck
   :ensure t)
 
 
