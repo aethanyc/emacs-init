@@ -80,20 +80,18 @@
 
 
 (use-package company
-  :bind (("<C-tab>" . company-complete)
-         :map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
   :config
-  (setq company-idle-delay 0.2)
   (global-company-mode 1)
-
-  (use-package company-dabbrev-code
-    :config (setq company-dabbrev-code-everywhere t
-                  company-dabbrev-downcase nil
-                  company-dabbrev-ignore-case nil))
   :diminish
   :ensure t)
+
+
+(use-package company-dabbrev-code
+  :config
+  (setq company-dabbrev-code-everywhere t
+        company-dabbrev-downcase nil
+        company-dabbrev-ignore-case nil)
+  :requires company)
 
 
 (use-package company-lsp
