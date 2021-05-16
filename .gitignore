@@ -4,6 +4,9 @@ elpa
 # no-littering-var-directory
 var/
 
+# Cache for native elisp compilation
+eln-cache/
+
 **/flycheck_*
 *.elc
 .DS_Store
