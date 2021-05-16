@@ -32,7 +32,7 @@
 
 
 (use-package display-line-numbers
-  :hook ((css-mode prog-mode sgml-mode) . display-line-numbers-mode))
+  :hook ((prog-mode sgml-mode) . display-line-numbers-mode))
 
 
 (use-package flycheck
@@ -140,8 +140,7 @@
 ;;; C/C++ Mode
 
 (use-package google-c-style
-  :hook (((c-mode c++-mode) . google-set-c-style)
-         ((c-mode c++-mode) . google-make-newline-indent))
+  :hook ((c-mode c++-mode) . google-set-c-style)
   :ensure t)
 
 
@@ -249,8 +248,7 @@
 (use-package graphviz-dot-mode
   :defer t
   :config
-  (setq graphviz-dot-auto-indent-on-semi nil
-        graphviz-dot-indent-width 2)
+  (setq graphviz-dot-indent-width 2)
   :ensure t)
 
 

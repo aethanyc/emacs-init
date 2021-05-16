@@ -352,7 +352,6 @@
 
   (use-package git-commit
     :config
-    (setq git-commit-style-convention-checks nil)
     (defun my-git-commit-setup ()
       (setq fill-column 72))
     (add-hook 'git-commit-setup-hook #'my-git-commit-setup)
