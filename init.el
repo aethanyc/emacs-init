@@ -33,6 +33,9 @@
 ;; Reduce the frequency of garbage collection.
 (setq gc-cons-threshold (* 50 1024 1024))
 
+;; Increase the amount of data which Emacs reads from the process.
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (require 'aethanyc-packages)
 (require 'aethanyc-core)
 (when (eq system-type 'darwin) (require 'aethanyc-osx))
