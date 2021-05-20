@@ -192,20 +192,13 @@
 (use-package css-mode
   :defer t
   :config
-  (progn
-    (setq css-indent-offset 2)))
+  (setq css-indent-offset 2))
 
-(use-package js2-mode
-  :mode "\\.jsm?\\'"
-  :config
-  (setq-default js2-basic-offset 2)
-  :ensure t)
 
 (use-package web-mode
   :mode "\\.html?\\'"
   :config
-  (setq web-mode-script-padding 0
-        web-mode-style-padding 0
+  (setq web-mode-part-padding 0
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
