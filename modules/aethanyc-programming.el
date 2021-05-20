@@ -94,12 +94,6 @@
   :requires company)
 
 
-(use-package company-lsp
-  ;; lsp-auto-configure defaults to t, so we don't need to tweak
-  ;; company-backends.
-  :ensure t)
-
-
 (use-package yasnippet-snippets
   :ensure t)
 
