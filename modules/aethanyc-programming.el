@@ -50,6 +50,7 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
+  (setq lsp-eldoc-enable-hover nil)
   (setq lsp-enable-snippet nil)
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :ensure t)
@@ -58,7 +59,7 @@
 (use-package lsp-ui
   :config
   ;; Turn off distractions.
-  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-doc-show-with-cursor nil)
   (setq lsp-ui-sideline-enable nil)
   :ensure t)
 
