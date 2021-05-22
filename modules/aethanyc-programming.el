@@ -63,22 +63,6 @@
   :ensure t)
 
 
-(use-package which-func
-  :config
-  (setq mode-line-misc-info
-        ;; Remove Which Function Mode from the mode line, because it's mostly
-        ;; invisible here anyway.
-        (assq-delete-all 'which-function-mode mode-line-misc-info))
-
-  (defun which-function-mode-setup ()
-    (which-function-mode 1)
-
-    ;; Show the current function name in the header line
-    (setq header-line-format
-          '((which-func-mode ("" which-func-format " ")))))
-  :hook (prog-mode . which-function-mode-setup))
-
-
 (use-package company
   :config
   (global-company-mode 1)
