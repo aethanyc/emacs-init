@@ -183,7 +183,8 @@
 (use-package web-mode
   :mode "\\.html?\\'"
   :config
-  (setq web-mode-part-padding 0
+  (setq web-mode-script-padding 0
+        web-mode-style-padding 0
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
