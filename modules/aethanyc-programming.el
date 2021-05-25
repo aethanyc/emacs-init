@@ -159,9 +159,8 @@
 
 ;;; Python Mode
 
-;; Install python-language-server:
-;; pip3 install 'python-language-server[all]'
-
+;; Install python-lsp-server: pip3 install 'python-lsp-server[all]'
+;; https://github.com/python-lsp/python-lsp-server
 (use-package python
   :defer t
   :config
