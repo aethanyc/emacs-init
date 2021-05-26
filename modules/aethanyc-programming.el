@@ -52,6 +52,7 @@
   :config
   (setq lsp-eldoc-enable-hover nil)
   (setq lsp-enable-snippet nil)
+  (setq lsp-enable-symbol-highlighting nil)
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :ensure t)
 
