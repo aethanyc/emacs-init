@@ -199,15 +199,15 @@
 ;; (Re-)install rust-analyzer: C-u M-x lsp-install-server, choose rust-analyzer.
 (use-package rustic
   :config
-  (setq rustic-format-trigger 'on-compile)
+  (setq rustic-format-trigger 'on-save)
   :ensure t)
 
 
 (use-package lsp-rust
   :config
   (setq lsp-rust-analyzer-cargo-watch-command "clippy")
-  ;; https://emacs-lsp.github.io/lsp-mode/page/lsp-rust/#inlay-hints
-  (setq lsp-rust-analyzer-server-display-inlay-hints t)
+  ;; https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#inlay-hints
+  (setq lsp-rust-analyzer-server-display-inlay-hints nil)
   :requires lsp-mode)
 
 
