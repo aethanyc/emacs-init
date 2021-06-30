@@ -137,19 +137,10 @@
               ("C-c o" . ff-find-other-file)))
 
 
-;; https://github.com/MaskRay/ccls
-(use-package ccls
-  :preface
-  (setq ccls-executable
-        (or (executable-find "~/Projects/ccls/Release/ccls") "ccls"))
-  :if ccls-executable
-  :config
-  (setq ccls-initialization-options '(:cache (:directory "obj-ccls-cache")))
-  (defun setup-ccls ()
-    (require 'ccls)
-    (lsp))
-  :hook ((c-mode c++-mode) . setup-ccls)
-  :ensure t)
+;; lsp-mode for C/C++ requires clangd.
+;; (Re-)install clangd: C-u M-x lsp-install-server, choose `clangd'.
+(use-package lsp-clangd
+  :hook ((c-mode c++-mode) . lsp))
 
 
 (use-package clang-format
