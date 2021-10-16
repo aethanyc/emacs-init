@@ -1,7 +1,7 @@
 # Emacs-init #
 
 This repository contains my own Emacs customization, tested against latest Emacs
-27 release branch on macOS and GNU/Linux.
+28 release branch on macOS and GNU/Linux.
 
 ## Where to get the latest Emacs binaries? ##
 
@@ -22,6 +22,7 @@ Clone Emacs source code from [official repository](https://savannah.gnu.org/proj
 * Build Emacs on Debian-based GNU/Linux
   * `apt install build-essential` and `apt build-dep emacs`. These commands install the necessary dependent packages.
   * `make`. See `INSTALL.REPO` in the emacs repository for more information.
+  * To use native elisp compilation in Emacs 28, run `./autogen.sh && ./configure --with-native-compilation && make -j$(nproc)`
   * After the build finished, `emacs` and `emacsclient` will be available under `src` and `lib-src`, respectively. Add them to the loading path of your preferred shell.
 
 ## Where to find Emacs packages? ##
