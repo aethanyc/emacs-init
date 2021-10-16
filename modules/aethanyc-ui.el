@@ -72,6 +72,14 @@ The value should be an alist of elements (FONT . CHARSET).")
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 
 
+;; Install:
+;; 1. See https://github.com/seagle0128/doom-modeline#use-package
+;; 2. M-x all-the-icons-install-fonts
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :ensure t)
+
+
 (use-package ediff-util
   :defer t
   :config
