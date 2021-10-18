@@ -304,6 +304,7 @@
 (use-package ivy
   :config
   (setq ivy-initial-inputs-alist nil)
+  (setq ivy-use-selectable-prompt t)
   (setq ivy-re-builders-alist
         '((ivy-switch-buffer . ivy--regex-plus)
           (swiper . ivy--regex-plus)
