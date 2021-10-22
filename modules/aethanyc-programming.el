@@ -35,6 +35,13 @@
   :hook ((prog-mode sgml-mode) . display-line-numbers-mode))
 
 
+(use-package xref
+  :config
+  ;; If there's more than one definitions, use completing-read to select them in
+  ;; minibuffer rather than in a new buffer.
+  (setq xref-show-definitions-function #'xref-show-definitions-completing-read))
+
+
 (use-package flycheck
   :init
   ;; C-c ! ? to describe the syntax checker.
