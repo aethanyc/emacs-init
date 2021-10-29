@@ -419,6 +419,12 @@
   :ensure t)
 
 
+(use-package wgrep
+  :config
+  (setq wgrep-auto-save-buffer t)
+  :ensure t)
+
+
 (use-package which-key
   :config
   (which-key-mode)

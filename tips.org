@@ -66,5 +66,15 @@
 - http://ergoemacs.org/emacs/emacs_best_redo_mode.html
 - http://www.dr-qubit.org/emacs.php#undo-tree
 - C-x u: undo-tree-visualize
-* Misc
-- Enter greek letters: C-u C-\ greek RET then C-\
+* How to?
+** Find and replace a string in multiple files
+*** Use wgrep, counsel-rg, ivy-occur
+1. Install `wgrep`.
+2. Use <kbd>counsel-rg</kbd> and type the search string.
+3. Press <kbd>C-c C-o</kbd> to convert to a `ivy-occur` buffer.
+4. Press <kbd>C-x C-q</kbd> or <kbd>w</kbd> to switch to edit mode.
+5. After editing the lines in buffers, press <kbd>C-x C-s</kbd> to save all.
+*** Use dired
+https://www.gnu.org/software/emacs/manual/html_node/efaq/Replacing-text-across-multiple-files.html
+** Enter Greek letters
+- Press <kbd>C-u C-\ greek RET</kbd> to switch to Greek input method. Leave by pressing <kbd>C-\</kbd>.
