@@ -14,16 +14,6 @@
 
 ;;; Code:
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;;
-;; Since Emacs 27, installed packages are now activated *before* loading the
-;; init file. It is no longer necessary to call 'package-initialize'.
-(when (< emacs-major-version 27)
-  (package-initialize))
-
 (defvar aethanyc-modules-dir (locate-user-emacs-file "modules/")
   "This folder contains all the customization files.")
 

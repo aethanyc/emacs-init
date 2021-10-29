@@ -17,26 +17,15 @@
 
 (require 'package)
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; On-demand installation of packages
-;; From https://github.com/purcell/emacs.d/blob/master/init-elpa.el
-(defun require-package (package &optional min-version no-refresh)
-  "Install given PACKAGE, optionally requiring MIN-VERSION.
-If NO-REFRESH is non-nil, the available package lists will not be
-re-downloaded in order to locate PACKAGE."
-  (if (package-installed-p package min-version)
-      t
-    (if (or (assoc package package-archive-contents) no-refresh)
-        (package-install package)
-      (progn
-        (package-refresh-contents)
-        (require-package package min-version t)))))
+;; `use-package' is essential. Ensure it's installed.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-;; Require use-package that are essential to customization.
-(require-package 'use-package)
-(require-package 'diminish)
 (eval-when-compile
+  (defvar use-package-enable-imenu-support t)
   (require 'use-package))
 
 (setq use-package-verbose t)
@@ -47,8 +36,7 @@ re-downloaded in order to locate PACKAGE."
 (use-package bind-key
   :ensure t)
 
-;; Add :ensure-system-package keyword.
-(use-package use-package-ensure-system-package
+(use-package diminish
   :ensure t)
 
 (use-package no-littering
