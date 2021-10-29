@@ -2,6 +2,22 @@
 #+OPTIONS: ^:{}
 #+TITLE: Emacs Tips and Useful links
 
+* Where to dowload latest Emacs binary?
+- [[http://ftp.gnu.org/gnu/emacs/windows/][GNU Official Windows Binaries]]
+- [[http://emacsformacosx.com/][Mac Universal Binaries]] (=brew cask install emacs=)
+- [[https://github.com/railwaycat/homebrew-emacsmacport/releases][Emacs Mac Port]]
+* How to build Emacs manually?
+Clone Emacs source code from [[official repository][https://savannah.gnu.org/projects/emacs]]
+** Build Emacs on macOS
+1) Install Xcode command line tools by =xcode-select --install=
+2) Install dependencies by =brew install pkg-config gnutls= (Hint: =brew info emacs=)
+3) =make install= (This step will assemble the app in =nextstep/Emacs.app=. See =nextstep/INSTALL= for more information.) If the =libxml/tree.h= cannot be found, try [[this workaround][https://lists.gnu.org/archive/html/emacs-devel/2019-10/msg00400.html]]
+4) Link or copy =nextstep/Emacs.app= to =/Applications=
+** Build Emacs on Debian-based GNU/Linux
+1) =apt install build-essential= and =apt build-dep emacs=. These commands install the necessary dependent packages.
+2) =make= (See =INSTALL.REPO= in the emacs repository for more information.)
+3) To use native elisp compilation in Emacs 28, run =./autogen.sh && ./configure --with-native-compilation && make -j$(nproc)=
+4) After the build finished, =emacs= and =emacsclient= will be available under =src= and =lib-src=, respectively. Add them to the loading path of your preferred shell.
 * Emacs Lisp
 - [[http://stackoverflow.com/q/1250846/1083056]["Wrong type argument: commandp" error]]
 - [[http://stackoverflow.com/q/2736087/1083056][eval-after-load vs. mode hook]]
@@ -9,72 +25,47 @@
 - [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Directory-Names.html#Directory-Names][Directory name and its name as a file]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html][Prefix Command Arguments]]
 - [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables][File variables]]
-- Use `trace-function' to see the callstack of a given function.
-* Emacs library and package system
-- http://ergoemacs.org/emacs/elisp_library_system.html
-- http://ergoemacs.org/emacs/emacs_package_system.html
-- http://melpa.milkbox.net/
-- http://www.emacswiki.org/emacs/LoadPath
+- Use =trace-function= to see the callstack of a given function.
 * Coding system
-- Use `describe-coding-system' to show current coding system.
-- Use `set-buffer-file-coding-system' (C-x RET f) to convert the current buffer to a coding system.
+- Use =describe-coding-system= to show current coding system.
+- Use =set-buffer-file-coding-system= (or =C-x RET f=) to convert the current buffer to a coding system.
 - http://www.masteringemacs.org/articles/2012/08/09/working-coding-systems-unicode-emacs/
 - http://www.reai.us/windows-emacs-encoding
 * Packages
-** Ace Jump Mode
-- https://github.com/winterTTr/ace-jump-mode
-** Ack
-- http://betterthangrep.com/
-- https://github.com/jhelwig/ack-and-a-half
-** Auto Complete Mode
-- http://cx4a.org/software/auto-complete/manual.html
-** cc-mode
-- C-c C-q: indent function
-** CEDET
-- http://www.emacswiki.org/emacs/CEDET_Quickstart
-** Dired
-- Helpful for refactor codes. ``[[http://ergoemacs.org/emacs/find_replace_inter.html][Interactively Find & Replace String Patterns on Multiple Files]]''
-- C-x C-q: enter editable dired mode to edit file names, etc in buffer.
 ** Eshell
 - [[http://www.emacswiki.org/emacs/EshellAlias#toc8][Generate Eshell alias from bash alias]]
+** Ivy
+- During selecting a candidate, press =M-o= to select an action to perform. https://oremacs.com/swiper/#how-can-different-actions-be-called
 ** Hunspell
-- Check installed dictionaries: `hunspell -D`
+- Check installed dictionaries: =hunspell -D=
 - [[http://wordlist.sourceforge.net/][Download en_US dictionary]]
-- On Mac OS, dictionaries can be installed under `~/Library/Spelling/`
+- On Mac OS, dictionaries can be installed under =~/Library/Spelling/=
 - [[https://github.com/zdenop/hunspell-mingw/downloads][Hunspell executable for Windows]]
-** Magit
-- View file history: `magit-file-log`
-** Markdown mode
-- http://daringfireball.net/projects/markdown/syntax
-- http://jblevins.org/projects/markdown-mode/
 ** Org mode
-- C-c ': edit source code block.
-- C-c *: toggle the heading status
-- C-c -: toggle the items in plain list.
-- C-c ^: sort the plain list.
-- C-c C-e b: export the file to HTML and show it in browser.
-- C-c C-l: insert a link.
-- C-c C-x C-f: insert or change emphasis.
-- C-u C-c C-l: insert a file link.
+- =C-c '=: edit source code block.
+- =C-c *=: toggle the heading status
+- =C-c -=: toggle the items in plain list.
+- =C-c ^=: sort the plain list.
+- =C-c C-e b=: export the file to HTML and show it in browser.
+- =C-c C-l=: insert a link.
+- =C-c C-x C-f=: insert or change emphasis.
+- =C-u C-c C-l=: insert a file link.
 - [[http://orgmode.org/manual/Headings-and-sections.html#Headings-and-sections][Adjust exported headline levels]]
 - [[http://orgmode.org/worg/org-contrib/babel/languages.html][Support languages in source code block]]
 - =org-export-with-sub-superscripts=: Interpret "_" and "^" for export. Set =^:{}=
-
 ** Server
 - [[http://stackoverflow.com/questions/5233041/emacs-and-the-server-unsafe-error][Solution to the problem "server directory is unsafe on Windows."]]
 ** Undo Tree
-- http://ergoemacs.org/emacs/emacs_best_redo_mode.html
-- http://www.dr-qubit.org/emacs.php#undo-tree
-- C-x u: undo-tree-visualize
+- =C-x u=: undo-tree-visualize
 * How to?
 ** Find and replace a string in multiple files
 *** Use wgrep, counsel-rg, ivy-occur
-1. Install `wgrep`.
-2. Use <kbd>counsel-rg</kbd> and type the search string.
-3. Press <kbd>C-c C-o</kbd> to convert to a `ivy-occur` buffer.
-4. Press <kbd>C-x C-q</kbd> or <kbd>w</kbd> to switch to edit mode.
-5. After editing the lines in buffers, press <kbd>C-x C-s</kbd> to save all.
+1) Install =wgrep=.
+2) Use =counsel-rg= and type the search string.
+3) Press =C-c C-o= to convert to a `ivy-occur` buffer.
+4) Press =C-x C-q= or =w= to switch to edit mode.
+5) After editing the lines in buffers, press =C-x C-s= to save all.
 *** Use dired
 https://www.gnu.org/software/emacs/manual/html_node/efaq/Replacing-text-across-multiple-files.html
 ** Enter Greek letters
-- Press <kbd>C-u C-\ greek RET</kbd> to switch to Greek input method. Leave by pressing <kbd>C-\</kbd>.
+Press =C-u C-\ greek RET= to switch to Greek input method. Leave by pressing =C-\=.
