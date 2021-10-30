@@ -65,40 +65,34 @@ The value should be an alist of elements (FONT . CHARSET).")
       visible-bell nil
       ring-bell-function #'ignore)
 
-;; Prevent cursor going into minibuffer prompt. This is the same as:
-;; M-x customize-variable <RET> minibuffer-prompt-properties <RET>
-;; Select "Don't enter" option and save.
-(setq minibuffer-prompt-properties
-      '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
-
-
 ;; Install:
 ;; 1. See https://github.com/seagle0128/doom-modeline#use-package
 ;; 2. M-x all-the-icons-install-fonts
 (use-package doom-modeline
-  :init (doom-modeline-mode 1)
+  :config (doom-modeline-mode 1)
   :ensure t)
 
 
 (use-package ediff-util
-  :defer t
   :config
   (setq ediff-split-window-function #'split-window-horizontally)
   (setq ediff-window-setup-function #'ediff-setup-windows-plain))
 
 
 (use-package highlight-symbol
-  :bind (("<C-f3>" . highlight-symbol-at-point)
+  :bind (("C-<f3>" . highlight-symbol-at-point)
          ("<f3>" . highlight-symbol-next)
-         ("<S-f3>" . highlight-symbol-prev)
-         ("<M-S-f3>" . highlight-symbol-query-replace)
-         ("<C-M-f3>" . highlight-symbol-remove-all))
+         ("S-<f3>" . highlight-symbol-prev)
+         ("M-S-<f3>" . highlight-symbol-query-replace)
+         ("C-M-<f3>" . highlight-symbol-remove-all))
   :config
-  (zenburn-with-color-variables
-    (setq highlight-symbol-foreground-color `,zenburn-bg-1)
-    (setq highlight-symbol-colors
-          `(,zenburn-yellow ,zenburn-cyan ,zenburn-magenta ,zenburn-blue+1
-                            ,zenburn-red+2 ,zenburn-green+4 ,zenburn-orange)))
+  (eval-when-compile
+    (require 'zenburn-theme)
+    (zenburn-with-color-variables
+      (setq highlight-symbol-foreground-color `,zenburn-bg-1)
+      (setq highlight-symbol-colors
+            `(,zenburn-yellow ,zenburn-cyan ,zenburn-magenta ,zenburn-blue+1
+                              ,zenburn-red+2 ,zenburn-green+4 ,zenburn-orange))))
   :diminish
   :ensure t)
 
@@ -118,21 +112,13 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 ;; Sometimes it is useful to color text that represent colors.
 (use-package rainbow-mode
-  :defer t
-  :ensure t)
-
-
-(use-package smart-mode-line
-  :config
-  (setq sml/no-confirm-load-theme t)
-  (setq sml/name-width 36)
-  (sml/setup)
-  (sml/apply-theme 'respectful)
+  :hook (prog-mode . rainbow-mode)
   :ensure t)
 
 
 (use-package zenburn-theme
   :config
+  (setq zenburn-add-font-lock-keywords t)
   (load-theme 'zenburn t)
   :ensure t)
 
