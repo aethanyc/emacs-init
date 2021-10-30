@@ -109,7 +109,7 @@
   :diminish)
 
 
-(use-package dired-x
+(use-package dired
   :bind ("C-c d" . dired-jump))
 
 
@@ -128,22 +128,13 @@
 
 
 (use-package org
-  :defer t
   :config
   (setq org-ctrl-k-protect-subtree t
         org-special-ctrl-k t
         org-src-fontify-natively t
         org-startup-indented t
         org-startup-truncated nil
-        org-special-ctrl-a/e t)
-
-  (use-package ox
-    :config
-    (setq org-export-with-sub-superscripts (quote {})))
-
-  ;; Highlight the source code in html exported.
-  (use-package htmlize
-    :ensure t))
+        org-special-ctrl-a/e t))
 
 
 ;; Keep a list of recently opened files
@@ -224,21 +215,16 @@
 ;; ELPA or MELPA Packages
 
 (use-package ace-window
-  :bind* (("M-o" . ace-window))
+  :bind (("M-o" . ace-window))
   :config
   (setq aw-keys '(?h ?t ?n ?s ?u ?e ?o ?a))
   (setq aw-scope 'frame)
   :ensure t)
 
 
-(use-package amx
-  :ensure t)
-
-
 (use-package avy
   :bind (("M-m" . avy-goto-word-1)
-         ("M-M" . avy-goto-char-timer)
-         ("M-g l" . avy-goto-line))
+         ("M-M" . avy-goto-char-timer))
   :config
   (setq avy-keys (number-sequence ?a ?z))
   (setq avy-style 'at-full)
@@ -247,13 +233,11 @@
 
 (use-package counsel
   :config
+  ;; `amx' can be used with `counsel-M-x'.
+  (use-package amx
+    :ensure t)
   (counsel-mode 1)
   :diminish
-  :ensure t)
-
-
-(use-package discover-my-major
-  :bind ("C-h C-m" . discover-my-major)
   :ensure t)
 
 
@@ -267,10 +251,6 @@
   :ensure t)
 
 
-(use-package flx
-  :ensure t)
-
-
 (use-package git-gutter-fringe
   :config
   (global-git-gutter-mode 1)
@@ -278,13 +258,7 @@
   :ensure t)
 
 
-(use-package gitconfig-mode
-  :defer t
-  :ensure t)
-
-
 (use-package gitignore-mode
-  :defer t
   :ensure t)
 
 
@@ -296,13 +270,11 @@
   :ensure t)
 
 
-(use-package imenu-anywhere
-  :bind ("C-c I" . ivy-imenu-anywhere)
-  :ensure t)
-
-
 (use-package ivy
   :config
+  ;; Required by `ivy--regex-fuzzy'.
+  (use-package flx
+    :ensure t)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-selectable-prompt t)
   (setq ivy-re-builders-alist
@@ -311,7 +283,6 @@
           (t . ivy--regex-fuzzy)))
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1)
-  :requires flx
   :diminish
   :ensure t)
 
@@ -328,21 +299,15 @@
          ("7" . magit-section-show-level-3-all)
          ("8" . magit-section-show-level-4-all))
   :config
-  (setq magit-bury-buffer-function #'magit-mode-quit-window)
-
   (magit-auto-revert-mode 1)
 
   (use-package git-commit
     :config
-    (defun my-git-commit-setup ()
-      (setq fill-column 72))
-    (add-hook 'git-commit-setup-hook #'my-git-commit-setup)
     (remove-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill))
   :ensure t)
 
 
 (use-package markdown-mode
-  :defer t
   :ensure t)
 
 
@@ -354,8 +319,6 @@
 
 (use-package paredit
   :bind (:map paredit-mode-map
-              ("M-B" . paredit-backward)
-              ("M-F" . paredit-forward)
               ("RET" . paredit-newline))
   :config
   (use-package paredit-menu
@@ -387,13 +350,16 @@
 
 
 (use-package server
-  :defer 5
+  :functions (server-running-p)
   :config
-  (unless (server-running-p)
-    (server-start)))
+  (defun aethanyc-server-start ()
+    (unless (server-running-p)
+      (server-start)))
+  :hook (after-init . aethanyc-server-start))
 
 
 (use-package smooth-scrolling
+  :functions (ad-remove-advice)
   :config
   (smooth-scrolling-mode 1)
   (disable-smooth-scroll-for-function scroll-up-command)
@@ -402,13 +368,12 @@
 
 
 (use-package swiper
-  :bind (("C-s" . swiper)
-         ("C-r" . swiper))
+  :bind (("C-s" . swiper-isearch)
+         ("C-r" . swiper-isearch-backward))
   :ensure t)
 
 
 (use-package toml-mode
-  :defer t
   :ensure t)
 
 
@@ -441,7 +406,6 @@
 
 
 (use-package whitespace-cleanup-mode
-  :defer 5
   :config
   (global-whitespace-cleanup-mode 1)
   :diminish
