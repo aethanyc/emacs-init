@@ -60,6 +60,7 @@
   (setq lsp-eldoc-enable-hover nil)
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-lens-enable nil)
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :ensure t)
 
@@ -144,7 +145,10 @@
   :if ccls-executable
   :config
   (setq ccls-initialization-options '(:cache (:directory "obj-ccls-cache")))
-  :hook ((c-mode c++-mode) . (lambda () (require 'ccls) (lsp)))
+  (defun setup-ccls ()
+    (require 'ccls)
+    (lsp))
+  :hook ((c-mode c++-mode) . setup-ccls)
   :ensure t)
 
 
