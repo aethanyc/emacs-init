@@ -29,7 +29,6 @@
 ;; Frame operations
 (bind-key "M-`" #'other-frame)
 (bind-key "M-0" #'aethanyc-delete-window-or-frame)
-(bind-key "0" #'aethanyc-delete-window-or-frame ctl-x-map)
 (bind-key "M-1" #'delete-other-windows)
 (bind-key "M-2" #'aethanyc-split-window-below)
 (bind-key "M-3" #'aethanyc-split-window-right)
@@ -61,9 +60,6 @@
 
 ;; Kill current buffer
 (bind-key "C-x C-k" #'aethanyc-kill-current-buffer)
-
-;; Open current buffer in a web browser.
-(bind-key "C-c C-v" #'browse-url-of-buffer)
 
 ;; Open imenu to jump to definition in current buffer.
 (bind-key "C-c i" #'imenu)

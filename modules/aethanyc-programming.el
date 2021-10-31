@@ -193,6 +193,8 @@
 
 (use-package web-mode
   :mode "\\.html?\\'"
+  :bind (:map web-mode-map
+              ("C-c C-v" . browse-url-of-buffer))
   :config
   (setq web-mode-script-padding 0
         web-mode-style-padding 0
