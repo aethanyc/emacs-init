@@ -1,4 +1,4 @@
-;;; aethanyc-packages.el --- Initialize package system
+;;; aethanyc-packages.el --- Initialize package system -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

@@ -1,4 +1,4 @@
-;;; aethanyc-keybindings.el --- Useful Keybindings
+;;; aethanyc-keybindings.el --- Useful Keybindings -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

@@ -1,4 +1,4 @@
-;;; aethanyc-ui.el --- UI tweaks
+;;; aethanyc-ui.el --- UI tweaks -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

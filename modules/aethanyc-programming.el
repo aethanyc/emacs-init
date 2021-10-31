@@ -1,4 +1,4 @@
-;;; aethanyc-programming.el --- Settings for programming
+;;; aethanyc-programming.el --- Settings for programming -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

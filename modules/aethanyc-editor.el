@@ -1,4 +1,4 @@
-;;; aethanyc-editor.el --- Enhance editing experience
+;;; aethanyc-editor.el --- Enhance editing experience -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

@@ -1,4 +1,4 @@
-;;; aethanyc-core.el --- Core utility functions
+;;; aethanyc-core.el --- Core utility functions -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

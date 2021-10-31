@@ -1,4 +1,4 @@
-;;; aethanyc-alias.el --- Function aliases
+;;; aethanyc-alias.el --- Function aliases -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

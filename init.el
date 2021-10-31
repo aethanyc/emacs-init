@@ -1,4 +1,4 @@
-;;; init.el --- Entry point of Aethanyc's configuration
+;;; init.el --- Entry point of my configuration -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 

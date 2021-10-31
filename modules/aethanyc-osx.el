@@ -1,4 +1,4 @@
-;;; aethanyc-osx.el --- Settings for Mac OS X
+;;; aethanyc-osx.el --- Settings for Mac OS X -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2013-2021 Ting-Yu Lin
 
