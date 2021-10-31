@@ -176,26 +176,18 @@ With `universal-argument' FILE-NAME-ONLY-P, copy only the file name."
   (keyboard-quit))
 
 
-(defun aethanyc-split-window-below (&optional no-balance-window-p)
-  "Call `split-window-below' and balance the size of the windows.
-
-If NO-BALANCE-WINDOW-P is non-nil, windows will not be balanced
-after splitting."
-  (interactive "P")
+(defun aethanyc-split-window-below-and-balance ()
+  "Call `split-window-below' and balance the size of the windows."
+  (interactive)
   (split-window-below)
-  (unless no-balance-window-p
-    (balance-windows)))
+  (balance-windows))
 
 
-(defun aethanyc-split-window-right (&optional no-balance-window-p)
-  "Call `split-window-right', and balance the size of the windows.
-
-If NO-BALANCE-WINDOW-P is non-nil, windows will not be balanced
-after splitting."
-  (interactive "P")
+(defun aethanyc-split-window-right-and-balance ()
+  "Call `split-window-right', and balance the size of the windows. "
+  (interactive)
   (split-window-right)
-  (unless no-balance-window-p
-    (balance-windows)))
+  (balance-windows))
 
 
 (provide 'aethanyc-core)
