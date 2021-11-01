@@ -110,9 +110,9 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure t)
 
 
-;; Sometimes it is useful to color text that represent colors.
+;; It is useful to visualize a string representing a color in html.
 (use-package rainbow-mode
-  :hook (prog-mode . rainbow-mode)
+  :hook ((html-mode web-mode) . rainbow-mode)
   :ensure t)
 
 
