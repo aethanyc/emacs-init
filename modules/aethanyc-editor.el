@@ -272,15 +272,8 @@
 
 (use-package ivy
   :config
-  ;; Required by `ivy--regex-fuzzy'.
-  (use-package flx
-    :ensure t)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-selectable-prompt t)
-  (setq ivy-re-builders-alist
-        '((ivy-switch-buffer . ivy--regex-plus)
-          (swiper . ivy--regex-plus)
-          (t . ivy--regex-fuzzy)))
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1)
   :diminish
