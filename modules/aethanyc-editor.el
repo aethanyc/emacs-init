@@ -282,6 +282,7 @@
 
 (use-package magit
   :bind (("<f4>" . magit-status)
+         ("S-<f4>" . magit-dispatch)
          :map magit-mode-map
          ("M-1" . nil)                  ; was magit-section-show-level-1-all
          ("M-2" . nil)                  ; was magit-section-show-level-2-all
@@ -328,11 +329,13 @@
 
 
 (use-package projectile
+  :bind (:map projectile-command-map
+              ("s" . #'projectile-ripgrep))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode 1)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
   :demand t
   :diminish
   :ensure t)
