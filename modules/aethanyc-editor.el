@@ -185,31 +185,23 @@
   (setq webjump-sites
         '(("FileBrowser" . "")         ; Dummy entry to open file browser
           ("Bugzilla" .
-           [simple-query "https://bugzilla.mozilla.org/"
+           [simple-query "https://bugzilla.mozilla.org"
                          "https://bugzilla.mozilla.org/buglist.cgi?quicksearch=" ""])
           ("DuckDuckGo" .
-           [simple-query "duckduckgo.com"
-                         "duckduckgo.com/?q=" ""])
+           [simple-query "https://duckduckgo.com"
+                         "https://duckduckgo.com/?q=" ""])
           ("Google" .
-           [simple-query "www.google.com"
-                         "www.google.com/search?q=" ""])
-          ("MozillaWiki" .
-           [simple-query "wiki.mozilla.org"
-                         "wiki.mozilla.org/Special:Search?search=" ""])
+           [simple-query "https://www.google.com"
+                         "https://www.google.com/search?q=" ""])
           ("MDN" .
-           [simple-query "developer.mozilla.org/en-US"
-                         "developer.mozilla.org/en-US/search?q=" ""])
-          ("OxfordDictionary" .
-           [simple-query "oaadonline.oxfordlearnersdictionaries.com"
-                         "oaadonline.oxfordlearnersdictionaries.com/dictionary/" ""])
+           [simple-query "https://developer.mozilla.org/en-US/"
+                         "https://developer.mozilla.org/en-US/search?q=" ""])
           ("Rust" .
            [simple-query "https://doc.rust-lang.org/std/"
                          "https://doc.rust-lang.org/std/?search=" ""])
           ("Searchfox" .
-           [simple-query "http://searchfox.org"
-                         "http://searchfox.org/mozilla-central/search?q=" ""])
-          ("Wikipedia" .
-           [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""]))))
+           [simple-query "https://searchfox.org"
+                         "https://searchfox.org/mozilla-central/search?q=" ""]))))
 
 
 ;; ELPA or MELPA Packages
