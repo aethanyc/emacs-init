@@ -274,7 +274,7 @@
 
 (use-package magit
   :bind (("<f4>" . magit-status)
-         ("S-<f4>" . magit-dispatch)
+         ("S-<f4>" . magit-file-dispatch)
          :map magit-mode-map
          ("M-1" . nil)                  ; was magit-section-show-level-1-all
          ("M-2" . nil)                  ; was magit-section-show-level-2-all
