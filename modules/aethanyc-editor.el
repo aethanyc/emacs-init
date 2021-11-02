@@ -368,6 +368,7 @@
 (use-package undo-tree
   :config (global-undo-tree-mode 1)
   :bind ("C-=" . undo-tree-redo)
+  :demand t
   :diminish
   :ensure t)
 
