@@ -36,7 +36,10 @@ Remove `select-window' from the display.  If it is the only one in
 its frame, then `delete-frame' too."
   (interactive)
   (save-current-buffer
-    (if (one-window-p t) (delete-frame) (delete-window))))
+    (if (one-window-p t)
+        (delete-frame)
+      (delete-window)
+      (balance-windows))))
 
 
 ;; http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/
