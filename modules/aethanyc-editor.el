@@ -264,9 +264,9 @@
 
 (use-package ivy
   :config
-  (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-selectable-prompt t)
   (setq ivy-use-virtual-buffers t)
+  (add-to-list 'ivy-initial-inputs-alist '(aethanyc-webjump-query-region . "^"))
   (ivy-mode 1)
   :diminish
   :ensure t)
