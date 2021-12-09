@@ -233,10 +233,6 @@
   :ensure t)
 
 
-(use-package eshell
-  :bind ("C-x m" . eshell))
-
-
 (use-package expand-region
   :bind (("M-8" . er/expand-region)
          ("M-*" . er/contract-region))
