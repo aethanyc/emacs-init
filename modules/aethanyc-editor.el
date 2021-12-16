@@ -207,7 +207,7 @@
 ;; ELPA or MELPA Packages
 
 (use-package ace-window
-  :bind (("M-o" . ace-window))
+  :bind* (("M-o" . ace-window))
   :config
   (setq aw-keys '(?h ?t ?n ?s ?u ?e ?o ?a))
   (setq aw-scope 'frame)
