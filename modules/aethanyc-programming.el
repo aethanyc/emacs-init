@@ -32,7 +32,7 @@
 
 
 (use-package display-line-numbers
-  :hook ((prog-mode sgml-mode) . display-line-numbers-mode))
+  :hook ((prog-mode sgml-mode conf-mode) . display-line-numbers-mode))
 
 
 (use-package xref
