@@ -212,7 +212,7 @@
 ;; (Re-)install rust-analyzer: C-u M-x lsp-install-server, choose rust-analyzer.
 (use-package rustic
   :config
-  (setq rustic-format-trigger 'on-save)
+  (setq rustic-format-trigger 'on-compile)
   :ensure t)
 
 
