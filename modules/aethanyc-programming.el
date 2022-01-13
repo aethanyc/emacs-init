@@ -218,7 +218,6 @@
 
 (use-package lsp-rust
   :config
-  (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   ;; https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#inlay-hints
   (setq lsp-rust-analyzer-server-display-inlay-hints nil)
   :requires lsp-mode)
