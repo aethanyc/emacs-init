@@ -35,6 +35,13 @@
   :hook ((prog-mode sgml-mode conf-mode) . display-line-numbers-mode))
 
 
+(use-package bug-reference
+  :config
+  ;; This variable can also set in .dir-locals.el per project.
+  (setq bug-reference-url-format "https://bugzilla.mozilla.org/show_bug.cgi?id=%s")
+  :hook (prog-mode . bug-reference-prog-mode))
+
+
 (use-package xref
   :config
   ;; If there's more than one definitions, use completing-read to select them in
