@@ -178,8 +178,14 @@
   (setq css-indent-offset 2))
 
 
+(use-package browse-url
+  :config
+  (setq browse-url-handlers
+        '(("\\.\\(html?\\|xhtml\\|xht\\)\\'" . browse-url-default-browser))))
+
+
 (use-package web-mode
-  :mode "\\.html?\\'"
+  :mode "\\.\\(html?\\|xhtml\\|xht\\)\\'"
   :bind (:map web-mode-map
               ("C-c C-v" . browse-url-of-buffer))
   :config
