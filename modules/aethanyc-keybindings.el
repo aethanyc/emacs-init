@@ -1,6 +1,6 @@
 ;;; aethanyc-keybindings.el --- Useful Keybindings -*- lexical-binding:t -*-
 
-;; Copyright (C) 2013-2021 Ting-Yu Lin
+;; Copyright (C) 2013-2023 Ting-Yu Lin
 
 ;; Author: Ting-Yu Lin <aethanyc@gmail.com>
 ;; Keywords: convenience
