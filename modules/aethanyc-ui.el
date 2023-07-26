@@ -67,7 +67,7 @@ The value should be an alist of elements (FONT . CHARSET).")
 
 ;; Install:
 ;; 1. See https://github.com/seagle0128/doom-modeline#use-package
-;; 2. M-x all-the-icons-install-fonts
+;; 2. M-x nerd-icons-install-fonts
 (use-package doom-modeline
   :config (doom-modeline-mode 1)
   :ensure t)
