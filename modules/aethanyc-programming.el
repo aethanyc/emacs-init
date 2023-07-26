@@ -135,7 +135,7 @@
 ;; lsp-mode for C/C++ requires clangd.
 ;; (Re-)install clangd: C-u M-x lsp-install-server, choose `clangd'.
 (use-package lsp-clangd
-  :init (setq lsp-clangd-version "14.0.3")
+  :config (setq lsp-clangd-binary-path "~/.mozbuild/clang/bin/clangd")
   :hook ((c-mode c++-mode) . lsp))
 
 
