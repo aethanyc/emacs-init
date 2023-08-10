@@ -65,6 +65,7 @@
   (setq lsp-keymap-prefix "C-c l")
   :config
   (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-enable-file-watchers nil)
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-symbol-highlighting nil)
   (setq lsp-lens-enable nil)
