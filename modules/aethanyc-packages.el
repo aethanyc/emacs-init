@@ -19,11 +19,6 @@
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; `use-package' is essential. Ensure it's installed.
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
 (eval-when-compile
   (defvar use-package-enable-imenu-support t)
   (require 'use-package))

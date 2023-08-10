@@ -17,7 +17,7 @@ Clone Emacs source code from [[https://savannah.gnu.org/projects/emacs][official
 ** Build Emacs on Debian-based GNU/Linux
 1) =apt install build-essential= and =apt build-dep emacs=. These commands install the necessary dependent packages.
 2) =make= (See =INSTALL.REPO= in the emacs repository for more information.)
-3) To use native elisp compilation in Emacs 28, run =./autogen.sh && ./configure --with-native-compilation && make -j$(nproc)=
+3) To use native elisp ahead-of-time compilation in Emacs 29, run =./autogen.sh && ./configure --with-native-compilation=aot && make -j$(nproc)=
 4) After the build finished, =emacs= and =emacsclient= will be available under =src= and =lib-src=, respectively. Add them to the loading path of your preferred shell.
 * Emacs Lisp
 - [[http://stackoverflow.com/q/1250846/1083056]["Wrong type argument: commandp" error]]
