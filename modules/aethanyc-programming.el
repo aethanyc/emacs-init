@@ -53,7 +53,6 @@
   :init
   ;; C-c ! ? to describe the syntax checker.
   (setq-default flycheck-clang-include-path '(".")
-                flycheck-clang-language-standard "c++17"
                 flycheck-emacs-lisp-initialize-packages t
                 flycheck-emacs-lisp-load-path load-path)
   :hook (prog-mode . flycheck-mode)
