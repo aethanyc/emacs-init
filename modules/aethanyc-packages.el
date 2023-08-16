@@ -26,11 +26,6 @@
 (setq use-package-verbose t)
 (setq use-package-minimum-reported-time 0.01)
 
-;; To see the summary of all the personal keybinds:
-;; M-x describe-personal-keybindings
-(use-package bind-key
-  :ensure t)
-
 (use-package diminish
   :ensure t)
 

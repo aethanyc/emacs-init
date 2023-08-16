@@ -19,6 +19,9 @@
 
 (require 'aethanyc-core)
 
+;; To see the summary of all the personal keybinds:
+;; M-x describe-personal-keybindings
+
 ;; Basic keys
 (bind-key [f2] 'switch-to-buffer)
 (bind-key [f12] #'execute-extended-command)
