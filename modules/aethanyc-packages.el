@@ -30,6 +30,8 @@
   :ensure t)
 
 (use-package no-littering
+  :config
+  (no-littering-theme-backups)
   :ensure t)
 
 (provide 'aethanyc-packages)
