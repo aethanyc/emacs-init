@@ -14,6 +14,8 @@ Clone Emacs source code from [[https://savannah.gnu.org/projects/emacs][official
 3) =./configure --with-native-compilation=
 4) =make install -j$(nproc) NATIVE_FULL_AOT=1= (This step will assemble the app in =nextstep/Emacs.app=. See =nextstep/INSTALL= for more information.)
 5) Link or copy =nextstep/Emacs.app= to =/Applications=
+** Install Emacs Plus on macOS via homebrew
+1) Follow the instructions in https://github.com/d12frosted/homebrew-emacs-plus
 ** Build Emacs on Debian-based GNU/Linux
 1) =apt install build-essential= and =apt build-dep emacs=. These commands install the necessary dependent packages.
 2) =make= (See =INSTALL.REPO= in the emacs repository for more information.)
