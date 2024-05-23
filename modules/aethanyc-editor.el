@@ -94,6 +94,9 @@
 (setq safe-local-variable-values
       '((js-indent-level . 2)))
 
+;; Enable subword-mode in minibuffer.
+(add-hook 'minibuffer-setup-hook #'subword-mode)
+
 
 ;; Built-in packages
 
