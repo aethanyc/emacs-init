@@ -285,10 +285,6 @@
          ("8" . magit-section-show-level-4-all))
   :config
   (magit-auto-revert-mode 1)
-
-  (use-package git-commit
-    :config
-    (remove-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill))
   :ensure t)
 
 
