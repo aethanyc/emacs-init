@@ -97,14 +97,6 @@ The value should be an alist of elements (FONT . CHARSET).")
   :ensure t)
 
 
-(use-package paradox
-  :config
-  (setq paradox-github-token t)
-  (use-package async
-    :ensure t)
-  :ensure t)
-
-
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode)
   :ensure t)
