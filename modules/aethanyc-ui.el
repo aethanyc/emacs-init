@@ -79,6 +79,13 @@ The value should be an alist of elements (FONT . CHARSET).")
   (setq ediff-window-setup-function #'ediff-setup-windows-plain))
 
 
+(use-package zenburn-theme
+  :config
+  (setq zenburn-add-font-lock-keywords t)
+  (load-theme 'zenburn t)
+  :ensure t)
+
+
 (use-package highlight-symbol
   :bind (("C-<f3>" . highlight-symbol-at-point)
          ("<f3>" . highlight-symbol-next)
@@ -105,13 +112,6 @@ The value should be an alist of elements (FONT . CHARSET).")
 ;; It is useful to visualize a string representing a color in html.
 (use-package rainbow-mode
   :hook ((html-mode web-mode) . rainbow-mode)
-  :ensure t)
-
-
-(use-package zenburn-theme
-  :config
-  (setq zenburn-add-font-lock-keywords t)
-  (load-theme 'zenburn t)
   :ensure t)
 
 
