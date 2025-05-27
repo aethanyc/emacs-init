@@ -21,7 +21,7 @@
 (add-to-list 'load-path aethanyc-modules-dir)
 
 ;; Reduce the frequency of garbage collection.
-(setq gc-cons-threshold (* 50 1024 1024))
+(setq gc-cons-threshold 100000000)
 
 ;; Increase the amount of data which Emacs reads from the process.
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
