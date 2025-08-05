@@ -205,7 +205,7 @@
 ;; (Re-)install rust-analyzer: C-u M-x lsp-install-server, choose rust-analyzer.
 (use-package rustic
   :config
-  (setq rustic-format-trigger 'on-save)
+  (setq rustic-format-trigger nil)
   (defun setup-rustic-mode ()
     (setq fill-column 100))
   :hook (rustic-mode . setup-rustic-mode)
