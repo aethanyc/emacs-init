@@ -68,6 +68,8 @@
   (setq lsp-enable-on-type-formatting nil)
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-symbol-highlighting nil)
+  (setq-default lsp-format-buffer-on-save t)
+  (setq lsp-format-buffer-on-save-list '(c-mode c++-mode))
   (setq lsp-lens-enable nil)
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :ensure t)
@@ -138,23 +140,6 @@
 (use-package lsp-clangd
   :config (setq lsp-clangd-binary-path "~/.mozbuild/clang/bin/clangd")
   :hook ((c-mode c++-mode) . lsp))
-
-
-(use-package clang-format
-  :config
-  ;; Use clang-format installed by ./mach bootstrap
-  (setq clang-format-executable
-        (or (expand-file-name "~/.mozbuild/clang-tools/clang-tidy/bin/clang-format")
-            (executable-find "clang-format")))
-  (defun clang-format-before-save ()
-    ;; Use clang-format-buffer only when finding .clang-format in the project
-    ;; root.
-    (when (locate-dominating-file "." ".clang-format")
-      (clang-format-buffer)))
-  (defun setup-clang-format-before-save ()
-    (add-hook 'before-save-hook #'clang-format-before-save nil t))
-  :hook ((c-mode c++-mode) . setup-clang-format-before-save)
-  :ensure t)
 
 
 ;;; Python Mode
