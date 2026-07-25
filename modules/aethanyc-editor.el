@@ -116,16 +116,10 @@
   :bind ("C-c d" . dired-jump))
 
 
-;; Check available dictionaries: hunspell -D. Name hunspell English
-;; dictionary files as default.aff and default.dic, and put them under
-;; ~/Library/Spelling on mac.
+;; On macOS, `brew install aspell`, and it includes en_US dictionary.
 (use-package flyspell
   :config
-  (cond ((executable-find "hunspell")
-         (setq ispell-program-name "hunspell")
-         (setq ispell-dictionary "default")
-         (setq ispell-dictionary-alist
-               '(("default" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))))
+  (setq ispell-dictionary "en_US")
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
 
